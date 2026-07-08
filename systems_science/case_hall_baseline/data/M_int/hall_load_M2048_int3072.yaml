@@ -1,0 +1,36 @@
+calc_type: hall
+hall:
+  dckb_component: 2
+  dckb_energies:
+    min: 0.6
+    max: 1.0
+    num: 400
+  dckb_num_integ_steps: 3072
+  dckb_num_kernel: 2048
+  dckb_load_mu_file: /home/ylwang/scratch/MG/runs/0701/mu_raw_rescale20_m512_M4096
+  dckb_save_mu_file: ''
+  dckb_unit: h
+  dimension: 2
+model:
+  B_values:
+  - 100.0
+  delta: 0.0
+  gauge: 0
+  num: 1
+  pbc:
+  - true
+  - true
+  - false
+  stacking: AB
+  tag: rescale20_m512_M2048_int3072_load
+solver_type: tbpm
+tbpm:
+  algo: cpu
+  m: 512
+  num_spin: 2
+  rescale: 20
+  rescale_center: 0.0
+  rs: 1
+  temperature: 0.1
+  ts: 64
+  dckb_eta: 0.0

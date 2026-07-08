@@ -1,0 +1,49 @@
+======================================================================
+Phase J1 - Unified Jackson Kernel Truncation Verification
+Date: 2026-06-25 07:43:44
+======================================================================
+
+Parameters:
+  rescale = 17.0 eV (auto-detected)
+  temperature = 10 K (beta = 1160.45 eV^-1)
+  num_theta = 2048
+  M_full = 4096
+  M_targets = [2048, 2560, 3072, 3584, 4096]
+
+Jackson kernel comparison at n=1000:
+  g^(2048)[1000] = 0.33731181
+  g^(2560)[1000] = 0.50526983
+  g^(3072)[1000] = 0.62333998
+  g^(3584)[1000] = 0.70605338
+  g^(4096)[1000] = 0.76521677
+  Ratio g^(4096)/g^(2048) at n=1000: 2.268574
+
+Results - sigma_xy(E_F=0) [a.u., no external prefactor]:
+     M |       Standard        Unified  Delta(uni-std)
+-------------------------------------------------------
+  2048 |       8.456931      18.952688       10.495757
+  2560 |      10.504015     161.634613      151.130598
+  3072 |      26.774948     307.535840      280.760892
+  3584 |     118.142252     327.401842      209.259590
+  4096 |     328.056006     328.056006        0.000000
+
+S(M) trend analysis:
+  S_std range (max-min) = 319.5991
+  S_uni range (max-min) = 309.1033
+  |S_uni| max = 328.0560
+
+S(M) individual values:
+  M=2048: std=    8.456931  uni=   18.952688
+  M=2560: std=   10.504015  uni=  161.634613
+  M=3072: std=   26.774948  uni=  307.535840
+  M=3584: std=  118.142252  uni=  327.401842
+  M=4096: std=  328.056006  uni=  328.056006
+
+----------------------------------------------------------------------
+Judgment:
+  [FAIL] H_J EXCLUDED: Unified kernel does NOT flatten S(M) (range=309.10 ~ std range=319.60).
+     Jackson kernel M-dependence is NOT the root cause of baseline shift.
+     In fact, unified g^(4096) makes sigma for small M even LARGER (since g^(4096)[n] > g^(M)[n] for same n).
+     The baseline shift originates from the sum(\Gamma \odot \mu) accumulation itself, not from the kernel normalization.
+
+======================================================================

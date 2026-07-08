@@ -1,0 +1,15 @@
+# Zotero PDF (managed separately)
+*.pdf
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temp files
+*.swp
+*.swo
+*~

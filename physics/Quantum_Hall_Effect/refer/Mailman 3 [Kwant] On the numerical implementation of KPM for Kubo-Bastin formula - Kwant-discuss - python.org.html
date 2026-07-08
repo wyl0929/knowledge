@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<!-- saved from url=(0104)https://mail.python.org/archives/list/kwant-discuss@python.org/message/DZP4EAB47F2ZTF7UVIDMXOMIX2IQK4PF/ -->
+<html data-darkreader-mode="dynamic" data-darkreader-scheme="dark"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style class="darkreader darkreader--fallback" media="screen"></style><style class="darkreader darkreader--user-agent" media="screen">@layer {
+html {
+    background-color: var(--darkreader-background-ffffff, #2b2d2d) !important;
+}
+html {
+    color-scheme: dark !important;
+}
+iframe {
+    color-scheme: dark !important;
+}
+html, body {
+    background-color: var(--darkreader-background-ffffff, #2b2d2d);
+}
+html, body {
+    border-color: var(--darkreader-border-4c4c4c, #9b907f);
+    color: var(--darkreader-text-000000, #ffffff);
+}
+a {
+    color: var(--darkreader-text-0040ff, #5fc4ff);
+}
+table {
+    border-color: var(--darkreader-border-808080, #757c7e);
+}
+mark {
+    color: var(--darkreader-text-000000, #ffffff);
+}
+::placeholder {
+    color: var(--darkreader-text-a9a9a9, #e9dfd0);
+}
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+    background-color: var(--darkreader-background-faffbd, #606410) !important;
+    color: var(--darkreader-text-000000, #ffffff) !important;
+}
+* {
+    scrollbar-color: var(--darkreader-background-b0b0b0, #63686a) var(--darkreader-background-f1f1f1, #353838);
+}
+::selection {
+    background-color: var(--darkreader-background-0060d4, #1370de) !important;
+    color: var(--darkreader-text-ffffff, #ffffff) !important;
+}
+::-moz-selection {
+    background-color: var(--darkreader-background-0060d4, #1370de) !important;
+    color: var(--darkreader-text-ffffff, #ffffff) !important;
+}
+}</style><style class="darkreader darkreader--text" media="screen"></style><style class="darkreader darkreader--invert" media="screen">.jfk-bubble.gtx-bubble, .captcheck_answer_label > input + img, span#closed_text > img[src^="https://www.gstatic.com/images/branding/googlelogo"], span[data-href^="https://www.hcaptcha.com/"] > #icon, img.Wirisformula, a[data-testid="headerMediumLogo"]>svg, .d2l-navigation-link-image-container, .d2l-iframe-loading-container, div.mc-ip-hide[style*="background: rgb(255, 255, 255) !important"], [style*="color: rgb(0, 0, 1) !important;"] {
+    filter: invert(100%) hue-rotate(180deg) brightness(135%) contrast(80%) sepia(5%) !important;
+}</style><style class="darkreader darkreader--inline" media="screen">[data-darkreader-inline-bgcolor] {
+  background-color: var(--darkreader-inline-bgcolor) !important;
+}
+[data-darkreader-inline-bgimage] {
+  background-image: var(--darkreader-inline-bgimage) !important;
+}
+[data-darkreader-inline-border] {
+  border-color: var(--darkreader-inline-border) !important;
+}
+[data-darkreader-inline-border-bottom] {
+  border-bottom-color: var(--darkreader-inline-border-bottom) !important;
+}
+[data-darkreader-inline-border-left] {
+  border-left-color: var(--darkreader-inline-border-left) !important;
+}
+[data-darkreader-inline-border-right] {
+  border-right-color: var(--darkreader-inline-border-right) !important;
+}
+[data-darkreader-inline-border-top] {
+  border-top-color: var(--darkreader-inline-border-top) !important;
+}
+[data-darkreader-inline-boxshadow] {
+  box-shadow: var(--darkreader-inline-boxshadow) !important;
+}
+[data-darkreader-inline-color] {
+  color: var(--darkreader-inline-color) !important;
+}
+[data-darkreader-inline-fill] {
+  fill: var(--darkreader-inline-fill) !important;
+}
+[data-darkreader-inline-stroke] {
+  stroke: var(--darkreader-inline-stroke) !important;
+}
+[data-darkreader-inline-outline] {
+  outline-color: var(--darkreader-inline-outline) !important;
+}
+[data-darkreader-inline-stopcolor] {
+  stop-color: var(--darkreader-inline-stopcolor) !important;
+}
+[data-darkreader-inline-bg] {
+  background: var(--darkreader-inline-bg) !important;
+}
+[data-darkreader-inline-border-short] {
+  border: var(--darkreader-inline-border-short) !important;
+}
+[data-darkreader-inline-border-bottom-short] {
+  border-bottom: var(--darkreader-inline-border-bottom-short) !important;
+}
+[data-darkreader-inline-border-left-short] {
+  border-left: var(--darkreader-inline-border-left-short) !important;
+}
+[data-darkreader-inline-border-right-short] {
+  border-right: var(--darkreader-inline-border-right-short) !important;
+}
+[data-darkreader-inline-border-top-short] {
+  border-top: var(--darkreader-inline-border-top-short) !important;
+}
+[data-darkreader-inline-invert] {
+    filter: invert(100%) hue-rotate(180deg);
+}</style><style class="darkreader darkreader--variables" media="screen">:root {
+   --darkreader-neutral-background: var(--darkreader-background-ffffff, #2b2d2d);
+   --darkreader-neutral-text: var(--darkreader-text-000000, #ffffff);
+   --darkreader-selection-background: var(--darkreader-background-0060d4, #1370de);
+   --darkreader-selection-text: var(--darkreader-text-ffffff, #ffffff);
+}</style><style class="darkreader darkreader--root-vars" media="screen"></style>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="ROBOTS" content="INDEX, FOLLOW">
+        <title>Mailman 3 
+[Kwant] On the numerical implementation of KPM for Kubo-Bastin formula - Kwant-discuss - python.org
+</title>
+        <meta name="author" content="">
+        <meta name="dc.language" content="en">
+        <link rel="shortcut icon" href="https://mail.python.org/static/hyperkitty/img/favicon.ico">
+        <link rel="stylesheet" href="./Mailman 3 [Kwant] On the numerical implementation of KPM for Kubo-Bastin formula - Kwant-discuss - python.org_files/jquery-ui-1.13.1.min.css" type="text/css" media="all"><style class="darkreader darkreader--sync" media="screen"></style>
+        <link rel="stylesheet" href="./Mailman 3 [Kwant] On the numerical implementation of KPM for Kubo-Bastin formula - Kwant-discuss - python.org_files/font-awesome.min.css" type="text/css" media="all"><style class="darkreader darkreader--sync" media="screen"></style>
+        <link rel="stylesheet" href="./Mailman 3 [Kwant] On the numerical implementation of KPM for Kubo-Bastin formula - Kwant-discuss - python.org_files/output.8203f06d30f7.css" type="text/css" media="all"><style class="darkreader darkreader--sync" media="screen"></style><link rel="stylesheet" href="./Mailman 3 [Kwant] On the numerical implementation of KPM for Kubo-Bastin formula - Kwant-discuss - python.org_files/output.333a5a6f2a40.css" type="text/css"><style class="darkreader darkreader--sync" media="screen"></style><link rel="stylesheet" href="./Mailman 3 [Kwant] On the numerical implementation of KPM for Kubo-Bastin formula - Kwant-discuss - python.org_files/output.b794f47e41bd.css" type="text/css" media="all"><style class="darkreader darkreader--sync" media="screen"></style>
+         
+        
+        
+
+    <meta name="darkreader" content="6b37b8de88b842a08ddbc7468aeacd38"><style class="darkreader darkreader--override" media="screen">.jfk-bubble.gtx-bubble {
+    background-color: white !important;
+}
+.vimvixen-hint {
+    background-color: var(--darkreader-background-ffd76e, #ad8212) !important;
+    border-color: var(--darkreader-background-c59d00, #dcb214) !important;
+    color: var(--darkreader-text-302505, #ffffff) !important;
+}
+#vimvixen-console-frame {
+    color-scheme: light !important;
+}
+::placeholder {
+    opacity: 0.5 !important;
+}
+#edge-translate-panel-body,
+.MuiTypography-body1,
+.nfe-quote-text {
+    color: var(--darkreader-neutral-text) !important;
+}
+gr-main-header {
+    background-color: var(--darkreader-background-add8e6, #316676) !important;
+}
+.tou-z65h9k,
+.tou-mignzq,
+.tou-1b6i2ox,
+.tou-lnqlqk {
+    background-color: var(--darkreader-neutral-background) !important;
+}
+.tou-75mvi {
+    background-color: var(--darkreader-background-cfecf5, #225260) !important;
+}
+.tou-ta9e87,
+.tou-1w3fhi0,
+.tou-1b8t2us,
+.tou-py7lfi,
+.tou-1lpmd9d,
+.tou-1frrtv8,
+.tou-17ezmgn {
+    background-color: var(--darkreader-background-f5f5f5, #323435) !important;
+}
+.tou-uknfeu {
+    background-color: var(--darkreader-background-faedda, #5e421a) !important;
+}
+.tou-6i3zyv {
+    background-color: var(--darkreader-background-85c3d8, #3d7d91) !important;
+}
+div.mermaid-viewer-control-panel .btn {
+    background-color: var(--darkreader-neutral-background);
+    fill: var(--darkreader-neutral-text);
+}
+svg g rect.er {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.er.entityBox {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.er.attributeBoxOdd {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.er.attributeBoxEven {
+    fill: var(--darkreader-selection-background);
+    fill-opacity: 0.8 !important;
+}
+svg rect.er.relationshipLabelBox {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g g.nodes rect,
+svg g g.nodes polygon {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.task {
+    fill: var(--darkreader-selection-background) !important;
+}
+svg line.messageLine0,
+svg line.messageLine1 {
+    stroke: var(--darkreader-neutral-text) !important;
+}
+div.mermaid .actor {
+    fill: var(--darkreader-neutral-background) !important;
+}
+mitid-authenticators-code-app > .code-app-container {
+    background-color: white !important;
+    padding-top: 1rem;
+}
+iframe#unpaywall[src$="unpaywall.html"] {
+    color-scheme: light !important;
+}
+select {
+    --darkreader-bg--form-control-background-color: rgba(22, 22, 22, 0) !important;
+}
+body#tumblr {
+    --darkreader-bg--secondary-accent: 31, 32, 34 !important;
+    --darkreader-bg--white: 23, 23, 23 !important;
+    --darkreader-text--black: 228, 224, 218 !important;
+}
+:host {
+    --d2l-border-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+    --d2l-button-icon-background-color-hover: var(--darkreader-bg--d2l-color-gypsum) !important;
+    --d2l-color-ferrite: var(--darkreader-neutral-text) !important;
+    --d2l-color-sylvite: var(--darkreader-bg--d2l-color-sylvite) !important;
+    --d2l-dropdown-background-color: var(--darkreader-neutral-background) !important;
+    --d2l-dropdown-border-color: var(--darkreader-border--d2l-color-mica) !important;
+    --d2l-input-backgroud-color: var(--darkreader-neutral-background) !important;
+    --d2l-menu-border-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+    --d2l-tooltip-background-color: var(--darkreader-neutral-background) !important;
+    --d2l-tooltip-border-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+}
+:host([_floating]) .d2l-floating-buttons-container {
+    background-color: var(--darkreader-neutral-background) !important;
+    border-top-color: var(--darkreader-border--d2l-color-mica) !important;
+    opacity: 0.88 !important;
+}
+d2l-card {
+    background: var(--darkreader-neutral-background) !important;
+    border-color: var(--darkreader-border--d2l-color-gypsum) !important;
+}
+d2l-dropdown-content > div,
+d2l-menu-item {
+    background-color: var(--darkreader-neutral-background) !important;
+    border-radius: 10px !important;
+}
+d2l-empty-state-simple {
+    border-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+}
+.d2l-button-filter > ul > li > a.vui-button {
+    border-color: var(--darkreader-border--d2l-color-mica) !important;
+}
+.d2l-label-text:has(.d2l-button-subtle-content):hover,
+.d2l-label-text:has(.d2l-button-subtle-content):focus,
+.d2l-label-text:has(.d2l-button-subtle-content):active {
+    background-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+}
+.d2l-navigation-centerer {
+    color: inherit !important;
+}
+.d2l-tabs-layout {
+    border-color: var(--darkreader-border--d2l-color-gypsum) !important;
+}
+.d2l-input,
+.d2l-calendar-date,
+.d2l-htmleditor-container {
+    background-color: var(--darkreader-neutral-background) !important;
+}
+.d2l-collapsible-panel {
+    border: 1px solid var(--darkreader-border--d2l-color-mica) !important;
+    border-radius: 0.4rem !important;
+}
+.d2l-collapsible-panel-divider {
+    border-bottom: 1px solid var(--darkreader-border--d2l-color-mica) !important;
+}
+.d2l-w2d-flex {
+    border-bottom: 2px solid var(--darkreader-border--d2l-color-mica) !important;
+}
+.d2l-collapsible-panel scrolled,
+.d2l-collapsible-panel-header,
+.d2l-w2d-collection-fixed {
+    background-color: var(--darkreader-neutral-background) !important;
+}
+.d2l-loading-spinner-bg {
+    fill: var(--darkreader-bg--d2l-color-gypsum) !important;
+}
+.d2l-loading-spinner-bg-stroke {
+    stroke: var(--darkreader-border--d2l-color-mica) !important;
+}
+.d2l-loading-spinner-wrapper svg path,
+.d2l-loading-spinner-wrapper svg circle {
+    fill: var(--darkreader-neutral-background) !important;
+}
+.d2l-twopanelselector-side.d2l-twopanelselector-side-sep {
+    background: var(--darkreader-bg--d2l-color-mica) !important;
+}
+.d2l-le-TreeAccordionItem-anchor::before {
+    background: var(--darkreader-bg--d2l-color-corundum) !important;
+}
+table[class|="moz-header"] {
+    background: none;
+}
+*[style*="color: rgba(0,0,0,"]:not([style*="color: rgba(0,0,0,0)"]),
+*[style*="color: rgba(0, 0, 0,"]:not([style*="color: rgba(0, 0, 0, 0)"]),
+*[style*="color:#000"],
+*[style*="color:black"],
+*[style*="color:#282828"],
+*[style*="color:#444"],
+*[style*="color: #222222"] {
+    color: var(--darkreader-neutral-text) !important;
+}
+*[style*="background:#fff"],
+*[style*="background-color:#fff"],
+*[style*="background: #fff"] {
+    background: var(--darkreader-neutral-background) !important;
+}
+*[bgcolor="#F5F5F5"],
+*[style*="background-color: #F5F5F5"] {
+    background: var(--darkreader-background-f5f5f5, #323435) !important;
+}
+*[style*="background: #e6e6e6"] {
+    background: var(--darkreader-background-e6e6e6, #3c3f41) !important;
+}
+body[style*="background: rgb(255, 255, 255) !important"] *:not(a),
+.body[style*="background-color: rgb(254, 254, 254) !important"] *:not(a) {
+    background-color: var(--darkreader-neutral-background) !important;
+}
+div[style*="www.gstatic.com/android/"] {
+    background: none !important;
+}
+*[style*="background:#f9f9f9"] {
+    background: var(--darkreader-background-f9f9f9, #2f3232) !important;
+}
+body.mediawiki.skin-vector #mw-page-base {
+    background-image: none !important;
+}
+.overflow-hidden .spinning-bg,
+.overflow-hidden .solid-bg {
+    background: transparent !important;
+}</style></head>
+
+    <body class="js-enabled">
+
+    
+
+
+    <nav class="navbar sticky-top navbar-expand-md mb-2" id="navbar-main">
+        <div class="container-xxl">
+            <div class="navbar-header"> <!--part of navbar that's always present-->
+                <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <a class="navbar-brand" href="https://mail.python.org/archives/">Mailman 3 python.org</a>
+
+            </div> <!-- /navbar-header -->
+            <div class="d-flex">
+                <div class="auth dropdown d-md-none">
+                        
+                </div>
+                
+                <a href="https://mail.python.org/accounts/login/?next=/archives/list/kwant-discuss%40python.org/message/DZP4EAB47F2ZTF7UVIDMXOMIX2IQK4PF/" class="nav-link d-md-none">
+                    <span class="fa fa-sign-in"></span>
+                    Sign In
+                </a>
+                
+                <a href="https://mail.python.org/accounts/signup/?next=/archives/list/kwant-discuss%40python.org/message/DZP4EAB47F2ZTF7UVIDMXOMIX2IQK4PF/" class="nav-link d-md-none">
+                    <span class="fa fa-user-plus"></span>
+                    Sign Up
+                </a>
+                
+                
+            </div>
+            <div class="navbar-collapse collapse justify-content-end"> <!--part of navbar that's collapsed on small screens-->
+                <!-- show dropdown for smaller viewports b/c login name/email may be too long -->
+                <!-- only show this extra button/dropdown if we're in small screen sizes -->
+            
+                
+                <a href="https://mail.python.org/mailman3/lists/kwant-discuss.python.org/" class="nav-link">
+                    <span class="fa fa-cog"></span>
+                    Manage this list
+                </a>
+                
+            
+            
+            <a href="https://mail.python.org/accounts/login/?next=/archives/list/kwant-discuss%40python.org/message/DZP4EAB47F2ZTF7UVIDMXOMIX2IQK4PF/" class="nav-link d-none d-md-block">
+                <span class="fa fa-sign-in"></span>
+                Sign In
+            </a>
+            
+            <a href="https://mail.python.org/accounts/signup/?next=/archives/list/kwant-discuss%40python.org/message/DZP4EAB47F2ZTF7UVIDMXOMIX2IQK4PF/" class="nav-link d-none d-md-block">
+                <span class="fa fa-user-plus"></span>
+                Sign Up
+            </a>
+            
+            
+                <form name="search" method="get" action="https://mail.python.org/archives/search" class="navbar-form navbar-right my-2 my-lg-2 ms-2" role="search">
+                    <input type="hidden" name="mlist" value="kwant-discuss@python.org">
+                    <div class="input-group">
+                    <input name="q" type="text" class="form-control rounded-4 search" placeholder="Search this list" aria-label="Search this list">
+                    <button class="btn search-button" aria-label="Search"><span class="fa fa-search"></span></button>
+                    </div>
+                </form>
+                <!-- larger viewports -->
+                <ul class="nav navbar-nav auth d-none d-md-flex">
+                    
+                </ul>
+            </div> <!--/navbar-collapse -->
+        </div><!-- /container for navbar -->
+    </nav>
+
+    
+
+     <div class="modal fade" tabindex="-1" role="dialog" id="keyboard-shortcuts">
+       <div class="modal-dialog" role="document">
+         <div class="modal-content">
+           <div class="modal-header">
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+             <h4 class="modal-title">Keyboard Shortcuts</h4>
+           </div>
+           <div class="modal-body">
+             <h3>Thread View</h3>
+             <ul>
+               <li><code>j</code>: Next unread message </li>
+               <li><code>k</code>: Previous unread message </li>
+               <li><code>j a</code>: Jump to all threads
+               </li><li><code>j l</code>: Jump to MailingList overview
+             </li></ul>
+           </div>
+         </div><!-- /.modal-content -->
+       </div><!-- /.modal-dialog -->
+     </div><!-- /.modal -->
+
+     <div class="container-xxl" role="main">
+        
+
+<div class="row">
+
+    <div class="col-12 col-md-10">
+
+        <div class="message-header row">
+        <div class="col-tn-2 message-back">
+            <a href="https://mail.python.org/archives/list/kwant-discuss@python.org/thread/DZP4EAB47F2ZTF7UVIDMXOMIX2IQK4PF/#DZP4EAB47F2ZTF7UVIDMXOMIX2IQK4PF">
+                <span class="fa fa-chevron-left icon"></span>
+                <span class="d-none d-md-inline hidden-tn hidden-xs">thread</span>
+            </a>
+        </div>
+        <div class="col-10">
+            <h1>[Kwant] On the numerical implementation of KPM for Kubo-Bastin formula</h1>
+        </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-9">
+                <section id="thread-content">
+                    
+
+
+
+
+
+<div class="email email-first">
+
+    <div id="DZP4EAB47F2ZTF7UVIDMXOMIX2IQK4PF" class="email-header">
+        <div class="gravatar-wrapper d-flex">
+            <div class="gravatar circle rounded-circle">
+                <img class="gravatar rounded-circle" src="./Mailman 3 [Kwant] On the numerical implementation of KPM for Kubo-Bastin formula - Kwant-discuss - python.org_files/5405ffa8d1af5d5c471312560037cc90.jpg" width="120" height="120" alt="">
+            </div>
+            <div class="email-author d-flex">
+                <h2 class="name">
+                    
+                    <a href="https://mail.python.org/archives/users/4fd370a56b5f42e9b36e89a23f36692f/" title="See the profile for bishihao＠connect.hku.hk">bishihao＠connect.hku.hk</a>
+                    
+                </h2>
+            </div>
+        </div>
+        <div class="email-date right">
+            
+            
+            <span class="date">
+                Sept. 3, 2023
+            </span>
+            
+            <div class="time">
+                <span title="Sender&#39;s time: Sept. 3, 2023, 1:50 p.m.">1:50 p.m.</span>
+            </div>
+
+        </div>
+        
+    </div> <!-- /email-header: gravatar, author-info, date, peramlink, changed_subject -->
+    <div class="email-body ">
+      <p>Dear All,
+      Recently, I have been engaged in coding the kernel polynomial method for the Kubo-Bastin formula with the aim of investigating potential extensions, including GPU or FFT acceleration. As a concrete example, I have chosen the QWZ model, the 2D massive Dirac fermion, to calculate its Hall conductivity. In the stochastic approach, the conventional trace operation is substituted with an expectation value computed over a random phase vector. By leveraging the recursive relation of Chebyshev polynomials, the problem can be simplified to the computation of the inner product of a series of vectors, as depicted in kwant.kpm&lt;<a target="_blank" href="https://kwant-project.org/doc/1/reference/kwant.kpm">https://kwant-project.org/doc/1/reference/kwant.kpm</a>&gt;. Nevertheless, when implementing the code using such a straightforward approach, the Hall conductivity exhibits significant fluctuations and fails to converge, even when increasing the system size, the number of random phase vectors, or the number of Chebyshev moments considered. In comparison, the Hall conductivity obtained from the kwant package demonstrates a robust behavior, exhibiting stability and consistent results in the band gap, as exhibits in the Appendix A. We observe that within the band gap, the Hall conductivity demonstrates perfect quantization. However, in the bulk region, an oscillatory behavior emerges as the number of Chebyshev moments increases.
+      In an attempt to understand the underlying cause, I read the source code of kwant.kpm. A notable discovery was that instead of utilizing random phase vectors (although they are employed for calculating the density of states when vector_factory=None), the s_factory = kwant.kpm.LocalVectors(syst, where) function actually generates local vectors that represent a state at the center of the system. And it is similar for kwant.kpm.RandomVectors(syst, where). After implementing this modification in my own code, I observed that the Hall conductivity within the band gap became quantized, as expected.
+      But the puzzle arises because, in the stochastic approach, the trace is obtained by averaging over random phase vectors, which is considered to be a complete sampling, and the self-average effect guarantees convergence. However, in the kwant.kpm implementation, a local state at the center of the disk in coordinate space is employed instead. The question then remains: why does this alternative approach yield accurate results? And why do the random phase vectors not yield valid results?
+      Attached are my python codes. The FFT implementation I utilized is based on the reference arXiv:2307.09690&lt;<a target="_blank" href="https://arxiv.org/abs/2307.09690">https://arxiv.org/abs/2307.09690</a>&gt;.
+
+Best wishes,
+Shihao
+
+
+
+  *   Appendix A: Kwant Code
+
+Attached is the Kwant code for calculating the Hall conductivity. I post it here in case the forum does not support attachments.
+
+[cid:5cb88c50-7d6c-4230-aa9d-189ed73c001d]
+[cid:e1e22a6b-a5f4-44dd-aac0-0b01c2796fd6]
+
+  *   Appendix B: FFT-accelerated Kubo-Bastin formula
+
+[cid:737ce999-435f-4f96-bf1e-4b065e239ce4]
+[cid:d1197b58-b4c9-4738-a5fc-4fda7979706f]</p>
+
+    </div>
+
+    
+    <div class="attachments">
+        <p class="attachments">Attachments:</p>
+        <ul class="attachments-list list-unstyled">
+        
+            <li><a href="https://mail.python.org/archives/list/kwant-discuss@python.org/message/DZP4EAB47F2ZTF7UVIDMXOMIX2IQK4PF/attachment/10/KB_FFT.py">KB_FFT.py</a>
+                (text/x-python — 8.7&nbsp;KB)
+            </li>
+        
+            <li><a href="https://mail.python.org/archives/list/kwant-discuss@python.org/message/DZP4EAB47F2ZTF7UVIDMXOMIX2IQK4PF/attachment/9/QWZ_Hall.py">QWZ_Hall.py</a>
+                (text/x-python — 1.7&nbsp;KB)
+            </li>
+        
+            <li><a href="https://mail.python.org/archives/list/kwant-discuss@python.org/message/DZP4EAB47F2ZTF7UVIDMXOMIX2IQK4PF/attachment/8/QWZ_Hall.png">QWZ_Hall.png</a>
+                (image/png — 151.5&nbsp;KB)
+            </li>
+        
+            <li><a href="https://mail.python.org/archives/list/kwant-discuss@python.org/message/DZP4EAB47F2ZTF7UVIDMXOMIX2IQK4PF/attachment/7/image.png">image.png</a>
+                (image/png — 5.8&nbsp;MB)
+            </li>
+        
+            <li><a href="https://mail.python.org/archives/list/kwant-discuss@python.org/message/DZP4EAB47F2ZTF7UVIDMXOMIX2IQK4PF/attachment/6/image.png">image.png</a>
+                (image/png — 336.8&nbsp;KB)
+            </li>
+        
+            <li><a href="https://mail.python.org/archives/list/kwant-discuss@python.org/message/DZP4EAB47F2ZTF7UVIDMXOMIX2IQK4PF/attachment/5/Kwant_code.png">Kwant_code.png</a>
+                (image/png — 1.5&nbsp;MB)
+            </li>
+        
+            <li><a href="https://mail.python.org/archives/list/kwant-discuss@python.org/message/DZP4EAB47F2ZTF7UVIDMXOMIX2IQK4PF/attachment/4/attachment.html">attachment.html</a>
+                (text/html — 7.8&nbsp;KB)
+            </li>
+        
+        </ul>
+    </div>
+    
+
+    <div class="email-info">
+      <div class="likeform-wrapper right">
+        <div class="messagelink pull-right">
+          <button class="toggle-font btn btn-sm" title="Display in fixed font" data-bs-toggle="tooltip" data-placement="bottom">
+                <i class="fa fa-font"></i>
+          </button>
+          <a href="https://mail.python.org/archives/list/kwant-discuss@python.org/message/DZP4EAB47F2ZTF7UVIDMXOMIX2IQK4PF/" title="Permalink for this message" data-bs-toggle="tooltip" data-placement="bottom"><i class="fa fa-link"></i></a>
+        </div>
+        
+
+    <form method="post" class="likeform" action="https://mail.python.org/archives/list/kwant-discuss@python.org/message/DZP4EAB47F2ZTF7UVIDMXOMIX2IQK4PF/vote">
+    <input type="hidden" name="csrfmiddlewaretoken" value="Tb2ocDyRbFTlhZAiBdBAxU6DkryQsB5fyJdZYZ78XDSp89aNT3pIyDWEadTUep78">
+    
+		
+			<a class="youlike vote  disabled" title="You must be logged-in to vote." href="https://mail.python.org/archives/list/kwant-discuss@python.org/message/DZP4EAB47F2ZTF7UVIDMXOMIX2IQK4PF/#like" data-vote="1" aria-label="Like thread">
+					<i class="fa fa-thumbs-o-up"></i> 0
+			</a>
+			<a class="youdislike vote disabled" title="You must be logged-in to vote." href="https://mail.python.org/archives/list/kwant-discuss@python.org/message/DZP4EAB47F2ZTF7UVIDMXOMIX2IQK4PF/#dislike" data-vote="-1" aria-label="Dislike thread">
+				<i class="fa fa-thumbs-o-down"></i> 0
+			</a>
+		
+    
+
+    </form>
+
+        </div>
+
+        <!-- Reply link -->
+        
+        
+        <a class="reply reply-mailto" title="Reply" href="https://mail.python.org/archives/list/kwant-discuss@python.org/message/DZP4EAB47F2ZTF7UVIDMXOMIX2IQK4PF/#">
+            <i class="fa fa-reply"></i>
+            Reply
+        </a>
+        
+        
+
+        <!-- Attachments -->
+        
+        <!-- Reply form -->
+        
+        <div class="reply-form-unauthenticated">
+            <a class="btn btn-sm btn-primary" href="https://mail.python.org/accounts/login/?next=/archives/list/kwant-discuss%40python.org/message/DZP4EAB47F2ZTF7UVIDMXOMIX2IQK4PF/#">
+                Sign in to reply online
+            </a>
+            <a class="btn btn-sm btn-secondary reply-mailto" href="mailto:kwant-discuss@python.org?Subject=Re%3A%20%5BKwant%5D%20On%20the%20numerical%20implementation%20of%20KPM%20for%20Kubo-Bastin%20formula&amp;In-Reply-To=%3CTY3P286MB270820C02E53FA67B776FFD8EEEAA%40TY3P286MB2708.JPNP286.PROD.OUTLOOK.COM%3E">Use email software</a>
+        </div>
+        
+
+        
+
+    </div>
+
+</div>
+
+                </section>
+            </div>
+            <div class="col-lg-3">
+                
+
+
+
+<!-- right column -->
+<section id="message-overview-info">
+
+    <p>
+        <a href="https://mail.python.org/archives/list/kwant-discuss@python.org/thread/DZP4EAB47F2ZTF7UVIDMXOMIX2IQK4PF/#DZP4EAB47F2ZTF7UVIDMXOMIX2IQK4PF">
+            <i class="fa fa-fw fa-comments"></i>
+            <span class="hidden-tn hidden-xs">Back to the thread</span>
+        </a>
+    </p>
+
+    <p>
+        <a href="https://mail.python.org/archives/list/kwant-discuss@python.org/">
+            <i class="fa fa-fw fa-envelope-o"></i>
+            Back to the list
+        </a>
+    </p>
+
+    
+
+</section>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+    </div> <!-- /container for content -->
+
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">
+            <img class="logo" alt="HyperKitty" src="./Mailman 3 [Kwant] On the numerical implementation of KPM for Kubo-Bastin formula - Kwant-discuss - python.org_files/logo.png">
+            Powered by <a href="http://hyperkitty.readthedocs.org/">HyperKitty</a> version 1.3.12.
+        </p>
+      </div>
+    </footer>
+
+    <script src="./Mailman 3 [Kwant] On the numerical implementation of KPM for Kubo-Bastin formula - Kwant-discuss - python.org_files/jquery-3.6.0.min.js.下载"></script>
+    <script src="./Mailman 3 [Kwant] On the numerical implementation of KPM for Kubo-Bastin formula - Kwant-discuss - python.org_files/jquery-ui-1.13.1.min.js.下载"></script>
+    <script src="./Mailman 3 [Kwant] On the numerical implementation of KPM for Kubo-Bastin formula - Kwant-discuss - python.org_files/output.fb4db16e32a4.js.下载"></script>
+    <script>
+      // Add the .js-enabled class to the body so we can style the elements
+      // depending on whether Javascript is enabled.
+      $(document).ready(function(){
+          $("body").addClass("js-enabled");
+          $(".gravatar").addClass("rounded-circle");
+      });
+    </script>
+     
+
+    
+
+
+    
+
+</body></html>

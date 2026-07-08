@@ -1,0 +1,89 @@
+{
+  "entries": [
+    {
+      "kernel": "lorentz(\u03bb=2)",
+      "method": "sequential",
+      "alpha": 1.9198010922985553,
+      "rms_4096": 9.268747640351382e-10,
+      "source": "P4"
+    },
+    {
+      "kernel": "lorentz(\u03bb=6)",
+      "method": "sequential",
+      "alpha": 1.8911866812886493,
+      "rms_4096": 1.0328985615290113e-09,
+      "source": "P4"
+    },
+    {
+      "kernel": "lorentz(\u03bb=3)",
+      "method": "sequential",
+      "alpha": 1.974481602291363,
+      "rms_4096": 1.04543637859463e-09,
+      "source": "P4"
+    },
+    {
+      "kernel": "clean",
+      "method": "kahan",
+      "alpha": 2.0739418402554444,
+      "rms_4096": 1.0702068308097938e-09,
+      "source": "T4"
+    },
+    {
+      "kernel": "jackson",
+      "method": "kahan",
+      "alpha": 2.0809911735824844,
+      "rms_4096": 1.0791420806422137e-09,
+      "source": "T4"
+    },
+    {
+      "kernel": "jackson",
+      "method": "sequential",
+      "alpha": 2.0298754468373175,
+      "rms_4096": 1.0915210675205451e-09,
+      "source": "T4"
+    },
+    {
+      "kernel": "lorentz",
+      "method": "kahan",
+      "alpha": 2.084406397364205,
+      "rms_4096": 1.097925930675543e-09,
+      "source": "T4"
+    },
+    {
+      "kernel": "lorentz",
+      "method": "sequential",
+      "alpha": 2.0385589603628986,
+      "rms_4096": 1.1016194231913222e-09,
+      "source": "T4"
+    },
+    {
+      "kernel": "lorentz(\u03bb=4)",
+      "method": "sequential",
+      "alpha": 2.1104754699499693,
+      "rms_4096": 1.135572448346642e-09,
+      "source": "P4"
+    },
+    {
+      "kernel": "clean",
+      "method": "sequential",
+      "alpha": 2.058440426233801,
+      "rms_4096": 1.1813477810217479e-09,
+      "source": "T4"
+    },
+    {
+      "kernel": "lorentz(\u03bb=8)",
+      "method": "sequential",
+      "alpha": 2.017698161315719,
+      "rms_4096": 1.3801292319233293e-09,
+      "source": "P4"
+    }
+  ],
+  "best": {
+    "kernel": "lorentz(\u03bb=2)",
+    "method": "sequential",
+    "alpha": 1.9198010922985553,
+    "rms_4096": 9.268747640351382e-10,
+    "source": "P4"
+  },
+  "recommendation": "Best: lorentz(\u03bb=2)+sequential (RMS=9.269e-10 at M=4096)"
+}
