@@ -503,6 +503,76 @@ corr_dos, corr_dc_cond = load_corr_dc_cond(prefix)
 | 减少长时噪声 | 增大 `dc_cond_num_time_steps` 但配合更强的窗函数；或保持默认 1024 |
 | 改善随机平均 | 增大 `num_random_samples`（如 4 或 8） |
 
+### 6.4 `num_time_steps` 与 `dc_cond_num_time_steps` 的深度区分
+
+这两个参数虽然都叫"时间步数"，但在 DC 关联函数中控制**完全不同的轴**，且代码中刻意做了区分。
+
+#### 6.4.1 各司其职
+
+```
+num_time_steps (N_t)                      dc_cond_num_time_steps (M)
+═══════════════════════                    ════════════════════════════
+控制：能量轴                                控制：时间轴（关联函数）
+用在哪：tbpm_qe_dos() 的循环边界            用在哪：tbpm_dc_cond() 的传播循环
+影响：准本征态 |ψ(E)⟩ 的构造质量             影响：C(E,t) 傅里叶积分的截断精度
+输出：corr_dos (长度 N_t)                   输出：corr_dc (维度 N_e × M)
+```
+
+#### 6.4.2 代码层面的隔离证据
+
+源码中有两处明确注释表明开发者**有意区分**两者：
+
+> `tbpm.h:76` — `// i_step from 1 to num_steps, it is different from DC and AC cond.`
+
+> `tbpm.h:513-514` — `// NOTE: i_step is from 2 to num_steps_dc, i.e. the maximum of num_step is num_steps_dc - 1 NOT num_steps_dc. This is different from DOS.`
+
+两套循环使用不同的变量名（`num_steps` vs `num_steps_dc`），不同的起止索引，不同的 `Propagator` 调用模式——说明它们是两个独立子系统。
+
+#### 6.4.3 各自对结果的影响机制
+
+**`num_time_steps`（能量轴）：**
+
+| 增大 $N_t$ 的效果 | 机制 |
+|:---|:---|
+| 能量分辨率提高 | $\Delta E = E_\text{range} / (2N_t)$ ↓，DOS 全网格从 $2N_t$ 个点加密 |
+| 准本征态点数增多 | $N_e$ ∝ 落在 `dc_cond_energy_limits` 内的网格点数，$N_t$ 翻倍 ≈ $N_e$ 翻倍 |
+| 准本征态 FFT 质量提高 | Hanning 窗加权累加项数 $= N_t$，越多越接近连续傅里叶极限 |
+| $\sigma_{xx}(E)$ 曲线更平滑 | 能量轴上采样更密 → 曲线插值更可靠 |
+| 计算量线性增长 | $O(N_t \cdot B \cdot N_\text{orb})$，$B \sim 10{-}20$ |
+| ⚠️ `cpu_fast` 风险 | 若使用 `cpu_fast`，$N_t$ 大时 Chebyshev 高阶矩噪声累积（但 DC 路径默认 `cpu`，安全） |
+
+**`dc_cond_num_time_steps`（时间轴）：**
+
+| 增大 $M$ 的效果 | 机制 |
+|:---|:---|
+| 傅里叶积分截断更晚 | $t_{\max} = (M-1) \cdot \Delta t$ ↑，$\Delta t = 2\pi/E_\text{range}$ |
+| 能量域旁瓣抑制更好 | 有限时间截断 → 能量域 sinc 卷积 → $M$ 越大卷积核越窄 |
+| ⚠️ 长时噪声风险 | 传播子累积误差 $\propto$ 步数，$C(E, t \gg 0)$ 信噪比下降 |
+| 窗函数自动缓解 | `window_exp` 在 $k \to M$ 时 $\to 0$，抑制晚期噪声贡献 |
+| 计算量线性增长 | $O(M \cdot B \cdot N_\text{orb})$，仅对 2 个波函数（`psi0_x`, `psi0_y`）传播 |
+
+#### 6.4.4 独立性说明
+
+两者**几乎完全解耦**——唯一的共享资源是 `Propagator` 实例（共用同一个缩放 $H$ 和 Bessel 系数），但各自独立调用 `Propagator::act()`，互不干扰。
+
+实用含义：可以自由组合——
+- **高能分辨 + 粗时域积分**：大 $N_t$ + 小 $M$（适合需要密集能量采样但不在意长时行为的场景）
+- **粗能扫描 + 精细时域积分**：小 $N_t$ + 大 $M$（适合只需少数能量点但要求高精度的场景）
+- **同时放大**：$N_t$ 和 $M$ 都大 → 计算时间 = 两者之和（非乘积），仍比 Kubo-Bastin 的 $O(M^2)$ 便宜
+
+#### 6.4.5 对照表
+
+| 维度 | `num_time_steps` ($N_t$) | `dc_cond_num_time_steps` ($M$) |
+|------|--------------------------|--------------------------------|
+| 默认值 | 1024 | 1024 |
+| 循环起止 | `i_step = 1` 到 `N_t` | `i_step = 2` 到 `M` |
+| 传播对象 | $\vert\psi_0(\pm t)\rangle$（正反向各一个） | $j_x\vert\psi_0\rangle$, $j_y\vert\psi_0\rangle$（两个） |
+| 窗函数 | `window_hanning`（硬编码在 C++ 中） | `window_exp`（Python 侧可替换） |
+| 输出维度 | `corr_dos`: `(N_t,)` | `corr_dc`: `(N_e, M)` |
+| t=0 的处理 | 不包含（`corr_dos[0]` 对应 $t=\Delta t$） | 包含（`corr_dc[*,0]` 对应 $t=0$，无传播） |
+| 过大时的风险 | `cpu_fast` 三项递推不稳定（DC 路径不受影响） | 长时噪声累积（被窗函数抑制） |
+| 过小时的后果 | 能量分辨率不足，可能漏掉窄谱特征 | 傅里叶截断过早，$\sigma_{xx}(E)$ 人工展宽 |
+
 ---
 
 ## 7. 计算复杂度

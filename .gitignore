@@ -9,6 +9,10 @@
 .DS_Store
 Thumbs.db
 
+# Large data files (use Git LFS or external storage)
+*.h5
+*.hdf5
+
 # Temp files
 *.swp
 *.swo
