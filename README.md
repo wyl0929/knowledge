@@ -9,7 +9,7 @@
 
 # 领域知识包 (Field Packs) 总目录
 
-> 最后更新: 2026-07-08
+> 最后更新: 2026-07-11
 
 本目录存放所有通过 `research_onboarding_skill` 生成的领域文献研究包 (field packs)。
 
@@ -33,7 +33,8 @@ knowledge/
 │   ├── us_two_party_politics/   ← 美国两党政治初探
 │   │   └── subfields/
 │   │       └── dsa_2026_wave/   ← DSA 2026 浪潮（子方向）
-│   └── central_local_relations/ ← 央地矛盾、集权与分权的治理逻辑
+│   ├── central_local_relations/ ← 央地矛盾、集权与分权的治理逻辑
+│   └── corporatism/             ← 法团主义（从央地矛盾 QA 派生）
 ├── systems_science/             ← 系统科学领域
 │   └── (控制论与系统工程 field pack)
 └── computer_science/            ← 计算机/编程领域
@@ -86,6 +87,7 @@ knowledge/
 |------|------|:---:|------|------|
 | 美国两党政治初探 | orientation | social_science | 2026-07-03 | ✅ 已填充，含 subfields/dsa_2026_wave/ |
 | 央地矛盾、集权与分权的治理逻辑 | quick_scan | social_science | 2026-07-08 | ✅ 已填充，种子文档为 conflict.md |
+| 法团主义（Corporatism） | quick_scan | social_science | 2026-07-11 | ✅ 已填充，从央地矛盾 QA 派生 |
 
 ### systems_science/
 
