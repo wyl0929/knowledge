@@ -114,6 +114,7 @@ Last updated: 2026-06-11
 | [DW7] | **★ Hou, Yuan & Jiang, PRB 110, L161406 (2024)** | **量子输运裁决：THS 形成独立一维 TZM，NQCP 1/2/3 预言** → 📄 [精读报告](subfields/domain-wall/paper_review_hou2024_prb.md) | ⭐⭐⭐⭐⭐ 用户的 TB 代码可直接复现 mTBG 结构 | — |
 | [DW8] | Fleischmann et al., Nano Lett. 20, 971 (2020) | DFT 证明 mTBG 中 TZM 可完美嵌套 | ⭐⭐⭐ | — |
 | [DW9] | **★ Mahapatra et al., Nano Lett. 22, 5708 (2022)** | **mTBG 三角畴中的 QH 干涉仪——$\theta=0.16^\circ$，热电测量 FP+AB 振荡，$\nu=4,8$ 平台，库仑充电减弱** → 📄 [阅读笔记](subfields/domain-wall/paper_review_mahapatra2022_nanolett.md) | ⭐⭐⭐⭐⭐ 畴壁+QH 的交汇 | — |
+| [DW10] | **★ Zhang et al. (2024)** arXiv:2406.06867 | **CVD 双层石墨烯 LSW 束中的电可调磁电导——应变工程控制 LSW 构型（分离 vs 紧密堆积），后者栅压连续调节 QVH 通道耦合** → 📄 [精读报告](subfields/domain-wall/paper_review_zhang2024_arxiv.md) | ⭐⭐⭐⭐⭐ CVD 可扩展平台 + QVH 多通道耦合 | `DGAFNKRR` |
 
 ---
 

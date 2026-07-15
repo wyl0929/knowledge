@@ -15,7 +15,69 @@
 
 # 99 Update Log / 更新日志 — Domain Wall 实验
 
-Last updated: 2026-07-08
+Last updated: 2026-07-15
+
+---
+
+## 2026-07-15: 三篇单 LSW 输运实验精读笔记
+
+- **新建文件**:
+  - `paper_review_ju2015_nature.md` — Ju et al. (2015) Nature 精读（s-SNOM 首次可视化畴壁 + 等离激元证明谷-动量锁定）
+  - `paper_review_li2016_natnanotech.md` — Li et al. (2016) Nat. Nanotech. 精读（首个栅控静电 DW 电学输运实验，零场 $L_k \sim 100$ nm，$B=8$T 恢复弹道性）
+  - `paper_review_mania2019_communphys.md` — Mania et al. (2019) Commun. Phys. 精读（折叠 BLG，零场量子电阻 $h/4e^2$，$L_{MFP} \sim 20$ μm）
+- **更新文件**: `14_paper_registry.md` — P1/P2/P5 添加精读报告链接
+- **关键发现**:
+  - Ju 2015 是光学探针（非直接电学输运），证明谷极化但不测 $\sigma/R$
+  - Li 2016 是静电 DW（栅控 $V=0$ 线），非结构 AB/BA 边界——与 Ju 2015/Mania 2019 的 DW 类型不同
+  - Mania 2019 的折叠 DW 给出 $L_{MFP} \sim 20$ μm，比 Li 2016 高 200 倍——DW 锐度是弹道输运的决定性因素
+  - 三篇各自代表了单 LSW 实验的不同路径：光学→静电→折叠，DW 质量递进
+- **来源**: Li 2016 arXiv:1509.03912 全文（39 页）+ Mania 2019 arXiv:1901.08178 全文（26 页）+ Ju 2015 registry 条目
+
+---
+
+## 2026-07-15: Zhang 2024 笔记追加理论-实验关联附录
+
+- **更新文件**: `paper_review_zhang2024_arxiv.md`
+- **新增**: 附录 B — 理论计算与实验的逻辑关联（~100 行）
+  - 实验 → 唯象拟合 → 微观机制三层推理完整追踪
+  - 7-LSW vs 3-LSW 的 MC 行为差异的因果链映射表
+  - Bloch 计算如何解释 $L_\phi(\bar{D})$ 指数增长、$\Delta G$ 增加、MC 极小值深度
+  - 核心概念：$\bar{D}$ 通过 $E_g$ → $x_0 \propto 1/E_g$ → 波函数重叠 → 谷内背散射 → 弱局域化
+  - 三个可检验理论预言的实验验证状态
+  - 模型关键参考文献（Li-Morpurgo-Buttiker-Martin 2010, Jung-Zhang-Qiao-MacDonald 2011 等）
+- **来源**: 正文 §4 全文提取（arXiv PDF pdftotext 解析）
+
+---
+
+## 2026-07-15: Zhang 2024 论文精读 + CVD LSW 新类别
+
+- **新建文件**: `paper_review_zhang2024_arxiv.md` — Zhang et al. (2024) 8 节精读报告
+  - arXiv:2406.06867（2024-06-11），期刊状态 NEEDS_VERIFICATION
+  - 核心发现：CVD 双层石墨烯中两种 LSW 构型（分离 vs 紧密堆积束），后者展现电场可调磁电导
+  - 作者阵容：UPenn（Johnson/Mele/Drndic/Kikkawa）+ UC Berkeley（Feng Wang）+ HKUST（Luo）
+  - 阅读笔记中文撰写，遵循 8 节模板
+  - 多处标 NEEDS_VERIFICATION（仅基于 arXiv 摘要，未获全文 PDF）
+  - 附录了与 Mahapatra 2022 的详细体系对比表
+- **更新文件**: `14_paper_registry.md`
+  - 新增「CVD 外延双层石墨烯 LSW 束输运」分类
+  - 新增 [DW-c1] Zhang et al. (2024) 条目 + 精读链接
+  - 三种畴壁平台对比（CVD LSW / 非转角畴壁 / mTBG 畴壁）
+- **Zotero Key**: `DGAFNKRR`，DOI 待确认
+
+---
+
+## 2026-07-15: Mahapatra 2022 笔记追加 AB 振荡附录
+
+- **更新文件**: `paper_review_mahapatra2022_nanolett.md`
+- **新增**: 附录 A — Aharonov-Bohm (AB) 振荡
+  - AB 效应定义、历史（Aharonov & Bohm 1959）
+  - 相位积累公式 $\Delta\varphi = 2\pi\Phi/\Phi_0$ 与磁通量子 $\Phi_0 = h/e$
+  - 揭示的物质基本性质：矢势实在性、量子非定域性、Berry 相位、拓扑保护
+  - AB vs FP 振荡对照表（含石墨烯特殊性）
+  - AB vs AAS 振荡（$h/e$ vs $h/2e$ 周期）
+  - 石墨烯中 Dirac 费米子的 Berry 相位 $\pi$ 对干涉条件的影响
+  - QH 干涉测量中 AB 效应的核心角色（编织相位探测）
+  - 参考原始文献：Aharonov-Bohm 1959, Chambers 1960, Webb 1985, Berry 1984, AAS 1981, Beenakker 1991
 
 ---
 

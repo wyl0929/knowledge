@@ -2,7 +2,7 @@
  * @Author       : Yulong Wang
  * @Date         : 2026-07-09 21:35:07
  * @LastEditors  : Yulong Wang
- * @LastEditTime : 2026-07-09 21:35:11
+ * @LastEditTime : 2026-07-15 16:36:48
  * @FilePath     : /.agents/home/wyl/project/knowledge/physics/multilayer_graphene/subfields/domain-wall/paper_review_mahapatra2022_nanolett.md
  * @Description  :
 -->
@@ -18,7 +18,9 @@
 
 > **Phanibhusan S. Mahapatra, Manjari Garg, Bhaskar Ghawri, Aditya Jayaraman, Kenji Watanabe, Takashi Taniguchi, Arindam Ghosh, U. Chandni**
 > "Quantum Hall interferometry in triangular domains of marginally twisted bilayer graphene"
+>
 > Nano Lett. 22, 5708 (2022) | arXiv:2112.03891
+> **DOI**: [10.1021/acs.nanolett.2c00627](https://doi.org/10.1021/acs.nanolett.2c00627) | **Zotero Key**: `cmd.exe /c start "zotero://select/items/SD7UCT4M"`
 >
 > 机构：Indian Institute of Science (IISc), Bangalore — Ghosh 组 + Chandni 组
 
@@ -222,3 +224,154 @@ QH 边缘态（沿样品边界传播）
 ---
 
 *笔记创建日期：2026-07-09 | 基于 arXiv:2112.03891v1 + Nano Lett. 22, 5708 (2022)*
+
+---
+
+## 附录 A：Aharonov-Bohm (AB) 振荡
+
+> 追加日期：2026-07-15
+
+### A.1 一句话定义
+
+Aharonov-Bohm（AB）振荡是带电粒子在**无磁场区域**（$B = 0$）中沿闭合回路运动时，因包围磁通量 $\Phi$ 而产生的量子干涉效应。其本质是：**电磁矢势 $\mathbf{A}$ 具有物理实在性，而不只是数学工具**——这是经典电磁学无法解释的纯量子效应。
+
+### A.2 历史起源
+
+1959 年，Yakir Aharonov 和 David Bohm 发表了一篇划时代的理论论文（Phys. Rev. 115, 485），提出一个思想实验：
+
+> 让一束电子分成两路，绕过一个无限长螺线管的两侧后重新汇合。螺线管内部有磁场 $B \neq 0$，但外部空间 $B = 0$（矢势 $\mathbf{A} \neq 0$）。
+
+经典物理的预测：电子只感受 Lorentz 力 $\mathbf{F} = -e\mathbf{v} \times \mathbf{B}$，螺线管外 $B = 0$，所以电子不受任何力，不会出现干涉。
+
+量子力学的预测：电子的波函数相位由**矢势** $\mathbf{A}$ 决定，即使 $B = 0$，只要 $\mathbf{A} \neq 0$，两路径就会积累相位差 → **干涉条纹**。
+
+1960 年 Chambers 首次实验验证，此后成为量子力学非定域性的标志性证据。
+
+### A.3 核心物理
+
+#### 相位积累
+
+在磁场中，带电粒子的波函数沿路径 $C$ 获得一个额外的量子相位：
+
+$$\Delta\varphi = \frac{e}{\hbar} \int_C \mathbf{A} \cdot d\mathbf{l}$$
+
+对于闭合回路，利用 Stokes 定理：
+
+$$\Delta\varphi = \frac{e}{\hbar} \oint_C \mathbf{A} \cdot d\mathbf{l} = \frac{e}{\hbar} \iint_S \mathbf{B} \cdot d\mathbf{S} = \frac{e}{\hbar} \Phi = 2\pi \frac{\Phi}{\Phi_0}$$
+
+其中：
+- $\Phi = \iint_S \mathbf{B} \cdot d\mathbf{S}$ 是回路包围的磁通量
+- $\Phi_0 = h/e$ 是**磁通量子**（单电子 AB 效应的通量周期）
+- 注意：超导中的磁通量子是 $h/2e$（Cooper 对），与单电子 AB 效应不同
+
+#### 干涉条件
+
+电子波分两路绕闭合回路：
+
+$$\psi_{\text{total}} = \psi_1 + \psi_2 \cdot e^{i\Delta\varphi}$$
+
+当 $\Delta\varphi = 2\pi n$（$n$ 为整数）时，相长干涉 → 电导极大；
+当 $\Delta\varphi = (2n+1)\pi$ 时，相消干涉 → 电导极小。
+
+因此，电导（或电阻）随 $B$ 呈现**周期性振荡**：
+
+$$\Delta B = \frac{\Phi_0}{A}$$
+
+其中 $A$ 是回路在垂直于 $B$ 方向的投影面积。
+
+### A.4 AB 效应揭示的物质基本性质
+
+AB 效应不是一个孤立的量子现象——它触及了量子力学和规范场论的深层结构：
+
+#### ① 矢势 $\mathbf{A}$ 的物理实在性
+
+| | 经典电磁学 | 量子力学（AB 效应） |
+|---|---|---|
+| 基本量 | $\mathbf{E}, \mathbf{B}$（场） | $\mathbf{A}, \phi$（势） |
+| $\mathbf{A}$ 的地位 | 数学辅助量，无物理意义 | **可观测的物理量**（通过相位） |
+| 粒子在 $B=0$ 区域 | 不受电磁影响 | 仍受 $\mathbf{A}$ 影响 |
+
+这是量子力学对经典世界观的根本修正：**势比场更基本**。这一认识后来成为规范场论（Yang-Mills 理论）的出发点——所有基本相互作用都是"势"（规范联络）的理论，而非"场"的理论。
+
+#### ② 量子力学的非定域性
+
+电子在**从未进入**磁场区域的情况下，其波函数相位仍被磁场改变。这意味着：
+- 量子粒子的行为不仅由局域场决定，还由空间的全局几何结构决定
+- 这是与 EPR 纠缠不同的另一种量子非定域性——**拓扑非定域性**
+
+#### ③ 几何相位（Berry 相位）的前身
+
+AB 相位是 Berry 相位（1984）的最早实例。Berry 相位的一般公式：
+
+$$\gamma_n = i \oint_C \langle n(\mathbf{R}) | \nabla_{\mathbf{R}} | n(\mathbf{R}) \rangle \cdot d\mathbf{R}$$
+
+AB 相位对应 $\mathbf{R} = \mathbf{A}$ 参数空间中的 Berry 相位。在石墨烯中，Dirac 点附近的电子携带 $\pi$ 的 Berry 相位，这是理解石墨烯 QH 效应中"半整数"量子化的关键（$\sigma_{xy} = \pm 2, \pm 6, \pm 10, \ldots$ 的序列，而非传统 2DEG 的 $\pm 1, \pm 3, \pm 5, \ldots$）。
+
+#### ④ 拓扑保护
+
+AB 相位 $\Delta\varphi \propto \oint \mathbf{A} \cdot d\mathbf{l}$ 是一个**拓扑不变量**——它只依赖于回路包围的总通量，不依赖于回路的具体形状或路径细节。这意味着：
+- AB 振荡对无序和杂质有某种程度的**鲁棒性**
+- 只要相位相干长度 $L_\phi$ 超过回路周长，干涉就存在
+- 这使得 AB 干涉仪成为探测拓扑量子态的理想工具
+
+### A.5 AB 振荡 vs Fabry-Pérot 振荡
+
+Mahapatra 2022 中同时观测到了两种振荡，它们的区分是理解实验的关键：
+
+| 维度 | AB 振荡 | FP 振荡 |
+|---|---|---|
+| **物理来源** | 矢势 $\mathbf{A}$ 导致的 Aharonov-Bohm 相位 | 电子在腔两端反射形成的驻波 |
+| **相位条件** | $\Delta\varphi_{\text{AB}} = 2\pi\Phi/\Phi_0$ | $\Delta\varphi_{\text{FP}} = 2kL$（$L$ 为腔长） |
+| **磁场依赖** | 周期 $\Delta B = \Phi_0/A$（固定 $n$） | 通过 $k \propto \sqrt{n}$ 同时依赖 $B$ 和 $n$ |
+| **载流子密度依赖** | 弱（仅通过面积 $A$ 的微弱静电调制） | **强**（直接改变 $k_F$ → 振荡相位） |
+| **对面积敏感** | 面积 $A$ 直接决定周期 | 腔长 $L$ 决定周期，面积不直接出现 |
+| **石墨烯特殊之处** | Berry 相位 $\pi$ 改变干涉条件 | 谷自由度可提供额外的相位自由度 |
+
+在 Mahapatra 2022 中：
+- 固定 $n$ 扫 $B$ → **AB 振荡**（周期 $\Delta B \propto 1/A_{\text{triangle}}$）
+- 固定 $B$ 扫 $n$ → 同时包含 **FP 振荡**（$2kL = 2\pi m$）和**静电 AB 效应**（$n$ 变化 → 面积静电微调 → AB 相位偏移）
+- 不同三角畴大小不同 → 多个 AB 周期叠加 → **FFT 频谱**可分离各畴贡献
+
+### A.6 石墨烯中的特殊考量
+
+石墨烯中的 AB 效应与传统 2DEG（如 GaAs）有几个关键区别：
+
+1. **Berry 相位 $\pi$**：Dirac 费米子的手性使 AB 干涉条件偏移 $\pi$——干涉极大/极小位置与 Schrodinger 费米子相反
+2. **谷自由度**：$K$ 和 $K'$ 谷的电子在磁场下获得相反的 AB 相位符号 → 谷间散射会破坏干涉 → 这是畴壁中谷极化保护对 AB 干涉至关重要的原因
+3. **Dirac 谱**：零质量 Dirac 谱使 Landau 能级按 $\pm v_F\sqrt{2e\hbar B|N|}$ 排列（而非 $\hbar\omega_c(N+1/2)$），QH 平台序列变为 $\nu = \pm 2, \pm 6, \pm 10, \ldots$
+4. **相干长度**：石墨烯中 $L_\phi$ 可达数微米（hBN 封装下），使 ~100 nm 尺度的三角畴 AB 干涉成为可能
+
+### A.7 AB 振荡的变体：AAS 振荡
+
+在**扩散输运**区域（$L_\phi < L$），与 AB 效应相关但不相同的是 **Altshuler-Aronov-Spivak（AAS）振荡**：
+
+| | AB 振荡 | AAS 振荡 |
+|---|---|---|
+| 周期 | $h/e$ | $h/2e$ |
+| 来源 | 单电子绕回路一周的相位 | 时间反演路径对（电子顺时针+逆时针）的干涉 |
+| 输运区域 | 弹道或准弹道 | **扩散**（多次散射） |
+| 温度依赖 | 幂律衰减 | 指数衰减（更敏感） |
+| 应用 | 弹道干涉仪、拓扑态探测 | 弱（反）局域化修正的傅里叶分量 |
+
+在 Mahapatra 2022 中，畴壁输运处于准弹道区域（畴壁段 ~100 nm，$L_\phi$ 足够长），所以观测到的是 **$h/e$ 周期的 AB 振荡**而非 $h/2e$ 的 AAS 振荡——这本身就证明了畴壁中的弹道输运质量。
+
+### A.8 为什么 AB 效应在 QH 干涉测量中重要
+
+回到 Mahapatra 2022 的核心故事：QH 干涉仪用于探测非阿贝尔任意子的编织统计。AB 效应在这里扮演的角色是：
+
+1. **基本干涉机制**：QH 边缘态绕闭合回路的 AB 相位是干涉信号的物理来源
+2. **编织相位的载体**：当 FQH 准粒子被局域在干涉仪内部时，边缘态绕行获得的不仅是 AB 相位 $\Phi/\Phi_0$，还有编织统计相位 $\theta_{\text{braid}}$——干涉图案的**偏移**直接编码了编织统计
+3. **电荷的指纹**：AB 振荡周期 $\Delta B \propto 1/e^*$（有效电荷），改变周期 = 探测准粒子分数电荷
+
+这解释了为什么 Mahapatra 等人要在 mTBG 中寻找干净的 AB 干涉信号——它是通往非阿贝尔编织统计测量的**实验前提**。
+
+---
+
+### A.9 参考文献（AB 效应）
+
+- **Aharonov & Bohm, Phys. Rev. 115, 485 (1959)** — 原始理论论文
+- **Chambers, Phys. Rev. Lett. 5, 3 (1960)** — 首次实验验证
+- **Webb et al., Phys. Rev. Lett. 54, 2696 (1985)** — 金属环中 $h/e$ AB 振荡的经典实验
+- **Berry, Proc. R. Soc. Lond. A 392, 45 (1984)** — Berry 相位的统一理论框架
+- **Altshuler, Aronov & Spivak, JETP Lett. 33, 94 (1981)** — AAS 振荡理论
+- **Beenakker & van Houten, Solid State Phys. 44, 1 (1991)** — 固态 AB 效应的权威综述
