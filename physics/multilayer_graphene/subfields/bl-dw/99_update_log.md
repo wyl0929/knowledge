@@ -15,7 +15,43 @@
 
 # 99 Update Log / 更新日志 — Domain Wall 实验
 
-Last updated: 2026-07-15
+Last updated: 2026-07-16
+
+---
+
+## 2026-07-16: stacking-dw 子目录笔记按模板格式统一
+
+- **格式化文件**（5 篇）：
+  - `paper_review_li2012_prb.md` — 标题改为"论文精读"，新增 DOI/Zotero、§3 方法与模型、§6 亮点与局限、§7 与用户研究关联、§8 参考文献链
+  - `paper_review_jaskolski2016_nanoscale.md` — 同上，§2 重构为"背景与动机"2.1/2.2 子节
+  - `paper_review_jaskolski2020_prb.md` — 同上，原"核心问题"→§2、"对 TBPM 启示"→§7、"与 Yin 2017 关联"→§5
+  - `paper_review_jaskolski2024_arxiv.md` — 同上，原"NEEDS_VERIFICATION"并入 §7，"对 TBPM 启示"整合进 §7
+  - `paper_review_yin2017_prb.md` — 同上，原"方法局限"→§6、"关键参数速查"→§8、"对 TBPM 启示"→§7
+- **模板位置**: `/home/wyl/.agents/skills/research_onboarding_skill/templates/paper_review.md`
+- **统一变更**: 所有 5 篇笔记均补齐了标准化 8 节结构（§1 总结 → §2 背景 → §3 方法 → §4 结果 → §5 关联 → §6 优劣 → §7 用户 → §8 参考链/参数）
+
+## 2026-07-16: Ju 2015 笔记追加 TBPM 复现实验的物理映射附录
+
+- **更新文件**: `paper_review_ju2015_nature.md`
+- **新增**: 附录 C — tbplas Kubo-Bastin 复现 Ju 2015 Fig. 4b 的物理映射
+  - 三步提取流水线：① 减体背景 $\sigma_{xx}^{\text{DW}} = \sigma_{xx}^{\text{with}} - \sigma_{xx}^{\text{without}}$ → ② 2D→1D 换算 $G_{\text{DW}} = \sigma_{xx}^{\text{DW}} \cdot L_y/W_x$ → ③ 长度扫描 + Landauer-Büttiker 拟合提取 $L_0$
+  - 超胞设计约束（$W_x \gg 2x_0$、周期边界、KPM 参数 $M \leq 2560$）
+  - 完整 YAML 配置模板 + Python 提取伪代码
+  - 6 项自洽性检验清单（$W_x$ 缩放、$D$ 依赖、无序扫描、弹道极限、体绝缘、$L_0$ 对标）
+  - 适用范围注明：同样适用于 Li 2016、Mania 2019、Zhang 2024 的 1D DW 弹道输运对标
+- **定位**: 后续 DW 项目 TBPM 计算对标单 LSW 实验的操作参考
+
+---
+
+## 2026-07-16: Ju 2015 精读笔记基于 PDF 全文重写
+
+- **重写文件**: `paper_review_ju2015_nature.md`
+  - 来源：用户提供的 Nature 出版版 PDF（10 页），pdftotext 全文提取
+  - **重要纠正**：Ju 2015 **确实包含电学输运测量**——$R(D)$ 饱和于 ~14 kΩ、$L_0 = 420$ nm（Landauer-Büttiker）、200 nm 通道接近 $4e^2/h$。之前基于 registry 概要将 Ju 2015 归为"纯光学探针"不准确
+  - 新增详细参数：s-SNOM 对比度机制（DW ≈ 随机堆叠 → $2\sigma_{\text{monolayer}}$）、器件布局、5 对 DW/参考器件数据、双 DW 器件（$R \approx 8$ kΩ）、温度依赖（金属性 vs 绝缘性）
+  - 新增 Ju 2015 vs Li 2016 的本质对比：DW 锐度（~nm vs ~70 nm）比衬底质量对弹道输运更重要
+  - Zotero Key 更新为 `IV7DIBD2`
+- **更新文件**: `14_paper_registry.md` — P1 更新 Zotero Key 与精读状态
 
 ---
 

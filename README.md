@@ -30,6 +30,7 @@ knowledge/
 ├── Economics/                   ← 经济/社会科学领域
 │   └── macroeconomics/
 ├── political_science/           ← 政治学领域
+│   ├── fundamentals/            ← 政治学入门——基本概念与研究范式
 │   ├── us_two_party_politics/   ← 美国两党政治初探
 │   │   └── subfields/
 │   │       └── dsa_2026_wave/   ← DSA 2026 浪潮（子方向）
@@ -74,6 +75,7 @@ knowledge/
 |------|------|:---:|------|------|
 | mental_causation_closure | orientation | humanities_cultural | 2026-06 | ✅ 已填充 |
 | power_reductionism | orientation | humanities_cultural | 2026-06-19 | ✅ 已填充 |
+| reductionism（还原论） | orientation | humanities_cultural | 2026-07-17 | ✅ 已填充，含 subfields/power_reductionism_as_case/ |
 
 ### Economics/
 

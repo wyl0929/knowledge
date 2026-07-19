@@ -8,11 +8,24 @@
 -->
 # 99 Update Log / 更新日志
 
-Last updated: 2026-07-08
+Last updated: 2026-07-16
 
 ---
 
 ---
+
+## 2026-07-16: 新增子方向 — ABA/ABC 堆叠畴壁（Stacking Domain Wall）
+
+- **来源**：用户要求检索 ABA/ABC 堆叠畴壁实验和理论文献
+- **新增子方向**：`subfields/stacking-dw/`
+  - `01_literature_scan.md` — 合并文献扫描（1 实验 + 4 理论）
+- **更新文件**：
+  - `14_paper_registry.md` — 新增 §10「ABA/ABC 堆叠畴壁」(SD1–SD5)；阅读优先级新增第六步
+- **关键发现**：
+  - ★ Yin et al. (2017, Lin He 组) — **唯一实验**：STM 观测 ABA/ABC 堆叠孤子
+  - Jaskólski 系列 (2016–2024) — 三层/多层堆叠畴壁的 TB 理论
+  - **输运实验完全空白** → TBPM 的天然切入点
+- **NEEDS_VERIFICATION**：Jaskólski 2024 为预印本
 
 ## 2026-07-08 (late): Zotero 集成 — 文献与笔记桥接
 

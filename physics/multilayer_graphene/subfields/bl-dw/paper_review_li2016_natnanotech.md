@@ -2,7 +2,7 @@
  * @Author       : Yulong Wang
  * @Date         : 2026-07-15 17:29:28
  * @LastEditors  : Yulong Wang
- * @LastEditTime : 2026-07-15 17:29:29
+ * @LastEditTime : 2026-07-16 15:39:03
  * @FilePath     : /.agents/home/wyl/project/knowledge/physics/multilayer_graphene/subfields/domain-wall/paper_review_li2016_natnanotech.md
  * @Description  :
 -->
@@ -25,7 +25,7 @@
 >
 > **DOI**: [10.1038/nnano.2016.158](https://doi.org/10.1038/nnano.2016.158)
 > **arXiv**: [1509.03912](https://arxiv.org/abs/1509.03912)（39 页，含完整 Supplementary Information）
-> **Zotero Key**: `ZT_KEY_NEEDED`
+> **Zotero Key**: `6ZDG8PGT`
 
 > **来源声明**：本笔记基于 arXiv:1509.03912v2 全文（pdftotext 提取，39 页含 SI）。数据可靠。
 
@@ -35,7 +35,7 @@
 
 通过**双分裂栅**（dual-split-gate）在 hBN 封装的双层石墨烯中**静电定义了拓扑导电通道**（kink states），首次实现了栅控的谷极化一维弹道输运。在零场下通道平均自由程 $L_k \sim 70\text{--}200$ nm，垂直磁场 8 T 下 400 nm 长的结达到弹道极限 $G \approx 4e^2/h$。
 
-> ⚠️ **关键区分**：本文的畴壁是**静电栅控**的 $V=0$ 线（电场反转线），**不是**结构 AB/BA 堆叠边界（像 Ju 2015 和 Mania 2019 那样）。物理上两者都产生 kink 态，但工程实现路径不同。
+> ⚠️ **关键区分**：本文的畴壁是 **EFW（Electric Field Wall，电场壁）**——通过栅极施加反向位移场，在同一 AB 堆叠 BLG 中产生 $C_K(+D) \to C_K(-D)$ 的谷 Chern 数跳跃。**不是** LSW（Layer Stacking Wall，层堆叠壁，如 Ju 2015 和 Mania 2019 的结构 AB/BA 边界）。EFW 和 LSW 的相同点是 $|\Delta C_K| = 2$ 和 $4e^2/h$ 弹道极限；根本区别是 Chern 数跳跃的来源（电场翻转 vs 堆叠翻转）。
 
 ---
 
@@ -43,9 +43,9 @@
 
 ### 2.1 已有基础
 
-- Martin et al. (PRL 2008)：理论预言双层石墨烯中栅控电场反转线（$D_L D_R < 0$）处出现一维拓扑通道
-- Ju et al. (Nature 2015)：s-SNOM 看到天然 AB/BA 畴壁，但未测量电学输运
-- 问题：能否用**纯电学手段**（不用天然畴壁）定义和测量拓扑通道？
+- **Martin et al., PRL 100, 036804 (2008)**：理论提出 **EFW（Electric Field Wall）** 方案——在同一 AB 堆叠 BLG 两侧施加反向位移场，$D(x)$ 过零处谷 Chern 数跳跃 $|\Delta C_K| = 2$，束缚 kink 态。这是本文的直接理论原型
+- **Ju et al., Nature 520, 650 (2015)**：s-SNOM 看到天然 AB/BA 畴壁（LSW），并首次进行了电学输运测量
+- 问题：能否实现 Martin 2008 的 EFW 方案——用**纯电学栅控**（不依赖天然畴壁的随机位置）定义和开关拓扑通道？
 
 ### 2.2 技术挑战
 
@@ -77,14 +77,28 @@
 | 结长 $L$ | 1 μm | 400 nm |
 | 迁移率 $\mu$ | 100,000 cm²/Vs | 22,000 cm²/Vs |
 
-### 3.2 工作原理
+### 3.2 工作原理：EFW 的拓扑机制
 
-位移场 $D = (D_{\text{top}} - D_{\text{bottom}})/2$：
+本文实现的是 **EFW（Electric Field Wall）**：全片为同一 AB 堆叠 BLG，无结构畴壁。拓扑通道仅由栅控电场反转产生。
 
-- **奇配置**（$D_L D_R < 0$）：结两侧 $D$ 反向 → 能隙符号翻转 → **kink 态出现**
-- **偶配置**（$D_L D_R > 0$）：结两侧 $D$ 同向 → 无能隙翻转 → **结绝缘**
+位移场 $D = (D_{\text{top}} - D_{\text{bottom}})/2$，结左右两侧独立控制：
 
-每个谷支持 **4 个手征模式**（2 自旋 × 2 层），$K$ 和 $K'$ 谷的模式反向传播 → 弹道极限电导 $4e^2/h$。
+| 配置 | $D_L \cdot D_R$ | $C_K$ 行为 | 结状态 |
+|---|---|---|---|
+| **奇（EFW on）** | $< 0$（如 $+D_0$, $-D_0$） | $C_K(+D) - C_K(-D) = 2$ | **kink 态导电** |
+| **偶（EFW off）** | $> 0$（如 $+D_0$, $+D_0$） | $C_K$ 无跳跃 | **结绝缘** |
+
+EFW 的谷 Chern 数跳跃来源：
+
+$$|\Delta C_K^{\text{EFW}}| = |C_K(\text{AB}, +D) - C_K(\text{AB}, -D)| = |(+1) - (-1)| = 2$$
+
+对比 LSW（Ju 2015）：
+
+$$|\Delta C_K^{\text{LSW}}| = |C_K(\text{AB}, D) - C_K(\text{BA}, D)| = |(+1) - (-1)| = 2$$
+
+两者 $|\Delta C_K| = 2$ 相同 → 都产生每谷 2 个手征模式 → 弹道极限 $G = 4e^2/h$。
+
+每个谷支持 **4 个手征模式**（2 自旋 × 2 层），$K$ 和 $K'$ 谷的模式反向传播。
 
 ### 3.3 测量方案
 
@@ -138,13 +152,14 @@
 
 | 维度 | Ju 2015 | **Li 2016** | Mania 2019 |
 |---|---|---|---|
-| DW 类型 | 结构 AB/BA | **静电栅控** | 折叠结构 |
-| 电学测量 | 否（光学） | **是（首个！）** | 是 |
-| 零场弹道输运 | N/A | ❌（$L_k$ 短） | **✅（$L_k \sim 20$ μm）** |
-| 栅控开/关 | 否 | **✅（核心贡献）** | 否 |
-| 可扩展性 | 低 | **高（栅编程）** | 中 |
+| **DW 类型** | **LSW**（结构 AB/BA 边界） | **EFW**（电场壁，同堆叠反向 $D$） | **LSW**（折叠结构边界） |
+| $\Delta C_K$ 来源 | $C_K(\text{AB}) - C_K(\text{BA}) = 2$ | $C_K(+D) - C_K(-D) = 2$ | $C_K(\text{top}) - C_K(\text{bottom}) = 2$ |
+| 探针 | s-SNOM + 电学 | **纯电学（首个 EFW！）** | 电学 |
+| 零场弹道 $L_0$ | **420 nm** | ❌ 70–200 nm | **✅ ~20 μm** |
+| 栅控开/关 | 否 | **✅（EFW 核心优势）** | 否 |
+| 可扩展性 | 低（畴壁随机） | **高（栅编程）** | 低（折叠随机） |
 
-Li 2016 的独特贡献在于证明了**栅压可以编程控制拓扑通道**——这是 valleytronics 的关键一步。
+Li 2016 的独特贡献：**首次实验实现 Martin 2008 的 EFW 方案**——证明了栅压可以编程控制拓扑通道的开/关，这是 valleytronics 的关键一步。但其 EFW 的弱点是结宽 $w \sim 100$ nm 引入非手征束缚态 → 零场 $L_k$ 远短于 LSW 路线。
 
 ### 5.2 与 Zhang 2024 的理论关联
 
@@ -189,7 +204,8 @@ Li 2016 的 Green 函数计算（Anderson 无序 + Landauer-Büttiker）与 Zhan
 
 | 参数 | 值 | 来源 |
 |---|---|---|
-| DW 类型 | **静电栅控** $V=0$ 线 | 已确认 |
+| DW 类型 | **EFW（电场壁）**——全片 AB 堆叠，栅控 $D(x)$ 反转，$C_K(+D)-C_K(-D)=2$ | 已确认 |
+| 理论原型 | **Martin et al., PRL 100, 036804 (2008)** | 正文 |
 | 结宽 $w$ | 70 nm (D1), 110 nm (D2) | 正文 |
 | 结长 $L$ | 1 μm (D1), 400 nm (D2) | 正文 |
 | 迁移率 | 10⁵ (D1), 2.2×10⁴ (D2) cm²/Vs | 正文 |

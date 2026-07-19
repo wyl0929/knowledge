@@ -31,8 +31,8 @@ Last updated: 2026-07-07
 | **DOI** | [10.1038/nature14364](https://doi.org/10.1038/nature14364) |
 | **arXiv** | 未公开（Nature 论文，发表前无 arXiv 版本） |
 | **类型** | 实验 — 近场红外纳米成像 (s-SNOM) + 输运 |
-| **Zotero Key** | `ZT_KEY_NEEDED` |
-| **精读** | 📄 [精读报告](paper_review_ju2015_nature.md) |
+| **Zotero Key** | `IV7DIBD2` |
+| **精读** | 📄 [精读报告](paper_review_ju2015_nature.md)（2026-07-16 基于 PDF 全文重写） |
 
 ### 核心贡献
 

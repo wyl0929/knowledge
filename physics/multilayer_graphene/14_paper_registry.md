@@ -130,7 +130,21 @@ Last updated: 2026-06-11
 
 ---
 
-## 10. 阅读优先级建议
+## 10. ABA/ABC 堆叠畴壁（Stacking Soliton / Stacking Domain Wall）
+
+> 三层石墨烯中 ABA（Bernal）和 ABC（Rhombohedral）堆叠区域之间的边界。与 TBG 的 AB/BA 畴壁不同，此处的拓扑源于**手征性差异**（$l=1,2$ vs $l=3$）而非转角。实验极少，是待开垦的计算方向。→ 📄 [文献扫描](subfields/stacking-dw/01_literature_scan.md)
+
+| # | 文献 | 类型 | 贡献 | 与用户关联 |
+|---|---|---|---|---|
+| [SD1] | **★ Yin et al. (Lin He 组), PRB 95, 081402(R) (2017)** | STM 实验 | **唯一实验**：高场 STM/STS 直接观测 ABA/ABC 堆叠孤子（~10 nm 宽），LL 谱学证实手征性从 $l=1,2$ → $l=3$ 的平滑过渡 → 📄 [精读笔记](subfields/stacking-dw/paper_review_yin2017_prb.md) | ⭐⭐⭐⭐⭐ 唯一实验基准 |
+| [SD2] | Li, Qiao, Jung & Niu, PRB 85, 201404(R) (2012) | 连续+TB 理论 | ABC 三层边缘的非平衡边缘模 → 天然谷电流极化器；Rashba SOC → $Z_2$ 拓扑绝缘体 → 📄 [精读笔记](subfields/stacking-dw/paper_review_li2012_prb.md) | ⭐⭐⭐⭐ 畴壁拓扑态的理论先驱 |
+| [SD3] | Jaskólski et al., Nanoscale 8, 6079 (2016) | TB 理论 | 双层 AB/BA 晶界（含 8-5-5 缺陷）的拓扑态——证明拓扑保护对原子缺陷稳健，栅压反转下不对称电导 → 📄 [精读笔记](subfields/stacking-dw/paper_review_jaskolski2016_nanoscale.md) | ⭐⭐⭐ 三层畴壁工作的前驱 |
+| [SD4] | Jaskólski & Sarbicki, PRB 102, 035424 (2020) | TB 理论 | 门控三层 ABC→CBA 畴壁：每谷 3 条无能隙拓扑保护态；栅压调控下出现拓扑共振态 → 📄 [精读笔记](subfields/stacking-dw/paper_review_jaskolski2020_prb.md) | ⭐⭐⭐⭐⭐ 三层畴壁的 TB 模型基准 |
+| [SD5] | Jaskólski, arXiv:2403.11143 (2024) | TB 理论 | 多层堆叠畴壁的金属-半导体栅压转变；$K$ 和 $K'$ 谷态重叠 → 谷间相互作用 → 平带出现 → 📄 [精读笔记](subfields/stacking-dw/paper_review_jaskolski2024_arxiv.md) | ⭐⭐⭐⭐ 最新理论（预印本） |
+
+---
+
+## 11. 阅读优先级建议
 
 ### 第一步（必读，建立基准）
 1. [F1] Bistritzer & MacDonald (2011) — 理解魔角来自哪里
@@ -151,7 +165,11 @@ Last updated: 2026-06-11
 10. [R2] Balents et al. (2021) — 拓宽视野到整个摩尔量子材料
 
 ### 第五步（畴壁与一维通道）
-11. [DW7] **Hou, Yuan & Jiang (2024)** — 理解 mTBG 畴壁的 TZM 输运 + NQCP 实验预言（用户 TB 代码可直接复现）
+11. [DW7] **Hou, Yuan & Jiang (2024)** — 理解 mTBG 畴壁的 TZM 输运 + NQCP 实验预言
 12. [DW3] Rickhaus et al. (2018) — mTBG 畴壁输运实验的经典基准
+
+### 第六步（ABA/ABC 堆叠畴壁 — 新方向）
+13. [SD1] **Yin et al. (2017)** — ABA/ABC 堆叠孤子的唯一 STM 实验——理解畴壁处的准粒子手征性过渡
+14. [SD4] **Jaskólski & Sarbicki (2020)** — 三层畴壁拓扑态的 TB 理论基础——用户的 TBPM 可直接复现
 
 > **声明**：以上文献信息基于截至 2026-07 的已知出版物。具体卷期页码可能有误，请以数据库为准。标记 `NEEDS_VERIFICATION` 的条目尤其需要核实。
