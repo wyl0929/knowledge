@@ -137,6 +137,8 @@ Last updated: 2026-06-11
 | # | 文献 | 类型 | 贡献 | 与用户关联 |
 |---|---|---|---|---|
 | [SD1] | **★ Yin et al. (Lin He 组), PRB 95, 081402(R) (2017)** | STM 实验 | **唯一实验**：高场 STM/STS 直接观测 ABA/ABC 堆叠孤子（~10 nm 宽），LL 谱学证实手征性从 $l=1,2$ → $l=3$ 的平滑过渡 → 📄 [精读笔记](subfields/stacking-dw/paper_review_yin2017_prb.md) | ⭐⭐⭐⭐⭐ 唯一实验基准 |
+| [SD1a] | **★ Zhang et al. (Lin He 组), PRB 98, 045413 (2018)** | STM 实验 | ABA TLG 高分辨 STS：massless($l=1$) + massive($l=2$) 两套 LL，LL 交叉，有效质量重整化，**最低 LL 非常规分裂** → 多体 QH 态 → 📄 [精读笔记](subfields/aba-tlg/paper_review_zhang2018_prb.md) | ⭐⭐⭐⭐⭐ ABA LL 基准 |
+| [SD1b] | **★ Yin et al. (Lin He 组), PRL 122, 146802 (2019)** | STM 实验 | ABC TLG 高场 STS（~14 T）：$\Delta_V \propto B$ + 随 $N$ 急剧衰减，$\Delta_{\text{orb}}$ 交换增强，$\Gamma \propto |E|$ → 强关联费米液体 → 📄 [精读笔记](subfields/abc-tlg/paper_review_yin2019_prl.md) | ⭐⭐⭐⭐⭐ ABC LL 基准 |
 | [SD2] | Li, Qiao, Jung & Niu, PRB 85, 201404(R) (2012) | 连续+TB 理论 | ABC 三层边缘的非平衡边缘模 → 天然谷电流极化器；Rashba SOC → $Z_2$ 拓扑绝缘体 → 📄 [精读笔记](subfields/stacking-dw/paper_review_li2012_prb.md) | ⭐⭐⭐⭐ 畴壁拓扑态的理论先驱 |
 | [SD3] | Jaskólski et al., Nanoscale 8, 6079 (2016) | TB 理论 | 双层 AB/BA 晶界（含 8-5-5 缺陷）的拓扑态——证明拓扑保护对原子缺陷稳健，栅压反转下不对称电导 → 📄 [精读笔记](subfields/stacking-dw/paper_review_jaskolski2016_nanoscale.md) | ⭐⭐⭐ 三层畴壁工作的前驱 |
 | [SD4] | Jaskólski & Sarbicki, PRB 102, 035424 (2020) | TB 理论 | 门控三层 ABC→CBA 畴壁：每谷 3 条无能隙拓扑保护态；栅压调控下出现拓扑共振态 → 📄 [精读笔记](subfields/stacking-dw/paper_review_jaskolski2020_prb.md) | ⭐⭐⭐⭐⭐ 三层畴壁的 TB 模型基准 |
