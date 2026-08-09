@@ -16,6 +16,7 @@ Last updated: 2026-06-19
 |---|---|---|---|
 | 2026-06-19 | 初始化 field pack | 全部 | 按 `quick_scan` 模式创建宏观经济学 field pack。用户背景：已有微观经济学基础，计算物理研究者。Domain archetype: `social_science`。 |
 | 2026-06-20 | 更新索引 | `../README.md`, `../../README.md` | 在根索引和 knowledge 总目录中注册 Economics/macroeconomics field pack。 |
+| 2026-07-27 | 新增 case study | `case_studies/a_shares.md` | 按用户需求创建中国 A 股市场案例研究，涵盖运行机制、庄家股叙事、价值投资争论、各方评价与宏观经济学关联。 |
 
 ## 快速状态
 
