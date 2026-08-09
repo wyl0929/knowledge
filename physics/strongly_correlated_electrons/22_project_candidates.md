@@ -3,7 +3,7 @@
  * @Date         : 2026-06-14 22:09:17
  * @LastEditors  : Yulong Wang
  * @LastEditTime : 2026-06-14 22:09:20
- * @FilePath     : /project/knowledge/physics/强关联效应/22_project_candidates.md
+ * @FilePath     : /project/knowledge/physics/strongly_correlated_electrons/22_project_candidates.md
  * @Description  :
 -->
 <!--

@@ -3,7 +3,7 @@
  * @Date         : 2026-06-14 22:07:27
  * @LastEditors  : Yulong Wang
  * @LastEditTime : 2026-06-14 22:07:27
- * @FilePath     : /project/knowledge/physics/强关联效应/13_actor_map.md
+ * @FilePath     : /project/knowledge/physics/strongly_correlated_electrons/13_actor_map.md
  * @Description  :
 -->
 <!--

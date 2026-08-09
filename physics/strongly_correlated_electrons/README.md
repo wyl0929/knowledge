@@ -3,7 +3,7 @@
  * @Date         : 2026-06-14 22:27:35
  * @LastEditors  : Yulong Wang
  * @LastEditTime : 2026-06-14 22:27:36
- * @FilePath     : /project/knowledge/physics/强关联效应/README.md
+ * @FilePath     : /project/knowledge/physics/strongly_correlated_electrons/README.md
  * @Description  :
 -->
 <!--
@@ -22,7 +22,7 @@ Mode: quick_scan | Domain: science_technical
 ## 目录结构
 
 ```
-强关联效应/
+strongly_correlated_electrons/
 ├── README.md                      ← 本文件
 ├── USER_BRIEF.md                  ← 用户需求记录
 ├── 00_beginner_guide.md           ← 🌱 入门指南（从这里开始）

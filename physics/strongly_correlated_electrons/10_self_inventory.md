@@ -3,7 +3,7 @@
  * @Date         : 2026-06-14 22:03:29
  * @LastEditors  : Yulong Wang
  * @LastEditTime : 2026-06-14 22:03:30
- * @FilePath     : /project/knowledge/physics/强关联效应/10_self_inventory.md
+ * @FilePath     : /project/knowledge/physics/strongly_correlated_electrons/10_self_inventory.md
  * @Description  :
 -->
 <!--

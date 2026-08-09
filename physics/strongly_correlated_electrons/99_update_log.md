@@ -3,7 +3,7 @@
  * @Date         : 2026-06-14 22:27:34
  * @LastEditors  : Yulong Wang
  * @LastEditTime : 2026-06-14 22:27:34
- * @FilePath     : /project/knowledge/physics/强关联效应/99_update_log.md
+ * @FilePath     : /project/knowledge/physics/strongly_correlated_electrons/99_update_log.md
  * @Description  :
 -->
 <!--
@@ -15,7 +15,11 @@ Created date: 2026-06-14
 
 # 99 更新日志 / Update Log
 
-Last updated: 2026-06-14
+Last updated: 2026-07-24
+
+## 2026-07-24：QA-001 追加
+
+- `90_QA.md` 新增 QA-001：「tbplas 处理电子相互作用的路径」——基于单电子态的 tbplas 是否只能通过自洽计算处理强关联/多体相互作用。梳理了五条路径（HF/DFT+U, 隶粒子平均场, DMFT, GW/RPA, ED/DMRG/QMC）的适配度、适用范围和关键判断。指向 Project P1 和 Gap 3/7。
 
 ## 2026-06-14：首次生成 (quick_scan)
 

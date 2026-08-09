@@ -3,7 +3,7 @@
  * @Date         : 2026-06-14 22:11:54
  * @LastEditors  : Yulong Wang
  * @LastEditTime : 2026-06-14 22:11:54
- * @FilePath     : /project/knowledge/physics/强关联效应/02_frontier_compass.md
+ * @FilePath     : /project/knowledge/physics/strongly_correlated_electrons/02_frontier_compass.md
  * @Description  :
 -->
 <!--

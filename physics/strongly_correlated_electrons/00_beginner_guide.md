@@ -3,7 +3,7 @@
  * @Date         : 2026-06-14 22:11:56
  * @LastEditors  : Yulong Wang
  * @LastEditTime : 2026-06-14 22:11:59
- * @FilePath     : /project/knowledge/physics/强关联效应/00_beginner_guide.md
+ * @FilePath     : /project/knowledge/physics/strongly_correlated_electrons/00_beginner_guide.md
  * @Description  :
 -->
 <!--

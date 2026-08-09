@@ -3,7 +3,7 @@
  * @Date         : 2026-06-14 22:05:13
  * @LastEditors  : Yulong Wang
  * @LastEditTime : 2026-06-14 22:05:14
- * @FilePath     : /project/knowledge/physics/强关联效应/12_field_map.md
+ * @FilePath     : /project/knowledge/physics/strongly_correlated_electrons/12_field_map.md
  * @Description  :
 -->
 <!--

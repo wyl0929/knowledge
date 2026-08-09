@@ -3,7 +3,7 @@
  * @Date         : 2026-06-14 22:08:21
  * @LastEditors  : Yulong Wang
  * @LastEditTime : 2026-06-14 22:08:24
- * @FilePath     : /project/knowledge/physics/强关联效应/20_gap_table.md
+ * @FilePath     : /project/knowledge/physics/strongly_correlated_electrons/20_gap_table.md
  * @Description  :
 -->
 <!--

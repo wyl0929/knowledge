@@ -3,7 +3,7 @@
  * @Date         : 2026-06-14 22:07:29
  * @LastEditors  : Yulong Wang
  * @LastEditTime : 2026-06-14 22:07:30
- * @FilePath     : /project/knowledge/physics/强关联效应/17_claims_evidence_ledger.md
+ * @FilePath     : /project/knowledge/physics/strongly_correlated_electrons/17_claims_evidence_ledger.md
  * @Description  :
 -->
 <!--
