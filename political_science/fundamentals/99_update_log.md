@@ -39,3 +39,5 @@ Last updated: 2026-07-19
 | 2026-07-19 | 17_claims_evidence_ledger.md | create | 初始化论断-证据台账 |
 | 2026-07-19 | 90_QA.md | create | 初始化问答缓冲区 |
 | 2026-07-19 | 99_update_log.md | create | 初始化更新日志 |
+| 2026-07-27 | 02_frontier_compass.md | edit | §3.1 添加案例笔记：链接 90_QA#Q001 民主指标定义与测量 |
+| 2026-07-27 | 90_QA.md | edit | Q001：详解三大民主测量体系（Polity5/Freedom House/V-Dem）的定义、测量方法、优缺点和关键方法论争论 |
