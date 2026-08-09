@@ -21,8 +21,8 @@
 > **关联案例**:
 >   - `91_case_study_hall_conductance_baseline.md` — Hall 电导基线偏移 (Level 1 症状 → Level 1 根因，但被误诊为 Level 3)
 >   - `92_case_study_sigmaxx_parameter_optimization.md` — σ_xx 五维参数扫描 (Level 2 响应，实验设计缺陷)
-> **核心协议**: `/home/wyl/.agents/skills/debug-workflow/SKILL.md` (v1.0 → v2.0 修订)
-> **相关文档**: `MG/docs/blue_print.md`, `MG/docs/Phase3X_sigmaxx/plan.md`, `MG/docs/Phase_pre/plan.md`
+**核心协议**: `debug-workflow/SKILL.md` (v3.0 战术诊断) + `create-blueprint/SKILL.md` (偏差升级协议与诊断Phase管理) + `create-plan/SKILL.md` (诊断切换模板)
+**相关文档**: `MG/docs/blue_print.md`, `MG/docs/phase_D03_sigmaxx/plan.md`, `MG/docs/phase_I02_param_refactor/plan.md`
 
 ---
 
@@ -287,7 +287,7 @@ V 类确认 → 修订 blueprint 战略目标 → 修订受影响的 plan
 | **失效模式** | 层级误判 (I→III) | 实验设计缺陷 | **层级分配缺乏协议** |
 | **系统科学概念** | 可辨识性、默认假设 | 维度诅咒、因子筛选 | **可观测性、递阶控制、反馈增益** |
 | **改进方案** | 默认参数入假说矩阵 | 序贯替代全网格 | **跨层级排除 + 偏差升级协议** |
-| **实施的协议变更** | debug-workflow v1.0 | — | **debug-workflow v2.0** |
+| **实施的协议变更** | debug-workflow v1.0 | — | **debug-workflow v3.0 + create-blueprint 偏差升级协议 + create-plan 诊断切换** |
 
 三个案例构成递进的系统科学分析链：
 - 案例 #1: 「单个诊断事件中出了什么问题」
@@ -351,9 +351,9 @@ D4 [如果 D2/D3 未修复]: B=100T, rescale=20, m=256
 
 ## 8. 后续工作
 
-- [ ] 将偏差升级协议 (I–V 类) 和跨层级排除模板写入 `MG/docs/blue_print.md` 的应急分支节
-- [ ] 为 MG 项目建立故障频率统计（`MG/docs/log.md` 中按 I–V 类标签历史故障），持续更新初始先验
-- [ ] 在 `create-plan` skill 中增加"继承上游已知限制"的检查步骤
+- [ ] 将偏差升级协议 (I–V 类) 写入 `create-blueprint` SKILL（✅ 已完成, 2026-07-23）
+- [ ] 将诊断切换模板写入 `create-plan` SKILL（✅ 已完成, 2026-07-23）
+- [ ] 将 debug-workflow 纯化为 v3.0 战术诊断协议（✅ 已完成, 2026-07-23）
 - [ ] 考虑在 YAML 模板中嵌入参数安全范围的前馈校验（如 `rescale` 自动 ≥ 带宽 + 磁致展宽）
 
 ---
@@ -363,7 +363,9 @@ D4 [如果 D2/D3 未修复]: B=100T, rescale=20, m=256
 - Wiener, N. (1948). *Cybernetics: Or Control and Communication in the Animal and the Machine*. — 控制论奠基文献，反馈和稳态概念
 - Ashby, W. R. (1956). *An Introduction to Cybernetics*. — 必要多样性定律 (Law of Requisite Variety)：控制器必须具有足够多样性来应对扰动
 - MG 项目: `docs/blue_print.md` (v2026-07-17) — 研究路线图
-- MG 项目: `docs/Phase3X_sigmaxx/plan.md` (v2026-07-18) — σ_xx 诊断详细方案
-- debug-workflow skill: `SKILL.md` (v2.0, 2026-07-19) — 系统化诊断协议
+- MG 项目: `docs/phase_D03_sigmaxx/plan.md` (v2026-07-22) — σ_xx 诊断详细方案
+- debug-workflow skill: `SKILL.md` (v3.0, 2026-07-23) — 战术诊断协议
+- create-blueprint skill: `SKILL.md` — 偏差升级协议与诊断Phase管理
+- create-plan skill: `SKILL.md` — 诊断切换模板
 - 案例 #1: `91_case_study_hall_conductance_baseline.md` — Hall 电导基线偏移
 - 案例 #2: `92_case_study_sigmaxx_parameter_optimization.md` — σ_xx 参数扫描
