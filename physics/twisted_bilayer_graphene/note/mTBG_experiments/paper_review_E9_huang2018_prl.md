@@ -143,3 +143,10 @@
 ---
 
 *精读完成日期：2026-08-06 | 基于 pdftotext 全文提取 + AI 精读分析*
+
+---
+
+## Phase S 补充 (2026-08-11): Q1
+
+### Q1: edge state 实验上如何表征?
+低温 STM/STS 直接成像 mTBG 畴壁网络。核心可观测量：LDOS 空间图——畴壁上的强能隙内 LDOS 增强，呈特征双线 (double-line) 图案。关键对照：LDOS 增强仅在垂直电场打开 AB/BA 能隙时出现。通过畴壁处 gap 内态 vs AB/BA 区域 gapped 谱区分边缘 vs 体。首次直接观测 mTBG 中 TPH 态。

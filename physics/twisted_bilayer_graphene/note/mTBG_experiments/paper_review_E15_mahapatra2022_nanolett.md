@@ -175,3 +175,10 @@ $$S_{Mott} = \frac{\pi^2 k_B^2 T}{3|e|} \cdot \frac{1}{R_{xx}} \cdot \frac{dR_{x
 ---
 
 *精读完成日期：2026-08-06 | 基于 pdftotext 全文提取 + AI 精读分析*
+
+---
+
+## Phase S 补充 (2026-08-11): Q1
+
+### Q1: edge state 实验上如何表征?
+QH 干涉仪测量 mTBG 三角畴区中 AB 干涉。通过 QH 边缘态沿畴壁传播的干涉图案表征拓扑通道的相干长度和网络连通性。详见 domain-wall/paper_review_mahapatra2022_nanolett.md 精读报告。

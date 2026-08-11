@@ -81,3 +81,13 @@ $$E^2 = \frac{V^2}{4} + \frac{c^4 p^4}{t_\perp^2}$$
 ## 6. 关键引用链
 - 被 Li/Morpurgo/Büttiker/Martin 2010 (T2) 直接继承和发展
 - 被 Zhang/MacDonald/Mele 2013 (T6) 置于更广阔的谷陈数框架中
+
+---
+
+## Phase S 补充 (2026-08-11): Q2/Q3
+
+### Q2: 理论如何解释 edge state?
+通过静电栅压产生符号反转的层间偏置（voltage kink），使 BLG 体能隙在畴壁处闭合-重开，束缚手征 1D 零模（每谷一对）。两谷反向传播形成螺旋态。拓扑不变量为 $\mathbb{Z}_2$，畴壁两侧 valley Chern number 差 $\Delta C_v = 2$。
+
+### Q3: 理论如何与实验结合?
+预言 clean 系统中栅压畴壁弹道电导约 $4e^2/h$。后续 Ju 2015 Nature、Li 2016 Nat. Nanotech. 证实偏压畴壁导电通道和谷极化输运。核心预言——栅压可开关畴壁通道——被实验广泛验证。
