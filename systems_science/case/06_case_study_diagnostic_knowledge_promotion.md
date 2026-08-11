@@ -3,13 +3,13 @@
  * @Date         : 2026-07-23 10:35:32
  * @LastEditors  : Yulong Wang
  * @LastEditTime : 2026-07-23 10:35:35
- * @FilePath     : /.agents/home/wyl/project/knowledge/systems_science/96_case_study_diagnostic_knowledge_promotion.md
+ * @FilePath     : /.agents/home/wyl/project/knowledge/systems_science/case/06_case_study_diagnostic_knowledge_promotion.md
  * @Description  :
 -->
 <!--
  * @Author       : Yulong Wang
  * @Date         : 2026-07-23
- * @FilePath     : /knowledge/systems_science/96_case_study_diagnostic_knowledge_promotion.md
+ * @FilePath     : /knowledge/systems_science/case/06_case_study_diagnostic_knowledge_promotion.md
  * @Description  : 案例研究 — 诊断信息的增益控制：事实、推论与独立来源
 -->
 
@@ -19,10 +19,10 @@
 > **时间跨度**: 2026-07-21 ~ 2026-07-23
 > **相关项目**: `/home/wyl/project/MG/` (multilayer graphene QHE)
 > **关联案例**:
->   - `91_case_study_hall_conductance_baseline.md` — Hall 基线偏移（推论错误晋升 L2 的典型案例：VBL 浮点随机游走推论被 Nyquist 混叠事实推翻）
->   - `94_case_study_tianshui_lead_response.md` — 天水血铅（名义独立 vs 功能独立的政治系统类比：市疾控与市二院共享行政压力 → 假一致 → 真独立来源（西安医院）打破假象）
->   - `93_case_study_problem_response_workflow.md` — 偏差升级协议（本案例解决的是该协议中 III 类诊断结论的「上传增益」问题）
->   - `95_case_study_session_handoff.md` — 会话交接（本案例回答的是交接条中「该传什么、不该传什么」的内容粒度问题）
+>   - `01_case_study_hall_conductance_baseline.md` — Hall 基线偏移（推论错误晋升 L2 的典型案例：VBL 浮点随机游走推论被 Nyquist 混叠事实推翻）
+>   - `04_case_study_tianshui_lead_response.md` — 天水血铅（名义独立 vs 功能独立的政治系统类比：市疾控与市二院共享行政压力 → 假一致 → 真独立来源（西安医院）打破假象）
+>   - `03_case_study_problem_response_workflow.md` — 偏差升级协议（本案例解决的是该协议中 III 类诊断结论的「上传增益」问题）
+>   - `05_case_study_session_handoff.md` — 会话交接（本案例回答的是交接条中「该传什么、不该传什么」的内容粒度问题）
 > **核心协议**: `debug-workflow/SKILL.md` Phase 4B 晋升机制
 > **关键数据**: D.1d (三方法一致性假象), D.1g (Haydock 独立验证), VBL Phase A–M (错误推论晋升)
 
@@ -252,7 +252,7 @@ $$\text{输出} = G_{\text{fact}} \cdot \text{事实} + G_{\text{interp}} \cdot 
 - Shannon, C. E. (1948). A Mathematical Theory of Communication. — 信息论基础：信号与噪声的区分、信道容量
 - MG 项目: `phase_R04_tri_qhe_ldos/tasks.md` D.1d, D.1g — 三方法假一致 vs 独立验证
 - MG 项目: `phase_D03_sigmaxx/plan.md` — VBL Phase A–M：推论错误晋升的典型案例
-- 案例 #1: `91_case_study_hall_conductance_baseline.md` — 传感器不撒谎，观测器会
-- 案例 #4: `94_case_study_tianshui_lead_response.md` — 名义独立 vs 功能独立的社会系统再现
-- 案例 #5: `95_case_study_session_handoff.md` — 交接条的会话同步协议（本案例回答交接内容的粒度问题）
+- 案例 #1: `01_case_study_hall_conductance_baseline.md` — 传感器不撒谎，观测器会
+- 案例 #4: `04_case_study_tianshui_lead_response.md` — 名义独立 vs 功能独立的社会系统再现
+- 案例 #5: `05_case_study_session_handoff.md` — 交接条的会话同步协议（本案例回答交接内容的粒度问题）
 - debug-workflow: `SKILL.md` Phase 4B 晋升机制 — 本案例是对该节中「每层晋升前检查」的增益控制补全

@@ -3,13 +3,13 @@
  * @Date         : 2026-07-19 19:10:39
  * @LastEditors  : Yulong Wang
  * @LastEditTime : 2026-07-19 19:10:40
- * @FilePath     : /.agents/home/wyl/project/knowledge/systems_science/94_case_study_tianshui_lead_response.md
+ * @FilePath     : /.agents/home/wyl/project/knowledge/systems_science/case/04_case_study_tianshui_lead_response.md
  * @Description  :
 -->
 <!--
  * @Author       : Yulong Wang
  * @Date         : 2026-07-19
- * @FilePath     : /knowledge/systems_science/94_case_study_tianshui_lead_response.md
+ * @FilePath     : /knowledge/systems_science/case/04_case_study_tianshui_lead_response.md
  * @Description  : 案例研究 — 天水幼儿园血铅事件中的层级误判与过度响应
 -->
 
@@ -19,8 +19,8 @@
 > **事件时间**: 2025-07-01 ~ 2025-07-20
 > **地理位置**: 甘肃省天水市麦积区
 > **关联案例**:
->   - `93_case_study_problem_response_workflow.md` — 研究工作流中的偏差层级归因（本案例的现实世界镜像）
->   - `91_case_study_hall_conductance_baseline.md` — Hall 电导基线偏移（同样的小症状→大误判模式）
+>   - `03_case_study_problem_response_workflow.md` — 研究工作流中的偏差层级归因（本案例的现实世界镜像）
+>   - `01_case_study_hall_conductance_baseline.md` — Hall 电导基线偏移（同样的小症状→大误判模式）
 > **权威信源**:
 >   - 甘肃省委省政府调查组通报 (新华网, 2025-07-20)
 >   - 上游新闻实地报道 (2025-07-07)
@@ -260,5 +260,5 @@ Phase 4: 外部突破 (External Breach)
 - 央视新闻. (2025-07-03). 天水一幼儿园违规使用添加剂致部分幼儿血铅异常.
 - Wiener, N. (1948). *Cybernetics: Or Control and Communication in the Animal and the Machine*.
 - Ashby, W. R. (1956). *An Introduction to Cybernetics*. — 必要多样性定律
-- MG 项目: `93_case_study_problem_response_workflow.md` — 偏差升级协议与跨层级排除
+- MG 项目: `03_case_study_problem_response_workflow.md` — 偏差升级协议与跨层级排除
 - MG 项目: `debug-workflow/SKILL.md` (v2.0, 2026-07-19) — 系统化诊断协议

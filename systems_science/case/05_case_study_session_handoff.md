@@ -3,13 +3,13 @@
  * @Date         : 2026-07-21 20:24:02
  * @LastEditors  : Yulong Wang
  * @LastEditTime : 2026-07-21 20:24:04
- * @FilePath     : /.agents/home/wyl/project/knowledge/systems_science/95_case_study_session_handoff.md
+ * @FilePath     : /.agents/home/wyl/project/knowledge/systems_science/case/05_case_study_session_handoff.md
  * @Description  :
 -->
 <!--
  * @Author       : Yulong Wang
  * @Date         : 2026-07-21
- * @FilePath     : /knowledge/systems_science/95_case_study_session_handoff.md
+ * @FilePath     : /knowledge/systems_science/case/05_case_study_session_handoff.md
  * @Description  : 案例研究 — 多会话并发编辑的共享资源竞争与状态同步协议设计
 -->
 
@@ -19,8 +19,8 @@
 > **时间跨度**: 2026-07-19 ~ 2026-07-21
 > **相关项目**: `/home/wyl/project/MG/` (multilayer graphene QHE)
 > **关联案例**:
->   - `93_case_study_problem_response_workflow.md` — 偏差升级协议（本案例解决的正是该协议中「Planning 会话如何获知 Execution 会话的发现」的信息传递问题）
->   - `94_case_study_tianshui_lead_response.md` — 天水血铅（同样的层级误判 → 过度响应模式在文件系统中的再现：Execution 会话对 plan.md 做了超出其权限的结构性编辑）
+>   - `03_case_study_problem_response_workflow.md` — 偏差升级协议（本案例解决的正是该协议中「Planning 会话如何获知 Execution 会话的发现」的信息传递问题）
+>   - `04_case_study_tianshui_lead_response.md` — 天水血铅（同样的层级误判 → 过度响应模式在文件系统中的再现：Execution 会话对 plan.md 做了超出其权限的结构性编辑）
 > **核心协议**: `/memories/session-handoff.md`（会话交接协议）, `MG/STATUS.md`（交接条存放位置）
 > **涉及 SKILL**: `create-blueprint`, `create-plan`, `run-task`, `debug-workflow`
 
@@ -270,5 +270,5 @@ v4 是帕累托最优：它在三个维度上都不差于其他版本，且在�
 - Kung, H. T., & Robinson, J. T. (1981). On Optimistic Methods for Concurrency Control. — 乐观并发控制
 - MG 项目: `STATUS.md` — 项目状态看板（交接条存放位置）
 - 会话交接协议: `/memories/session-handoff.md` — 多会话编辑纪律
-- 案例 #3: `93_case_study_problem_response_workflow.md` — 偏差升级协议
-- 案例 #4: `94_case_study_tianshui_lead_response.md` — 层级误判与应激响应（本案例中 Execution 过度编辑 plan 是同一结构的社会系统再现）
+- 案例 #3: `03_case_study_problem_response_workflow.md` — 偏差升级协议
+- 案例 #4: `04_case_study_tianshui_lead_response.md` — 层级误判与应激响应（本案例中 Execution 过度编辑 plan 是同一结构的社会系统再现）

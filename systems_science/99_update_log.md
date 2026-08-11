@@ -15,7 +15,65 @@ Created date: 2026-06-21
 
 # 99 Update Log / 更新日志
 
-Last updated: 2026-08-09
+Last updated: 2026-08-11
+
+---
+
+## 2026-08-11: 目录结构整理 — case/ 文件夹迁移
+
+### 变更
+
+| 文件 | 操作 | 说明 |
+|------|------|------|
+| `case/01_case_study_*.md` ~ `case/08_case_study_*.md` | 📦 移动 | 8 个 case study 文件从根目录移入 `case/` 子文件夹 |
+| `case/hall_baseline/` | 📦 移动 | 原 `case_hall_baseline/` 移入 `case/` |
+| 各 case 文件 `@FilePath` | ✏️ 修订 | 路径更新为 `/knowledge/systems_science/case/` |
+| `99_update_log.md` | ✏️ 修订 | 全文 case 文件引用更新为 `case/` 前缀 |
+
+### 理由
+
+- 91–98 已积累 8 个 case，根目录拥挤
+- case 命名模式 `case_study_*.md` 自成类别，适合独立目录管理
+- 未来 case 将持续增加，越晚迁移成本越高
+- 与已有 `case_hall_baseline/` 子文件夹形成统一组织结构
+
+---
+
+## 2026-08-11: 案例 #98 — 文献调研作为系统辨识
+
+- **新建文件**: `case/08_case_study_literature_survey_system_identification.md`
+- **来源**: Phase S (TBG Edge State 文献调研, 2026-07-16 ~ 2026-08-11) 的完整过程分析
+- **核心贡献**:
+  - 将文献调研建模为控制论中的系统辨识问题：研究者 = 自适应控制器，领域知识 = 被辨识系统，论文 = 带噪声观测值
+  - 提出**文献调研最优辨识协议 v1.0**（四 Phase：持续激励 → 递推辨识 → D-optimal 精读 → 新息反馈）
+  - 用压缩感知理论推导精读数量的理论下界：$m \approx O(s\log(N/s)) \approx 17$ 篇（与实际的 15 篇吻合）
+  - 用 Ashby 必要多样性定律解释粗读数量的必要性
+  - 用 AIC 准则给出停读判据（连续 3 篇新息低于阈值）
+  - D-optimal 设计解释 P0 论文选择的正交性
+  - 给出按领域成熟度的推荐采样数（粗读/精读）
+- **与其他案例连接**: #96 (三层增益模型), #95 (会话交接卡片格式), #93 (gap 升级协议)
+- **理论关联**: Ljung (1999), Candès-Tao-Donoho (2006), Ashby (1956), Akaike (1974)
+
+---
+
+## 2026-08-10: 案例 #97 — Phase 关闭报告生成器
+
+## 2026-08-10: SKILL 落地 — phase-wrapup 半自动关闭报告生成器 (v1.12)
+
+### 变更
+
+| 文件 | 操作 | 说明 |
+|------|------|------|
+| `~/.agents/skills/phase-wrapup/SKILL.md` | ➕ 新建 | 半自动 Phase 关闭报告 SKILL — 四阶段工作流（定位→扫描→交互→生成），自动扫描 runs/data、提取 YAML 参数、生成 WRAPUP.md |
+| `case/07_case_study_closure_reports.md` | ✏️ 修订 | 核心协议字段更新：从"无现有协议"→引用 phase-wrapup SKILL |
+| `99_update_log.md` | ✅ 更新 | 记录本次变更 |
+
+### 设计要点
+
+- **半自动而非全自动**: 机器扫描数据（Phase 2），人确认语义判断（Phase 3 交互确认 ②⑤⑥⑦）
+- **八项最小状态向量**: 完全遵循 97 号案例研究的 §3.2 设计规范
+- **轻量模式**: 项目切换时只需 ①+②+③+④ 四项的检查点（不阻塞切换流程）
+- **集成钩子**: run-task 末尾提示、sync-docs 检查 WRAPUP 存在性、create-plan 模板增加关闭条件段
 
 ---
 
@@ -25,7 +83,7 @@ Last updated: 2026-08-09
 
 | 文件 | 操作 | 说明 |
 |------|------|------|
-| `97_case_study_closure_reports.md` | ➕ 新建 | 关闭报告作为 Phase 状态检查点 — 信息耗散动力学建模、五类耗散模式实证（DW/TBG/TMBG/TDBG/MG）、八项最小状态向量、与 plan→task→log 体系的集成方案 |
+| `case/07_case_study_closure_reports.md` | ➕ 新建 | 关闭报告作为 Phase 状态检查点 — 信息耗散动力学建模、五类耗散模式实证（DW/TBG/TMBG/TDBG/MG）、八项最小状态向量、与 plan→task→log 体系的集成方案 |
 | `99_update_log.md` | ✅ 更新 | 记录本次变更 |
 
 ### 案例要点
@@ -48,7 +106,7 @@ Last updated: 2026-08-09
 
 | 文件 | 操作 | 说明 |
 |------|------|------|
-| `96_case_study_diagnostic_knowledge_promotion.md` | ➕ 新建 | 三层增益控制 — 传感器/观测器/执行器建模、事实/推论/建议分增益传输、独立来源的共享故障模式检验 |
+| `case/06_case_study_diagnostic_knowledge_promotion.md` | ➕ 新建 | 三层增益控制 — 传感器/观测器/执行器建模、事实/推论/建议分增益传输、独立来源的共享故障模式检验 |
 | `99_update_log.md` | ✅ 更新 | 记录本次变更 |
 
 ### 案例要点
@@ -68,7 +126,7 @@ Last updated: 2026-08-09
 
 | 文件 | 操作 | 说明 |
 |------|------|------|
-| `95_case_study_session_handoff.md` | ➕ 新建 | 多会话并发编辑 — 共享资源竞争、可观测性缺陷、乐观并发控制、协议设计的四个迭代版本 |
+| `case/05_case_study_session_handoff.md` | ➕ 新建 | 多会话并发编辑 — 共享资源竞争、可观测性缺陷、乐观并发控制、协议设计的四个迭代版本 |
 | `/memories/session-handoff.md` | ✏️ 修订 | 交接条位置从 session memory → `STATUS.md`「📋 待 Planning 会话处理」节 |
 | `MG/STATUS.md` | ✏️ 新增节 | 「📋 待 Planning 会话处理」— 交接条存放位置 |
 | `create-blueprint/create-plan/run-task/debug-workflow` SKILL | ✏️ 修订 | 编辑前检查指向 STATUS 交接节 |
@@ -100,7 +158,7 @@ Last updated: 2026-08-09
 
 | 文件 | 操作 | 说明 |
 |------|------|------|
-| `94_case_study_tianshui_lead_response.md` | ➕ 新建 | 天水幼儿园血铅事件 — 层级误判、应激响应与可观测性陷阱的控制论分析 |
+| `case/04_case_study_tianshui_lead_response.md` | ➕ 新建 | 天水幼儿园血铅事件 — 层级误判、应激响应与可观测性陷阱的控制论分析 |
 | `99_update_log.md` | ✅ 更新 | 记录本次变更 |
 
 ### 案例要点
@@ -135,7 +193,7 @@ Last updated: 2026-08-09
 
 | 文件 | 操作 | 说明 |
 |------|------|------|
-| `93_case_study_problem_response_workflow.md` | ➕ 新建 | 研究工作流中的偏差响应 — 层级归因与跨层级排除的系统工程分析 |
+| `case/03_case_study_problem_response_workflow.md` | ➕ 新建 | 研究工作流中的偏差响应 — 层级归因与跨层级排除的系统工程分析 |
 | `../.agents/skills/debug-workflow/SKILL.md` | ✏️ v1.0→v2.0 | 整合 blueprint/plan 三层体系，新增跨层级排除与偏差升级协议 |
 | `99_update_log.md` | ✅ 更新 | 记录本次变更 |
 
@@ -170,7 +228,7 @@ Last updated: 2026-08-09
 
 | 文件 | 操作 | 说明 |
 |------|------|------|
-| `92_case_study_sigmaxx_parameter_optimization.md` | ➕ 新建 | Kubo-Bastin σ_xx 五维参数扫描 — 全网格暴力穷举的系统工程分析 |
+| `case/02_case_study_sigmaxx_parameter_optimization.md` | ➕ 新建 | Kubo-Bastin σ_xx 五维参数扫描 — 全网格暴力穷举的系统工程分析 |
 | `99_update_log.md` | ✅ 更新 | 记录本次变更 |
 
 ### 案例要点
@@ -203,7 +261,7 @@ Last updated: 2026-08-09
 
 | 文件 | 操作 | 说明 |
 |------|------|------|
-| `91_case_study_hall_conductance_baseline.md` | ➕ 新建 | Kubo-Bastin Hall 电导基线偏移归因全流程案例 |
+| `case/01_case_study_hall_conductance_baseline.md` | ➕ 新建 | Kubo-Bastin Hall 电导基线偏移归因全流程案例 |
 | `99_update_log.md` | ✅ 更新 | 记录本次变更 |
 
 ### 案例要点

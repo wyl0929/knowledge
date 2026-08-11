@@ -3,13 +3,13 @@
  * @Date         : 2026-07-19 18:58:43
  * @LastEditors  : Yulong Wang
  * @LastEditTime : 2026-07-19 18:58:44
- * @FilePath     : /.agents/home/wyl/project/knowledge/systems_science/93_case_study_problem_response_workflow.md
+ * @FilePath     : /.agents/home/wyl/project/knowledge/systems_science/case/03_case_study_problem_response_workflow.md
  * @Description  :
 -->
 <!--
  * @Author       : Yulong Wang
  * @Date         : 2026-07-19
- * @FilePath     : /knowledge/systems_science/93_case_study_problem_response_workflow.md
+ * @FilePath     : /knowledge/systems_science/case/03_case_study_problem_response_workflow.md
  * @Description  : 案例研究 — 研究工作流中偏差信号的层级归因与跨层级排除
 -->
 
@@ -19,8 +19,8 @@
 > **时间跨度**: 2026-06-21 ~ 2026-07-19 (约 4 周，持续迭代)
 > **相关项目**: `/home/wyl/project/MG/` (multilayer graphene QHE)
 > **关联案例**:
->   - `91_case_study_hall_conductance_baseline.md` — Hall 电导基线偏移 (Level 1 症状 → Level 1 根因，但被误诊为 Level 3)
->   - `92_case_study_sigmaxx_parameter_optimization.md` — σ_xx 五维参数扫描 (Level 2 响应，实验设计缺陷)
+>   - `01_case_study_hall_conductance_baseline.md` — Hall 电导基线偏移 (Level 1 症状 → Level 1 根因，但被误诊为 Level 3)
+>   - `02_case_study_sigmaxx_parameter_optimization.md` — σ_xx 五维参数扫描 (Level 2 响应，实验设计缺陷)
 **核心协议**: `debug-workflow/SKILL.md` (v3.0 战术诊断) + `create-blueprint/SKILL.md` (偏差升级协议与诊断Phase管理) + `create-plan/SKILL.md` (诊断切换模板)
 **相关文档**: `MG/docs/blue_print.md`, `MG/docs/phase_D03_sigmaxx/plan.md`, `MG/docs/phase_I02_param_refactor/plan.md`
 
@@ -367,5 +367,5 @@ D4 [如果 D2/D3 未修复]: B=100T, rescale=20, m=256
 - debug-workflow skill: `SKILL.md` (v3.0, 2026-07-23) — 战术诊断协议
 - create-blueprint skill: `SKILL.md` — 偏差升级协议与诊断Phase管理
 - create-plan skill: `SKILL.md` — 诊断切换模板
-- 案例 #1: `91_case_study_hall_conductance_baseline.md` — Hall 电导基线偏移
-- 案例 #2: `92_case_study_sigmaxx_parameter_optimization.md` — σ_xx 参数扫描
+- 案例 #1: `01_case_study_hall_conductance_baseline.md` — Hall 电导基线偏移
+- 案例 #2: `02_case_study_sigmaxx_parameter_optimization.md` — σ_xx 参数扫描

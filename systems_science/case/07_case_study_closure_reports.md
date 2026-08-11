@@ -3,13 +3,13 @@
  * @Date         : 2026-08-09 18:27:57
  * @LastEditors  : Yulong Wang
  * @LastEditTime : 2026-08-09 18:27:59
- * @FilePath     : /.agents/home/wyl/project/knowledge/systems_science/97_case_study_closure_reports.md
+ * @FilePath     : /.agents/home/wyl/project/knowledge/systems_science/case/07_case_study_closure_reports.md
  * @Description  :
 -->
 <!--
  * @Author       : Yulong Wang
  * @Date         : 2026-08-09
- * @FilePath     : /knowledge/systems_science/97_case_study_closure_reports.md
+ * @FilePath     : /knowledge/systems_science/case/07_case_study_closure_reports.md
  * @Description  : 案例研究 — 关闭报告作为状态检查点：研究管线中的信息耗散与可恢复性
 -->
 
@@ -19,10 +19,10 @@
 > **时间跨度**: 2026-05 ~ 2026-08（石墨烯项目群全生命周期）
 > **相关项目**: `/home/wyl/project/MG/`, `DW/`, `TBG/`, `TMBG/`, `TDBG/`
 > **关联案例**:
->   - `93_case_study_problem_response_workflow.md` — 偏差升级协议（本案例解决的是"无偏差时"的信息保存问题——正常关闭与阻塞关闭）
->   - `95_case_study_session_handoff.md` — 会话交接（关闭报告是 Phase 级别而非会话级别的交接）
->   - `96_case_study_diagnostic_knowledge_promotion.md` — 信息增益控制（关闭报告的三层声明：事实/推论/建议的分离保存）
-> **核心协议**: 无现有协议——本文档提议新协议「Phase 关闭报告」
+>   - `03_case_study_problem_response_workflow.md` — 偏差升级协议（本案例解决的是"无偏差时"的信息保存问题——正常关闭与阻塞关闭）
+>   - `05_case_study_session_handoff.md` — 会话交接（关闭报告是 Phase 级别而非会话级别的交接）
+>   - `06_case_study_diagnostic_knowledge_promotion.md` — 信息增益控制（关闭报告的三层声明：事实/推论/建议的分离保存）
+> **核心协议**: `~/.agents/skills/phase-wrapup/SKILL.md`（2026-08-10 创建，基于本文档 §3 八项最小状态向量设计）
 > **关键数据**: DW `data/tbpm/Lm_4/`, `Lm_10/`（无文档），MG `data/phase3X/README.md`（唯一反例）
 
 ---

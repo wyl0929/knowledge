@@ -3,13 +3,13 @@
  * @Date         : 2026-07-17 16:36:38
  * @LastEditors  : Yulong Wang
  * @LastEditTime : 2026-07-17 16:36:39
- * @FilePath     : /.agents/home/wyl/project/knowledge/systems_science/92_case_study_sigmaxx_parameter_optimization.md
+ * @FilePath     : /.agents/home/wyl/project/knowledge/systems_science/case/02_case_study_sigmaxx_parameter_optimization.md
  * @Description  :
 -->
 <!--
  * @Author       : Yulong Wang
  * @Date         : 2026-07-17
- * @FilePath     : /knowledge/systems_science/92_case_study_sigmaxx_parameter_optimization.md
+ * @FilePath     : /knowledge/systems_science/case/02_case_study_sigmaxx_parameter_optimization.md
  * @Description  : 案例研究 — Kubo-Bastin σ_xx 五维参数优化的系统工程分析
 -->
 
@@ -19,7 +19,7 @@
 > **时间跨度**: 2026-07-04 ~ 2026-07-17 (14 天，仍在进行)
 > **相关项目**: `/home/wyl/project/MG/` (monolayer graphene QHE)
 > **核心文档**: `MG/docs/Phase3X_sigmaxx/plan.md`, `tasks.md`, `log.md`
-> **关联案例**: `91_case_study_hall_conductance_baseline.md` (Hall 电导基线偏移归因)
+> **关联案例**: `01_case_study_hall_conductance_baseline.md` (Hall 电导基线偏移归因)
 > **数据规模**: ~250 个集群作业, ~180+ 组 σ_xx 曲线, mu HDF5 文件累计 >100 GB
 
 ---
@@ -480,7 +480,7 @@ Step 7: 边界探测 (6-8 个作业)
 - `MG/docs/Phase3X_sigmaxx/plan.md` — Phase 3X 实验设计原始计划
 - `MG/docs/Phase3X_sigmaxx/log.md` — 完整执行日志
 - `MG/docs/Phase3X_sigmaxx/tasks.md` — 任务清单与状态
-- `knowledge/systems_science/91_case_study_hall_conductance_baseline.md` — 案例 #1: Hall 基线偏移归因
+- `knowledge/systems_science/01_case_study_hall_conductance_baseline.md` — 案例 #1: Hall 基线偏移归因
 - `shared/tbplas-internals.md` §12 — tbplas KPM 内部机制与已知问题
 - Montgomery, D.C. (2017). *Design and Analysis of Experiments* (9th ed.). Wiley. — 经典 DoE 教材
 - Jones, D.R., Schonlau, M., & Welch, W.J. (1998). Efficient Global Optimization of Expensive Black-Box Functions. *J. Global Optimization*, 13, 455–492. — EGO/贝叶斯优化奠基论文

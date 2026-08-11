@@ -9,7 +9,7 @@
 # case_hall_baseline 归档说明
 
 > 本目录归档了 Kubo-Bastin Hall 电导基线偏移归因案例的关键文件。
-> 完整案例叙述见: `../91_case_study_hall_conductance_baseline.md`
+> 完整案例叙述见: `../01_case_study_hall_conductance_baseline.md`
 
 ## 目录结构
 
@@ -75,7 +75,7 @@ case_hall_baseline/
 
 ## 相关文档
 
-- `../91_case_study_hall_conductance_baseline.md` — 案例总结 (系统科学视角)
+- `../01_case_study_hall_conductance_baseline.md` — 案例总结 (系统科学视角)
 - `docs/log.md` — 全流程 AI 执行日志 (归因过程的第一手记录)
 - `docs/plan_vbl_trace.md` — VBL 变量追踪计划 (Phase A-M 全 12 阶段)
 - `docs/task_vbl_trace.md` — VBL 变量追踪任务单

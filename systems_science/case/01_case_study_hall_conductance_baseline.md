@@ -3,13 +3,13 @@
  * @Date         : 2026-07-01 12:00:34
  * @LastEditors  : Yulong Wang
  * @LastEditTime : 2026-07-01 12:00:35
- * @FilePath     : /.agents/home/wyl/project/knowledge/systems_science/91_case_study_hall_conductance_baseline.md
+ * @FilePath     : /.agents/home/wyl/project/knowledge/systems_science/case/01_case_study_hall_conductance_baseline.md
  * @Description  :
 -->
 <!--
  * @Author       : Yulong Wang
  * @Date         : 2026-07-01
- * @FilePath     : /knowledge/systems_science/91_case_study_hall_conductance_baseline.md
+ * @FilePath     : /knowledge/systems_science/case/01_case_study_hall_conductance_baseline.md
  * @Description  : 案例研究 — Kubo-Bastin Hall 电导基线偏移的全流程归因
 -->
 
