@@ -22,6 +22,19 @@
 
 ---
 
+## 2026-08-17
+
+### 目录结构
+- **sociology/**: 新建一级目录（社会学领域），与 political_science/ 平级
+- **political_science/**: 根目录下的 `deepseek_markdown_20260817_f7db5f.md` 移出
+
+### 新文件
+- **sociology/social_survey_methods/**: 新建「社会调研方法论」field pack（quick_scan，social_science），含全部主体文档
+- **sociology/social_survey_methods/seed_discussion_20260817.md**: 种子讨论文档（自 political_science 移入并重命名）
+- **sociology/fundamentals/**: 新建「社会学入门——基本概念与基础理论」field pack（quick_scan，social_science，general_interest 定位）
+
+---
+
 ## 2026-08-11
 
 ### 目录结构

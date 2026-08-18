@@ -9,7 +9,7 @@
 
 # 领域知识包 (Field Packs) 总目录
 
-> 最后更新: 2026-08-11
+> 最后更新: 2026-08-17
 
 本目录存放所有通过 `research_onboarding_skill` 生成的领域文献研究包 (field packs)。
 
@@ -38,6 +38,9 @@ knowledge/
 │   │       └── dsa_2026_wave/   ← DSA 2026 浪潮（子方向）
 │   ├── central_local_relations/ ← 央地矛盾、集权与分权的治理逻辑
 │   └── corporatism/             ← 法团主义（从央地矛盾 QA 派生）
+├── sociology/                   ← 社会学领域
+│   ├── fundamentals/            ← 社会学入门——基本概念与基础理论
+│   └── social_survey_methods/   ← 社会调研方法论（从日常对话到结构化判断）
 ├── systems_science/             ← 系统科学领域
 │   ├── 00-12, 90, 99            ← 核心文档
 │   ├── case/                    ← 案例研究 (01-08)
@@ -95,6 +98,13 @@ knowledge/
 | 美国两党政治初探 | orientation | social_science | 2026-07-03 | ✅ 已填充，含 subfields/dsa_2026_wave/ |
 | 央地矛盾、集权与分权的治理逻辑 | quick_scan | social_science | 2026-07-08 | ✅ 已填充，种子文档为 conflict.md |
 | 法团主义（Corporatism） | quick_scan | social_science | 2026-07-11 | ✅ 已填充，从央地矛盾 QA 派生 |
+
+### sociology/
+
+| 包名 | 模式 | Domain Archetype | 创建日期 | 状态 |
+|------|------|:---:|------|------|
+| 社会学入门（fundamentals） | quick_scan | social_science | 2026-08-17 | ✅ 已填充，general_interest 定位，与 political_science/fundamentals 同构 |
+| 社会调研方法论（social_survey_methods） | quick_scan | social_science | 2026-08-17 | ✅ 已填充，种子文档为 seed_discussion_20260817.md（自 political_science 迁入） |
 
 ### systems_science/
 
