@@ -2,7 +2,7 @@
  * @Author       : Yulong Wang
  * @Date         : 2026-08-11 17:40:29
  * @LastEditors  : Yulong Wang
- * @LastEditTime : 2026-08-11 17:42:13
+ * @LastEditTime : 2026-08-19 18:10:00
  * @FilePath     : /.agents/home/wyl/project/knowledge/physics/twisted_bilayer_graphene/Phase_S/plan.md
  * @Description  : Phase S 执行计划书 — TBG Edge State / Domain Wall 文献调研
 -->
@@ -32,7 +32,7 @@
 | 缺口 | 数量 | 说明 |
 |---|---|---|
 | 卡片已有但未精读 | **~30 篇** | T22–T39 + E2/E4/E5/E6/E8/E11/E12/E14/E16/E18 + S1–S3 + R1–R4（卡片内容已按 Q1/Q2/Q3 框架完整填充） |
-| 跨领域精读（在 `multilayer_graphene/subfields/` 下） | **5 篇** | Ju 2015 / Li 2016 / Mania 2019 / Mahapatra 2022 / Zhang 2024 — cards.md 中标记 ⏭️ 跳过但需在报告中交叉引用 |
+| 跨领域精读（原在 `multilayer_graphene/subfields/bl-dw/`，2026-08-20 已迁入 `note/experiments/`） | **5 篇** | Ju 2015 / Li 2016 / Mania 2019 / Mahapatra 2022 / Zhang 2024 — cards.md 中标记 ⏭️ 跳过但需在报告中交叉引用 |
 
 ### 1.3 不做的事项（scope out）
 
@@ -47,6 +47,8 @@
 
 ## 二、Phase S2：精读 + 报告撰写
 
+> 📋 逐篇可执行任务与状态追踪见 [`tasks.md`](tasks.md)（**单一事实源**：15 篇精读清单、AI 执行队列、人类任务登记）。本节只保留精读理由与周程，不再重复清单。
+
 ### 2.1 总体时间线
 
 ```
@@ -59,26 +61,26 @@ Week 3 (Q3): 交叉重读 15 篇中 theory↔expt 映射链路 → report.md §4
 
 | # | 论文 | 精读理由 | 产出位置 |
 |---|---|---|---|
-| **E9** | Huang et al., PRL 121, 037702 (2018) | **STM 首次发现 mTBG 螺旋态**——Q1 的核心实验基准 | `note/mTBG_experiments/`（已有，用三问框架重读） |
-| **E10** | Rickhaus et al., Nano Lett. 18, 6725 (2018) | **FP+AB 振荡输运**——Q1 中最丰富的表征数据，直接证明 1D 相干性 | `note/mTBG_experiments/`（同上） |
-| **E13** | Verbakel et al., PRB 103, 165134 (2021) | **谷保护唯一直接实验证据（FFT）**——Q1 的定论性工作 | `note/mTBG_experiments/`（同上） |
-| **E4** | Yin et al., Nat. Commun. 7, 11760 (2016) | **STM 首次成像双层畴壁边缘态**——Q1 的早期实验基准 | `note/non_twisted_experiments/` |
-| **E14** | Zheng et al., PRL 129, 076803 (2022) | **电子 Kagome 晶格**——证明网络干涉产生 2D 超结构 | `note/mTBG_experiments/` |
-| **E12** | Xu et al., Nat. Commun. 10, 4008 (2019) | **巨幅 AB 振荡**——T15 散射理论的实验对标 | `note/mTBG_experiments/` |
+| **E9** | Huang et al., PRL 121, 037702 (2018) | **STM 首次发现 mTBG 螺旋态**——Q1 的核心实验基准 | `note/experiments/`（已有，用三问框架重读） |
+| **E10** | Rickhaus et al., Nano Lett. 18, 6725 (2018) | **FP+AB 振荡输运**——Q1 中最丰富的表征数据，直接证明 1D 相干性 | `note/experiments/`（同上） |
+| **E13** | Verbakel et al., PRB 103, 165134 (2021) | **谷保护唯一直接实验证据（FFT）**——Q1 的定论性工作 | `note/experiments/`（同上） |
+| **E4** | Yin et al., Nat. Commun. 7, 11760 (2016) | **STM 首次成像双层畴壁边缘态**——Q1 的早期实验基准 | `note/experiments/` |
+| **E14** | Zheng et al., PRL 129, 076803 (2022) | **电子 Kagome 晶格**——证明网络干涉产生 2D 超结构 | `note/experiments/` |
+| **E12** | Xu et al., Nat. Commun. 10, 4008 (2019) | **巨幅 AB 振荡**——T15 散射理论的实验对标 | `note/experiments/` |
 | **E1** | Ju et al., Nature 520, 650 (2015) | **领域奠基实验**——s-SNOM + 输运双探针范式 | ⏭️ 已有精读（domain-wall/），交叉引用 |
 
 ### 2.3 Week 2 — Q2 精读：理论如何解释？（8 篇）
 
 | # | 论文 | 精读理由 | 产出位置 |
 |---|---|---|---|
-| **T1** | Martin et al., PRL 100, 036804 (2008) | **EFW 拓扑零模原始理论**——后续所有理论的逻辑起点 | `note/fundamental_theory/`（已有） |
-| **T5** | San-Jose & Prada, PRB 88, 121408(R) (2013) | **螺旋网络概念起源**——mTBG 畴壁物理的开创性理论 | `note/fundamental_theory/`（已有） |
-| **T9** | Efimkin & MacDonald, PRB 98, 035404 (2018) | **螺旋网络系统理论**——Q2 的核心解释框架 | `note/helical_network/`（已有，重读） |
-| **T12** | Tsim, Nam & Koshino, PRB 101, 125409 (2020) | **TZM 推翻网络图景**——mTBG 畴壁物理的关键转折 | `note/helical_network/`（已有，重读） |
-| **T15** | De Beule et al., PRL 125, 096402 (2020) | **网络散射统一理论**——网络 ↔ TZM 之争的中间地带方案 | `note/helical_network/`（已有，重读） |
-| **T23** | Enaldiev et al., Acad. Nano 1 (2023) | **非手征 1D 态**——补充纯拓扑图景 | `note/network_theory_advanced/` |
-| **T29** | Hou, Yuan & Jiang, PRB 110, L161406 (2024) | **TZM 裁决——NQCP 电导平台**——十年之争的最新答案 | `note/network_theory_advanced/` |
-| **T35** | Li, Chen & Yao, Nano Lett. 25, 17025 (2025) | **大转角 Umklapp 新机制**——突破小转角范式，前沿展望核心 | `note/new_directions/` |
+| **T1** | Martin et al., PRL 100, 036804 (2008) | **EFW 拓扑零模原始理论**——后续所有理论的逻辑起点 | `note/theory/`（已有） |
+| **T5** | San-Jose & Prada, PRB 88, 121408(R) (2013) | **螺旋网络概念起源**——mTBG 畴壁物理的开创性理论 | `note/theory/`（已有） |
+| **T9** | Efimkin & MacDonald, PRB 98, 035404 (2018) | **螺旋网络系统理论**——Q2 的核心解释框架 | `note/theory/`（已有，重读） |
+| **T12** | Tsim, Nam & Koshino, PRB 101, 125409 (2020) | **TZM 推翻网络图景**——mTBG 畴壁物理的关键转折 | `note/theory/`（已有，重读） |
+| **T15** | De Beule et al., PRL 125, 096402 (2020) | **网络散射统一理论**——网络 ↔ TZM 之争的中间地带方案 | `note/theory/`（已有，重读） |
+| **T23** | Enaldiev et al., Acad. Nano 1 (2023) | **非手征 1D 态**——补充纯拓扑图景 | `note/theory/` |
+| **T29** | Hou, Yuan & Jiang, PRB 110, L161406 (2024) | **TZM 裁决——NQCP 电导平台**——十年之争的最新答案 | `note/theory/` |
+| **T35** | Li, Chen & Yao, Nano Lett. 25, 17025 (2025) | **大转角 Umklapp 新机制**——突破小转角范式，前沿展望核心 | `note/theory/` |
 
 ### 2.4 Week 3 — Q3：理论如何与实验结合？（交叉串联）
 
@@ -105,6 +107,35 @@ Li/Chen/Yao 2025 ──→ 待实验验证 (大转角新范式)
 | 报告撰写 §4（理论-实验映射） | **人类** | 需要原创性综合——这是报告的核心价值，Agent 只能做素材准备 |
 | 报告 §5（与个人研究关联） | **人类** | 你的 TBPM 能做什么、不能做什么——Agent 无法替代 |
 | 格式化/排版/引用 | **Agent** | 纯机械工作 |
+| QC 反向核对（每篇 review + 每个组装产物） | **Agent** | 机械 grep 核对：提取全部数字/专名逐一比对原文全文文本，修正不一致处 |
+| QC 终审（更正日志 + 高风险清单） | **人类** | 只查 📊F/💭I 条目 + 与其他文献矛盾处 + 核心量化结论，不逐篇全查 |
+
+### 2.6 质量保证（QC）——三层防线
+
+> 2026-08-19 补充。起因: E4 (Yin 2016) 精读暴露 4 类错误（无源数字 3-5 nm / 5-10×、跨论文混淆 Vg、常识脑补底栅、读图未标 FWHM），而 report 要求绝对准确。
+
+**第一层 — 写作时防错（证据分级）**: 每个数据/论断强制标注证据等级：
+- 📜Q: 原文文字直接支持（附位置）——唯一可进 report 正文的等级
+- 📊F: 读图估算（必须写"读图估算"四字）——仅入卡片，标 ⚠️
+- 💭I: 推断/综合——不得进入任何交付物正文
+- 硬规则: 禁止无源数字（数字必须能 grep 到原文）；禁止跨论文迁移数据
+
+**第二层 — 写完后查错（Agent 反向核对）**: 每篇 review 与每个组装产物完成前，提取全部数字与专名，逐一与原文全文文本（PDF→txt→grep）比对；找不到支持的删除或降级。附录末尾附"更正日志"。
+
+**第三层 — 人类抽检（定向而非全查）**: 人类只审查: ① 每篇 review 的更正日志；② 全部 📊F/💭I 条目；③ 与其他文献矛盾处；④ report 核心量化结论。每篇工作量为几行而非全文。
+
+完整规范见 `tasks.md` 头部「🔒 质量保证（QC）规范」，长期 memory: `/memories/literature-review-qc.md`。
+
+#### 2.6.1 实际执行路径（run-task 追加）
+
+- [log AI:0819_T01] S-APP-A 组装完成 `appendix_A_methods.md`；QC 反向核对（17 篇 PDF grep）发现 7 处卡片错误（E11 STEM→TEM、E11 ~5 nm 无源、E4 "无磁场"、E10 dG/dV→dG/dn_in、E2 圆偏振光待核、S3 年份、E15 "唯一"），详见附录 §A.5，待人类确认后回写 cards.md。
+- [log AI:0819_T01] 跨领域精读实际路径为 `note/experiments/`（非 `domain-wall/`），且 Mania 2019 精读同样位于该目录（本计划 §1.2 所述 5 篇跨领域精读全部可用）。
+- [log AI:0819_T02] 用户补传 E5/E6/E8 三篇 PDF 后完成反向核对：旧版 review 存在整组虚构/误读数字（E5 标尺与图尺寸误读、E6 虚构测量值、E8 方法张冠李戴 + 数值低估），已同步修正三个 review、cards.md 与 appendix_A。QC 三层防线（§2.6）在无 PDF 场景下失效于第一层——已固化新失败模式到 memory，仅剩 E2 待补 PDF。
+- [log AI:0819_T03] S-APP-B 组装完成 `appendix_B_theory.md`（T1–T39 全覆盖 + 三要素 + 继承/推翻/并存演进树）。24 篇理论 PDF grep 反向核对发现 6 处卡片/精读错误（T9 能标公式、T11 金属→半金属、T29 三处无源数字、T35 转角列表与能隙、T23 势阱深度、T26/T27 年份），详见附录 §B.5，待人类确认后回写 cards.md 与对应 review；无 PDF 的 15 篇数字全部降级 💭I⚠️。
+- [log AI:0819_T04] 用户确认后将 §B.5 发现回写 cards.md 并对 Q2 理论卡片做全量 PDF 反向核对（合计 20 条更正）：新增 T12 置换散射、T13 AB 振荡无源、T18 周期驱动、T21 引用无源、T23 第一作者 Moulsdale + 出版 2024 + 未引 Zheng、T27 第四种机制等；review_T23.md 已修正，review_T29/T35 待修订。
+- [log AI:0820_T01] 用户补齐 12 篇理论 PDF 后第二批核对：发现 review 层整段机制虚构（T24 S(θ) 框架、T30 QSH、T32 量子度规→谷欧拉数 VEN、T39 谷过滤→不可穿透势垒+谷间阀、T36 Majorana→三条 DW 工程策略等 10 项），已重写 appendix_B 12 节点与 cards.md 对应卡片；仍缺 T26/T28/T31 三篇 PDF。
+- [log AI:0820_T02] 用户补齐最后 3 篇 PDF 后完成第三批核对（T26 玻色化模型/035007、T28 θc=38.21°/子谷 Dirac 锥、T31 4π 周期 Josephson），**Q2 理论 39 卡片 PDF 反向核对全部完成**（更正日志 35 条）；剩余待办为 review 文件逐篇修订。
+- [log AI:0820_T04] S-REV 完成：23 篇理论 review 按 §B.5 逐篇修订无源内容并补末尾更正日志（每篇仅动被证伪项，全部替换文本经 PDF grep 复核）。新发现: ① T37 原文只引 Rickhaus 未引 Xu、T36 Majorana 仅引言动机、T39 未对标 Barrier——跨论文对标需逐篇核引用列表；② T26 的 CDW/SDW 相原文确有（"repulsive interactions favor CDW and SDW"），证伪的仅是"开隙→电阻陡增"因果句；③ Hou 2024 (T29) 正文确实引用 Rickhaus 振荡观测。QC 第二层（review 逐篇反向核对）至此闭环，理论侧交付物全部带证据分级。
 
 ---
 
@@ -114,8 +145,8 @@ Li/Chen/Yao 2025 ──→ 待实验验证 (大转角新范式)
 |---|---|---|---|
 | `plan.md` | 本文件 | — | ✅ 已完成 |
 | `report.md` | 回答导师三问的综合调查报告 | 10–12 页 | ⬜ 待写 |
-| `appendix_A_methods.md` | 实验表征方法横向对比表 | 3–4 页 | ⬜ Agent 组装 |
-| `appendix_B_theory.md` | 理论解释谱系（从 2008→2026 的演进树） | 3–4 页 | ⬜ Agent 组装 |
+| `appendix_A_methods.md` | 实验表征方法横向对比表 | 3–4 页 | ✅ 已完成（AI:0819_T01，含 QC 更正日志待人类确认） |
+| `appendix_B_theory.md` | 理论解释谱系（从 2008→2026 的演进树） | 3–4 页 | ✅ 已完成（AI:0819_T03，含 QC 更正日志待人类确认） |
 | `appendix_C_theory_expt_map.md` | 每篇核心理论的实验对标 | 3–4 页 | ⬜ 人类主导 |
 | `appendix_D_gap_table.md` | 已知/未知/伪 gap 表 | 2–3 页 | ⬜ 人类主导 |
 | 15 篇 paper_review_*.md | Q1 (7) + Q2 (8) 精读产出 | 每篇 ~5 页 | ⬜ 待做 |
@@ -182,6 +213,6 @@ report.md
 | 用法 | 位置 |
 |---|---|
 | 快速查找某篇论文的粗读卡片 | `cards.md`（合并文件，522 行，按 Q1/Q2/Q3 三节组织，Ctrl+F 定位） |
-| 论文的完整精读笔记 | `../note/<子目录>/paper_review_*.md`（9 个子目录，60 篇精读） |
-| 跨领域已有精读 | `../multilayer_graphene/subfields/domain-wall/paper_review_*.md` |
+| 论文的完整精读笔记 | `../note/{theory,experiments,reviews,structure}/paper_review_*.md`（4 个目录，64 篇精读；索引见 `../note/index.md`） |
+| 跨领域已有精读 | `../note/experiments/paper_review_*.md` |
 | 论文 registry（60 篇全貌） | `../14_paper_registry.md` |

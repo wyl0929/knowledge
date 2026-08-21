@@ -105,16 +105,16 @@ Last updated: 2026-06-11
 |---|---|---|---|---|
 | [DW1] | **San-Jose & Prada, PRB 88, 121408(R) (2013)** | TBG 中螺旋网络模型的理论奠基 | ⭐⭐⭐ | — |
 | [DW2] | Efimkin & MacDonald, PRB 98, 035404 (2018) | 螺旋网络模型的系统理论 | ⭐⭐⭐ | — |
-| [DW2.5] | **★ Yoo et al., Nature Mater. 18, 448 (2019)** | **STEM 原子成像：发现 TBG 在 $\theta<\theta_c\approx 1^\circ$ 下的晶格重构——光滑摩尔纹 → AB/BA 三角畴 + 窄 AA 畴壁，确立畴壁的结构起源** → 📄 [阅读笔记](subfields/domain-wall/paper_review_yoo2019_natmater.md) | ⭐⭐⭐⭐⭐ 畴壁物理的结构基础 | — |
-| [DW3] | **Rickhaus et al., Nano Lett. 18, 6725 (2018)** | mTBG 中拓扑通道网络的输运实验——Fabry-Pérot + AB 振荡，0–8T 磁场稳健 → 📄 [阅读笔记](subfields/domain-wall/paper_review_rickhaus2018_nanolett.md) | ⭐⭐⭐⭐⭐ 实验基准 | — |
+| [DW2.5] | **★ Yoo et al., Nature Mater. 18, 448 (2019)** | **STEM 原子成像：发现 TBG 在 $\theta<\theta_c\approx 1^\circ$ 下的晶格重构——光滑摩尔纹 → AB/BA 三角畴 + 窄 AA 畴壁，确立畴壁的结构起源** → 📄 [阅读笔记](../twisted_bilayer_graphene/note/experiments/paper_review_E11_yoo2019_natmater.md) | ⭐⭐⭐⭐⭐ 畴壁物理的结构基础 | — |
+| [DW3] | **Rickhaus et al., Nano Lett. 18, 6725 (2018)** | mTBG 中拓扑通道网络的输运实验——Fabry-Pérot + AB 振荡，0–8T 磁场稳健 → 📄 [阅读笔记](../twisted_bilayer_graphene/note/experiments/paper_review_E10_rickhaus2018_nanolett.md) | ⭐⭐⭐⭐⭐ 实验基准 | — |
 | [DW4] | Xu et al., Nat. Commun. 10, 4008 (2019) | mTBG 中一维态三角网络的巨幅 Aharonov-Bohm 振荡 | ⭐⭐⭐⭐ | — |
-| [DW4.5] | **★ Verbakel et al., PRB 103, 165134 (2021)** | **FT-STM 首次直接证明畴壁态的谷保护——谷间散射被压制，室温下网络仍在** → 📄 [阅读笔记](subfields/domain-wall/paper_review_verbakel2021_prb.md) | ⭐⭐⭐⭐⭐ 谷保护的唯一直接实验证据 | — |
+| [DW4.5] | **★ Verbakel et al., PRB 103, 165134 (2021)** | **FT-STM 首次直接证明畴壁态的谷保护——谷间散射被压制，室温下网络仍在** → 📄 [阅读笔记](../twisted_bilayer_graphene/note/experiments/paper_review_E13_verbakel2021_prb.md) | ⭐⭐⭐⭐⭐ 谷保护的唯一直接实验证据 | — |
 | [DW5] | Tsim, Nam & Koshino, PRB 101, 125409 (2020) | 能带计算预言 TZM：一维完美手征态 | ⭐⭐⭐⭐ | — |
 | [DW6] | De Beule, Dominguez & Recher, PRL 125, 096402 (2020) | 对称性论证：THS 可自组织为一维 TZM | ⭐⭐⭐ | — |
-| [DW7] | **★ Hou, Yuan & Jiang, PRB 110, L161406 (2024)** | **量子输运裁决：THS 形成独立一维 TZM，NQCP 1/2/3 预言** → 📄 [精读报告](subfields/domain-wall/paper_review_hou2024_prb.md) | ⭐⭐⭐⭐⭐ 用户的 TB 代码可直接复现 mTBG 结构 | — |
+| [DW7] | **★ Hou, Yuan & Jiang, PRB 110, L161406 (2024)** | **量子输运裁决：THS 形成独立一维 TZM，NQCP 1/2/3 预言** → 📄 [精读报告](../twisted_bilayer_graphene/note/theory/paper_review_T29_hou2024_prb.md) | ⭐⭐⭐⭐⭐ 用户的 TB 代码可直接复现 mTBG 结构 | — |
 | [DW8] | Fleischmann et al., Nano Lett. 20, 971 (2020) | DFT 证明 mTBG 中 TZM 可完美嵌套 | ⭐⭐⭐ | — |
-| [DW9] | **★ Mahapatra et al., Nano Lett. 22, 5708 (2022)** | **mTBG 三角畴中的 QH 干涉仪——$\theta=0.16^\circ$，热电测量 FP+AB 振荡，$\nu=4,8$ 平台，库仑充电减弱** → 📄 [阅读笔记](subfields/domain-wall/paper_review_mahapatra2022_nanolett.md) | ⭐⭐⭐⭐⭐ 畴壁+QH 的交汇 | — |
-| [DW10] | **★ Zhang et al. (2024)** arXiv:2406.06867 | **CVD 双层石墨烯 LSW 束中的电可调磁电导——应变工程控制 LSW 构型（分离 vs 紧密堆积），后者栅压连续调节 QVH 通道耦合** → 📄 [精读报告](subfields/domain-wall/paper_review_zhang2024_arxiv.md) | ⭐⭐⭐⭐⭐ CVD 可扩展平台 + QVH 多通道耦合 | `DGAFNKRR` |
+| [DW9] | **★ Mahapatra et al., Nano Lett. 22, 5708 (2022)** | **mTBG 三角畴中的 QH 干涉仪——$\theta=0.16^\circ$，热电测量 FP+AB 振荡，$\nu=4,8$ 平台，库仑充电减弱** → 📄 [阅读笔记](../twisted_bilayer_graphene/note/experiments/paper_review_E15_mahapatra2022_nanolett.md) | ⭐⭐⭐⭐⭐ 畴壁+QH 的交汇 | — |
+| [DW10] | **★ Zhang et al. (2024)** arXiv:2406.06867 | **CVD 双层石墨烯 LSW 束中的电可调磁电导——应变工程控制 LSW 构型（分离 vs 紧密堆积），后者栅压连续调节 QVH 通道耦合** → 📄 [精读报告](../twisted_bilayer_graphene/note/experiments/paper_review_E17_zhang2024_arxiv.md) | ⭐⭐⭐⭐⭐ CVD 可扩展平台 + QVH 多通道耦合 | `DGAFNKRR` |
 
 ---
 
