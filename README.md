@@ -9,7 +9,7 @@
 
 # 领域知识包 (Field Packs) 总目录
 
-> 最后更新: 2026-08-17
+> 最后更新: 2026-08-21
 
 本目录存放所有通过 `research_onboarding_skill` 生成的领域文献研究包 (field packs)。
 
@@ -27,6 +27,7 @@ knowledge/
 │   └── 三层和多层转角石墨烯/
 ├── philosophy/                  ← 哲学/思想领域
 │   ├── mental_causation_closure/
+│   ├── phenomenology/           ← 现象学入门
 │   ├── power_reductionism/
 │   └── reductionism/
 ├── Economics/                   ← 经济/社会科学领域
@@ -84,6 +85,7 @@ knowledge/
 | mental_causation_closure | orientation | humanities_cultural | 2026-06 | ✅ 已填充 |
 | power_reductionism | orientation | humanities_cultural | 2026-06-19 | ✅ 已填充 |
 | reductionism（还原论） | orientation | humanities_cultural | 2026-07-17 | ✅ 已填充，含 subfields/power_reductionism_as_case/ |
+| phenomenology（现象学） | orientation | humanities_cultural | 2026-08-21 | ✅ 已填充，general_interest 定位 |
 
 ### Economics/
 

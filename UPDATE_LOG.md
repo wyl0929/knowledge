@@ -22,6 +22,13 @@
 
 ---
 
+## 2026-08-21
+
+### 新文件
+- **philosophy/phenomenology/**: 新建「现象学」入门 field pack（orientation，humanities_cultural，general_interest 定位），含 `00/01/10/11/12/13/14/15/16/90/99` 与 `USER_BRIEF.md`、`README.md`
+
+---
+
 ## 2026-08-17
 
 ### 目录结构
