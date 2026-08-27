@@ -22,6 +22,23 @@
 
 ---
 
+## 2026-08-27
+
+### 目录结构
+- **sociology/field_notes/**: 从公开 knowledge 仓库**物理移出**（含敏感个人故事），迁至本地私有目录（路径不写入本仓）；公开仓库不再包含田野日志原始层
+
+---
+
+## 2026-08-26
+
+### 目录结构
+- **sociology/field_notes/**: 新建「田野日志」原始层目录（游离故事按日期记录 + `_index.md` 索引），与 `social_survey_methods` pack 平级；pack 内只放指针与"晋升后"的结构化内容
+
+### 跨 pack 约定
+- 游离故事（超出问题池 Q&A 的见闻/传闻）记录约定：正文按日期（不按人物），检索靠索引，信号强者晋升进 pack 的 `cases/` 或 `17_claims_evidence_ledger.md`，原始日志留底。详见 `sociology/field_notes/README.md`
+
+---
+
 ## 2026-08-21
 
 ### 新文件

@@ -50,10 +50,15 @@ v0.10-rc3 编号说明：`00-02` 为阅读与判断层，`10-17` 为证据与领
 - `17_claims_evidence_ledger.md`
 - `20_gap_table.md`
 - `22_project_candidates.md`
-- `23_case01_chat_pool.md`
+- `23_chat_pool.md`
+- `cases/case01.md`
 - `90_QA.md`
 - `99_update_log.md`
 - `seed_discussion_20260817.md`
+
+## 田野日志（游离故事）
+
+超出问题池 Q&A 的**故事 / 见闻 / 传闻**，记入**本地私有田野日志**（按日期记录 + 索引；含敏感内容，不在本公开仓库内，其路径不写入本仓）；信号强者晋升进 `cases/` 或 `17_claims_evidence_ledger.md`，原始日志留底。
 
 ## 下一步
 
