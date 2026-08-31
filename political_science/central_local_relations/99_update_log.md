@@ -15,7 +15,24 @@ Created date: 2026-07-08
 
 # 99 Update Log / 更新日志
 
-Last updated: 2026-08-23
+Last updated: 2026-08-30
+
+---
+
+## 2026-08-30: 报告重组——南方电网独立案例并入主报告 (v1.5)
+
+### 变更
+
+| 文件 | 操作 | 说明 |
+|------|------|------|
+| `central_local_relations_report.tex` | ➕ 首次入库（重组后） | 综合报告《央地关系报告：权力流向与形态的二维分析》（ctexrep，xelatex 编译）。六章结构：央地关系重要性、概念分析（权力流向 × 形态二维划分）、唐宋明、美国联邦、中国当代（§5 案例一南方电网 + 案例二土地财政）、结语 + 附录（锚点/图例/来源） |
+| `southern_power_grid_case_report.tex` | ➖ 并入主报告 | v1.4 新建的南方电网独立案例报告已并入 `central_local_relations_report.tex` §5，不再单独保留 |
+| `99_update_log.md` | ✅ 更新 | 记录本次重组 |
+
+### 备注
+
+- 报告正文用 `\src{...}` 上标标注证据状态，图例见附录 B；编译方式 xelatex
+- 报告为知识整理而非新研究产出，编造风险点沿用 v1.4 及此前 NEEDS_VERIFICATION 清单
 
 ---
 

@@ -1,0 +1,1373 @@
+
+% Author       : Yulong Wang
+% Date         : 2026-08-30 10:02:36
+% LastEditors  : Yulong Wang
+% LastEditTime : 2026-08-30 10:02:38
+% FilePath     : /.agents/home/wyl/project/knowledge/political_science/us_two_party_politics/subfields/us_two_party_politics.tex
+% Description  :
+
+% !TeX program = xelatex
+% 美国两党政治：知识整理
+% 来源: knowledge/political_science/us_two_party_politics 及子方向 dsa_2026_wave
+% 说明: 已剔除更新日志、需求记录与文件索引等元信息，并合并校正了重叠与过时内容。
+
+\documentclass[12pt,a4paper]{ctexart}
+
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black!70!blue,
+  urlcolor=black!50!blue,
+  pdftitle={美国两党政治：知识整理},
+  pdfauthor={Yulong Wang}
+}
+
+\setlist{itemsep=2pt, topsep=4pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\captionsetup{font=small, labelfont=bf}
+
+\title{\textbf{美国两党政治：知识整理}\\[0.6em]
+\large 制度成因 \textbullet\ 极化格局 \textbullet\ 第三党困境 \textbullet\ DSA 浪潮案例}
+\author{整理自 knowledge 库 \\ political\_science / us\_two\_party\_politics}
+\date{2026 年 7 月}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\clearpage
+
+% ============================================================
+\section*{引言}
+\addcontentsline{toc}{section}{引言}
+
+想象你走进一家只有两种口味的冰淇淋店——巧克力味和香草味。你不一定真的喜欢这两种，但如果你想吃冰淇淋，就必须二选一。偶尔有人试图卖草莓味，但很快发现：买草莓的人太少，因为大家都怕``浪费选票''——如果草莓只拿到 5\% 的票，那投草莓的人等于没参与最终决定。于是草莓爱好者也只好在巧克力和香草之间选一个不那么讨厌的。
+
+这就是美国两党政治最核心的直觉：它不是法律规定只能有两个党，而是一套``游戏规则''自然地把政治压缩成了两个选项。
+
+本文件按五个部分组织：第一部分建立基础认知（制度成因、历史轨迹、当代格局）；第二部分辨析易混概念；第三部分梳理研究版图（问题链、方法谱系、前沿争论）；第四部分以 DSA 与 2026 年左翼浪潮为深度案例；第五部分给出阅读资源。文中英文术语在首次出现时括注原文，个别仍待实时信息核验之处以``（待核验）''标明。
+
+\clearpage
+
+% ============================================================
+\part{基础认知：美国两党政治的基本图景}
+
+\section{领域定位与核心问题}
+
+\textbf{美国两党政治研究的是：为什么这个国家长期只有两个主要政党、这种格局如何塑造了政治运作的方式、以及它在今天面临什么挑战。}
+
+更精确地说，其核心问题是：在一个并非设计成两党制的宪法框架下，为什么政治竞争被牢靠地压缩进了两个政党？这种格局如何塑造了今天的政治运作，以及它在 21 世纪面临什么压力？
+
+它不是``美国政治常识简介''，而是一个有明确分析框架的学术领域，处于政治学三条脉络的交汇处：
+
+\begin{itemize}
+  \item \textbf{比较政治学}（comparative politics）$\rightarrow$ 选举制度研究：规则如何塑造政治结果 $\rightarrow$ Duverger 定律及其修正；
+  \item \textbf{美国政治}（American politics）$\rightarrow$ 政治制度研究：国会、总统、法院如何互动 $\rightarrow$ 政党作为制度中介的角色；
+  \item \textbf{政治行为}（political behavior）$\rightarrow$ 选民心理：认同、极化、策略投票 $\rightarrow$ 两党制如何塑造普通人的政治思维。
+\end{itemize}
+
+由此可以推出理解这一领域的三条线索：选举规则层面的\textbf{结构约束}（为什么是两党而不是三党）、历史路径的\textbf{锁定效应}（为什么是这两个党而不是别的两个）、个人心理层面的\textbf{反馈循环}（两党制如何塑造了选民的世界观）。
+
+需要纠正的最常见误解，是把美国两党政治等同于``民主党 vs 共和党谁对谁错''的政策辩论。学术研究的焦点不在政策内容本身，而在\textbf{制度逻辑}：
+
+\begin{itemize}
+  \item 不是``民主党好还是共和党好''，而是``什么样的制度安排让这两党成为了仅有的选项''；
+  \item 不是``为什么美国人这么分裂''，而是``哪些制度机制在加剧或缓解这种分裂''；
+  \item 不是``第三党为什么不受欢迎''，而是``什么样的进入壁垒使得即使约 60\% 的选民希望有第三选择，第三党仍然无法突破''。
+\end{itemize}
+
+这个视角切换至关重要：它把问题从``人''转向了``规则''。
+
+\section{制度根源：为什么只有两个党}
+
+\subsection{杜瓦杰定律：一个概率性规律}
+
+政治学里有一条著名规律叫\textbf{杜瓦杰定律}（Duverger's law），由法国政治学家莫里斯·杜瓦杰（Maurice Duverger）在 1950 年代提出。它的核心意思是：
+
+\begin{quote}
+\textbf{单一选区相对多数制（single-member district plurality, SMDP）倾向于产生两党制。}
+\end{quote}
+
+拆开来看：
+
+\begin{itemize}
+  \item \textbf{单一选区}（single-member district）：每个选区只选出一个代表。比如加州第 12 国会选区，只有一个众议员席位，赢者全拿。
+  \item \textbf{相对多数制}（first-past-the-post, FPTP）：谁票多谁赢，不需要过半数。哪怕 35\% vs 33\% vs 32\%，35\% 的人拿走全部果实。
+\end{itemize}
+
+这种制度通过三个层次的效应导致两党制：
+
+\textbf{第一层：机械效应}（mechanical effect）。假设某选区有三个候选人，分别拿 40\%、35\%、25\% 的票。在相对多数制下，40\% 的人拿走 100\% 的席位。如果这种情况在全国重复发生，一个在全国拿 15\% 选票的政党可能拿到 0\% 的议会席位。选票--席位的不成比例性对小党是致命的。
+
+\textbf{第二层：心理效应}（psychological effect）。选民不是傻子，他们看到小党永远赢不了，于是\textbf{策略性投票}（strategic voting）：不投自己最喜欢的候选人，而是投``不那么讨厌且有可能赢''的大党候选人，防止最讨厌的那个党上台。这叫做``有用票''逻辑——投给有机会赢的人。心理效应使机械效应从一次性惩罚变成自我实现的预言。
+
+\textbf{第三层：精英适应}。政治精英和政治捐款人也看到了这个逻辑。有抱负的政治家不会选择在第三党起步——他们会加入一个大党，从内部竞争；捐款人不会把钱投给必然失败的政党。这使得第三党长期面临人才和资金的双重枯竭。
+
+三层叠加，形成一个自我强化的循环：小党赢不了 $\rightarrow$ 选民不投小党 $\rightarrow$ 小党更赢不了 $\rightarrow$ 政治版图锁定在两党。即便选民对两个大党都不满，打破这个平衡的成本也极高。
+
+\subsection{例外与修正：为什么加拿大和印度是多党制}
+
+Duverger 定律面临的最有力挑战来自加拿大和印度——这两个国家同样使用 FPTP 选举制度，却有多党制。答案在于\textbf{区域集中度}：如果一个小党的支持者在地理上高度集中（比如魁北克的魁北克集团 Bloc Québécois），那么它在某些选区可以成为前两名，从而赢得席位。
+
+Duverger 定律真正起作用的条件是``小党在全国均匀分布''——这在美国大致成立。没有哪个第三党能在任何一个选区稳定成为前两名，因此在全国层面永远是零席位。这个修正被称为``Duverger's hypothesis''：它不是一条在所有情况下都成立的铁律，而是一种概率性倾向——FPTP 将政党数量的期望值推向 2，但不保证一定是 2。这一理解后来被 Gary Cox 的``$M+1$ 规则''精确化：在每个选区，竞争者的数量倾向于收敛到``席位数 $+1$''；单一选区 $\rightarrow$ 席位数 1 $\rightarrow$ 竞争者收敛到 2。
+
+\section{历史轨迹：五次政党体系更迭}
+
+美国的两党制不是设计出来的，而是演化出来的。政治学家将美国历史划分为至少五个``政党体系''（party systems），每个体系有不同的主要政党对阵、核心议题和选民联盟。
+
+\begin{table}[h]
+\centering
+\caption{美国政党体系的五次更迭}
+\begin{tabular}{@{}lp{2.8cm}p{4.2cm}p{6.0cm}@{}}
+\toprule
+\textbf{阶段} & \textbf{大约时间} & \textbf{主要对阵} & \textbf{关键事件} \\
+\midrule
+第一政党体系 & 1792--1824 & 联邦党 vs 民主共和党 & 宪法批准争论、汉密尔顿 vs 杰斐逊 \\
+第二政党体系 & 1828--1854 & 民主党 vs 辉格党 & 杰克逊民主、银行战争 \\
+第三政党体系 & 1854--1896 & 民主党 vs 共和党（诞生） & 奴隶制争议、内战、重建 \\
+第四政党体系 & 1896--1932 & 共和党主导 & 进步时代、大萧条前夕 \\
+第五政党体系 & 1932--1968 & 民主党主导 & 新政（New Deal）联盟 \\
+第六政党体系？ & 1968--至今 & 两党对峙、极化加剧 & 民权运动、南方重组、里根革命 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+各阶段要点如下：
+
+\begin{itemize}
+  \item \textbf{第一政党体系}：建国初期，政党还不是被接受的合法存在——华盛顿在告别演说中警告``党派精神''的危险。但围绕汉密尔顿（Alexander Hamilton）的联邦财政计划和杰斐逊（Thomas Jefferson）的农业共和理想，政治精英迅速分化为两个阵营。联邦党主张强大的中央政府和国家银行；民主共和党主张州权和农业民主。联邦党在 1812 年战争后衰落，美国进入短暂的``好感时代''（Era of Good Feelings）——只有一党。
+  \item \textbf{第二政党体系}：安德鲁·杰克逊（Andrew Jackson）的崛起带来了现代意义上的大众政党。辉格党（Whig Party）作为反杰克逊力量的联盟而诞生。核心议题是``市场革命''（market revolution）和国家在经济中的角色。辉格党最终因奴隶制问题上内部分裂而崩溃。
+  \item \textbf{第三政党体系}：反对奴隶制扩张的力量在 1854 年组建共和党。1860 年林肯当选，南方各州脱离，内战爆发。内战后共和党主导国家政治，南方成为民主党的``坚固南方''（Solid South）。
+  \item \textbf{第四政党体系}：1896 年大选被认为是``关键选举''（critical election）的经典例子。麦金莱（William McKinley）击败布莱恩（William Jennings Bryan），开启长达三十六年的共和党主导期。核心议题是工业化、关税和金本位。
+  \item \textbf{第五政党体系}：大萧条摧毁了共和党的执政合法性。富兰克林·罗斯福（Franklin D. Roosevelt）的新政构建了一个前所未有的选民联盟：南方白人 + 北方工人阶级 + 少数族裔 + 知识分子。这个联盟在意识形态上相互矛盾（南方白人是种族保守派，北方工人和黑人是自由派），但被经济议题和大萧条的记忆凝聚在一起。
+  \item \textbf{第六政党体系？}：1960 年代民权运动撕裂了新政联盟。林登·约翰逊（Lyndon B. Johnson）在签署 1964 年《民权法案》后说了一句著名的话：``We have lost the South for a generation.''（``我们把南方输掉了一代人。''）他低估了——南方重组持续了三十年以上，到今天仍在深化。这一体系的特征不是某一党一统天下，而是\textbf{两党高度竞争但意识形态日益极化}：总统职位在民主党和共和党之间频繁交替，但每次交替后的政策分歧越来越大。
+\end{itemize}
+
+\subsection{政党重组与南方重组}
+
+关键概念\textbf{政党重组}（party realignment）：选民联盟的大洗牌——某个人口群体从一个党大规模转向另一个党，通常由重大社会危机触发。经典理论框架是 V. O. Key 的``关键选举''（critical election）理论：在特定选举中，选民联盟发生持久性转变。
+
+最经典的例子是\textbf{南方重组}（Southern realignment）：从内战结束到 1960 年代，美国南方是民主党的铁票仓（``坚固的南方''）。但 1964 年《民权法案》通过后，南方白人保守派逐渐转向共和党，而黑人选民转向民主党。这个过程花了约三十年，到 1990 年代基本完成，彻底重塑了两党的选民基础。
+
+\section{今天的民主党与共和党}
+
+不要用``左 vs 右''的欧洲标签简单套在美国身上。美国的两党在意识形态上确实有系统差异，但它们都是``大帐篷''（big tent）政党——内部包含了差异巨大的派系。
+
+\begin{table}[h]
+\centering
+\caption{当代两党的基本画像}
+\begin{tabular}{@{}lp{6.2cm}p{6.2cm}@{}}
+\toprule
+\textbf{维度} & \textbf{民主党（Democratic Party）} & \textbf{共和党（Republican Party）} \\
+\midrule
+经济政策 & 政府干预、累进税制、社会保障扩大、工会支持 & 减税、放松管制（deregulation）、自由市场、限制政府开支 \\
+社会政策 & 多元文化、堕胎权、LGBTQ+ 权利、枪支管控 & 传统价值观、宗教自由、拥枪权、反堕胎 \\
+环境政策 & 支持气候变化应对、清洁能源转型 & 对气候管治持怀疑态度，支持传统能源 \\
+主要选民群体 & 城市居民、少数族裔、年轻人、高学历白人、工会成员 & 乡村居民、福音派基督徒、白人男性、老年人、企业主 \\
+内部派系张力 & 进步派（如 Bernie Sanders、AOC）vs 温和建制派（如 Joe Biden、Nancy Pelosi） & 特朗普式民粹 vs 传统里根式保守主义 vs 自由意志派 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+需要注意：两党内部的立场在过去一个世纪里几经翻转。共和党最初是北方的废奴主义政党（林肯的党），民主党的前身是南方奴隶主的政党。今天两党在种族议题上的立场，在 1960 年代民权运动之后才完全对调。
+
+\section{政治极化：当代的核心现象}
+
+如果你只记一个当代美国政治的关键词，就是\textbf{政治极化}（political polarization）：两党在意识形态上越来越远，中间地带越来越窄。1950 年代的国会里，自由派民主党与保守派共和党之间有大量重叠；到 2020 年代，两者几乎没有重叠。
+
+\subsection{极化的三个维度}
+
+\begin{itemize}
+  \item \textbf{意识形态极化}（ideological polarization）：两党在政策立场上的距离扩大。最直接证据是国会投票模式——跨党派投票（bipartisan voting）的比例从 1970 年代的约 60\% 下降到今天的约 5\%。标准测量工具是 DW-NOMINATE 分数（基于国会唱名投票的意识形态量化指标）：两党在意识形态空间中的距离从 1970 年代的相对接近，扩大到今天的历史最高水平——甚至超过了内战前的极化程度（只是现在没有导致战争）。
+  \item \textbf{情感极化}（affective polarization）：不仅政见不同，而且互相敌视。研究显示，今天美国人的``党派偏见''（partisan bias）在程度上已经超过种族偏见——平均而言，一个白人选民对对立党派的敌意，大于对另一个种族的敌意（此说基于二手引用，待核验原始研究）。越来越多的人说``如果孩子和对方党派的人结婚，我会不高兴''。
+  \item \textbf{地理极化}：县一级的选举结果越来越极端——以 20 个百分点以上优势获胜的``压倒性县''比例从 1992 年的 38\% 上升到 2020 年的 58\%。城市越来越蓝，乡村越来越红，中间地带（郊区）成为关键战场。
+\end{itemize}
+
+\subsection{极化的原因：一个多因果故事}
+
+把极化归因于单一原因是诱人但错误的。学术界的共识是多个因素同时在起作用，但对每个因素的\textbf{效应量}（effect size）没有共识：
+
+\begin{table}[h]
+\centering
+\caption{极化主因的五大假说}
+\begin{tabular}{@{}lp{4.6cm}p{7.6cm}@{}}
+\toprule
+\textbf{假说} & \textbf{证据强度} & \textbf{机制与争论} \\
+\midrule
+收入不平等 & 强 & McCarty、Poole 与 Rosenthal 在 \emph{Polarized America} 中展示：收入基尼系数与国会意识形态极化在 1947--2003 年间几乎完全同步。机制：经济不平等扩大 $\rightarrow$ 不同收入阶层利益冲突加剧 $\rightarrow$ 政党更鲜明地代表不同阶层 $\rightarrow$ 极化。但因果链长，中间步骤是否都成立仍有疑问。 \\
+地理分类 & 中强 & Bill Bishop 在 \emph{The Big Sort} 中记录了``自我分类''（self-sorting）。因果方向有争议：是人们先自我分类导致了极化，还是人们在搬家中自然流露了已有的意识形态偏好？ \\
+党派媒体 & 中 & Fox News（1996 年创立）、MSNBC（1996 年创立）与社交媒体推荐算法是否加剧极化？实验室实验支持，但现实世界的随机对照几乎不可能，效应量可能被高估。因果方向难以确定。 \\
+选区重划（gerrymandering） & 弱中 & 流行叙事远强于学术证据。计量研究显示选区重划对极化的边际贡献很小。 \\
+初选制度 & 弱中 & 初选投票率通常仅 15--25\%，参与者多是党内最意识形态化的活跃分子，给候选人提供``走向极端''的激励；但大选层面的选民仍会对极端候选人有惩罚，效应被部分抵消。 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+这是典型的``因果识别''（causal identification）难题：在复杂的政治系统中，很难把某一个因素单独分离出来。
+
+\subsection{极化的后果：从僵局到民主倒退}
+
+极化的最直接后果是\textbf{立法僵局}（gridlock）：当两党在几乎所有议题上都有根本分歧，且跨党派合作会被本党基本盘视为``背叛''时，国会通过立法的能力急剧下降。这在美国政治制度中特别致命，因为美国的``否决点''（veto points）本来就多——参议院、众议院、总统、法院，每个环节都能阻止立法。
+
+更令人担忧的后果是\textbf{民主规范的侵蚀}。政治学家 Steven Levitsky 和 Daniel Ziblatt 在 \emph{How Democracies Die} 中论证：民主的死亡在 21 世纪通常不是通过军事政变，而是通过民选领导人逐步侵蚀民主规范——不尊重司法独立、攻击媒体合法性、拒绝接受选举结果。2021 年 1 月 6 日国会山事件使得``民主倒退''从学术假设变成了现实关切。
+
+\section{第三党的永恒困境}
+
+\subsection{历史上的第三党尝试}
+
+\begin{itemize}
+  \item \textbf{西奥多·罗斯福的进步党}（1912，``Bull Moose Party''）：前总统亲自带队，拿了 27\% 的普选票和 88 张选举人票——但这只是因为共和党分裂了，最终让民主党的威尔逊渔翁得利。
+  \item \textbf{罗斯·佩罗}（Ross Perot，1992）：拿了 19\% 的普选票，但零张选举人票——因为你在每个州都是第二或第三，就拿不到任何选举人票。
+  \item \textbf{绿党}（Green Party）、\textbf{自由意志党}（Libertarian Party）：常年拿 1--3\%，主要作用是``搅局''（spoiler）——从一个大党那里吸走关键选票，帮助另一个大党赢。
+\end{itemize}
+
+\subsection{结构性障碍}
+
+第三党面临的障碍是结构性的，不是某个候选人不够有魅力：
+
+\begin{enumerate}
+  \item \textbf{选举制度}（FPTP + 选举人团）：数学上惩罚小党。
+  \item \textbf{选票准入}（ballot access）：各州法律对第三党上选票设置了高昂的门槛。
+  \item \textbf{辩论门槛}：总统辩论委员会（由两党控制）要求民调达到 15\% 才能参加全国电视辩论。
+  \item \textbf{资金}：捐款人不想把钱投给``注定输''的候选人。
+  \item \textbf{媒体关注}：第三党候选人几乎得不到全国媒体报道。
+\end{enumerate}
+
+\subsection{更深层的机制：两党吸收与负向党派性}
+
+理论上的``需求''一直存在——盖洛普民调长期显示约 60\% 的美国人认为需要第三党（具体期数与最新数据待核验）。但``需求''从未转化为``供给''。除制度障碍外，还有两个深层机制：
+
+\begin{itemize}
+  \item \textbf{两党吸收}（co-optation）：当第三党提出具有吸引力的政策主张时，大党会直接采纳。1890 年代人民党（Populist Party）的许多主张后来被民主党吸收；1992 年罗斯·佩罗的财政纪律议题被两党不同程度采纳；茶党（Tea Party）不是作为第三党而是作为共和党内部的派系发挥作用。为什么从内部改造比从外部挑战更有效？因为内部改造不需要克服 FPTP 的数学障碍。
+  \item \textbf{负向党派性}（negative partisanship）：越来越多的证据表明，驱动美国选民的不是``我喜欢我的党''，而是``我恨你的党''。在这种心理下，投票行为更像``阻止最坏结果''，而不是``追求最好结果''。第三党在这种框架中毫无位置——你投第三党等于帮了你最恨的那个党。
+\end{itemize}
+
+\section{图景的边界：两党制不是什么}
+
+\begin{itemize}
+  \item \textbf{不只是``红蓝之分''}。红州/蓝州的二分法会让人误以为每个州内部是单一的。实际上，即使是``深红''的得克萨斯州，也有奥斯汀这样的自由派堡垒；即使是``深蓝''的加利福尼亚，中央谷地也非常保守。美国的政治多样性存在于州内更甚于州际。
+  \item \textbf{两党不等于两党永远不变}。两党内部的立场在过去一个世纪里几经翻转（见第 4 节）。
+  \item \textbf{两党制不等于政治稳定}。很多人以为两党制天然比多党制稳定，但政治学研究的结论更复杂：两党制虽然避免联合政府谈判的混乱，但也更容易造成政治僵局和``赢者通吃''式的撕裂。
+\end{itemize}
+
+\clearpage
+
+% ============================================================
+\part{概念辨析：关键术语的边界}
+
+混淆这些概念会直接误导对美国两党政治的理解。
+
+\section{两党制 $\neq$ 只有两个党合法存在}
+
+\textbf{最常见的误解}：美国法律规定只有两个政党。
+
+\textbf{事实}：美国宪法从未规定政党数量。美国在任何时候都有几十个注册政党（绿党、自由意志党、宪法党等）。``两党制''（two-party system）指的是\textbf{只有两个党有实际执政可能}——这是选举制度和政治生态的自然结果，不是法律设计。
+
+\textbf{为什么这个区别重要}：如果以为是法律禁止第三党，就会把注意力放在``修改法律''上，而忽略更深层的制度逻辑（FPTP + 单一选区）。
+
+\section{政党极化 $\neq$ 民众极化}
+
+这两个概念在媒体中常被混用，但政治学区分得很清楚：
+
+\begin{table}[h]
+\centering
+\caption{政党极化与民众极化的区别}
+\begin{tabular}{@{}lp{4.8cm}p{4.8cm}p{3.4cm}@{}}
+\toprule
+\textbf{维度} & \textbf{政党极化} & \textbf{民众极化} & \textbf{中文近似} \\
+\midrule
+主体 & 政治精英：议员、候选人、党内活动家 & 普通选民大众 & 精英极化 / 大众极化 \\
+表现 & 国会投票按党派高度一致、跨党派合作锐减 & 选民在议题立场上越来越极端 & --- \\
+证据强度 & 强：国会投票记录清楚显示 & 有争议：很多研究认为普通选民在具体议题上并没有变得更极端 & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{关键判断}：学术界基本同意精英极化是真实的、显著的。但对民众是否也同步极化存在争论——部分学者（如 Fiorina）认为大多数选民在具体政策议题上仍是温和的，只是在政党认同（party identification）上更``排序''了（sorting）：保守派几乎全是共和党，自由派几乎全是民主党，不像过去那样交叉。
+
+\textbf{混淆后果}：如果把精英极化当成全民极化，就会错误地认为``美国人越来越极端''，而忽略问题可能在制度层面而非民众层面。
+
+\section{政党重组 $\neq$ 政党脱党}
+
+\textbf{政党重组}（realignment）：选民联盟的重新洗牌，两个主要政党仍然存在，但各自代表的群体变了。南方重组是经典案例——民主党从南方白人的政党变成非裔美国人的政党。
+
+\textbf{政党脱党}（dealignment）：选民不再稳定认同任何一个政党，政党忠诚度整体下降，独立选民比例上升。这不是``换党''，而是``脱党''。
+
+\textbf{为什么容易混}：两者都描述政党--选民关系的变化。区别在于：重组是``从 A 换到 B''，脱党是``从 A 换到无''。
+
+\textbf{当前争论}：美国究竟在经历重组还是脱党？证据指向两者同时在发生——某些群体在重组（如工人阶级白人从民主党转共和党），同时整体政党忠诚度在下降但情感极化在上升（paradox of polarization，极化悖论）。
+
+\section{选举人团 $\neq$ 普选}
+
+这是美国政治中最具制度特色的概念之一，也是外行人最容易困惑的地方。
+
+\begin{itemize}
+  \item \textbf{普选票}（popular vote）：全国所有选民投票的总和。谁在全国拿更多票，谁赢普选。
+  \item \textbf{选举人团}（Electoral College）：总统不是由普选直接选出的。每个州分配一定数量的选举人票（electoral votes），等于该州参议员数（固定 2）+ 众议员数（按人口比例）。全国共 538 张选举人票，拿到 270 张就赢。绝大多数州实行``赢者通吃''（winner-take-all）：在该州普选领先的候选人拿走该州全部选举人票。
+\end{itemize}
+
+\textbf{关键后果}：有可能赢普选但输选举人团。历史上发生过五次（1824、1876、1888、2000、2016）。这决定了总统竞选策略根本不同于全国普选——候选人只关心``摇摆州''（swing states），不在乎已经稳赢或稳输的州。
+
+\textbf{容易混淆的点}：很多人以为``选举人团''是某种会议或委员会。它不是。选举人是在选举日后各自在州内集会投票的形式角色，实际上他们几乎总是按照本州普选结果投票，并不独立决策。
+
+\section{初选 $\neq$ 大选}
+
+\begin{table}[h]
+\centering
+\caption{初选与大选的区别}
+\begin{tabular}{@{}lp{4.4cm}p{4.4cm}p{4.6cm}@{}}
+\toprule
+\textbf{维度} & \textbf{初选（primary）} & \textbf{大选（general election）} & \textbf{备注} \\
+\midrule
+目的 & 各党内部选出提名人 & 各党提名人对决 & --- \\
+参与者 & 通常是本党注册选民（开放初选除外） & 全体选民 & --- \\
+时间 & 大选年春季 & 大选年 11 月 & --- \\
+制度差异 & 各州规则各异，极其复杂 & 统一日期，FPTP & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{初选制度是美国独有的特色}：大多数国家的政党提名由党内精英决定，而美国自 1970 年代改革后，初选权力下放给了普通选民。这带来两个效应：
+
+\begin{enumerate}
+  \item \textbf{候选人更极端}：初选投票率低（通常 15--25\%），参与者多是党内最意识形态化的活跃分子，候选人必须迎合他们才能出线——这是精英极化的一个重要制度来源。
+  \item \textbf{党内民主化}：普通党员有了实质发言权，但也削弱了党领袖的控制力——2016 年特朗普通过初选击败所有共和党建制派候选人就是这个逻辑的极端体现。
+\end{enumerate}
+
+\section{摇摆州 $\neq$ 紫州}
+
+这两个词经常互用，但有细微区别：
+
+\begin{itemize}
+  \item \textbf{摇摆州}（swing state）：选举结果不确定的州，可能翻红也可能翻蓝。侧重``竞选竞争激烈程度''。
+  \item \textbf{紫州}（purple state）：选民结构上红蓝大致平衡的州。侧重``选民构成''。
+\end{itemize}
+
+大多数紫州是摇摆州，但不完全等同。一个紫州如果某一方选民投票率特别低，也可能变得不那么``摇摆''。
+
+\textbf{关键认知}：美国大选实际上不是在 50 个州竞争，而是在 6--8 个摇摆州竞争。这导致了一个奇怪的民主现象：一个宾夕法尼亚州的选民对选举结果的影响力，远大于一个加利福尼亚州或阿拉巴马州的选民。
+
+\section{否决政治 $\neq$ 民主制衡}
+
+\textbf{制衡}（checks and balances）：宪法设计的分权机制——总统、国会、法院互相制约，防止权力集中。
+
+\textbf{否决政治}（vetocracy）：制衡机制的极端化——不是``彼此制约后达成妥协''，而是``各方都有足够权力阻止对方做任何事，但没有足够动力合作''。
+
+政治学者弗朗西斯·福山（Francis Fukuyama）用``vetocracy''来描述当代美国的困境：否决点（veto points）太多，任何一个环节都能阻止政策通过，但没有任何一个环节有动力推动妥协。参议院的阻挠议事（filibuster）是最典型的否决工具——只需要 41 票就能阻止大多数立法。
+
+\textbf{混淆后果}：如果把否决政治错误地理解为``制度在正常运作''，就会低估改革制度本身的必要性。
+
+\section{概念边界速查表}
+
+\begin{table}[h]
+\centering
+\caption{关键概念速查}
+\begin{tabular}{@{}lp{5.4cm}p{6.6cm}@{}}
+\toprule
+\textbf{概念} & \textbf{是} & \textbf{不是} \\
+\midrule
+两党制 & 选举制度产生的均衡结果 & 法律规定的政党数量上限 \\
+极化 & 精英层面证据充分，民众层面有争议 & 一定是全民意识形态极端化 \\
+重组 & 选民联盟跨党转移 & 政党消亡和新党诞生 \\
+选举人团 & 间接选举总统的制度安排 & 独立决策的委员会 \\
+初选 & 党内提名机制 & 大选的预演（虽然经常被这样称呼） \\
+否决政治 & 过多否决点导致制度僵化 & 正常的权力制衡 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\clearpage
+
+% ============================================================
+\part{研究版图：问题链、方法与前沿}
+
+\section{问题链：从上游到下游}
+
+美国两党政治的研究不是一个扁平的话题列表，而是一条有因果链的问题序列：
+
+\begin{description}
+  \item[上游：结构问题]
+  \begin{itemize}
+    \item 选举制度如何塑造政党数量？（Duverger 定律及其修正）
+    \item 宪法设计（总统制、联邦制、三权分立）如何影响政党行为？
+    \item 历史路径依赖：为什么是这两个党而不是别的两个？
+  \end{itemize}
+  \item[中游：行为问题]
+  \begin{itemize}
+    \item 政党如何选择候选人？（初选制度研究）
+    \item 政党如何在国会内部组织？（党团纪律、委员会分配）
+    \item 政党如何动员选民？（基层动员 vs 大众媒体 vs 数据驱动竞选）
+    \item 政党如何回应或塑造民意？
+  \end{itemize}
+  \item[下游：结果问题]
+  \begin{itemize}
+    \item 为什么极化在加剧？（精英层面 + 选民层面 + 媒体 + 地理）
+    \item 极化导致了什么？（立法僵局、司法政治化、民主倒退风险）
+    \item 第三党为什么失败？（制度障碍 + 策略投票 + 资金）
+    \item 两党制在 21 世纪还可持续吗？
+  \end{itemize}
+\end{description}
+
+这条链条的意义在于：你不能只回答下游问题而不理解上游结构。比如问``为什么极化加剧''，如果不去看初选制度的激励机制和选区划分（gerrymandering），答案就会停留在``政客变坏了''这种表面解释上。
+
+\section{方法谱系：从制度分析到数据科学}
+
+\subsection{按分析层次}
+
+\begin{table}[h]
+\centering
+\caption{三种分析层次}
+\begin{tabular}{@{}lp{4.6cm}p{4.2cm}p{5.4cm}@{}}
+\toprule
+\textbf{层次} & \textbf{核心问题} & \textbf{代表方法} & \textbf{例子} \\
+\midrule
+宏观制度层 & 宪法、选举法、联邦制如何塑造政党体系 & 比较历史分析、制度主义理论 & Skowronek 的``政治时间''理论 \\
+中观组织层 & 政党作为组织的内部运作逻辑 & 案例研究、深度访谈、过程追踪 & 各州初选制度比较 \\
+微观个体层 & 选民决策、意识形态形成、情感极化 & 调查实验、面板数据、行为博弈 & ANES 调查、心理实验 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{按方法类型：一条谱系}
+
+从定性/历史到定量/计算：\textbf{制度分析 $\rightarrow$ 案例比较 $\rightarrow$ 调查统计 $\rightarrow$ 因果推断 $\rightarrow$ 计算模型}，分别回答``为什么是这样''、``怎样演变成这样''、``多大/多快''。不是哪种方法更好，而是它们回答不同类型的问题：
+
+\begin{itemize}
+  \item \textbf{制度分析}（如 Skowronek 的``政治时间''理论）：回答``为什么美国总统权力呈现出周期性的兴衰''。不能量化，但提供了理解美国政治最深层的框架。
+  \item \textbf{案例比较}（如比较不同州的初选制度）：回答``开放初选和封闭初选哪个产生更极端的候选人''。有因果逻辑但不能做统计推断。
+  \item \textbf{调查统计}（如 ANES 美国国家选举研究）：回答``过去四十年选民政党认同的变化趋势''。能描述全貌但难建立因果。
+  \item \textbf{因果推断}（如利用选区重划的自然实验）：回答``gerrymandering 到底有没有加剧极化''。方法最严格但适用范围最窄。
+  \item \textbf{计算模型}（如基于 agent-based modeling 模拟策略投票的演化）：回答``如果选举制度改变了，两党制会瓦解吗''。能做反事实推演但依赖假设。
+\end{itemize}
+
+\section{五条核心研究路线}
+
+\subsection{路线一：选举制度与政党体系}
+
+\textbf{核心问题}：选举规则如何决定政党数量？
+
+\textbf{经典起点}：Duverger 定律（FPTP $\rightarrow$ 两党制）。但 70 年来的研究发现这个``定律''其实是一组概率性倾向而非铁律。修正包括：
+
+\begin{itemize}
+  \item \textbf{Cox 的 $M+1$ 规则}：在每个选区，竞争者的数量倾向于收敛到``席位数 $+1$''。
+  \item \textbf{例外解释}：为什么加拿大和印度也是 FPTP 却有多党制？因为它们有区域性小党——在某些选区是前两名，在全国层面是多党。
+\end{itemize}
+
+\textbf{成熟度}：高。基本规律已经清楚，学术前沿转向制度的内生性（制度本身也是被政党设计的）。
+
+\subsection{路线二：政党极化}
+
+\textbf{核心问题}：为什么过去四十年两党越来越远？
+
+\textbf{主要假说}（详见第一部分第 5 节的表格）：初选制度假说、选区重划假说、收入不平等假说（McCarty、Poole \& Rosenthal）、媒体环境假说、地理分类假说。
+
+\textbf{学术共识排序}：收入不平等与地理分类证据最强；选区重划（gerrymandering）的证据实际上比通常认为的弱；初选制度在特定条件下成立但不是主要驱动力；媒体环境仍在激烈争论中。
+
+\textbf{成熟度}：中高。极化的存在和程度基本无争议，但\textbf{原因}仍有大量争论。
+
+\subsection{路线三：政党重组与选民联盟变迁}
+
+\textbf{核心问题}：哪些群体在什么条件下换党？美国正在经历第六政党体系吗？
+
+\textbf{经典框架}：V. O. Key 的``关键选举''理论。
+
+\textbf{当代争论}：今天的变化是``重组''还是``脱党''？证据显示两者都在发生。特别是：
+
+\begin{itemize}
+  \item 没有大学学历的白人选民从民主党转向共和党（重组）；
+  \item 郊区高学历选民从共和党转向民主党（反向重组）；
+  \item 但年轻人整体政党忠诚度下降（脱党）。
+\end{itemize}
+
+\textbf{成熟度}：中。有经典理论框架，但``实时判断当下在发生什么''是最难的——重组只有在回头看时才清晰。
+
+\subsection{路线四：第三党与政治进入壁垒}
+
+\textbf{核心问题}：为什么在选民对两党都不满的时期，第三党仍然无法突破？
+
+这是一个``最老也最难''的问题。制度解释已经很充分（见第一部分第 6 节），但 2016 和 2020 年之后出现新角度：
+
+\begin{itemize}
+  \item \textbf{两党吸收策略}：当第三党提出有吸引力的政策，大党会直接采纳，消解了第三党的独特价值。
+  \item \textbf{负向党派性}：选民不是因为喜欢本党而投票，而是因为厌恶对方党。在这种心理下，第三党显得``无关紧要''。
+\end{itemize}
+
+\textbf{成熟度}：高。制度障碍已被充分研究，新研究更关注心理和文化机制。
+
+\subsection{路线五：比较两党制}
+
+\textbf{核心问题}：美国的两党制和其他两党制（英国、澳大利亚）有何不同？
+
+关键差异：
+
+\begin{itemize}
+  \item \textbf{议会制 vs 总统制}：英国两党在议会里对立但行政权统一（首相即多数党领袖），美国的行政--立法分属不同党时导致僵局。
+  \item \textbf{政党纪律}：英国政党纪律极强，美国弱（议员可以按自己意愿投票，不用担心政府倒台）。
+  \item \textbf{初选制度}：大多数国家没有美国式的全民初选，候选人由党内精英挑选。
+\end{itemize}
+
+\textbf{成熟度}：中。比较政治学中成熟的子领域，但美国特殊性常被过度强调。
+
+\section{知识分层：常识、baseline 与真正的前沿}
+
+\subsection{内圈：常识层（不需要再验证的知识）}
+
+\begin{itemize}
+  \item 美国有两个主要政党：民主党和共和党。
+  \item 总统选举不是直接普选，而是通过选举人团。
+  \item 第三党在联邦层面几乎没有存在感。
+  \item 过去几十年，两党在意识形态上越来越远。
+  \item 南方在 1960 年代后从民主党基地变成了共和党基地。
+\end{itemize}
+
+如果你只是想读懂美国政治新闻，到这一层就够了。
+
+\subsection{中圈：成熟 baseline（已被充分研究、不需要质疑的结论）}
+
+\begin{table}[h]
+\centering
+\caption{成熟基线判断}
+\begin{tabular}{@{}lp{7.6cm}p{5.8cm}@{}}
+\toprule
+\textbf{判断} & \textbf{证据强度} & \textbf{如果质疑它，你需要挑战什么} \\
+\midrule
+FPTP 选举制度强烈倾向于两党制 & 极强 & 70 年跨国数据，Duverger $\rightarrow$ Cox 的理论链条 \\
+过去四十年的精英极化是真实的 & 极强 & DW-NOMINATE、跨党派投票率、共同提案数据 \\
+南方重组已经完成 & 强 & 选举地图、选民注册数据、代际更替 \\
+第三党面临的结构性壁垒是压倒性的 & 强 & 选票准入法、辩论门槛、FPTP 数学 \\
+初选制度使候选人倾向于迎合党内基本盘 & 强 & 多州比较研究、开放 vs 封闭初选数据 \\
+情感极化在最近二十年显著上升 & 强 & ANES 调查、心理实验、社会距离指标 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{外圈：真正的学术边界（仍在活跃争论中）}
+
+\subsubsection{极化的主因是什么？}
+
+见第一部分第 5.2 节的五大假说表。前沿意义在于：这不是``谁对谁错''的辩论，而是多个因素同时作用，但对每个因素的\textbf{效应量}没有共识。
+
+\subsubsection{美国是否在经历民主倒退？}
+
+这是当前最炙手可热也最分裂的学术争论：
+
+\begin{table}[h]
+\centering
+\caption{民主倒退之争的三种立场}
+\begin{tabular}{@{}lp{3.6cm}p{8.6cm}@{}}
+\toprule
+\textbf{立场} & \textbf{代表学者} & \textbf{核心论证} \\
+\midrule
+是，民主在倒退 & Levitsky \& Ziblatt、Bright Line Watch & 民主规范被侵蚀：不接受选举结果、攻击司法独立、削弱媒体 \\
+没那么严重 & 部分比较政治学者 & 美国的民主制度有强大的``抗体''：联邦制、司法独立、公民社会 \\
+问题在民主质量，不在民主本身 & Larry Diamond 等 & 美国依然是选举民主（electoral democracy），但自由民主（liberal democracy）的某些指标在下降 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{为什么难判断}：民主倒退是一个需要事后验证的判断。1930 年代的德国人不知道魏玛共和国在倒退，1970 年代的智利人也不知道。实时判断``现在是不是民主倒退''存在根本性的认知局限。
+
+\subsubsection{改变选举制度会松动两党制吗？}
+
+这是一个``反事实''（counterfactual）问题——在现有条件下无法直接验证。但可以通过比较研究来逼近：
+
+\begin{itemize}
+  \item 如果引入\textbf{排序投票}（ranked-choice voting, RCV），比如缅因州和阿拉斯加州已经采用的模式，第三党候选人在这些州的得票率确实有微弱上升，但远未到``打破两党制''的程度。
+  \item 如果废除\textbf{选举人团}，改全国普选，是否会鼓励第三党？理论上有可能——因为全国普选消除了``在单个州必须排第一或第二''的约束。但需要修宪，政治可行性极低。
+\end{itemize}
+
+\textbf{前沿意义}：这是典型的``制度设计''问题——我们知道现有制度的缺陷，但不清楚替代方案的确切后果，因为替代方案从未在美国联邦层面实施过。
+
+\subsection{伪 gap：看起来是研究空白但其实有原因}
+
+\begin{table}[h]
+\centering
+\caption{伪 gap 一览}
+\begin{tabular}{@{}lp{5.8cm}p{7.4cm}@{}}
+\toprule
+\textbf{表面 gap} & \textbf{为什么不是真 gap} & \textbf{说明} \\
+\midrule
+``如何设计一个成功的第三党'' & 已知的答案就是``在现有制度下几乎不可能'' & 问题不是没人想过，而是制度的数学逻辑如此 \\
+``如何逆转极化'' & 个体干预（如跨党派对话项目）效应很小且不持久 & 导致极化的力量（经济、媒体、地理）是系统级的，个体干预杯水车薪 \\
+``美国为什么没有更频繁的政党体系更替'' & 有——五次政党体系更迭就是答案 & 真正的问题不是``为什么没有''，而是``下一次什么时候来、以什么形式来'' \\
+``社交媒体上的回声室效应到底多大'' & 数据获取和因果识别极端困难 & Facebook/Twitter 不开放完整的平台数据给独立研究者。这是数据壁垒，不是知识 gap \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{开放问题}
+
+美国两党政治是一个非常成熟的学术领域，大框架（为什么是两党）已经清楚。但以下问题仍在活跃发展中：
+
+\begin{enumerate}
+  \item \textbf{极化的制度根源究竟有多深}——如果改变初选规则，极化会缓解吗？
+  \item \textbf{情感极化是否已经超过了制度本身的承受能力}——当公民彼此视对方为``敌人''而非``对手''，民主程序还能正常运转吗？
+  \item \textbf{两党制在多元化的 21 世纪美国是否还能代表足够多的声音}——如果不能，改变会从哪里来？
+  \item 极化最主要的驱动力是经济因素（不平等）还是制度因素（初选、选区划分）还是文化因素（媒体、宗教、种族态度）？
+  \item 如果在制度上改革（比如废除选举人团、引入排序投票），两党制会松动吗？如果会，需要哪些条件同时成立？
+\end{enumerate}
+
+这些问题没有简单答案，但它们定义了这个领域的前沿。
+
+\clearpage
+
+% ============================================================
+\part{案例研究：DSA 与 2026 年左翼浪潮}
+
+本部分是一个深度案例：美国民主社会主义者组织（DSA）正在经历自 2016 年桑德斯竞选以来的第二次爆炸式增长——从一个在深蓝选区打游击的边缘组织，变成了以纽约市长 Zohran Mamdani 为旗舰、同时在多个州初选中掀翻在任建制派的全国性政治力量。该案例与主包的制度分析紧密相连：DSA 的``渗透民主党''策略正是对``第三党困境''与``两党吸收''理论的活案例。
+
+\section{DSA 是什么：历史与定位}
+
+\textbf{民主社会主义者组织}（Democratic Socialists of America, DSA）是美国最大的社会主义组织，截至 2023 年约有 92{,}000 名会员。它不是一个政党，而是在民主党内运作的外部政治组织——它支持候选人参加民主党初选，并动员其成员为这些候选人助选。
+
+\textbf{关键定位}：DSA 不是传统意义上的``第三党''。它的策略是``从内部改造民主党''——利用民主党的选票基础设施和品牌认知度，同时推动该党在经济和社会议题上向左移动。这在政治学上被称为\textbf{政党渗透策略}（party entryism）或\textbf{内外策略}（inside-outside strategy），区别于第三党路线（外部挑战）。
+
+\textbf{历史脉络}：
+
+\begin{itemize}
+  \item DSA 成立于 1982 年，由两个老左派组织合并而成。在 2015 年之前，它只是一个约有 6{,}000 名会员的小型边缘组织。
+  \item \textbf{2016 年伯尼·桑德斯（Bernie Sanders）的总统竞选是转折点}。桑德斯自称``民主社会主义者''（democratic socialist），在年轻人中引发了大规模共鸣。DSA 的会员数在 2016--2018 年间从约 6{,}000 暴涨到 50{,}000+。
+  \item \textbf{2018 年 Alexandria Ocasio-Cortez（AOC）在纽约初选中击败在任 20 年的民主党大佬 Joe Crowley}，标志着 DSA 从街头运动走向选举胜利。此后 DSA 持续在地方、州和联邦层面赢得席位。
+\end{itemize}
+
+\subsection{关键数字速览（截至 2026-07-04）}
+
+\begin{table}[h]
+\centering
+\caption{DSA 浪潮关键数字}
+\begin{tabular}{@{}lp{7.2cm}p{5.6cm}@{}}
+\toprule
+\textbf{指标} & \textbf{数据} & \textbf{来源} \\
+\midrule
+DSA 会员数（2023） & 约 92{,}000 & 公共报道 \\
+2026 年初选中 DSA 支持的联邦候选人获胜数 & 6+（纽约 3 席 + 科罗拉多 2 席 + 密歇根/威斯康星待定） & Fox News / Bloomberg 实时搜索 \\
+Mamdani 当选纽约市长日期 & 2025-11-04 & Fox News 人物时间线 \\
+DSA 目标的下一个战场 & 密歇根参议院、威斯康星州长（8 月初选） & Fox News 2026-06-29 报道 \\
+Trump 对社会主义的定性 & ``美国自 1776 年以来最大的威胁'' & Fox News 2026-07-01 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{DSA 的政见框架}
+
+DSA 的政见可以用四个问题来组织：\textbf{谁来买单？}（经济再分配：税富人、扩福利）；\textbf{谁来掌权？}（制度民主化：破阻挠议事、扩法院、反企业金权）；\textbf{谁被保护？}（社会正义：种族、性别、移民、警务）；\textbf{美国在世界中的角色？}（外交政策：反帝国主义、巴勒斯坦、缩减军费）。
+
+DSA 不是一个纪律严密的列宁式政党，内部有派系分歧（从社会民主派到更激进的马克思主义派）。但在公共政策层面，DSA 及其支持的候选人大致共享一个政见框架。DSA 的经济政见与传统民主党进步派（如 Elizabeth Warren）的差别不在方向上，而在\textbf{终点}——传统进步派想修复资本主义，DSA 想最终替代它。
+
+\subsection{经济议题：从``修复''到``替代''}
+
+\begin{table}[h]
+\centering
+\caption{DSA 核心经济政策矩阵}
+\begin{tabular}{@{}lp{3.4cm}p{4.4cm}p{4.6cm}@{}}
+\toprule
+\textbf{政策} & \textbf{DSA 立场} & \textbf{传统民主党主流立场} & \textbf{差距量化} \\
+\midrule
+医疗保险 & 单一支付者（single-payer），\textbf{废除}私人医保 & 公共选项（public option），保留私人医保 & 根本性差异：DSA 要求终结私人医保产业 \\
+高等教育 & 全部公立大学免学费 + \textbf{全面取消}现有学生债务 & 社区大学免费 + 部分贷款减免（如 \$10K--\$50K） & DSA 的全面取消学生债务估计成本 1.7 万亿美元 \\
+住房 & 联邦公共住房建设 + \textbf{全国租金管控} & 住房券（Section 8）+ 税收优惠激励开发商 & DSA 主张租金管控——主流经济学家几乎一致反对 \\
+最低工资 & 联邦 \$20+/小时，随通胀自动调整 & \$15/小时（渐进式） & DSA 标准更高且要求与通胀挂钩 \\
+工作时长 & \textbf{32 小时工作周}（不减薪） & 40 小时标准 & 激进程度差异大 \\
+税收 & 财富税（wealth tax）+ 金融交易税 + 最高边际税率 70\%+ & 提高最高边际税率至 39.6\%，考虑对超千万资产征税 & DSA 的财富税直接挑战资本存量而非收入流量 \\
+就业保障 & 联邦政府作为``最后雇主''，为任何愿意工作的人提供最低生活工资的工作 & 不主张——被认为不切实际 & 这是 DSA 与传统民主党最鲜明的分界线 \\
+绿色新政 & 10 年内实现 100\% 可再生能源 + 联邦就业保障作为转型支柱 & 2050 年净零排放目标 + 绿色补贴和税收优惠 & DSA 的就业保障维度是质的差异 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{经济哲学的公开声明}：
+
+\begin{quote}
+``Capitalism is a system designed by the owning class to exploit the rest of us for their own profit. We must replace it with democratic socialism.''
+\end{quote}
+
+DSA 联合主席 Ashik Siddique 2026-07-01 在 Will Cain Show 上则使用了更温和的表述：
+
+\begin{quote}
+``Today the United States is the wealthiest country in the history of the world and yet more people than ever are struggling to get by. So we believe that workers deserve more in the United States. Everybody deserves a basic floor for a good life.''
+\end{quote}
+
+注意 Siddique 的语言策略：他回避了``废除资本主义''的激进表述，转而使用``基本生活底线''（basic floor）这种更容易被中间选民接受的框架——这是在 Fox News 上、面向保守派观众的刻意软化。
+
+\subsection{社会正义议题}
+
+\subsubsection{警务与刑事司法}
+
+DSA 在警务议题上的立场是一条\textbf{从激进到妥协的光谱}：
+
+\begin{table}[h]
+\centering
+\caption{DSA 的警务立场光谱}
+\begin{tabular}{@{}lp{3.2cm}p{4.4cm}p{5.4cm}@{}}
+\toprule
+\textbf{层面} & \textbf{立场} & \textbf{证据} & \textbf{备注} \\
+\midrule
+官方意识形态 & ``我们希望警察和监狱变得`不那么必要''' & Siddique, Will Cain Show & 比``废除警察''更温和的措辞，但保留了废除的终极愿景 \\
+DSA 内部张力 & 部分分会支持警察废除（police abolition），另一些支持``削减经费转投社会服务''（defund $\rightarrow$ reinvest） & 运动派 vs 选举派的分歧在此议题上最尖锐 & --- \\
+Mamdani 的妥协 & 原计划增加 NYPD 编制 $\rightarrow$ 在 DSA 压力下撤回增编 $\rightarrow$ 但也没有削减现有警力 & Fox News 报道 & 见 4.4 节 \\
+囚犯权利 & 废除现金保释、结束大规模监禁（mass incarceration）、废除死刑和单独监禁 & DSA 官方纲领 & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{移民}
+
+\begin{itemize}
+  \item \textbf{废除 ICE}（移民与海关执法局）：这是 DSA 最鲜明的移民政策标志；
+  \item \textbf{为无证移民提供公民身份路径}；
+  \item \textbf{非犯罪化边境穿越}（decriminalize border crossing）；
+  \item Siddique 的``开放边境''回应策略：当被问及是否支持开放边境时，他将问题翻转——``We have open borders for capitalists and CEOs''——指控资本家可以自由跨境剥削劳动力而工人受苦。这是一种\textbf{将阶级框架嵌入移民议题}的话术策略。
+\end{itemize}
+
+\subsubsection{种族与性别}
+
+\begin{itemize}
+  \item \textbf{赔偿}（reparations）：支持对奴隶制后裔的赔偿——这在传统民主党内仍然是边缘立场；
+  \item \textbf{LGBTQ+ 权利}：全面支持，包括跨性别医疗保健权；
+  \item \textbf{关键种族理论}（CRT）在教育中的应用：DSA 候选人普遍支持。
+\end{itemize}
+
+\subsubsection{巴勒斯坦 / 以色列：最敏感的分界线}
+
+\begin{table}[h]
+\centering
+\caption{DSA 与传统民主党在以色列议题上的对比}
+\begin{tabular}{@{}lp{4.4cm}p{4.4cm}p{4.6cm}@{}}
+\toprule
+\textbf{立场} & \textbf{DSA} & \textbf{传统民主党主流} & \textbf{备注} \\
+\midrule
+以色列的``生存权'' & 多数 DSA 候选人回避或不明确表态 & 几乎全体明确支持 & --- \\
+BDS 运动 & 支持 & 多数反对，部分支持者遭到 AIPAC 攻击 & BDS：抵制、撤资、制裁以色列 \\
+对以色列的军事援助 & 主张附加条件或切断 & 支持无条件援助 & --- \\
+巴勒斯坦建国 & 支持，但更强调巴勒斯坦人的权利而非``两国方案''的语言 & 口头支持两国方案但无实际行动 & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{2024--2026 年这一议题的选举成本}：
+
+\begin{itemize}
+  \item 2024 年：Cori Bush (MO-1) 和 Jamaal Bowman (NY-16) 被 AIPAC 资助的挑战者击败，以色列议题是核心攻击线。
+  \item 2026 年：Mamdani 的以色列言论引发加州政治震荡；Dan Goldman 在 CNN 上专门讨论 antisemitism 和 Mamdani；Darializa Avila Chevalier 因删除的亲巴勒斯坦帖文面临攻击。
+\end{itemize}
+
+\textbf{DSA 的策略调整}：2026 年的 DSA 候选人似乎在以色列议题上比 2024 年的 Bush/Bowman 稍微更谨慎——但仍远不如传统民主党人那样亲以色列。这个议题将继续是 DSA 最脆弱的攻击面。
+
+\subsection{制度民主化}
+
+DSA 区别于传统民主党的一个关键哲学差异是：\textbf{他们不仅想改变政策，还想改变制定政策的制度本身。}
+
+\begin{table}[h]
+\centering
+\caption{DSA 的制度变革主张}
+\begin{tabular}{@{}lp{6.4cm}p{6.4cm}@{}}
+\toprule
+\textbf{制度变革} & \textbf{DSA 立场} & \textbf{政治可行性} \\
+\midrule
+废除参议院阻挠议事（filibuster） & 支持——视其为立法僵局的制度根源 & 需要参议院简单多数 + 全体民主党人同意——当前不可能 \\
+扩大最高法院（court packing） & 支持——打破保守派 6--3 多数 & 需要国会立法 + 总统签署——极低可能性 \\
+废除选举人团 & 支持——改为全国普选 & 需要修宪——几乎不可能 \\
+将选举日设为联邦假日 & 支持 & 需要国会立法——有可能性但被共和党反对 \\
+排序投票（ranked-choice voting） & 支持 & 州级改革正在进行——最可行的近期目标 \\
+反企业政治捐款 & 拒绝企业 PAC 捐款——所有 DSA 候选人签署承诺 & 个人行为层面已实现 \\
+华盛顿特区 / 波多黎各建州 & 支持 & 需要国会立法——高度党派化 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{与传统民主党的量化差异总结}
+
+\begin{table}[h]
+\centering
+\caption{DSA 与传统民主党各派的差异}
+\begin{tabular}{@{}lp{3.2cm}p{4.2cm}p{5.6cm}@{}}
+\toprule
+\textbf{维度} & \textbf{传统民主党主流} & \textbf{传统进步派（Warren）} & \textbf{DSA} \\
+\midrule
+终极经济愿景 & 更公平的资本主义 & 受监管的资本主义 + 强力社会安全网 & 民主社会主义——最终替代资本主义 \\
+与企业的关系 & 接受企业捐款，与商界合作 & 批评企业权力但接受部分捐款 & 拒绝企业 PAC，视企业为对立面 \\
+以色列 & 坚定支持 & 支持但批评具体政策 & 倾向支持巴勒斯坦，支持 BDS \\
+警务 & 支持增加警力 + 改革 & 改革 + 部分削减 & 削弱警察权力——最终废除或根本性重构 \\
+制度变革意愿 & 低——在现有制度内运作 & 中——支持 filibuster 改革 & 高——挑战多项根本制度 \\
+党内策略 & 维护党内团结 & 推动党内辩论 & 击败建制派、从内部改造党 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{DSA 的组织形式与选举策略}
+
+\subsection{组织架构：一个``去中心化的会员制政治机器''}
+
+DSA 的组织形式介于传统政党、社会运动和非营利组织之间：
+
+\begin{itemize}
+  \item \textbf{全国代表大会}（National Convention）——每两年一次，最高决策机构；
+  \item \textbf{全国政治委员会}（National Political Committee, NPC）——16 人，日常领导，下设联合主席（Co-chairs，目前为 Ashik Siddique 等）；
+  \item \textbf{地方分会}（Local Chapters）——约 250 个，覆盖全美 50 州，各设分会领导委员会；
+  \item \textbf{工作组}（Working Groups）——按议题/职能划分：选举工作组、医保工作组（Medicare for All）、住房工作组、劳工工作组、国际委员会（巴勒斯坦等外交议题）；
+  \item \textbf{青年支部}（Young Democratic Socialists of America, YDSA）——活跃于大学校园；
+  \item \textbf{出版物}——\emph{Democratic Left} 杂志与社交媒体矩阵（Twitter/X、Instagram、TikTok、Discord）。
+\end{itemize}
+
+\subsection{与民主党的关系：``寄生者''还是``改造者''？}
+
+DSA 不是一个注册政党。它的候选人\textbf{以民主党人身份}参选。这一定位是 DSA 区别于绿党（Green Party）等传统第三党的根本特征。政治学上，这种策略有两种经典描述：
+
+\begin{table}[h]
+\centering
+\caption{对 DSA--民主党关系的两种框架}
+\begin{tabular}{@{}lp{3.4cm}p{3.4cm}p{3.2cm}p{3.2cm}@{}}
+\toprule
+\textbf{框架} & \textbf{描述} & \textbf{支持者} & \textbf{批评者} & \textbf{备注} \\
+\midrule
+政党渗透（party entryism） & 外部组织通过民主党的初选机制从内部改变该党 & DSA 战略家（``工人阶级占领中产阶级政党''） & 建制派民主党人（如 Third Way 的 Matt Bennett，认为这是``敌意收购''） & --- \\
+内外策略（inside-outside strategy） & 在体制内选举竞争 + 在体制外社会运动施压，双轨并行 & DSA 联合主席 Ashik Siddique（``由工人阶级领导''） & 左翼批评者认为 DSA 正在被民主党同化 & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{当前 DSA 官方定位}（Ashik Siddique 在 Will Cain Show 上的表述）：
+
+\begin{quote}
+``Our goal is democratic socialism, which we think is distinct from the Soviet Union, which ended decades ago... We have a big tent of all sorts of ordinary people who have many different ideas about what the pathway is or what the horizon is.''
+\end{quote}
+
+关键信号：Siddique 强调``big tent''（大帐篷）而非``革命先锋队''（vanguard party），表明 DSA 当前领导层倾向于\textbf{改良主义路线}而非革命路线。
+
+\subsection{派系图谱}
+
+DSA 并非铁板一块。内部存在几个明显的派系张力：
+
+\begin{table}[h]
+\centering
+\caption{DSA 内部派系}
+\begin{tabular}{@{}lp{3.6cm}p{3.8cm}p{2.8cm}p{3.4cm}@{}}
+\toprule
+\textbf{派系} & \textbf{核心主张} & \textbf{代表人物/组织} & \textbf{2026 年策略立场} & \textbf{备注} \\
+\midrule
+选举派（Electoralists） & 通过赢得公职来积累权力；策略性地选择可赢选区 & Mamdani、AOC、NYC-DSA 选举工作组 & 主导地位——2026 初选胜利就是这条路线 & --- \\
+运动派（Movementists） & 选举只是工具，真正的力量在于劳工组织和社会运动 & 部分 DSA 劳工工作组、老左派分会 & 警惕``选举主义''（electoralism）会稀释激进性 & --- \\
+马克思主义派（Marxist Caucus） & 更明确的反资本主义立场，对民主党渗透策略持怀疑态度 & DSA 内部的 Marxist Unity Group & 在候选人选择上更意识形态纯粹 & --- \\
+面包与玫瑰派（Bread \& Roses） & 强调阶级政治而非身份政治，经济议题优先 & 部分中西部 DSA 分会 & 倾向于在工人阶级选区而非深蓝城市选区竞选 & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{2026 年的实际权力分布}：选举派掌握了 DSA 最可见的成就（Mamdani 的市长职位、六个联邦初选胜利），因此在组织内部拥有最大的话语权。但运动派对``选举胜利后怎么办''的追问正在变得更加紧迫——Mamdani 在 NYPD 警力编制问题上的退让就是一个典型案例。
+
+\subsection{会员制度与筹款模式}
+
+\begin{itemize}
+  \item \textbf{会员费}：滑动费率，最低 \$5/月。这是 DSA 最稳定的收入来源。
+  \item \textbf{会员动员}：DSA 不雇佣大量专业竞选顾问。竞选活动的核心劳动力是\textbf{志愿者}——会员挨家挨户敲门（canvassing）、打电话（phone banking）、发短信（text banking）。
+  \item \textbf{拒绝企业 PAC}：所有 DSA 背书的候选人都签署了``拒绝企业政治行动委员会捐款''的承诺。这是 DSA 区别于传统民主党候选人的核心品牌标识。
+  \item \textbf{小额捐款}：DSA 候选人依赖 ActBlue（民主党小额捐款平台）上的 \$5--\$27 草根捐款，与大额捐款人驱动的传统竞选形成对比。
+\end{itemize}
+
+\textbf{与 AIPAC 的金钱不对称战}：2024 年 AIPAC 及其关联的超级 PAC 在 Bush 和 Bowman 的选区各投入了超过 \$1500 万。2026 年 DSA 的应对策略不是筹更多钱（做不到），而是\textbf{扩大战场}——在更多选区同时竞选，使得外部 PAC 的金钱优势被稀释。
+
+\subsection{2026 选举 Playbook}
+
+\subsubsection{核心策略公式}
+
+\begin{quote}
+\textbf{胜选 = 深蓝选区 $\times$ 草根地面战 $\times$ 现任者弱点 $\times$ 全国品牌杠杆}
+\end{quote}
+
+\subsubsection{选区选择：优先深蓝，谨慎扩展}
+
+\begin{table}[h]
+\centering
+\caption{DSA 的选区选择策略}
+\begin{tabular}{@{}lp{2.6cm}p{5.4cm}p{5.2cm}@{}}
+\toprule
+\textbf{选区类型} & \textbf{D+ 指数} & \textbf{DSA 策略} & \textbf{2026 案例} \\
+\midrule
+深蓝安全席 & D+25 以上 & 全力攻击，从左侧挑战建制派 & NY-13 (Espaillat)、CO-1 (DeGette) \\
+蓝席 & D+10--25 & 选择性挑战，需现任者有弱点 & 纽约部分选区 \\
+竞争席 & D+5--10 & 谨慎扩展，需``正确类型的候选人'' & CO-8 (Rutinel) \\
+摇摆席 & R+5--D+5 & 不主动挑战，但若建制派提名温和派则支持 & NY-17（建制派 Conley 获胜） \\
+红席 & R+5 以上 & 不投入资源 & 无 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Third Way 的 Matt Bennett 的关键批评（Fox News 2026-06-29 引述）：
+
+\begin{quote}
+``They're doing nothing to put a check on Trump or get power back. And in fact, they're making it harder, because they're handing Republicans very potent ammunition to use against Democrats in swing districts.''
+\end{quote}
+
+这个批评指向了 DSA 策略的核心矛盾：\textbf{在深蓝选区掀翻建制派确实能增加 DSA 的国会议席数，但这些席位本来就是民主党的——DSA 并没有帮助民主党从共和党手中夺回席位。}截至 2026 年 7 月，尚无 DSA 支持的候选人成功将一个红席翻蓝。
+
+\subsubsection{地面战：人数优势对抗金钱优势}
+
+DSA 的竞选模式被称为``劳动密集型''（labor-intensive）而非``资本密集型''（capital-intensive）：
+
+\begin{table}[h]
+\centering
+\caption{传统竞选与 DSA 竞选的对比}
+\begin{tabular}{@{}lp{6.4cm}p{6.4cm}@{}}
+\toprule
+\textbf{维度} & \textbf{传统民主党竞选} & \textbf{DSA 竞选} \\
+\midrule
+人力 & 雇佣专业顾问公司 & 依赖志愿者和工作组成员 \\
+传播 & 电视广告为主 & 挨家挨户敲门（canvassing）为主 \\
+资金 & 大额捐款人晚宴 & 小额捐款 + 会员费 \\
+信息 & 民调驱动 & 议题驱动（租金、医保、工资） \\
+选材标准 & 关注``可选举性''（electability） & 关注``真实性''（authenticity）和阶级议题 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Mamdani 2025 年初选案例}：Mamdani 击败 Eric Adams 和 Andrew Cuomo 两位建制派大佬，不是靠钱多——而是靠 DSA 动员的上千名志愿者在皇后区和布鲁克林挨家挨户敲门。他的核心信息``免费公共交通''和``租金管控''直接回应了工人阶级选民最关心的厨房餐桌议题（kitchen-table issues）。
+
+\subsubsection{``Mamdani 品牌''的杠杆效应}
+
+2026 年初选季最显著的特征是 Mamdani 个人品牌的全国化：
+
+\begin{itemize}
+  \item Mamdani 亲自为纽约三位候选人（Chevalier、Valdez、Lander）站台——在 Kings Theater 举行了大型 Get Out the Vote (GOTV) 集会；
+  \item ``Mamdani comparisons follow Colorado Democrat''——Manny Rutinel 被全国媒体自动与 Mamdani 对比；
+  \item Fox News 使用 Mamdani 的头像和名字攻击所有 DSA 候选人：Mamdani 已成为 DSA 运动的\textbf{品牌等价物}。
+\end{itemize}
+
+\textbf{风险}：品牌集中意味着脆弱性集中。如果 Mamdani 的市长执政出现重大丑闻或政策失败，整个 DSA 选举阵线都会受冲击。
+
+\subsubsection{联盟网络：DSA + Justice Democrats + 桑德斯机器}
+
+DSA 并非孤军作战。它的选举策略依赖一个更大的进步派生态网络：
+
+\begin{table}[h]
+\centering
+\caption{DSA 的联盟网络}
+\begin{tabular}{@{}lp{5.2cm}p{8cm}@{}}
+\toprule
+\textbf{组织} & \textbf{角色} & \textbf{备注} \\
+\midrule
+Justice Democrats & 招募和培训进步派候选人 & 2018 年帮助 AOC 击败 Crowley 的组织 \\
+Our Revolution & 桑德斯 2016 竞选后的遗产组织，动员桑德斯的电子邮件列表 & --- \\
+Working Families Party & 在纽约等州提供额外的选票线（ballot line），允许交叉背书 & --- \\
+Sunrise Movement & 青年气候行动组织，提供志愿者和绿色新政议题框架 & --- \\
+Bernie Sanders 本人 & 2026 年亲自为密歇根参议院候选人 Abdul El-Sayed 站台 & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Fox News 报道的 DSA + 桑德斯联合声明（纽约初选后）：``Bernie Sanders, DSA reveal demands for Dem Party after socialists sweep New York elections''——这暗示桑德斯和 DSA 正在协调对民主党全国委员会（DNC）的施压策略。
+
+\subsubsection{全国扩张路线图}
+
+\begin{itemize}
+  \item \textbf{阶段一（已完成）}：纽约市 $\rightarrow$ Mamdani 当选市长 + 3 席国会初选胜利；
+  \item \textbf{阶段二（进行中）}：科罗拉多 $\rightarrow$ Kiros (CO-1) + Rutinel (CO-8)；
+  \item \textbf{阶段三（8 月初选）}：密歇根参议院（Abdul El-Sayed）+ 威斯康星州长（Francesca Hong）；
+  \item \textbf{阶段四（长期）}：伊利诺伊、明尼苏达、宾夕法尼亚等蓝州的安全席位。
+\end{itemize}
+
+\textbf{需要注意的挫折}：
+
+\begin{itemize}
+  \item 科罗拉多参议院初选：John Hickenlooper 击败了进步派挑战者 Julie Gonzales——Fox News 称之为``progressive momentum hits speed bump''；
+  \item 纽约州 NY-17（摇摆席）：建制派 Cait Conley（退伍军人）赢得初选，而非 DSA 候选人；
+  \item 曼哈顿 Jerry Nadler 的继承席：前 Nadler 幕僚长 Micah Lasher（建制派）胜出。
+\end{itemize}
+
+这些结果表明 DSA 的胜利模式有其地理和人口边界——在摇摆选区和高度犹太裔选区，DSA 的信息不如在深蓝工人阶级选区有效。
+
+\subsubsection{2028 眺望：AOC 总统？}
+
+Fox News 报道了 NYC DSA 联合主席推动 AOC 在 2028 年竞选总统。如果成真，这将是 DSA 策略从``渗透民主党''到``领导民主党''的质变。
+
+相关信号：
+
+\begin{itemize}
+  \item Kamala Harris 正在接触 Mamdani 和 AOC（被 Fox 解读为 2028 布局）；
+  \item Mamdani 本人在播客上回避了总统竞选资格问题（他出生于乌干达，不符合宪法规定的``natural born citizen''资格要求，但回避了是否支持修宪的问题）；
+  \item DSA 联合主席 Siddique 上 Will Cain Show 接受敌对采访——表明 DSA 正在寻求\textbf{全国品牌曝光}，而不仅仅是在左翼回音室中活动。
+\end{itemize}
+
+\section{2026 初选浪潮与 Mamdani 执政}
+
+\subsection{最重要的既成事实：Zohran Mamdani 已是纽约市长}
+
+Fox News 的人物页面明确记载了以下时间线（均已发生，非预测）：
+
+\begin{table}[h]
+\centering
+\caption{Mamdani 当选纽约市长时间线}
+\begin{tabular}{@{}lp{4.2cm}p{8.2cm}@{}}
+\toprule
+\textbf{日期} & \textbf{事件} & \textbf{备注} \\
+\midrule
+2025-06-24 & 赢得纽约市民主党市长初选 & 击败现任市长 Eric Adams 和前州长 Andrew Cuomo \\
+2025-11-04 & 赢得纽约市长普选 & 对手：Andrew Cuomo + 共和党 Curtis Sliwa \\
+2026-01 起 & 以市长身份活跃施政 & Bloomberg 多次专访 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+这意味着 Mamdani 不仅参选了，而且\textbf{已经当了半年多的纽约市长}——他是美国历史上大城市中第一位公开以``民主社会主义者''身份执政的市长之一。背景补充：Mamdani 是印度-乌干达裔美国人，出生于乌干达康帕拉，7 岁时（1998 年）随家人移居美国，2018 年成为美国公民；纽约州众议院前议员（第 36 选区，皇后区 Astoria 及周边），2020 年首次当选州议员；在州议会中因推动\textbf{公共交通免费化}、租金管控以及对以色列的批评立场而知名；曾参与 2021 年阻止纽约州长 Cuomo 紧急权力的立法行动。
+
+\subsection{2026 年初选季：DSA 全国扩张浪潮}
+
+根据 Fox News、Bloomberg、CNN 的一致报道，2026 年 6 月下旬--7 月初的民主党初选中，DSA 支持的候选人在多个州取得了突破性胜利：
+
+\subsubsection{科罗拉多州 CO-1：Melat Kiros 掀翻 15 任现任议员}
+
+\begin{table}[h]
+\centering
+\caption{Kiros 的 CO-1 初选胜利}
+\begin{tabular}{@{}lp{4.2cm}p{8.2cm}@{}}
+\toprule
+\textbf{项目} & \textbf{详情} & \textbf{备注} \\
+\midrule
+胜选者 & Melat Kiros，民主社会主义者 & --- \\
+被击败者 & Diana DeGette，在任 15 届的民主党众议员 & --- \\
+选区 & 科罗拉多州第一国会选区（Denver） & --- \\
+信息来源 & Bloomberg 2026-07-01、Fox News 2026-07-02、CNN 2026-07-02 & --- \\
+Kiros 胜选感言 & ``Voters taking power into their own hands'' & CNN OutFront 采访 \\
+Bloomberg 评价 & ``the latest sign of a growing divide over the direction of the Democratic Party'' & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{科罗拉多州 CO-8：Manny Rutinel 赢得初选}
+
+Rutinel 被比作``科罗拉多的 Mamdani''，将在竞争性选区挑战现任共和党众议员 Gabe Evans。这是 DSA 策略从深蓝选区向\textbf{竞争性选区}扩展的典型案例。
+
+\subsubsection{纽约市：一周前已掀翻两名在任众议员}
+
+Bloomberg 报道 Kiros 胜利时提及：``DeGette's loss comes just a week after challengers backed by New York Mayor Zohran Mamdani defeated a pair of incumbent House Democrats''（注意：Mamdani 是以\textbf{在任市长}身份为挑战者背书的）。Fox News 报道了纽约的``社会主义清扫''（socialist sweep）：``Democratic Socialists of America swept New York City primaries, creating what one candidate dubbed the `Commie Corridor' across blue states''。涉及候选人包括 Darializa Avila Chevalier（因删除的挺共产主义/马克思主义帖文陷入争议，Fox 称之为 ``Crazypants''）。
+
+\subsubsection{华盛顿特区：Janeese Lewis George 几乎锁定市长}
+
+Bloomberg 评论文章（Nia-Malika Henderson, 2026-07-02）：``Janeese Lewis George, the all-but-certain next mayor of Washington, [is] Black, a woman, a Democratic Socialist and set to lead a federally governed district — that makes her an even bigger target.'' 这意味着到 2027 年，美国首都和最大城市可能\textbf{同时由民主社会主义者执政}（最终选举结果待核验）。
+
+\subsubsection{挫折：Hickenlooper 击退进步派挑战者}
+
+科罗拉多州参议员初选中，John Hickenlooper 击败了进步派挑战者 Julie Gonzales。这说明 DSA 浪潮并非势不可挡，现任建制派在部分场景下仍能守住。
+
+\subsection{Mamdani 执政半年：关键政策与争议}
+
+\subsubsection{税收与财政}
+
+\begin{itemize}
+  \item \textbf{\$1258 亿预算}（Bloomberg 2026-06-30）：与市议会议长 Julie Menin 经过``contentious negotiations''后达成；
+  \item \textbf{``对富人征税''叙事 vs ``州政府救助''现实}：Fox 攻击他``claiming victory over capitalism''，但实际上预算依赖 Albany 的数十亿救助；
+  \item \textbf{Pied-à-terre 税}（第二套房税）：被冠以``Taylor Swift tax''，Bloomberg 做了专门 Live Q\&A；
+  \item \textbf{租金管控}：Steve Forbes 撰文攻击租金冻结政策——``rent freeze on 1 million rent-stabilized apartments is price control, not housing policy. It will reduce supply and hurt tenants.''
+\end{itemize}
+
+\subsubsection{公共安全}
+
+Mamdani 原本计划增加 NYPD 警力编制，但在 DSA 压力下撤回——Fox News: ``walks back plan to increase NYPD headcount following DSA pressure''。这揭示了 Mamdani 的执政张力：作为市长需要回应市民对犯罪的担忧（增加警力），但作为 DSA 代表人物需要维持``削减警察权力''的意识形态纯度。
+
+\subsubsection{环境与生活方式}
+
+在纽约热浪（体感温度 110°F / 43°C）期间，Mamdani 建议居民将空调设在 78°F（25.5°C）。遭遇左右两翼的共同嘲讽——Fox 称``Commie''，但也引出了他随后建议老年人``stay in air conditioning''的自相矛盾。这一事件在 Fox News 获得极高播放量——属于典型的``文化战争''素材。
+
+\subsubsection{外交政策}
+
+Mamdani 的以色列言论引发``political fallout in California''。他对以色列的批评立场作为 DSA 成员是意料之中的，但作为市长引发了州际政治震荡。
+
+\subsubsection{2028 总统竞选猜测}
+
+\begin{itemize}
+  \item Kamala Harris 接触 Mamdani（Fox News 2026-07 初）：``Harris reaches out to socialist mayor Mamdani in latest sign she's shoring up support for possible 2028 bid''；同时 Harris 还与 AOC 会面；
+  \item Mamdani 被问是否选总统：在一档播客中被问及总统竞选资格问题时，被赞为``fantastic question-dodging''；
+  \item Mamdani 宣言：``democratic socialists can win anywhere''。
+\end{itemize}
+
+\subsection{整体评估：2026 年 7 月的政治版图}
+
+\subsubsection{DSA 的策略转变：从``深蓝孤岛''到``全国扩张''}
+
+2024 年之前，DSA 的选举胜利集中在深蓝城市选区（AOC 的 Bronx、Tlaib 的 Detroit、Omar 的 Minneapolis）。但 2026 年的初选季显示了一个明显的策略升级：
+
+\begin{table}[h]
+\centering
+\caption{DSA 选举策略的转变}
+\begin{tabular}{@{}lp{6.4cm}p{6.4cm}@{}}
+\toprule
+\textbf{维度} & \textbf{旧策略（2018--2024）} & \textbf{新策略（2025--2026）} \\
+\midrule
+选区选择 & 只在 D+25 以上选区挑战 & 进入 D+5 到 D+15 的竞争性选区 \\
+品牌 & 依赖 AOC/``小队''的个人品牌 & 以 Mamdani 的市长执政记录为全国模板 \\
+战场 & 以众议院为主要战场 & 同时争夺市长、众议员、参议员 \\
+资金策略 & 被 AIPAC 精准打击（Bush/Bowman 2024 落败） & 扩大战场广度，使外部 PAC 的金钱优势被稀释 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Fox News 的叙事证实了这一转变令建制派警觉：``Mamdani-backed socialists look to take New York playbook nationwide after primary victories''——目标包括 Colorado、Michigan、Wisconsin。
+
+\subsubsection{民主党的内部撕裂程度}
+
+从媒体引述的各色人物来看，民主党内对 DSA 浪潮的态度分为四派：
+
+\begin{table}[h]
+\centering
+\caption{民主党内部对 DSA 浪潮的四派态度}
+\begin{tabular}{@{}lp{4.6cm}p{3.6cm}p{5cm}@{}}
+\toprule
+\textbf{派别} & \textbf{代表人物} & \textbf{态度} & \textbf{备注} \\
+\midrule
+拥抱派 & Bill de Blasio、Pramila Jayapal & 社会主义者是民主党的必要新鲜血液 & --- \\
+大帐篷派 & John Hickenlooper、Robert Garcia & ``I believe in a big tent''——不赞同但容忍 & --- \\
+担忧派 & Stephen A. Smith、Pod Save America 主持人、Rahm Emanuel & 社会主义标签会让民主党输掉全国选举 & --- \\
+决裂派 & John Fetterman & ``orgy of socialism''、``anti-America''——接近公开宣战 & 见下 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Fetterman 的用词}尤其值得关注：他使用的语言（``dirtbag wing''、``orgy of socialism''、``anti-America''）与 Fox News 的攻击框架几乎一致。这表明民主党的内部裂痕已经深到有核心成员在使用\textbf{敌对媒体的语言}来攻击本党同僚。
+
+\subsubsection{共和党的机会}
+
+Fox News 的大量报道不仅仅是``报道''——它是\textbf{共和党选举策略的组成部分}。将所有民主党候选人与 Mamdani 和``社会主义''绑定，是 2026 年中期选举共和党的核心信息策略。报道中反复出现的模式：
+
+\begin{itemize}
+  \item 任何民主党候选人 $\rightarrow$ 被问``你是否接受 Mamdani 的背书？''
+  \item ``Mamdani comparisons follow Colorado Democrat''——Mamdani 成了全国民主党候选人的``负重''
+  \item Peter Thiel 在 Aspen 的演讲是这个策略的精英版：不是在 Fox 上对基本盘喊话，而是在自由主义精英聚会中种下恐惧
+\end{itemize}
+
+\section{媒体生态图谱：谁在怎么说 DSA}
+
+报道 DSA 的媒体可以分为七类，从传统权威媒体到新兴自媒体。全景如下：
+
+\begin{table}[h]
+\centering
+\caption{媒体生态全景（按意识形态光谱从左到右）}
+\begin{tabular}{@{}p{1.7cm}p{3.3cm}p{3.9cm}p{3.0cm}p{2.6cm}@{}}
+\toprule
+\textbf{类别} & \textbf{左} & \textbf{中左/中} & \textbf{中右} & \textbf{右} \\
+\midrule
+传统权威媒体 & Jacobin（社会主义杂志） & NYT/WaPo（自由主流）；Bloomberg（商业财经） & WSJ（保守财经） & Fox News（保守民粹） \\
+新兴自媒体 & Hasan Piker（Twitch 政治主播） & Pod Save America（中左播客） & The Bulwark（反 Trump 中右播客）；Joe Rogan（播客） & Daily Wire（保守数字媒体） \\
+新兴数字平台 & X/Twitter 左翼生态；TikTok 社运创作者 & Substack（各派独立作者） & --- & Rumble（右翼替代 YouTube） \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{传统权威媒体}
+
+\subsubsection{Fox News：全面敌对，将 DSA 作为攻击民主党的武器}
+
+\textbf{框架}：``社会主义正在接管民主党，美国正在滑向共产主义''。
+
+\textbf{标志性报道}（2026-07-01~04 实时搜索结果）：``Democratic socialism is sweeping the nation. Voters should be alarmed''；``Democrats' socialist surge proves America's 250-year fight for freedom isn't over''；将 Mamdani 的空调建议简化为 ``Commie'' 标签。
+
+\textbf{主要攻击线}：
+
+\begin{table}[h]
+\centering
+\caption{Fox News 的主要攻击线（2026-07 初）}
+\begin{tabular}{@{}lp{4.2cm}p{8.2cm}@{}}
+\toprule
+\textbf{攻击线} & \textbf{代表报道标题} & \textbf{备注} \\
+\midrule
+经济管理无能 & ``Mamdani ripped for claiming victory over capitalism after NYC's multi-billion dollar taxpayer funded bailout'' & --- \\
+反商业 & ``BlackRock CEO Larry Fink `worried' about NYC under Mamdani, floats investing elsewhere'' & --- \\
+住房政策灾难 & ``STEVE FORBES: Mamdani's socialist rent-control puts New York on the road to housing ruin'' & --- \\
+生活方式管制 & ``Mamdani gets roasted after telling sweltering New Yorkers to set ACs to 78 degrees: `Commie''' & --- \\
+对犯罪软弱 & ``Mamdani walks back plan to increase NYPD headcount following DSA pressure'' & --- \\
+外交政策危险 & ``Socialist mayor's Israel comments trigger political fallout in California'' & --- \\
+道德堕落 & ``Former KKK Grand Wizard praises Mamdani-endorsed socialist's stance on interracial marriage'' & --- \\
+全国威胁 & ``Democratic socialism is sweeping the nation. Voters should be alarmed'' & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Fox 评论员的标志性攻击}：Jesse Watters（``Mamdani wants everyone to `suffer' together''）；John Fetterman（民主党人，但被 Fox 大量引用：``orgy of socialism''、``anti-America''）；Stephen A. Smith（``Democrats embracing socialism is handing the presidency to the GOP''）；Rahm Emanuel（``new generation of Dem socialists don't like America''）；Peter Thiel 在 Aspen Institute 警告（``democratic socialists will take over their party''）；Dave Portnoy（Barstool Sports 创始人：``left `stunned' by NYC socialist victories, says the American Dream is under siege''）；Pod Save America 主持人 Jon Favreau（称部分候选人的观点 ``moronic to abhorrent''）。
+
+\textbf{被 Fox 引用的 DSA 辩护方}：Bill de Blasio（前纽约市长，为``socialist insurgency''辩护，称 Trump 已是``status quo''）；DSA 联合主席 Ashik Siddique（为民主社会主义辩护，与苏联比较划清界限，``wants prisons to be `less necessary'''）；Pramila Jayapal（国会进步派领袖，抨击 Josh Shapiro 和民主党同事对社会主义者的``disrespectful''待遇）。
+
+\textbf{Fox 的党派功能}：Fox 不仅报道 Mamdani，而且将 Mamdani 作为\textbf{攻击整个民主党的武器}——暗示 Kamala Harris（2028 潜在候选人）正在和 Mamdani 协调。
+
+\textbf{叙事策略总结}：(1) Mamdani 品牌化——``Mamdani-backed socialist''成为标准修饰语；(2) 将 DSA 等同于整个民主党；(3) 批评者的党派武器化——大量引用民主党内部批评者（``连民主党人都说……''）；(4) 生活方式文化战争——空调温度（``Commie''）、说唱歌手 50 Cent 的 beef——将政策争议转化为可传播的文化战争 meme；(5) DSA 官方声音的``敌对平台''策略——Will Cain Show 邀请 Siddique 接受采访，给予表达机会但将其置于意识形态对立面。
+
+\textbf{诚信度评估}：事实基本准确（引述和事件），但\textbf{框架极度选择性}——从不报道 DSA 政策的实质论证，只报道争议和失败。DSA 候选人若在摇摆选区落败，Fox 会大做文章；若在深蓝选区获胜，Fox 会将其描绘为全国威胁。
+
+\subsubsection{Bloomberg：商业利益视角，克制但隐含忧虑}
+
+\textbf{框架}：``这对商业环境、房地产市场和财政健康意味着什么''。
+
+\begin{table}[h]
+\centering
+\caption{Bloomberg 的代表性报道}
+\begin{tabular}{@{}lp{7.6cm}p{4.6cm}@{}}
+\toprule
+\textbf{报道} & \textbf{角度} & \textbf{备注} \\
+\midrule
+``\$125.8 billion NYC budget deal'' & 中性报道预算谈判，强调``after days of contentious negotiations'' & 2026-06-30 \\
+``NYC's Relationship With the Wealthy Has to Change'' & Mamdani 原声——直接引述其施政哲学 & 2026-01-29 \\
+``Pied-à-Terre Tax Leaves Wealthy With Few Loopholes'' & 政策细节分析，被称为``Taylor Swift Tax'' & --- \\
+``Washington's Next Mayor Will Walk a Tricky Tightrope'' & 评论：Janeese Lewis George 作为黑人女性民主社会主义者，将成为 Trump 的``bigger target'' & --- \\
+``Mamdani Says Primaries Show Voters Want a New Kind of Politics'' & Mamdani 将初选胜利归因于选民渴望新型政治 & 2026-06-28 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Bloomberg 的隐含立场}：不是意识形态攻击，而是\textbf{``这对生意意味着什么''}的框架——投资者是否该担忧？纽约的房地产税政策是否会抑制投资？其叙事策略包括：财政技术分析（关注预算数字、税率、债券评级，看似中性，但``contentious negotiations''这类修饰语暗示治理混乱）；商业代言人（引述 BlackRock CEO Larry Fink 的担忧——``我担心纽约市''）；不参与文化战争（完全不报道空调争议）。
+
+\textbf{诚信度评估}：在事实层面高度可靠。框架偏向\textbf{资本利益}——社会主义政策被默认为``对商业环境有风险''，但这不通过虚假报道实现，而是通过\textbf{选题}（报道什么和不报道什么）。
+
+\subsubsection{CNN：民主党内战叙事，公平但有剧场感}
+
+\textbf{框架}：``民主党内部的代际和意识形态分裂''。
+
+\begin{table}[h]
+\centering
+\caption{CNN 的代表性报道（426 条搜索结果）}
+\begin{tabular}{@{}lp{7.6cm}p{4.6cm}@{}}
+\toprule
+\textbf{报道} & \textbf{角度} & \textbf{备注} \\
+\midrule
+``Hot \& bothered: the right slams Mamdani for asking NYC to dial back AC'' & 将 AC 争议框定为``右翼攻击''，而非事件本身的合理性 & --- \\
+Rep. Dan Goldman 专访 & ``Democratic Party, antisemitism, Mayor Mamdani and his New York primary loss'' & Goldman 自己在初选中败给了 Mamdani 支持的候选人 \\
+Stephen A. Smith 警告 & 以``某人说了什么''而非``这是事实''的框架呈现 & --- \\
+Melat Kiros 专访（OutFront） & 给予 DSA 胜选者直接发声平台 & --- \\
+Sen. Hickenlooper / Rep. Robert Garcia & 建制派温和回应：``I believe in a big tent'' & --- \\
+Rep. Jayapal 抨击民主党 dismissed progressives & 报道党内分裂 & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{CNN 的叙事核心}：``民主党内部的代际和意识形态战争''。不选边站，但通过选取对立双方的声音构建冲突叙事。其策略包括：``双方声音''平衡（每个 DSA 胜利都配以建制派温和回应和保守派批评）；民主党内战作为戏剧（``growing divide''、``split''、``feud over party's future''）；给予 DSA 候选人发声平台；淡化结构性分析（不深入解释 FPTP 制度、AIPAC 的金钱政治或初选制度的激励机制——更关注``谁说了什么''）。
+
+\textbf{诚信度评估}：事实准确。但``双方声音''的平衡报道有时会制造虚假等值——将一个学者的研究和一个政客的攻击等量齐观。
+
+\subsubsection{未成功抓取的媒体（基于已知报道模式推断，待核验）}
+
+\begin{table}[h]
+\centering
+\caption{推断的媒体框架（未经实时核实）}
+\begin{tabular}{@{}lp{5.2cm}p{7.2cm}@{}}
+\toprule
+\textbf{媒体} & \textbf{预期框架} & \textbf{推断依据} \\
+\midrule
+NBC News & 类似 CNN 的分裂叙事，但更倾向民主党建制派 & 历史报道模式——NBC 的受众比 CNN 更偏自由派 \\
+The New York Times & 深度政策分析 + ``这对民主党意味着什么''的元叙事 & NYT 的机构文化——比 CNN 更注重分析和历史视角 \\
+WSJ 新闻版 & 类似 Bloomberg 的商业视角 & WSJ 新闻版的独立性高于评论版 \\
+WSJ 评论版 & 类似 Fox 的保守派攻击，但语言更精致 & WSJ 评论版是保守派知识分子的旗舰 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{新兴自媒体 / 数字平台}
+
+\subsubsection{左翼数字生态}
+
+\textbf{Jacobin / The Intercept / The Nation}（左翼数字杂志）。框架：``DSA 是工人阶级对寡头政治的反抗''。典型叙事：强调候选人的草根筹款和拒绝企业 PAC；将 AIPAC 的干预描述为``寡头政治对民主的扼杀''；聚焦 kitchen-table issues（租金、医保、工资）而非文化战争——试图将 DSA 定位为``常识''而非极端。受众：受过大学教育的年轻左翼（25--40 岁），主要城市。局限性：几乎不批评 DSA 的策略或候选人；2024 年 Bush/Bowman 落败后很少进行自我反思——倾向于将失败归因于 AIPAC 的金钱而非策略失误。
+
+\textbf{Hasan Piker / Twitch 政治流媒体}。框架：``社会主义就是常识——你只是被洗脑了才觉得它可怕''。Hasan Piker 是 Twitch 上最大的政治主播之一（日常观众 3--5 万），自称民主社会主义者。形式：每天数小时的直播 + 实时评论新闻 + 与观众互动。影响力：对 Z 世代男性的政治社会化影响可能超过任何传统媒体。对 DSA 的立场：支持但不盲从——批评 DSA 不够激进时毫不留情。独特价值：将社会主义政策``去污名化''——当一个你每天看几个小时的有魅力的主播告诉你``全民医保是常识''，它比任何政策白皮书都有说服力。（其 2026 年对 DSA 浪潮的具体评论未实时核实。）
+
+\textbf{TikTok 社运创作者}。框架：``个人即政治——这是关于你的房租、你的学生贷款、你的医保''。TikTok 上的左翼创作者（通常不正式附属于 DSA）通过短格式视频传播社会主义思想：形式是个人化的、情感化的（``我因为医保问题破产了，这就是为什么我们需要 Medicare for All''）；不使用``社会主义''标签——用``全民医保''``免费大学''``涨工资''的具体语言。对 DSA 的影响：这类内容在\textbf{去标签化}——它传播的是 DSA 的政策实质，但剥离了``社会主义''这个在民调中仍是负资产的政治标签。
+
+\subsubsection{中左/中间派播客：Pod Save America}
+
+框架：``我们同意目标，但你的策略会害死民主党''。由奥巴马前幕僚创办的自由派播客，对 DSA 的态度可以概括为：政策上认同很多 DSA 的经济主张（Medicare for All 的支持者）；策略上认为``社会主义''标签会毁掉民主党在摇摆选区的机会。2026 年态度（Fox 引述）：Jon Favreau 称部分候选人的观点``moronic to abhorrent''。
+
+\textbf{意义}：Pod Save America 代表的是\textbf{对 DSA 最危险的批评}——它来自同阵营内部，使用的不是右翼语言而是``可选举性''（electability）论证。
+
+\subsubsection{保守派数字生态}
+
+\textbf{Daily Wire / Ben Shapiro}。框架：``社会主义 = 奴役。历史已经证明了。''与 Fox News 类似但有两个区别：更意识形态化（更多引用哈耶克、弗里德曼等保守主义思想家的框架）；面向更年轻的受众（Daily Wire 在 YouTube 上有数百万订阅者）。
+
+\textbf{Dave Portnoy / Barstool Sports}。框架：``我不是政治人，但这些社会主义者要毁掉美国梦''。Portnoy 的政治影响力在于他代表了\textbf{非意识形态化的反社会主义情绪}——他的受众不读 National Review，不看 Fox News，但他们听 Portnoy 的播客和看他的一分钟短视频。独特之处：Portnoy 对 Mamdani 的攻击不是基于``社会主义邪恶''的意识形态论证，而是基于``这会让你的生活更糟''的常识论证——这对摇摆选民的杀伤力可能比 Ben Shapiro 的哈耶克引用更大。
+
+\textbf{Peter Thiel / 精英保守派话语}。框架：``社会主义正在从内部接管自由主义''。Thiel 在 Aspen Institute 的演讲警告自由主义精英``民主社会主义者将接管你们的党''。Thiel 代表一种高端的保守派话语，面向的不是 Fox News 观众而是\textbf{自由主义精英}——这比 Fox 的民粹主义攻击对 Mamdani 的实际政治威胁可能更大。
+
+\subsubsection{独立 / 跨意识形态平台}
+
+\textbf{Joe Rogan Experience}。框架：不可预测——取决于嘉宾。每集千万级听众。他邀请过 Bernie Sanders（友好采访）、也邀请过 Ben Shapiro（敌对视角）。如果 Mamdani 或 AOC 上了 Rogan 的节目，可能比所有传统媒体报道加起来还有效——Rogan 的年轻男性受众是 DSA 最需要但最难触达的人群。（其 2026 年对 DSA 浪潮的讨论未核实。）
+
+\textbf{Substack 独立作者}。框架：多样化——从 Matt Yglesias（中左、批评 DSA 策略）到各派独立分析。Substack 使得个人作者可以绕过传统媒体机构直接建立付费订阅受众。政治领域的 Substack 作者对 DSA 的报道通常比传统媒体更深入、更专业化——但也更缺乏编辑审查。
+
+\subsection{各派媒体框架的交叉影响}
+
+\begin{enumerate}
+  \item \textbf{Fox $\rightarrow$ 民主党分裂}。Fox 对 DSA 的大量报道不仅是``报道''——它是共和党 2026 年中期选举策略的组成部分。通过持续将``社会主义''标签贴在 Mamdani 和所有民主党候选人身上，Fox 在：激励共和党基本盘投票；吓唬中间选民远离民主党；加剧民主党内部的分裂（通过放大 Fetterman 等党内批评者的声音）。
+  \item \textbf{TikTok/左翼数字生态 $\rightarrow$ 去污名化``社会主义''}。左翼自媒体正在做传统左翼媒体（如 Jacobin）做不到的事：\textbf{触达非政治化的年轻人}。当一个 Z 世代用户每天在 TikTok 上看到``你的房租太高了，这不正常，这是制度问题''这类内容（不一定是 DSA 官方制作的），``社会主义''政策提案的可接受度在文化层面被悄然改变。
+  \item \textbf{信息茧房效应}。DSA 的支持者和反对者生活在完全不同的信息世界中：支持者（多为年轻人、城市居民）的信息流是 TikTok 左翼创作者 $\rightarrow$ Jacobin/The Intercept $\rightarrow$ Hasan Piker $\rightarrow$ X/Twitter 进步派圈子；反对者（多为年长者、乡村/郊区居民）的信息流是 Fox News $\rightarrow$ Daily Wire $\rightarrow$ 当地保守派广播电台 $\rightarrow$ Facebook。这解释了为什么情感极化（affective polarization）如此严重——双方不仅不同意对方，而且\textbf{看到的是完全不同的``事实''}。
+\end{enumerate}
+
+\subsection{DSA 自身的媒体策略}
+
+DSA 对媒体的态度不是被动的。其策略包括：
+
+\begin{enumerate}
+  \item \textbf{绕过传统媒体}：利用社交媒体（X/Twitter、Instagram、TikTok）直接触达支持者，不依赖传统媒体的报道；
+  \item \textbf{进入敌对平台}：DSA 联合主席 Siddique 上 Will Cain Show（Fox News）——表明 DSA 认识到需要在保守派受众面前出现，即使冒着被攻击的风险；
+  \item \textbf{品牌统一}：Mamdani 作为``社会主义市长''的品牌被 DSA 有意放大——所有的注意力（正面或负面）都汇聚到他身上，为其他 DSA 候选人提供了``品牌伞''；
+  \item \textbf{议题框架纪律}：DSA 候选人被训练将每个问题都引回到 kitchen-table issues（租金、医保、工资）——拒绝被拖入文化战争的叙事陷阱。
+\end{enumerate}
+
+\section{DSA 的结构性张力与未决问题}
+
+\subsection{选举层面的矛盾}
+
+\begin{itemize}
+  \item \textbf{``蓝席换蓝席''的净效果为零}：DSA 在深蓝选区掀翻建制派，但无法帮助民主党从共和党手中夺回席位。如果 2026 年中期选举民主党因 DSA 标签在摇摆选区受损，DSA 将面临党内激烈的清算。
+  \item \textbf{初选 vs 大选的矛盾}：在深蓝选区（如 AOC 的 NY-14），DSA 候选人可以从左侧挑战建制派并获胜。但在摇摆选区，同样的左翼标签会成为共和党攻击的弹药。这意味着 DSA 的选举策略天然受选区意识形态限制——它无法像传统民主党那样在全国范围扩展。
+\end{itemize}
+
+\subsection{资金与议题的攻击面}
+
+\begin{itemize}
+  \item \textbf{AIPAC 与外部资金的武器化}：2024 年 Bush 和 Bowman 的落败不是偶然。外部超级 PAC 可以针对性地在少数几个选区投入数千万美元，精准消灭 DSA 现任议员。DSA 的草根小额筹款模式在这些``金钱轰炸''面前处于结构性劣势。
+  \item \textbf{以色列/巴勒斯坦的定时炸弹}：几乎所有 DSA 候选人都支持巴勒斯坦权利——这在年轻选民中受欢迎，但在年长的犹太裔选民和 AIPAC 的金主中极为不受欢迎。2024 年 Bush 和 Bowman 的落败表明这个议题可以摧毁 DSA 候选人。
+\end{itemize}
+
+\subsection{意识形态与执政的张力}
+
+\begin{itemize}
+  \item \textbf{``社会主义''标签的民意天花板}：即使在民主党选民中，``社会主义''（socialism）一词的支持率也远低于具体的社会主义政策（如 Medicare for All）。这意味着 DSA 候选人需要在``社会主义''身份的政治成本和具体政策的民意支持之间走钢丝。
+  \item \textbf{执政 vs 竞选}：Mamdani 在 NYPD 编制问题上的退让揭示了 DSA 的执政困境——竞选时可以喊``削减警察经费''，执政时面对真实的犯罪数据和市民恐惧需要妥协。这种妥协在 DSA 的激进基本盘中会被视为``背叛''。Mamdani 的案例说明 DSA 政见从``竞选口号''变为``执政责任''时会经历显著稀释，这对整个 DSA 运动的可信度既是考验也是成熟的机会。
+\end{itemize}
+
+\subsection{组织与时间尺度的限制}
+
+\begin{itemize}
+  \item \textbf{组织规模瓶颈}：92{,}000 名会员听起来很多，但要同时在 6+ 个州开展劳动密集型地面战，志愿者资源是有限的。DSA 可能面临``过度扩张''（overextension）的风险。
+  \item \textbf{代际更替的长期希望 vs 短期限制}：年轻人是 DSA 最坚实的支持基础，而他们在总选民中的占比在上升。但年轻人投票率始终低于老年人，这使得 DSA 的选举潜力需要更长的时间跨度才能兑现。
+\end{itemize}
+
+\clearpage
+
+% ============================================================
+\part{阅读资源}
+
+\section{核心书目}
+
+\begin{enumerate}
+  \item \textbf{制度基础}：Maurice Duverger, \emph{Political Parties} (1954) — 经典但仍有洞察力。更新的综述见 Gary Cox, \emph{Making Votes Count} (1997)。
+  \item \textbf{极化全景}：Nolan McCarty, Keith Poole \& Howard Rosenthal, \emph{Polarized America} (2016 第二版) — 用 DW-NOMINATE 数据讲述极化的经济根源。
+  \item \textbf{政党作为组织}：John Aldrich, \emph{Why Parties?} (1995) — 回答``政党到底解决什么问题''。
+  \item \textbf{民主担忧}：Steven Levitsky \& Daniel Ziblatt, \emph{How Democracies Die} (2018) — 通俗但不失严谨的比较视角。
+  \item \textbf{情感极化}：Shanto Iyengar et al., ``The Origins and Consequences of Affective Polarization'' (2019, \emph{Annual Review of Political Science}) — 当前最活跃的研究前沿。
+  \item \textbf{国会极化入门}：Thomas Mann \& Norman Ornstein, \emph{It's Even Worse Than It Looks} — 当代国会极化的入门读物。
+  \item \textbf{地理分类}：Bill Bishop, \emph{The Big Sort} — 记录美国人的``自我分类''现象。
+\end{enumerate}
+
+\section{数据资源}
+
+\begin{itemize}
+  \item \textbf{ANES}（American National Election Studies）：自 1948 年以来的全国选举调查，是研究美国选民行为的基石数据。
+  \item \textbf{DW-NOMINATE}：基于国会唱名投票的意识形态量化分数，是极化研究的标准工具。
+  \item \textbf{Pew Research Center}：持续更新美国政治态度和人口结构的调查报告。
+\end{itemize}
+
+\end{document}
