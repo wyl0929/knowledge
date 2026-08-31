@@ -9,7 +9,7 @@
 
 # 领域知识包 (Field Packs) 总目录
 
-> 最后更新: 2026-08-21
+> 最后更新: 2026-08-30
 
 本目录存放所有通过 `research_onboarding_skill` 生成的领域文献研究包 (field packs)。
 
@@ -22,9 +22,10 @@ knowledge/
 ├── README.md                    ← 本文件
 ├── UPDATE_LOG.md                ← 工作区变更日志
 ├── physics/                     ← 物理领域
-│   ├── 量子霍尔效应/
-│   ├── 强关联效应/
-│   └── 三层和多层转角石墨烯/
+│   ├── introduction/            ← 物理学入门（physics/ 的入门层）
+│   ├── Quantum_Hall_Effect/     ← 量子霍尔效应
+│   ├── strongly_correlated_electrons/   ← 强关联效应
+│   └── multilayer_graphene/     ← 三层和多层转角石墨烯
 ├── philosophy/                  ← 哲学/思想领域
 │   ├── mental_causation_closure/
 │   ├── phenomenology/           ← 现象学入门
@@ -38,7 +39,8 @@ knowledge/
 │   │   └── subfields/
 │   │       └── dsa_2026_wave/   ← DSA 2026 浪潮（子方向）
 │   ├── central_local_relations/ ← 央地矛盾、集权与分权的治理逻辑
-│   └── corporatism/             ← 法团主义（从央地矛盾 QA 派生）
+│   ├── corporatism/             ← 法团主义（从央地矛盾 QA 派生）
+│   └── us_taiwan_political_communication/ ← 美国涉台政治传播（2017–2026 跨平台框架建构与演变）
 ├── sociology/                   ← 社会学领域
 │   ├── fundamentals/            ← 社会学入门——基本概念与基础理论
 │   └── social_survey_methods/   ← 社会调研方法论（从日常对话到结构化判断）
@@ -46,9 +48,11 @@ knowledge/
 │   ├── 00-12, 90, 99            ← 核心文档
 │   ├── case/                    ← 案例研究 (01-08)
 │   └── USER_BRIEF.md
-└── computer_science/            ← 计算机/编程领域
-    ├── cpp_for_tbplas/          ← C++ 学习 (面向 tbplas 源码)
-    └── Image_Processing/        ← 图像处理 (空壳占位)
+├── computer_science/            ← 计算机/编程领域
+│   ├── cpp_for_tbplas/          ← C++ 学习 (面向 tbplas 源码)
+│   └── Image_Processing/        ← 图像处理 (空壳占位)
+└── design/                      ← 设计/视觉领域
+    └── 平面设计/                 ← 平面设计入门（理论基础 + 桌面壁纸设计方案）
 ```
 ```
 
@@ -74,6 +78,7 @@ knowledge/
 
 | 包名 | 模式 | Domain Archetype | 创建日期 | 状态 |
 |------|------|:---:|------|------|
+| 物理学入门 | orientation | science_technical | 2026-08-30 | ✅ 已填充，general_interest 定位，physics/ 入门层 |
 | 量子霍尔效应 | quick_scan | science_technical | 2026-06-10 | ✅ 已填充 |
 | 强关联效应 | quick_scan | science_technical | 2026-06 | ✅ 已填充 |
 | 三层和多层转角石墨烯 | full_onboarding | science_technical | 2026-06 | ✅ 已填充，含 subfields/ |
@@ -100,6 +105,7 @@ knowledge/
 | 美国两党政治初探 | orientation | social_science | 2026-07-03 | ✅ 已填充，含 subfields/dsa_2026_wave/ |
 | 央地矛盾、集权与分权的治理逻辑 | quick_scan | social_science | 2026-07-08 | ✅ 已填充，种子文档为 conflict.md |
 | 法团主义（Corporatism） | quick_scan | social_science | 2026-07-11 | ✅ 已填充，从央地矛盾 QA 派生 |
+| 美国涉台政治传播（us_taiwan_political_communication） | full_onboarding | social_science | 2026-08-30 | ✅ 已填充，含 priority project P1 与消歧型 MVP |
 
 ### sociology/
 
@@ -120,6 +126,12 @@ knowledge/
 |------|------|:---:|------|------|
 | cpp_for_tbplas | project_incubation | science_technical | 2026-06-22 | ✅ MVP 实验计划已生成，待执行 |
 | Image_Processing | — | — | — | ⏳ 空壳占位，未初始化 |
+
+### design/
+
+| 包名 | 模式 | Domain Archetype | 创建日期 | 状态 |
+|------|------|:---:|------|------|
+| 平面设计 | quick_scan | mixed | 2026-08-30 | ✅ 已填充，含 15/16 作品与案例模块；22 含 5 张桌面壁纸设计方案 |
 
 ---
 

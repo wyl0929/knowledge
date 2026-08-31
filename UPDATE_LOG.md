@@ -22,6 +22,18 @@
 
 ---
 
+## 2026-08-30
+
+### 目录结构
+- **design/**: 新建一级目录（设计/视觉领域），与 sociology/、computer_science/ 等平级
+
+### 新文件
+- **design/平面设计/**: 新建「平面设计入门」field pack（quick_scan，mixed），双主线：理论基础（四原则/色彩/字体/网格/层级/对比度）+ 具体桌面壁纸设计方案（`22_project_candidates.md` 含 5 张可照做的设计卡片，含色值/构图/导出）。含 `15_primary_materials_and_reading_path.md` 与 `16_key_questions_and_cases.md` 人文型模块
+- **physics/introduction/**: 新建「物理学入门」field pack（orientation，science_technical，general_interest 定位），physics/ 的入门层。主线：经典物理 → 现代物理（相对论+量子）→ 当代前沿；含概念边界契约（working_definition）、9 分支谱系、4 坐标轴、17 条证据分级 seed 来源（📜Q/💭I，卷期页码统一不填防编造）、贯穿例子（苹果→微波背景）、分层阅读路径，与 physics/ 已有凝聚态 pack 互指。不生成 gap/project/MVP（兴趣了解）。完整性检查 0 error / 0 warning
+- **political_science/us_taiwan_political_communication/**: 新建「美国涉台政治传播」field pack（full_onboarding，social_science）。研究设计：2017.01–2026.01 三阶段（特朗普一期/拜登/特朗普二期）× Yahoo News + X 双平台 × 涉台政治事件触发取样，考察框架建构、演变机制与跨媒介传播。用户研究设计转写为 priority project P1（provisional，含完整 Operationalization Contract）+ 消歧型 MVP（佩洛西事件试点）。文献层由 paper-search 双子代理（OpenAlex + web_search）完成：约 80+ 条文献条目级核验，含 2 份搜索原始记录（`_search_notes_a/b`）。完整性检查 0 error / 0 warning
+
+---
+
 ## 2026-08-27
 
 ### 目录结构
