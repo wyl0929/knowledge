@@ -2,10 +2,39 @@
  * @Author       : Yulong Wang
  * @Date         : 2026-08-19 17:01:52
  * @LastEditors  : Yulong Wang
- * @LastEditTime : 2026-08-19 17:04:34
+ * @LastEditTime : 2026-08-29 04:20
  * @FilePath     : /.agents/home/wyl/project/knowledge/physics/twisted_bilayer_graphene/Phase_S/log.md
  * @Description  : Phase S AI 执行日志（run-task 追加，最新在最前）
 -->
+<a id="ai-0829-E12"></a>
+
+## AI: 0829_E12 - S-Q1-E12 Xu 2019 系统辨识式重读
+
+按 `systems_science/case/15_case_study_paper_reading_system_identification.md` 的"系统辨识式阅读法"重新精读 S-Q1-E12 (Xu 2019, Nat. Commun. 10, 4008)。
+
+**变更**:
+- `note/experiments/paper_review_E12_xu2019_natcommun.md` 整体重写：新增 §0 系统辨识速览（黑箱三要素 + 四层变量依赖图 + 传递函数链 + 可辨识性判别实验表）、TL;DR、§9 理论模型映射、附录 A 推导、Phase S 三问框架、反向核对 pass、更正日志；8 节模板补齐；全文加 📜Q/推导/💭I 证据分级。
+- `cards.md` E12 卡片状态 `⚡` → `★ ⚡ ✅`，并按 E9/E10 标准补全 技术/可观测量/边-体区分/核心发现（含 ΔB=0.48 T、Δn=5×10¹⁰、ε≈5 meV、谐波 1:4/3:5/3 等关键数）/理论对标（区分本文引 ref14/15 与后续 T15）/局限。
+- `tasks.md` S-Q1-E12 勾选 [x]，两条成功判据均满足。
+
+**验证**: pdftotext 提取 `/tmp/xu2019.txt`（5 页）逐项 grep 反向核对全部数字与专名；数值自洽性核算（ΔB=φ₀/A、Δn=4/A、v_DW=ΔE·L/h 均回代吻合）。标注两项边界：① 静电学 n(Vtg,Vbg)/D 显式公式原文未给（在未获 PDF 的 Supplementary Note 1）→ 💭I；② T15 De Beule 2020 为后续理论（2019 论文不可能引用）→ 💭I 外部对标。
+
+---
+
+<a id="ai-0828-E10"></a>
+
+## AI: 0828_E10 - E10 Rickhaus 2018 系统辨识式精读 + review 整体重写
+
+对 E10 (Rickhaus 2018, Nano Lett. 18, 6725) 做"系统辨识式"完整精读（20+ 轮问答），并据此整体重写 review。复盘的通用方法沉淀为 `systems_science/case/15_case_study_paper_reading_system_identification.md`（案例 #105，见 `systems_science/99_update_log.md`）。
+
+**变更**:
+- `note/experiments/paper_review_E10_rickhaus2018_nanolett.md` 整体重写：去重 + 归位 + 分层（正文=原文事实 📜Q / 附录=推导 💭I / 文末=过程记录）；§3 实验方法瘦身、推导全部归入附录 A；§3.5 理论映射 → §9；§4.7 总表 → §2.3；Phase S 三问改引用式；补 SI（测量两端子、Eq.9/10、n₂=8/MUC、Hofstadter、n₁D 换算）。
+- 新增 TL;DR 与更正日志；精读日期链 2026-08-06（初读）→ 08-19（三问框架 + QC 分级）→ 08-28（重写）；书目补 SI PDF（19 页）。
+
+**验证**: 依据正文 + SI（19 页）pdftotext 反向核对关键数字与专名；正文事实/推导分层标注 📜Q/💭I。
+
+---
+
 <a id="ai-0820-T05"></a>
 
 ## AI: 0820_T05 - note/ 目录重构 + bl-dw 统一迁移
