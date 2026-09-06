@@ -25,7 +25,8 @@ knowledge/
 │   ├── introduction/            ← 物理学入门（physics/ 的入门层）
 │   ├── Quantum_Hall_Effect/     ← 量子霍尔效应
 │   ├── strongly_correlated_electrons/   ← 强关联效应
-│   └── multilayer_graphene/     ← 三层和多层转角石墨烯
+│   ├── multilayer_graphene/     ← 三层和多层转角石墨烯
+│   └── valleytronics/           ← 量子谷霍尔效应与谷电子学
 ├── philosophy/                  ← 哲学/思想领域
 │   ├── mental_causation_closure/
 │   ├── phenomenology/           ← 现象学入门
@@ -82,6 +83,7 @@ knowledge/
 | 量子霍尔效应 | quick_scan | science_technical | 2026-06-10 | ✅ 已填充 |
 | 强关联效应 | quick_scan | science_technical | 2026-06 | ✅ 已填充 |
 | 三层和多层转角石墨烯 | full_onboarding | science_technical | 2026-06 | ✅ 已填充，含 subfields/ |
+| 量子谷霍尔效应与谷电子学 | full_onboarding | science_technical | 2026-09-02 | ✅ 已填充（谷陈数/谷输运/谷保护通用理论，服务 TBG+TMBG） |
 
 ### philosophy/
 
@@ -143,6 +145,7 @@ knowledge/
 | cpp_for_tbplas | MG (tbplas C++ 源码阅读与修改) |
 | 控制论与系统工程 | 量子霍尔效应 (QA-001: Kubo-Bastin NaN 调试案例分析) |
 | 三层和多层转角石墨烯 | TBG, TMBG, TDBG |
+| 量子谷霍尔效应与谷电子学 | TBG, TMBG（畴壁/谷物理的通用理论层） |
 | 强关联效应 | (待建立) |
 
 ---

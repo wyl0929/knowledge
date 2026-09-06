@@ -18,3 +18,6 @@ Thumbs.db
 *.swo
 *~
 *:Zone.Identifier
+
+# Raw session logs (DSH transcripts; kept locally only)
+*.jsonl

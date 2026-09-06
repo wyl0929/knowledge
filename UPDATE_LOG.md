@@ -22,6 +22,17 @@
 
 ---
 
+## 2026-09-02
+
+### 新文件
+- **physics/valleytronics/**: 新建「量子谷霍尔效应与谷电子学」field pack（full_onboarding，science_technical）。scope = 谷陈数/谷输运/谷保护的通用理论，服务 TBG（AB/BA 双层）+ TMBG（ABC/ABA 三层）。种子论文从 TBG registry 筛出（不重搜），通用物理锚点 [PHY-BERRY]/[PHY-QPI]/[PHY-GATE]/[PHY-EF] 只引用不复制。
+
+### 跨 pack 约定
+- **谷陈数约定定稿**（本 pack 内 + 待回写 TBG）：每谷谷陈数 $N_\nu=\pm1$（unit magnitude）、畴壁跳变 $\Delta N_\nu=\pm2$、每谷每自旋 2 模、4e²/h；判定 TBG `[PHY-BERRY]` 笔记 "$C_v=\pm2$" 是把"畴壁跳变"误标成"单谷值"，待用户确认后回写。
+- **QVH ≠ QHE 边界**：`Quantum_Hall_Effect` field 已把 QVH 移出子方向、标注为相邻领域；本 pack 作为 QVH 的独立"现象/理论"层落地。
+
+---
+
 ## 2026-08-30
 
 ### 目录结构
