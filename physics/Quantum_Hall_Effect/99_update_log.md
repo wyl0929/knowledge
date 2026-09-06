@@ -7,7 +7,7 @@ Created date: 2026-06-10
 
 # 99 Update Log / 更新日志
 
-Last updated: 2026-06-27
+Last updated: 2026-09-01
 
 ## 使用说明
 
@@ -53,3 +53,4 @@ Maintainer / 维护者：
 | 2026-06-26 | subfields/tbplas_conductivity/02_kubo_bastin_deep_dive.md | 🔴 重大修订：H_F 干净极限条件收敛假说 | 用户新发现——高阶 Γ×μ 贡献不收敛，有限 η 可压制；跨论文交叉验证 García 2015 的无序参数 | KPM 标准理论 (Weiße et al. RMP 2006) + García 2015 原文 (γ=0.1t) + Yuan 2016 (未讨论 η/disorder) | §1.2 数值关键完全重写（条件收敛分析）；§3.4 纠正 García 成功归因（无序 > 精度）；§3.5 新增 E4 收敛性分析 + H_F 假说详述；§5 结论更新；§7 完全重写（含 F1–F3 检验方案） |
 | 2026-06-26 | subfields/tbplas_conductivity/02_kubo_bastin_deep_dive.md | 新增 Anderson 无序的指数阻尼效应分析 | 解释 García 2015 用 M=6144 无发散的真正原因 | García 2015 (γ=0.1t, N=2×128×1024) | 无序使 μ_n ∼ e^{-γn/ΔE} → M_eff ∼ 70，超此阶数后物理上为零 |
 | 2026-06-27 | subfields/tbplas_conductivity/chebyshev_precision/ | 新建子方向 field pack：切比雪夫迭代浮点精度问题 | subfield_onboarding 路线，系统化记录 Phase A–M (06-22~27) 全链路根因诊断 | user memory (kubo-bastin-convergence.md), shared/tbplas-internals.md §12.3, gamma_mu_sim 项目 | 含 12 个文档：USER_BRIEF, beginner guide, overview, frontier compass, self inventory, term disambiguation, field map, claims ledger, gap table, project candidates, QA, update log |
+| 2026-09-01 | 12_field_map.md / 11_term_disambiguation.md | 修正 QVH（谷霍尔效应）误放：从 §4.6「新型 QHE 平台」移出，列入 §2「相邻领域」，补"QHE ≠ QVHE"边界（QVH 总 σ_xy=0、无量子化平台） | QVH 不属量子霍尔效应（无 σ_xy 量子化），属谷电子学/畴壁态 | 与 twisted_bilayer_graphene Phase S 交叉核对 | 谷电子学是否独立成 field 待定，见 twisted_bilayer_graphene |

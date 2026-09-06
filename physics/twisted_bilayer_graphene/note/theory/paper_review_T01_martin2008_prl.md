@@ -1,100 +1,277 @@
 <!--
- * @Author       : Yulong Wang
- * @Date         : 2026-08-06 16:12:58
- * @LastEditors  : Yulong Wang
- * @LastEditTime : 2026-08-06 16:13:05
- * @FilePath     : /.agents/home/wyl/project/knowledge/physics/twisted_bilayer_graphene/paper_review_T01_martin2008_prl.md
- * @Description  :
--->
-<!--
- * @Author       : AI精读 (research_onboarding_skill, Phase 4)
- * @Date         : 2026-08-06
- * @FilePath     : /project/knowledge/physics/twisted_bilayer_graphene/paper_review_T01_martin2008_prl.md
- * @Description  : T1: Martin/Blanter/Morpurgo 2008 — 电场畴壁拓扑零模的首次预言
+ * @Author       : AI 精读 (系统辨识式阅读法 → 三层分离整理)
+ * @Date         : 2026-08-06（初读）→ 2026-09-02（按 4 块新架构整体重读，理论适配）
+ * @FilePath     : /home/wyl/project/knowledge/physics/twisted_bilayer_graphene/note/theory/paper_review_T01_martin2008_prl.md
+ * @Description  : T1: Martin/Blanter/Morpurgo 2008 PRL — 电场畴壁 (EFW) 拓扑零模首次预言（4 块辨识结构，理论版）
 -->
 
-# Paper Review: Martin, Blanter & Morpurgo (2008)
+# Paper Review: Martin, Blanter & Morpurgo (2008) — EFW 拓扑零模首次预言
 
 | 字段 | 内容 |
 |------|------|
+| **编号** | T1 |
 | **标题** | Topological Confinement in Bilayer Graphene |
 | **作者** | Ivar Martin, Ya. M. Blanter, A. F. Morpurgo |
-| **期刊** | PRL 100, 036804 (2008) |
-| **DOI** | 10.1103/PhysRevLett.100.036804 |
-| **类型** | 理论 — 电场畴壁 (EFW) 拓扑零模 |
-| **PDF** | ✅ reference/pdfs/ |
+| **期刊** | Physical Review Letters 100, 036804 (2008) |
+| **DOI / arXiv** | 10.1103/PhysRevLett.100.036804（正文无 arXiv 号） |
+| **类型** | 理论 — 电场畴壁 (EFW) 拓扑零模（纯理论预言，无实验数据） |
+| **课题组** | Los Alamos（Martin）+ Delft Kavli（Blanter、Morpurgo） |
+| **PDF / SI** | ✅ `reference/pdfs/Martin 等 - 2008 - Topological Confinement in Bilayer Graphene.pdf`（4 页，无 SI） |
+| **精读日期** | 2026-08-06（初读）→ 2026-09-02（按 4 块新架构整体重读） |
+
+> **共享知识引用**：通用物理已剥离到 `note/shared/physics/`，用锚点 `[PHY-BERRY]`（chiral vs helical、valley Chern）、`[PHY-LB]`（Landauer-Büttiker 通道计数）、`[PHY-GATE]`（偏压↔栅压）引用，不重复讲义。阅读疑问见 `note/shared/method/mechanism_questions.md` `[METHOD-Q]`。
 
 ---
 
-## 1. 核心贡献
+## TL;DR
 
-**首次预言**：在双层石墨烯中，通过静电栅压产生符号反转的层间偏置（"voltage kink"），可以在畴壁上束缚 1D 手征零模。这是**电场畴壁（EFW）拓扑态**的原始理论论文。
+**本文想解决的理论问题**：双层石墨烯（BLG）中，能否用**静电横向约束**（符号反转的层间偏压，即"电压扭结 voltage kink"）在畴壁上束缚出 1D 手征零模？这些零模的数目与拓扑性质由什么决定？
 
-## 2. 物理机制
+**主结果**（作者措辞，本文是**预言**不是已验证事实）：
+1. 符号反转的层间偏置 V(x)（kink）使 BLG 体能隙（幅度 |V|）在畴壁处穿过零 → 束缚 1D 手征零模 📜Q（摘要）。
+2. **每谷每自旋 2 条零模**（原文 "two zero modes per kink per valley per spin"）——数目由绝缘 BLG 态的"拓扑真空荷"（topological vacuum charge，N₃ = ±2）固定 📜Q。
+3. 同谷内 2 条零模同向传播、K/K′ 谷反向传播（谷锁定，helical）→ 可实现**谷过滤/谷阀** 📜Q。
+4. **拓扑约束 vs 普通约束**：同极性偏压（conventional confinement，φ = tanh²）在隙下有态但**无手征零模**；只有反号偏压（拓扑约束）才出零模 📜Q（Fig. 1/3 及其 caption）。
 
-不同于传统的 Dirac 费米子零模（如超导涡旋、聚乙炔孤子），BLG 中的零模来自**手征 BLG 准粒子**——它们有二次色散 $E \propto p^2$ 和零能隙。
-
-关键哈密顿量（单谷，4 分量波函数 $\psi = (A_1, B_1, A_2, B_2)^T$）：
-
-$$
-H = \begin{pmatrix}
--V(x)/2 & c\pi^\dagger & 0 & 0 \\
-c\pi & -V(x)/2 & t_\perp & 0 \\
-0 & t_\perp & V(x)/2 & c\pi^\dagger \\
-0 & 0 & c\pi & V(x)/2
-\end{pmatrix}
-$$
-
-低能有效 2-band 模型（$V \ll t_\perp$）：
-
-$$
-\tilde{H} = \begin{pmatrix}
-\frac{V}{2} - \frac{c^2 p^2}{t_\perp} & -\frac{c^2 \pi^{\dagger 2}}{t_\perp} \\
--\frac{c^2 \pi^2}{t_\perp} & -\frac{V}{2} + \frac{c^2 p^2}{t_\perp}
-\end{pmatrix}
-$$
-
-**拓扑起源**：加偏置后 BLG 体能谱 $E^2 = V^2/4 + c^4 p^4/t_\perp^2$ 有能隙 $|V|$。$V(x)$ 改变符号时，体能隙在 $V=0$ 处关闭再打开 → 拓扑相变 → 畴壁上束缚零模。
-
-能谱近似（$V < t_\perp$，忽略 $p^2$ 修正）：
-
-$$E^2 = \frac{V^2}{4} + \frac{c^4 p^4}{t_\perp^2}$$
-
-## 3. 关键结果
-
-1. **每谷 2 条零模分支**（每自旋）：来自 BLG 的"拓扑真空荷"——绝缘 BLG 态的两个非平庸拓扑不变量
-2. **手征锁定**：同一谷内两条零模同向传播；$K$ 和 $K'$ 谷传播方向相反 → 谷过滤效应
-3. **拓扑 vs 普通约束**：普通约束（同极性偏置）也能产生 1D 通道，但没有拓扑保护
-4. **实验签名**：两端的电导应为 $4e^2/h$（两谷 × 两零模 × $e^2/h$，无谷间散射时）💭I⚠️——原文未出现该字符串（grep "4e" 无命中），此数值为推演结论
-
-## 4. 局限
-
-- 假设 $V(x)$ 足够平滑（无谷间散射）；尖锐势变化会破坏谷守恒
-- 仅考虑单粒子图像，无相互作用
-- 实验上实现分裂栅的"电压扭结"在 2008 年极具挑战
-- 简化的 2-band 模型仅在 $V \ll t_\perp$（约 0.4 eV）有效
-
-## 5. 与 DW 项目关联
-
-⭐⭐⭐⭐⭐ **DW 项目 EFW 计算的最直接理论参照**。这篇论文预言的不只是畴壁态的存在，而是**拓扑约束与普通约束的本质区别**——DW 项目中 cont.py 的 EFW LDOS 计算需区分两者。
-
-## 6. 关键引用链
-- 被 Li/Morpurgo/Büttiker/Martin 2010 (T2) 直接继承和发展
-- 被 Zhang/MacDonald/Mele 2013 (T6) 置于更广阔的谷陈数框架中
+**结论/意义**：提出（propose）一种新的 1D 手征态——源自 BLG 手征准粒子（二次色散、零隙），而非 Dirac 费米子；强调其对 valleytronics 的用途（valley filter/valve 可用现有技术实现）📜Q（作者 "may have implication / can enable" 的保守措辞）。
 
 ---
 
-## Phase S 补充 (2026-08-11): Q2/Q3
+## 1. 系统辨识导览（判别表为全文唯一权威，机制细节见 [PHY-*]）
 
-### Q2: 理论如何解释 edge state?
-通过静电栅压产生符号反转的层间偏置（voltage kink），使 BLG 体能隙在畴壁处闭合-重开，束缚手征 1D 零模（每谷每自旋 2 条，原文 "two zero modes per kink per valley per spin" 📜Q）。两谷反向传播形成螺旋态。⚠️ 原文未用 Chern/$\mathbb{Z}_2$ 语言（grep "Chern" 仅命中致谢人名 Chernyak），以 "topological vacuum charge" 论证零模数目 📜Q；"$\Delta C_v = 2$" 是 T6 Zhang 2013 的后世语言 💭I。
+**黑箱三要素**：`{输入旋钮 V(x)·φ₀·l·py | 输出观测量 零模色散 ε(py)·零模数目·传播方向 | 声称结论 EFW 拓扑约束产生手征零模，数目=拓扑真空荷}`
 
-### Q3: 理论如何与实验结合?
-预言 clean 系统中栅压畴壁弹道电导约 $4e^2/h$ 💭I⚠️（推演，见上）。后续 Ju 2015 Nature、Li 2016 Nat. Nanotech. 证实偏压畴壁导电通道和谷极化输运（review 层综合 💭I，原文未引这两篇）。核心预言——栅压可开关畴壁通道——被实验广泛验证。
+**四层变量图**（符号层一次钉死，理论版）：
+
+| 层 | Martin 2008 实例 |
+|----|------------------|
+| **L1 旋钮 u** | 层间偏压 V(x)（可反号 = kink/antikink）、kink 幅度 φ₀、kink 宽度 l（φ = tanh(x/l)）、沿畴壁动量 py |
+| **L2 导出量 x₁** | 无量纲势 φ(x) = V(x)t⊥a²/(2c²)、体能隙幅度 \|V\|、波函数衰减长度 ~a/√φ₀ |
+| **L3 模型量 x₂** | H_qc（准经典 2-band 哈密顿量）、能谱 E(p)、零模色散 ε(py)、拓扑荷 N₃/Ñ₃、波函数分量 (u,v) |
+| **固定参数（非旋钮）** | c（费米速度）、t⊥（层间耦合）、a（晶格常数）、valley 指标、自旋 |
+| **反推量 θ̂** | 无（纯理论，无反推自实验数据） |
+| **L4 观测量 y** | 可实验检验的预言：零模色散 ε(py)、每谷每自旋 2 条零模、谷锁定传播方向、谷阀开关行为、畴壁电荷密度=0 |
+
+> 与实验论文（E12）不同：本文无 L4 实测数据，"观测量"是**预言的可检验量**；证据分级中"数据"一律是作者给出的解析/数值结果，无 📊F（无读图提取的物理量）。
+
+**可辨识性判别表**（理论版：每条判别 = 判据 / 排除谁[竞争图景] / 确立谁）：
+
+| 判别 | 判据（原文依据） | 排除谁 | 确立谁 |
+|------|-----------------|--------|--------|
+| **拓扑约束 vs 普通约束** | 反号偏压 kink（φ₀ sgn x）→ 每谷每自旋 2 条手征零模（Fig. 3a–c）；同极性偏压 φ = tanh²(x/4) → 隙下有态但**无手征零模**（Fig. 3d）📜Q | 普通（同极性）约束也能产生拓扑保护零模 | 只有符号反转偏压（拓扑约束）才出零模 |
+| **BLG 手征准粒子 vs Dirac 费米子** | 零模源自 BLG 手征准粒子（二次色散 E∝p²、粒子-空穴带零隙），"different from ... Dirac fermions" 📜Q | 常规 Dirac 费米子零模（Jackiw-Rebbi / 涡旋 / SSH 类） | BLG 特有的手征零模 |
+| **谷锁定（helical）vs 时间反演破缺** | 同谷 2 模负速度"似乎破缺 TR"，但第二谷速度为正 → 对称性恢复；零模有确定 py·Sy 符号（Sy=谷指标）📜Q | 净时间反演破缺（chiral、净单向） | 谷锁定反向传播（helical，见 [PHY-BERRY] 术语辨析） |
+| **零模数目 = 拓扑真空荷** | N₃ = Ñ₃(x₀) − Ñ₃(−x₀) = ±2，其中 Ñ₃(x₀) = sgn φ(x₀)，与"每谷每自旋 2 支跨零"一致 📜Q | 零模数目是偶然/模型细节 | 零模数目由拓扑不变量（真空荷）固定 |
+| **畴壁零电荷 vs 分数量子化电荷** | kink 存在时密度为 x-无关常数 → 畴壁电荷密度=0，"contrary to ... expectation" 📜Q | 1D 孤子携带有理/无理电荷（聚乙炔类比） | BLG kink 携带零电荷 |
+
+> **主结果 ↔ 判别表的对应**：
+> - 主结果①（EFW 束缚 1D 手征零模）← {拓扑约束 vs 普通约束}
+> - 主结果②（每谷每自旋 2 条零模）← {零模数目 = 拓扑真空荷}
+> - 主结果③（K/K′ 反向传播 → 谷过滤）← {谷锁定 vs TR 破缺}
+> - 主结果④（拓扑 vs 普通约束判别）← {拓扑约束 vs 普通约束, BLG 手征准粒子 vs Dirac}
+>
+> ⚠️ **本文是"构造性预言"非"排除法证成"**：作为理论论文，判别表的主轴是**区分竞争图景/竞争机制**（拓扑 vs 普通、BLG 手征 vs Dirac、helical vs chiral），而不是实验数据的可辨识性。作者用词 "We demonstrate / we find / These modes are likely to influence transport" 📜Q——"demonstrate" 指数学构造（N₃ 论证）而非实验证实。
+
+> **[前提与限定]**（判别结论的适用范围）：
+> - **噪声/扰动（假设）**：V(x) 足够平滑（"smooth enough not to cause intervalley transitions"）→ 忽略谷间散射；单谷处理合法 📜Q。**无相互作用**（纯单粒子图像）。忽略无序（正文仅一句 "likely to influence transport in BLG with smooth potential disorder"）。
+> - **判别性扫轴（参数轴）**：kink 宽度 l（narrow l=0.5 / wide l=4，Fig. 3）扫"零模数目是否随宽度变"；py 扫"色散与手征方向"；φ₀ 正负（kink vs antikink）扫"色散翻转"。
+> - **候选集 M 边界**：{拓扑约束, 普通约束}×{BLG 手征准粒子, Dirac 费米子}×{chiral(净 TR 破缺), helical(谷锁定)} —— "拓扑零模"在该集合内唯一幸存；**集外候选**（如更复杂的多带效应、相互作用诱导的竞争态、无序诱导的局域化）原文未讨论、未排除。⚠️ 2-band 约化仅当 V ≪ t⊥ 合法 📜Q。
+
+> 三层标注：📜Q = 原文事实（附位置：摘要/引言/正文段落/Eq./Fig. caption）｜推导 = 由原文公式合成｜📊F = 读图估算｜💭I = 推断。**不确定度（正交轴）**：[±] 原文误差棒 / [~] 原文以 =/≈ 给出但无误差棒 / [读图] 图·色标提取 / [相对] 仅相对量。所有数字经 pdftotext + grep 反向核对。
 
 ---
 
-## 更正日志 (2026-08-20, S-REV)
+## 2. 结果与机制（按论文自身论证结构：模型 → 零模 → 拓扑论证 → 谷电子学）
 
-- **§3 实验签名 $4e^2/h$**: 加注 💭I⚠️——原文未出现该字符串（grep "4e"=0），系两谷×两模×$e^2/h$ 推演。依据: appendix_B §B.5#9。
-- **Q2 拓扑不变量语言**: 删除 "$\mathbb{Z}_2$ / $\Delta C_v = 2$" 表述——原文未用 Chern/$\mathbb{Z}_2$ 语言（grep "Chern" 仅命中致谢人名），改以原文 "topological vacuum charge" + "two zero modes per kink per valley per spin" 📜Q 表述；$\Delta C_v$ 标注为 T6 (2013) 后世语言 💭I。依据: §B.5#9 + cards.md T1。
+### 2.1 物理图景：偏压作"序参量"，kink 作"畴壁"
+
+- **类比框架**：凝聚态体系中低能隙常由序参量（OP）打开（超导、CDW/SDW）；OP 的非平庸拓扑构型处零能费米子态重现（Andreev 束缚态、涡旋核态、聚乙炔孤子、宇宙学膜）📜Q（引言）。BLG 中**层间偏压 V 扮演 OP 的角色，且外部可调**（"plays a role analogous to an OP, but is externally tunable"）📜Q。
+- **BLG 的独特性**：这些零模源自 BLG 手征准粒子（二次色散、粒子-空穴带零隙）而非 Dirac 费米子 📜Q（引言）；这是与既有零模例子的根本区别。
+- **偏压开隙**：加偏压 V 后，粒子-空穴带间开隙幅度 |V| 📜Q。反号偏压（voltage kink）使畴壁处能隙穿过零 → 1D 通道承载手征零模带（Fig. 1）📜Q。
+
+### 2.2 零模数目与手征性（核心结果）
+
+- **数目**：每谷每自旋 2 条零模（"two zero modes per kink per valley per spin" / "two such modes (per spin)"）📜Q。数目**不随 kink 宽度变化**（narrow l=0.5 仅 2 支隙内态；wide l=4 隙边下出现更多低能态，但**任何宽度下都只有 2 条手征零模**）📜Q（Fig. 3 caption）。
+- **手征性（谷锁定）**：同谷内 2 条零模在 ε≈0 附近**同向**（负速度），第二谷速度为正 → TR 对称性由谷恢复；定义 Sy=谷指标，所有零模有确定 py·Sy 符号 📜Q。反 kink（φ₀<0）色散翻转 ε(py)→−ε(py) 📜Q。
+- **术语辨析**：摘要称 "chiral states"，正文机制是**谷锁定反向传播**（helical，K/K′ 反向），严格是 QVH 畴壁态而非净手征（QH 边缘通道）——见 [PHY-BERRY] 💭I。
+
+### 2.3 拓扑论证："拓扑真空荷"固定零模数目
+
+- **N₃ 的定义**：准经典 3D 动量-实空间 (p, x) 中 Fermi 点 (0,0,0) 的拓扑荷 N₃，由准经典 Green 函数 G_qc 的 winding（π₃(S³) 非平庸同伦群映射度）给出 📜Q（Eq. 17）。
+- **两个积分面选取**：(a) 无穷平面 py=p⁰y → 等价于谱不对称函数差 η(p⁰y)−η(−p⁰y)；(b) 无穷平面 x=x₀ → N₃ = 左右两侧绝缘态**真空拓扑荷之差** Ñ₃(x₀)−Ñ₃(−x₀) 📜Q。
+- **结果**：Ñ₃(x₀) = sgn φ(x₀)，故 N₃ = Ñ₃(x₀)−Ñ₃(−x₀) = **±2**，与"每谷每自旋 2 支跨零（负速度）"一致 📜Q。这就是摘要"零模支数由绝缘 BLG 态的拓扑真空荷固定"的论证。
+- ⚠️ **原文未用 Chern / Z₂ 语言**（grep "Chern" 仅命中致谢人名 Chernyak）；"ΔC_v = 2" 是 T6 (Zhang 2013) 的后世语言 💭I。
+
+### 2.4 畴壁零电荷（与 1D 孤子的对比）
+
+1D 孤子常携带有理/无理电荷；作者证明 **BLG kink 的畴壁电荷密度为零**——利用对称性，kink 存在时密度与位置无关（正比于动量/能量截断的常数）📜Q。
+
+### 2.5 谷电子学应用（valleytronics）
+
+- **谷过滤**（valley filter）：沿 kink 加电压差 → 只有一谷载流、另一谷被 "filtered out" 📜Q。
+- **谷阀**（valley valve）：两个 filter 串联，同极性电流通过、反极性阻断 📜Q。
+- **优势**：早期单层石墨烯谷过滤/阀方案依赖完美 zigzag 边缘（实现极难）；本文拓扑约束通道在样品内部远离边缘即可实现 → 大幅降低谷间散射 📜Q。开隙技术（栅电极开 BLG 能隙）"已被实验演示"（ref 22 Oostinga）📜Q；谷过滤的详细讨论 "will be presented elsewhere"（ref 23）📜Q。
+
+---
+
+## 3. 理论模型与方法
+
+### 3.1 4-band 哈密顿量（单谷，层间偏压 V(x)）
+
+$$H=\begin{pmatrix}-V(x)/2 & c\pi^\dagger & 0 & 0\\ c\pi & -V(x)/2 & t_\perp & 0\\ 0 & t_\perp & V(x)/2 & c\pi^\dagger\\ 0 & 0 & c\pi & V(x)/2\end{pmatrix}$$
+
+作用在 4 分量波函数 (A₁, B₁, A₂, B₂)（下标 = 子格，数字 = 层）；c = 费米速度，π = pₓ + i p_y，π† = pₓ − i p_y，t⊥ = 层间耦合 📜Q（Eq. 1）。只含单谷，**假设 V(x) 足够平滑不引起谷间跃迁** 📜Q。
+
+### 3.2 2-band 低能约化（V ≪ t⊥）
+
+低能、恒栅压下 V ≪ t⊥ 时约化（ref 14），剩余分量以 A₁、B₂ 为主 📜Q（Eq. 2）：
+
+$$\tilde H=\begin{pmatrix}\tfrac{V}{2}\big(1-\tfrac{c^2 p^2}{t_\perp^2}\big) & -\tfrac{c^2}{t_\perp}\pi^{\dagger 2}\\ -\tfrac{c^2}{t_\perp}\pi^2 & -\tfrac{V}{2}\big(1-\tfrac{c^2 p^2}{t_\perp^2}\big)\end{pmatrix}$$
+
+> ⚠️ 旧稿（2026-08-06）把对角元误写为 `V/2 − c²p²/t⊥`（漏了 V/2 因子、分母 t⊥ 应为 t⊥²），本次按 Eq. 2 修正。
+
+### 3.3 能谱与开隙
+
+$$E^2=\frac{V^2}{4}\Big(1-\frac{c^2 p^2}{t_\perp^2}\Big)^2+\frac{c^4 p^4}{t_\perp^2}$$
+
+有限偏压下谱有隙，**在圆 cp = V/2 上达到最小 |V|** 📜Q（Eq. 3 及其后文字）。当 V < t⊥ 时第一项 p² 修正可忽略，简化到 E² = V²/4 + c⁴p⁴/t⊥² 📜Q。⚠️ "V=0 处闭合-重开 → 拓扑相变"是**后世重述** 💭I——原文只说隙幅度 |V|、偏压"类比 OP"、Ñ₃ = sgn φ（φ 变号 → 真空荷差 ±2），未用"相变/闭合-重开"措辞。
+
+### 3.4 准经典哈密顿量（实际求解用）
+
+$$H_{\rm qc}=-\varphi(x)\sigma_z-(p_x^2-p_y^2)\sigma_x+2p_x p_y\sigma_y,\qquad \varphi(x)=\frac{V(x)t_\perp a^2}{2c^2}$$
+
+动量以逆晶格常数 1/a 为单位；φ 是"序参量"（栅压扮演其角色）📜Q（Eq. 4）。对应波方程（Eqs. 5–6）是耦合的二阶方程（u、v 分量，∂x±py 组合）；对反对称势 φ(−x)=−φ(x)，v(x)=u(−x) 使两方程归并为一个 📜Q。
+
+### 3.5 求解方法（非常规步骤，一行级）
+
+- **阶跃 kink**（φ(x)=φ₀ sgn x）：解析可解。隙内态 ∝ e^{−κx}，在 x=0 用波函数及其 1/2/3 阶导匹配（4 方程 4 未知，行列式=0）得零模色散；零能解在 p₀ = −√φ₀/2^{3/4}（φ₀>0）📜Q（Eqs. 7–15）。同谷两解负速度；第二谷正速度；反 kink 色散翻转 📜Q。
+- **平滑 kink**（φ = tanh(x/l)）：Eqs. 5–6 用有限差分法数值解 📜Q。图 2 示 l=1、py=−1/2^{3/4} 的局域态，能量 ε=0.1140（远小于参考隙 φ₀=1），波函数轻微振荡衰减、满足 v(x)=u(−x) 📜Q。
+- **衰减长度**：拓扑约束态衰减长度 ~a/√φ₀，与长波展开 (4) 自洽；宽于 a/√φ₀ 的 kink 有定量偏离（数值解确实发现）📜Q。
+
+---
+
+## 4. 关键预言与数据（提取链 + 验证链 + 不确定度标注）
+
+> 本文是纯理论，无实验误差棒；所有数字为作者解析/数值结果。全文**无 ± 误差棒**（声明）。
+
+### 4.1 零模计数与拓扑荷
+
+| 量 | 值 | 来源/不确定度 |
+|----|----|--------------|
+| 每谷每自旋零模数 | **2** | 📜Q[~]（"two zero modes per kink per valley per spin"，正文 + Fig. 3 caption；三处一致） |
+| 拓扑真空荷差 N₃ | **±2** | 📜Q[~]（"N₃ = Ñ₃(x₀) − Ñ₃(−x₀) = ±2"；Ñ₃(x₀) = sgn φ(x₀)） |
+| 零模数目 vs 宽度 | 不随 kink 宽度变（l=0.5 窄 / l=4 宽都 2 条） | 📜Q[~]（"regardless of the width"） |
+
+### 4.2 能谱参数
+
+| 量 | 值 | 来源/不确定度 |
+|----|----|--------------|
+| 体能隙幅度 | \|V\|（最小值，圆 cp=V/2 上） | 📜Q[~]（Eq. 3 后文字） |
+| 简化谱（V<t⊥） | E² = V²/4 + c⁴p⁴/t⊥² | 📜Q[~]（正文，drop p² correction） |
+| 数值例能量 | ε = 0.1140（φ₀=1，l=1，py=−1/2^{3/4}） | 📜Q[~]（Fig. 2 正文，无量纲单位） |
+| 零能解位置（阶跃） | p₀ = −√φ₀/2^{3/4} | 📜Q[~]（"step kink" 段） |
+| 衰减长度 | ~a/√φ₀（低能） | 📜Q[~]（"of the order of a/√φ₀"） |
+
+### 4.3 弹道电导（⚠️ 无源数字，显式标注）
+
+- 原文**从不讨论电导量化**（grep "conductance / e²/h / quantized / 4e" 均无命中）。
+- 若按 Landauer-Büttiker（[PHY-LB] 通道计数约定）：每谷 2 模 × 2 自旋 = **4 条自旋分辨通道** → 单谷（谷过滤后）理想电导 **4e²/h** 💭I⚠️[推导]——**原文未出现 "4e²/h" 字符串，该数值为推演**。原文仅支持 "two zero modes per kink per valley per spin" 📜Q。
+- ⚠️ 旧稿写 "两谷×两模×e²/h" 计数有误（漏自旋、误计谷）；正确计数为**每谷** 2 模×2 自旋=4 通道。且两谷反向传播 → 只有谷过滤（选单谷）时才是净 4e²/h 单方向输运。
+
+### 4.4 验证链（理论自洽，无实验互验）
+
+| 链 | 内容 |
+|----|------|
+| 解析 ↔ 数值互验 | 阶跃 kink 解析式（Eqs. 14–15）与窄 kink 数值解"fits very well" 📜Q |
+| 拓扑荷 ↔ 零模计数互验 | N₃ = ±2 与"每谷每自旋 2 支跨零（负速度）"一致 📜Q |
+| 对称性互验 | v(x)=u(−x)（图 2 数值态）、u(x)=v(−x)（σz 类对称）📜Q |
+| 衰减长度 ↔ 长波展开自洽 | a/√φ₀ 使解与展开 (4) 自洽 📜Q |
+
+---
+
+## 5. 主要结论
+
+1. **提出**（propose/demonstrate）静电横向约束可在 BLG 畴壁产生 1D 手征零模——电场畴壁（EFW）拓扑态的原始理论预言 📜Q。
+2. 零模数目 = 每谷每自旋 2 条，由绝缘 BLG 态的拓扑真空荷（N₃ = ±2）固定 📜Q。
+3. 零模谷锁定反向传播（K/K′ 反向）→ 可作谷过滤/谷阀，用现有技术可实现 📜Q。
+4. **判别**：只有符号反转偏压（拓扑约束）才出零模；同极性偏压（普通约束）隙下有态但无手征零模 📜Q。
+5. 与 1D 孤子不同，BLG kink 的畴壁电荷密度为零 📜Q。
+
+---
+
+## 6. 局限与未解决
+
+| 局限 | 说明 | 证据 |
+|------|------|------|
+| V(x) 平滑假设 | 只处理单谷，假设 V(x) 平滑到不引起谷间跃迁；尖锐势变化破坏谷守恒 | 📜Q |
+| 2-band 模型适用域 | 仅 V ≪ t⊥（低能、恒栅压）合法；宽 kink（>a/√φ₀）有定量偏离 | 📜Q |
+| 单粒子图像 | 无相互作用、无无序（无序仅一句"likely to influence transport"） | 📜Q→💭I |
+| 无输运量化 | 未计算电导/透射；4e²/h 为后世推演，非原文 | 💭I⚠️ |
+| 谷过滤细节未展开 | "详细讨论 will be presented elsewhere"（ref 23 未发表） | 📜Q |
+| 实验未验证（2008） | 开隙技术"已被演示"（ref 22），但畴壁零模当时未实验实现 | 📜Q |
+
+---
+
+## 7. 与其他工作的关系（跨论文对标，不在正文）
+
+| 工作 | 关系 |
+|------|------|
+| McCann & Fal'ko 2006 (ref 8) / McCann 2006 (ref 10) | BLG 2-band 模型 / 偏压开隙的来源 📜Q |
+| Rycerz/Tworzydło/Beenakker 2007 (ref 12)、Recher 2007 (ref 21) | 早期单层石墨烯谷过滤/阀（依赖完美 zigzag 边缘）——本文批评其难实现 📜Q |
+| Mañes/Guinea/Vozmediano 2007 (ref 14) | 2-band 约化依据 📜Q |
+| Volovik（ref 20） | 拓扑荷 N₃（π₃(S³)）方法的来源 📜Q |
+| Oostinga 2007 (ref 22) | 栅电极开 BLG 能隙的已有实验 📜Q |
+
+> ⚠️ Phase S 外部对标（**非本文引用**，时间倒挂 💭I）：
+> - **T2 Li/Morpurgo/Büttiker/Martin 2010** 直接继承/发展（后继理论）。
+> - **T6 Zhang/MacDonald/Mele 2013** 将本文零模置于 valley Chern 框架（"ΔC_v = 2" 后世语言，本文未用）。
+> - **Ju 2015 Nature / Li 2016 Nat. Nanotech.** 实验证实偏压畴壁导电通道与谷极化输运（review 层综合，原文未引）。
+
+---
+
+## 8. 对后续研究的影响
+
+- 开启 **EFW 拓扑态**研究线：把"拓扑约束 vs 普通约束"的本质区别立为可检验命题 📜Q。
+- 提出**谷过滤/谷阀**的可实现方案（远离边缘、现有技术）📜Q——valleytronics 的早期理论基石。
+- 留下后继任务：谷过滤的详细输运计算（ref 23）→ T2 承接；零模的 Chern 数语言 → T6 承接 💭I。
+
+---
+
+## 9. 理论模型映射（供 TBPM/Kubo 计算对标）
+
+| 映射 | 说明 |
+|------|------|
+| V(x) → φ(x) = V(x)t⊥a²/(2c²) | 层间偏压 → 无量纲序参量（栅压通过 V 进入）📜Q |
+| 开隙幅度 ↔ \|V\| | 体绝缘能隙由偏压幅度定 📜Q |
+| 零模数 ↔ N₃ = ±2 | 拓扑荷差 ↔ 每谷每自旋 2 条零模 📜Q |
+| 谷锁定 ↔ py·Sy 符号 | K/K′ 反向传播（helical），chirality 方向 📜Q |
+| 拓扑 vs 普通 → φ=sgn vs φ=tanh² | 反号偏压 vs 同极性偏压 → 有无零模 📜Q |
+
+> 与 TBPM/Kubo 对应：本文给的是单谷准经典解析/数值能谱，无器件透射。复现需在 kink 型 V(x) 偏压下的 BLG 紧束缚/连续模型算 LDOS 与能谱（"零模 + 隙边态"结构）；输运量化（4e²/h）需 Landauer/Fisher-Lee 透射，且必须显式处理谷间散射以检验"V(x) 平滑"假设 💭I。
+
+---
+
+## Phase S 目的接口（引用式，随项目增删）
+
+- **Q1（edge/domain-wall state 如何表征）**：本文无实验，纯理论预言——零模色散 ε(py)（Fig. 3）、每谷每自旋 2 条、谷锁定方向、衰减长度 a/√φ₀（§2/§4）。
+- **Q2（理论如何解释 edge state）**：符号反转偏压 V(x) → 体能隙（|V|）在畴壁闭合-重开 → 束缚 1D 手征零模；数目由拓扑真空荷 N₃=±2 固定（"two zero modes per kink per valley per spin" 📜Q）。⚠️ 未用 Chern/Z₂ 语言（grep 仅命中人名 Chernyak）；"ΔC_v=2" 是 T6 后世语言 💭I（§2.3）。
+- **Q3（理论↔实验对应）**：预言谷过滤/谷阀可开关通道；开隙技术已被 Oostinga 2007 演示；后续 Ju 2015/Li 2016 实验证实（原文未引，💭I）。（§2.5/§7）
+
+> **增量价值**：这是 EFW 拓扑态的**原始预言**（时序上先于所有畴壁实验/后继理论），为 T1 之后的 T2–T15 提供"拓扑约束 vs 普通约束"这一判别母题；report 取用 §2.3（真空荷论证）与 §4.1（每谷每自旋 2 条零模）作为 EFW 机制源点。
+
+## 反向核对 pass (2026-09-02)
+
+pdftotext 提取 `/tmp/T01.txt` 逐项 grep 核对：全部数字（每谷每自旋 2 条零模 / N₃=±2 / Ñ₃=sgn φ / 隙 |V| / cp=V/2 / E²=V²/4+c⁴p⁴/t⊥² / ε=0.1140 / φ₀=1 / l=1,0.5,4 / py=−1/2^{3/4} / p₀=−√φ₀/2^{3/4} / a/√φ₀ / tanh(x/l) / tanh²(x/4)）均在原文找到；"4e²/h"、"conductance"、"Chern"（仅人名 Chernyak）、"eV"、"0.4 eV"、t⊥ 数值均**无命中** → 相应降级/删除（见更正日志）。
+
+## 更正日志
+
+| 日期 | 条目 |
+|------|------|
+| 2026-08-20 | **§3 实验签名 4e²/h**：加注 💭I⚠️——原文未出现该字符串（grep "4e"=0），系推演。依据: appendix_B §B.5#9 |
+| 2026-08-20 | **Q2 拓扑不变量语言**：删除 "Z₂ / ΔC_v=2"——原文未用 Chern/Z₂ 语言（grep "Chern" 仅命中致谢人名 Chernyak），改以 "topological vacuum charge" + "two zero modes per kink per valley per spin" 📜Q；ΔC_v 标注为 T6 (2013) 后世语言 💭I。依据: §B.5#9 + cards.md T1 |
+| 2026-09-02 | **按 4 块辨识结构新架构整体重写（理论适配）**：TL;DR 问题句式 + 四层变量表（理论版）+ 可辨识性判别表（区分竞争图景）+ [前提与限定] + 理论模型映射（§9）；§3 由"实验方法"改为"理论模型与方法" |
+| 2026-09-02 | **修正 2-band 哈密顿量**：旧稿对角元 `V/2 − c²p²/t⊥` 漏 (1−c²p²/t⊥²) 结构（漏 V/2 因子、分母 t⊥ 误为 t⊥），按 Eq. 2 修正为 (V/2)(1−c²p²/t⊥²)；补 Eq. 3 全谱 E²=(V²/4)(1−c²p²/t⊥²)²+c⁴p⁴/t⊥² 与简化式 E²=V²/4+c⁴p⁴/t⊥² 的区分 |
+| 2026-09-02 | **删除 t⊥ ≈ 0.4 eV**：原文无任何以 eV 为单位的能量数值（grep 数字+eV 无命中；t⊥ 全文无数字），旧稿 "约 0.4 eV" 为常识脑补 → 删除 |
+| 2026-09-02 | **"V=0 闭合-重开 → 拓扑相变"标注 💭I**：原文未用该措辞（grep "phase transition/closing/reopening"=0），只说隙 |V|、偏压"类比 OP"、Ñ₃=sgn φ；保留为后世重述并显式标注 |
+| 2026-09-02 | **4e²/h 通道计数修正**：旧稿 "两谷×两模×e²/h" 漏自旋、误计谷；正确为每谷 2 模×2 自旋=4 通道（谷过滤选单谷）→ 4e²/h，仍标 💭I⚠️[推导] |
+| 2026-09-02 | **判别表补全 + [前提与限定]**：新增 5 条判别（拓扑 vs 普通 / BLG 手征 vs Dirac / 谷锁定 vs TR 破缺 / 真空荷 vs 偶然 / 零电荷 vs 分数电荷）+ 主结果↔判别映射 + 候选集 M 边界声明 |

@@ -14,7 +14,7 @@
 -->
 # note 索引 — TBG Edge State & Domain Wall 精读笔记
 
-> 目录: `theory/`（T01–T39）| `experiments/`（E01–E18）| `reviews/`（R01–R04）| `structure/`（S01–S03）
+> 目录: `theory/`（T01–T39）| `experiments/`（E01–E18）| `reviews/`（R01–R04）| `structure/`（S01–S03）| `shared/`（跨论文共享知识，见 [shared/README.md](shared/README.md)）
 > 历史存档: `../archive/bl-dw/`（bl-dw 早期详细版 7 篇，主副本为本目录 Phase S QC 版）
 > ★ = Phase S 核心精读 | 🔮 = 预印本
 

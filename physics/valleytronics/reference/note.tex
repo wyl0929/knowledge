@@ -1,0 +1,1940 @@
+
+% Author       : Yulong Wang
+% Date         : 2026-09-02 17:27:25
+% LastEditors  : Yulong Wang
+% LastEditTime : 2026-09-02 17:27:26
+% FilePath     : /.agents/home/wyl/project/knowledge/physics/valleytronics/reference/note.tex
+% Description  :
+
+% Author       : Yulong Wang
+% Date         : 2025-09-08 15:01:50
+% LastEditors  : Yulong Wang
+% LastEditTime : 2026-03-19 17:54:59
+% FilePath     : \Essay\Physics\TMBG\note\note.tex
+% Description  :
+
+\documentclass[12pt,a4paper]{article}
+\title{Note of edge state in tMBG}
+\author{Yulong Wang}
+\date{\today}
+
+\newcommand{\bra}[1]{\left\langle{#1}\right|}
+\newcommand{\ket}[1]{\left|{#1}\right\rangle}
+\newcommand{\braket}[2]{\langle{#1}|{#2}\rangle}
+\input{C:/Users/22418/Documents/template/preamble_article.tex}
+\usetikzlibrary{arrows.meta, positioning}
+\usetikzlibrary{calc}
+
+\begin{document}
+
+\section{Berry Phase}
+
+\subsection{Definition}
+
+\paragraph{Adiabatic theorem}
+
+    Eigenstates evolve with time, but always stays near the previous state and never cross. There is instantaneous state $\psi_n'(t)$ for every time $t$ which is close to the true state $\psi(t)$
+    \begin{equation}
+    \label{eq:adiabatic}
+        || \psi(t) - \psi_n'(t) || = O(\frac{1}{T}), \quad 0<t<T
+    \end{equation}
+
+    \[ \psi(t) \approx \psi_n'(t)
+    = \ee^{i\theta_n(t)} \ee^{i\phi_n(t)} \psi_n(t) \]
+    which contains a phase correspond to time $t$,
+    \[ \theta(t) = -\frac{1}{\hbar} \int_0^t E_n(t') \dd t' \]
+    and a geometric phase which is independent to $t$, called \vip{Berry pahse}.
+    \[ \phi(t) = \int_0^t \nu_n(t') \dd t', \quad
+    \nu(t) = i \braket{\psi_n(t)}{\dot{\psi}_n(t)} \]
+    where $\nu(t)$ is real since $\braket{\psi_n(t)}{\dot{\psi}_n(t)}$ is imaginary.
+
+\paragraph{Phase change in configuration space}
+
+    Consider the geometric phase in configuration space, where the Hamiltonian $H(\mathbf{R})$ is a function of some $N$ parameters $\mathbf{R} = (R_1, R_2, \cdots, R_N) \in \RR^N$,
+    \[ H(\mathbf{R}) \ket{\psi_n(\mathbf{R})} = E_n(\mathbf{R}) \ket{\psi_n(\mathbf{R})}, \quad n = 1,2,\cdots \]
+    where $n$ is for $n$th eigenstate. If the parameters are time dependent, $\mathbf{R}(t) = (R_1(t), R_2(t), $ $\dots, R_N(t))$, the states will evolve with time in configuration space,
+    \[ H[\mathbf{R}(t)] \ket{\psi_n[\mathbf{R}(t)]} = E_n(\mathbf{R}(t)) \ket{\psi_n[\mathbf{R}(t)]} \]
+
+    In this configuration space,
+    \[ \nu_n(t) = i \bra{\psi_n[\mathbf{R}(t)]} \frac{\dd}{\dd t} \ket{\psi_n[\mathbf{R}(t)]}
+    = i \bra{\psi_n[\mathbf{R}(t)]} \nabla_{\mathbf{R}} \ket{\psi_n[\mathbf{R}(t)]} \cdot \frac{\dd \mathbf{R}}{\dd t} \]
+    since $\frac{\dd}{\dd t} f[\mathbf{R}(t)] = \nabla_{\mathbf{R}} \cdot \frac{\dd \mathbf{R}}{\dd t}$ using chain rule. So that the geometry phase from $t_i$ to $t_f$ is
+    \[\begin{aligned}
+        \phi_n(t)
+        = &\, \int_{t_i}^{t_f} i \bra{\psi_n[\mathbf{R}(t)]} \nabla_{\mathbf{R}} \ket{\psi_n[\mathbf{R}(t)]} \cdot \frac{\dd \mathbf{R}}{\dd t} \dd t' \\
+        = &\, \int_{\Gamma} i \bra{\psi_n(\mathbf{R})} \nabla_{\mathbf{R}} \ket{\psi_n(\mathbf{R})} \cdot \dd \mathbf{R}
+    \end{aligned}\]
+    which only depend on the path $\Gamma$ from $\mathbf{R}(t_i)$ to $\mathbf{R}(t_f)$, but not on time $t$. In this spirit, we can denote is as $\phi_n(\Gamma)$. Denote $\nu_n(t)$ as
+    \begin{equation}
+    \label{eq:A}
+        \mathcal{A}_n(\mathbf{R}) = i \bra{\psi_n(\mathbf{R})} \nabla_{\mathbf{R}} \ket{\psi_n(\mathbf{R})}
+    \end{equation}
+    which is a vector with $N$ components in $\RR^N$, called \vip{Berry connection}.
+    \begin{equation}
+    \label{eq:phi_A}
+        \phi_n(\Gamma) = \int_{\Gamma} \mathcal{A}_n(\mathbf{R}) \cdot \dd \mathbf{R}
+    \end{equation}
+
+\paragraph{Gauge transformation of Berry phase}
+
+    Consider some gauge transformation for eigenstate
+    \[ \ket{\psi_n'(\mathbf{R})} = \ee^{-i\beta(\mathbf{R})} \ket{\psi_n(\mathbf{R})}, \quad \beta(\mathbf{R})\in \RR \]
+    the new Berry connection $\mathcal{A}_n'(\mathbf{R})$ is
+    \[\begin{aligned}
+        \mathcal{A}_n'(\mathbf{R})
+        &\, = i \bra{\psi_n(\mathbf{R})} \ee^{i\beta(\mathbf{R})} \nabla_{\mathbf{R}} \ee^{-i\beta(\mathbf{R})}\ket{\psi_n(\mathbf{R})} \\
+        &\, = \mathcal{A}_n(\mathbf{R}) + \nabla_{\mathbf{R}} \beta(\mathbf{R})
+    \end{aligned}\]
+    which transform as a vector potential as $\mathbf{A}$ in electrodynamics.
+
+    The Berry phase changes as
+    \[\begin{aligned}
+        \phi_n'(\Gamma)
+        &\, = \int_{\Gamma} \mathcal{A}_n'(\mathbf{R}) \cdot \dd \mathbf{R} \\
+        &\, = \int_{\Gamma} \mathcal{A}_n(\mathbf{R}) \cdot \dd \mathbf{R}
+        + \int_{\mathbf{R}_i}^{\mathbf{R}_f} \nabla_{\mathbf{R}} \beta(\mathbf{R}) \cdot \dd \mathbf{R} \\
+        &\, = \phi_n(\Gamma) + \beta(\mathbf{R}_i) - \beta(\mathbf{R}_f)
+    \end{aligned}\]
+    which is not gauge invariant, unless we choose a close path which $\mathbf{R}_i - \mathbf{R}_f = 0$.
+
+\paragraph{Berry curvature}
+
+    By Stokes' theorem, \eqref{eq:phi_A} can be written as
+    \[\phi = \oint_{\Gamma} \mathcal{A} \cdot \dd \mathbf{R}
+    = \iint_S \left(\nabla\times \mathcal{A}\right) \cdot \dd \mathbf{S}\]
+    \begin{equation}
+    \label{eq:curvature}
+        \Omega(\mathbf{R}) = \nabla\times \mathcal{A}
+    \end{equation}
+    which is called \vip{Berry curvature} or Berry flux.
+
+
+
+\subsection{Berry curvature \& Berry phase in graphene}
+
+\paragraph{Two-band model}
+
+    For a two-band model with Hamiltonian as
+    \begin{equation}
+    \label{eq:H}
+        H(\mathbf{k}) = \mathbf{d}(\mathbf{k}) \cdot \bm{\sigma} + \Delta(\mathbf{k}) \cdot \mathbf{I}
+    \end{equation}
+    where $\mathbf{d}(\mathbf{k}) = \left(d_x, d_y, d_z\right)$, $\bm{\sigma} = \left(\sigma_x, \sigma_y, \sigma_z\right)$ is Pauli matrices, $\Delta(\mathbf{k})$ is diagnolized energy shift.
+
+    To calculate Berry curvature, first we solve eigenvalue question of the Hamiltonian. Parameterize $\mathbf{d}(\mathbf{k})$ in spherical coordinates,
+    \[
+        \hat{\mathbf{d}}
+        = \frac{\mathbf{d}}{|\mathbf{d}|}
+        = (\sin\theta \cos\phi, \sin\theta \sin\phi, \cos\theta)
+    \]
+    Solving $\det(H-\epsilon I)=0$ gives the two bands as
+    \begin{equation}
+        |u_+(\mathbf k)\rangle =
+        \begin{pmatrix}
+        \cos\frac{\theta}{2}e^{-i\phi} \\
+        \sin\frac{\theta}{2}
+        \end{pmatrix}, \qquad
+        |u_-(\mathbf k)\rangle =
+        \begin{pmatrix}
+        \sin\frac{\theta}{2}e^{-i\phi} \\
+        -\cos\frac{\theta}{2}
+        \end{pmatrix},
+    \end{equation}
+
+    Calculating Berry connection of the lower band by \eqref{eq:A}, in $k$-space the parameter $\mathbf{R}$ is replaced by $\mathbf{k}$, which gives
+    \begin{equation}
+        \mathbf A(\mathbf k)
+        = i \langle u_-(\mathbf k) | \nabla_{\mathbf k} |u_-(\mathbf k)\rangle.
+    \end{equation}
+    In polar coordinates $(k,\phi)$, one finds
+    \begin{equation}
+        \mathcal{A} = \frac{1}{2}\left(1 - \cos\theta\right) \nabla_k\phi
+    \end{equation}
+    \begin{proof}\small
+    Because the only $k$-dependence in the spinor is through $\theta(k)$, we have
+    \[\begin{aligned}
+        A_k = 0
+    \end{aligned}\]
+    For $A_\phi$, in polar coordinate $(k,\phi)$,
+    \[\begin{aligned}
+        A_\phi
+        &\, = i \bra{u_-(k, \phi)} \frac{\partial}{\partial \phi} \ket{u_-(k, \phi)} \\
+        &\, = i \cdot \begin{pmatrix}
+            \sin\frac{\theta}{2}\cdot \ee^{i\phi}, -\cos\frac{\theta}{2}
+        \end{pmatrix} \cdot
+        \begin{pmatrix}
+            \sin\frac{\theta}{2}\cdot -i\ee^{-i\phi} \\ 0
+        \end{pmatrix} \\
+        &\, = \sin^2\frac{\theta}{2} = \frac{1}{2} \left(1-\cos\theta\right)
+    \end{aligned}\]
+    Substitute $\cos\theta$ by $m/\epsilon$, we get the exprssion above.
+    \end{proof}
+
+    Calculating Berry connection of the lower band by \eqref{eq:curvature}, in $k$-space
+    \begin{equation}
+    \label{eq:Omega_A}
+    \begin{aligned}
+        \Omega
+        &\, = \nabla_k \times \left[ \frac{1}{2}\left(1 - \cos\theta\right) \nabla_k\phi \right] \\
+        &\, = \frac{1}{2} \nabla_k \left(1 - \cos\theta\right) \times \nabla_k\phi \\
+        &\, = \frac{1}{2}\sin\theta \left(\nabla_k \theta \times \nabla_k\phi\right) \\
+    \end{aligned}
+    \end{equation}
+    using $\nabla \times \left(f\nabla g\right) = \nabla f\times \nabla g$. Consider the derivatives of $\hat{\mathbf{d}}$,
+    \[
+        \partial_{k_x} \hat{\mathbf{d}} = \begin{pmatrix}
+            \cos\theta \cos\phi \partial_{k_x}\theta - \sin\theta \sin\phi \partial_{k_x}\phi \\
+            \cos\theta \sin\phi \partial_{k_x}\theta + \sin\theta \cos\phi \partial_{k_x}\phi \\
+            -sin\theta \partial_{k_x}\theta
+        \end{pmatrix}
+    \]
+    Similar for $\partial_{k_y} \hat{\mathbf{d}}$, so that the cross product is
+    \[
+        \partial_{k_x} \hat{\mathbf{d}} \times \partial_{k_y} \hat{\mathbf{d}}
+        = \hat{\mathbf{d}} \cdot \left(\sin\theta \partial_{k_x}\theta \partial_{k_y}\phi - \sin\theta \partial_{k_y}\theta \partial_{k_x}\phi\right)
+    \]
+    \[
+        \hat{\mathbf{d}} \cdot \left(\partial_{k_x} \hat{\mathbf{d}} \times \partial_{k_y} \hat{\mathbf{d}}\right)
+        = \sin\theta \left(\partial_{k_x}\theta \partial_{k_y}\phi - \partial_{k_y}\theta \partial_{k_x}\phi\right)
+    \]
+    using $\hat{\mathbf{d}}\cdot \hat{\mathbf{d}} = 1$. Substitute into Eq.\eqref{eq:Omega_A}, we have
+    \begin{equation}
+    \label{eq:twoband}
+        \Omega(\mathbf{k})
+        = \frac{1}{2} \hat{\mathbf{d}} \cdot \left(\partial_{k_x} \hat{\mathbf{d}} \times \partial_{k_y} \hat{\mathbf{d}}\right) \\
+        = \frac{1}{2} \frac{\mathbf{d} \cdot \left(\partial_{k_x}\mathbf{d} \times \partial_{k_y}\mathbf{d}\right)}{|\mathbf{d}|^3} \\
+    \end{equation}
+    Which is a general exprssion for two-band model with Hamiltonian in the form of Eq.\eqref{eq:H}.
+
+
+\paragraph{Monolayer graphene}
+
+    The massive Dirac Hamiltonian of monolayer graphene near one valley is
+    \begin{equation}
+    \begin{aligned}
+        H(\mathbf k)
+        & = \begin{pmatrix}
+            m & v_0 \pi^\dagger \\
+            v_0 \pi & -m
+        \end{pmatrix} \\
+        & = v_0 \xi k_x \sigma_x + v_0 k_y \sigma_y + m \sigma_z
+        = \mathbf{d} \cdot \bm{\sigma}
+    \end{aligned}
+    \end{equation}
+    where $v_0 = \frac{\sqrt{3}}{2} \frac{a\gamma_0}{\hbar}$, $\pi = \xi k_x + i k_y = k e^{i\theta}$, $k = \sqrt{k_x^2 + k_y^2}$, $\mathbf{d} = (v_0 \xi k_x, v_0 k_y, m)$.
+    Using the general two-band Berry curvature formula in Eq.\eqref{eq:twoband},
+    \[
+        \partial_{k_x}\mathbf{d} = \left(\xi v_0, 0, 0\right), \quad
+        \partial_{k_y}\mathbf{d} = \left(0, v_0, 0\right), \quad
+        \partial_{k_x}\mathbf{d} \times \partial_{k_y}\mathbf{d} = \left(0, 0, v_0\right)
+    \]
+    the Berry curvature for low energy valence band is
+    \begin{equation}
+    \label{eq:Omega_M}
+        \Omega(k) = \frac{1}{2} \frac{\xi m v_0^2}{\left(v_0^2 k^2 + m^2\right)^{3/2}}
+    \end{equation}
+
+    For such a massive monolayer Hamiltonian, $\Omega(k)$ is isotripic and localized near Dirac cone. Integrate $\Omega(k)$ up to Fermi momentum $k_F$, the Berry phase $\phi$ is
+    \[
+        \phi_{\xi}(k_F) = \pi \xi \left(1 - \frac{m}{\sqrt{v_0^2k_F^2 + m^2}}\right)
+    \]
+    Under massless limit $m\to 0$, $\phi_{\xi} = \xi\pi$. For valley Chern number $C_v$, integrate $\Omega(k)$ over the entire Dirac cone as
+    \begin{equation}
+    \label{eq:Cv_M}
+        C_v = \frac{\xi}{2} \mathrm{sgn}(m)
+    \end{equation}
+    which is consistent with a ``half-integer'' QHE\ref{zhang_experimental_2005}.
+
+\paragraph{Bilayer graphene}
+
+    Using Eq.\eqref{eq:Heff} and ignoring $\gamma_4$, we get the effective two-band Hamiltonian of Bernal bilayer graphene near Dirac cone is
+    \begin{equation}
+    % \label{eq:}
+        H = \begin{pmatrix}
+            \Delta                                  & -\gamma_3 \pi -\beta (\pi^\dagger)^2 \\
+            -\gamma_3 \pi^\dagger - \beta \pi^2     & -\Delta
+        \end{pmatrix}
+    \end{equation}
+    where $\beta = v_0^2/\gamma_1$, $\xi$ in $\pi$ vanished by quadratic. To fit in the Eq.\eqref{eq:twoband}, ignoring $\gamma_3$,
+    \[
+        \mathbf{d}(k) = \left(-\beta (k_x^2 - k_y^2),\, 2\xi\beta k_x k_y,\, \Delta \right)
+    \]
+    which gives low energy valence band as
+    \begin{equation}
+    \label{eq:Omega_B}
+        \Omega_\xi(k) = -\xi \frac{2\Delta \beta^2 k^2}{\left(\beta^2k^4 + \Delta^2\right)^{3/2}}
+    \end{equation}
+
+    Integrate near Dirac cone gives the valley Chern number
+    \begin{equation}
+    \label{eq:Cv_B}
+        C_v = \xi \mu \cdot \mathrm{sgn}(\Delta)
+    \end{equation}
+    where $\xi=\pm1$ for $K$ and $K'$ valley, $\mu=\pm1$ for conduction band and valence band.
+
+    \begin{figure}[H]
+    \centering
+    \subfigtopskip = -1em   % 子图与上文
+    \subfigbottomskip = 0em % 子图行间
+    \subfigcapskip = -0em   % 子图与子标题
+    \subfigure{
+        \includegraphics[width = 0.4\linewidth]{AB_Omega_K.png} }
+    \quad
+    \subfigure{
+        \includegraphics[width = 0.4\linewidth]{AB_Cv_radii.png} }
+    \vspace{-0.5em}
+    \caption{AB-bilayer graphene Berry curvature}
+    \label{fig_AB}
+    \end{figure}
+
+\paragraph{ABC-Trilayer graphene}
+
+    The effective Hamiltonian of trilayer ABC trilayer graphene,
+    \begin{align*}
+        H_{\text{eff}}
+        & = \begin{pmatrix}
+            \Delta & \frac{v_0^3}{\gamma_1^2} (\pi^\dagger)^3 \\
+            \frac{v_0^3}{\gamma_1^2} \pi^3 & -\Delta
+        \end{pmatrix} \\
+        & = \frac{v_0^3}{\gamma_1^2} k^3\cos(3\theta) \cdot \sigma_x
+        - \frac{v_0^3}{\gamma_1^2} k^3\sin(3\theta) \cdot \sigma_y
+        + \Delta \cdot \sigma_z
+    \end{align*}
+    where $k = \sqrt{k_x^2 + k_y^2}$, $\theta = \arg(\xi k_y + ik_x)$. This corresponds to the two-band model $H = \mathbf{d}\cdot\bm{\sigma}$ as
+    \[
+    \mathbf{d} = \left(
+    \frac{v_0^3}{\gamma_1^2} k^3 \cos(3\theta), \;
+    \frac{v_0^3}{\gamma_1^2} k^3 \sin(3\theta), \;
+    \Delta\right)
+    \]
+    In Eq.\eqref{eq:twoband}, the partial derivatives are
+    \[\begin{aligned}
+        \partial_{k_x} \mathbf{d}
+        &\, = \left(\cos\theta \partial_k - \frac{\sin\theta}{k}\partial_\theta\right) \mathbf{d}
+        = 3A k \begin{pmatrix}
+        k_x \cos 3\theta + k_y \sin 3\theta \\
+        -k_x \sin 3\theta + k_y \cos 3\theta \\
+        0
+        \end{pmatrix} \\
+        \partial_{k_y} \mathbf{d}
+        &\, = \left(\sin\theta \partial_k + \frac{\cos\theta}{k}\partial_\theta\right) \mathbf{d}
+        = 3A k \begin{pmatrix}
+            -k_x \sin 3\theta + k_y \cos 3\theta \\
+            -k_x \cos 3\theta - k_y \sin 3\theta \\
+            0
+        \end{pmatrix}
+    \end{aligned}\]
+    where $A = v_0^3/\gamma_1^2$. The corss product gives
+    \[
+        \partial_{k_x} \mathbf{d} \times \partial_{k_y} \mathbf{d} = -9 A^2 k^4 \hat{z}
+    \]
+    \[
+        \mathbf{d} \cdot (\partial_{k_x} \mathbf{d} \times \partial_{k_y} \mathbf{d}) = -9 A^2 \Delta k^4,
+    \]
+    \[
+        |\mathbf{d}| = \sqrt{A^2 k^6 + \Delta^2}, \quad |\mathbf{d}|^3 = (A^2 k^6 + \Delta^2)^{3/2}.
+    \]
+    Using Eq.\eqref{eq:twoband}, the Berry curvature is
+    \begin{equation}
+    \label{eq:Omega_ABC}
+        \Omega_{\xi}(\mathbf{k})
+        = -\xi\frac{9}{2} \frac{ A^2 \Delta k^4}{(A^2 k^6 + \Delta^2)^{3/2}}
+    \end{equation}
+
+    Integrate near Dirac cone gives the valley Chern number
+    \begin{equation}
+    \label{eq:Cv_ABC}
+        C_v = \frac{3}{2} \cdot \xi\mu \cdot \mathrm{sgn}(\Delta)
+    \end{equation}
+    where $\xi=\pm1$ for $K$ and $K'$ valley, $\mu=\pm1$ for conduction band and valence band.
+
+
+\paragraph{ABA}
+
+    Consider only $\gamma_0$ and $\gamma_1$, applying the monolayer graphene's model by sustitute $m$ by $\Delta_2$,
+    \begin{equation}
+    \label{eq:Omega_ABA_M}
+        \Omega_{\xi}^M(k) = \frac{1}{2} \frac{\xi \Delta_2 v_0^2}{\left(v_0^2 k^2 + \Delta_2^2\right)^{3/2}}
+    \end{equation}
+    So that the valley Chern number is $C_v^M = \frac{1}{2} \cdot \xi\mathrm{sgn}(\Delta_2)$.
+
+    For the bilayer Hamiltonian, using Eq.\eqref{eq:Heff} to get an effective two-band Hamiltonian
+    \[
+        H_{BLG}' = \begin{pmatrix}
+            \Delta_{e}    & \sqrt{2}v_3\pi - A \left(\pi^\dagger\right)^2 \\
+            \sqrt{2}v_3\pi^\dagger - A \pi^2 & -\Delta_{e}
+        \end{pmatrix}
+    \]
+    where $\Delta_{e} = \gamma_2/2 + 3\Delta_2$, $A = v_0^2/\gamma_1$. Ignoring $\gamma_3$, $H_{BLG}'$ reduced to a normal bilayer model, we get
+    \begin{equation}
+    \label{eq:Omega_ABA_B}
+        \Omega_{\xi}^B(k) = -\xi \frac{2 \Delta_{e} A^2 k^2}{\left(A^2 k^4 + \Delta_{e}^2\right)^{3/2}}
+    \end{equation}
+    So that the valley Chern number is $C_v^M = \xi\mathrm{sgn}(\Delta_e)$.
+
+\paragraph{Pseudospin Hamiltonian}
+
+    For a pseudospin Hamiltonian, if the pseudospin is $l$, the effective Hamiltonian is
+    \begin{equation}
+    \label{eq:}
+        H_{\mathrm{eff}} = \frac{v_0^J}{\gamma_1^{J-1}} \begin{pmatrix}
+            0 & \left(\pi^\dagger\right)^J \\
+            \pi^j & 0
+        \end{pmatrix}
+        = \alpha k^J \left[\cos(J\theta_k) \cdot \sigma_x + \sin(J\theta_k) \cdot \sigma_y\right]
+    \end{equation}
+
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{*{3}{c}}
+            \toprule
+            System  & $J$           & Berry phase       \\
+            \midrule
+            Mono    & $1$           & $\pi$             \\
+            AB      & $2$           & $2\pi$            \\
+            ABA     & $1$ \& $2$    & $\pi$ \& $2\pi$   \\
+            ABC     & $3$           & $3\pi$            \\
+            \bottomrule
+        \end{tabular}
+    \caption{Pseudospin $J$ and Berry phase $\phi$}
+    \label{table_J}
+    \end{table}
+
+
+\section{Quantum Hall effect}
+
+\subsection{Semi-classical explaination}
+
+\paragraph{Classical electron motion under magnetic field}
+
+    \begin{lem}
+        If the magnetic field lies along $z$ axis, $\mathbf{B}=B\hat{e}_z$,with friction as collisions at rate $1/\tau$, the equations of motion is
+        \begin{equation}
+        \begin{aligned}
+            m \left(\frac{\dd}{\dd t} + \frac{1}{\tau}\right) v_x = &\, -e (E_x+Bv_y) \\
+            m \left(\frac{\dd}{\dd t} + \frac{1}{\tau}\right) v_y = &\, -e (E_y-Bv_x) \\
+            m \left(\frac{\dd}{\dd t} + \frac{1}{\tau}\right) v_z = &\, -e E_z \\
+        \end{aligned}
+        \label{eq:5_1_10_v_EB}
+        \end{equation}
+        which give solution by \textbf{cyclotron frequency} $\omega_c\equiv eB/m$,
+        \begin{equation}
+            v_x = - \frac{e\tau}{m} E_x - \omega_c \tau v_y, \quad
+            v_y = - \frac{e\tau}{m} E_y + \omega_c \tau v_x, \quad
+            v_z = - \frac{e\tau}{m} E_z
+        \label{eq:5_1_11_v_EB}
+        \end{equation}
+    \end{lem}
+
+    \begin{prop}
+        Consider the Hall conductive $\sigma$, for 2D cases, we have
+        \[ \left\{\begin{aligned}
+            j_x & = \sigma_{xx} E_x + \sigma_{xy} E_y \\
+            j_y & = -\sigma_{xy} E_x + \sigma_{xx} E_y \\
+        \end{aligned}
+        \right.\]
+        Since $\mathbf{j} = -ne \mathbf{v}$, by Eq.\eqref{eq:5_1_11_v_EB}, we get $\sigma$ as
+        \begin{equation}
+        % \label{eq:}
+            j_x = \frac{1}{1+\omega_c^2\tau^2} \frac{ne^2\tau}{m}, \quad
+            j_y = \frac{\omega_c \tau}{1+\omega_c^2\tau^2} \frac{ne^2\tau}{m}
+        \end{equation}
+        when $\omega_c\tau \gg 1$, i.e. the system is clean and there is no friction, $\tau\to\infty$,
+        \begin{equation}
+        \label{eq:sigma}
+            \sigma_{xx} = 0, \quad
+            \sigma_{xy} = \frac{ne}{B}
+        \end{equation}
+    \end{prop}
+
+    \begin{rem}
+        For Bloch electron under periodic potential, replace the electron's mass $m$ by quasi-particle effective mass $m^*$,
+        \[
+            \frac{1}{m^*} = \frac{1}{\hbar^2} \left(\frac{\partial^2 E}{\partial k^2 } \right)
+        \]
+    \end{rem}
+
+    \begin{thm}[\textbf{Hall effect}] \index{Hall effect}
+        Under external electric $E_x$ and magnetic field $B_z$ in perpendicular direction, as shown in Fig.\ref{fig_5_Hall}. Electrons will accumulate on one side of the metal, causing an extra electric field $E_y$.
+        \begin{equation}
+            E_y = -\omega_c \tau E_x = - \frac{eB\tau}{m} E_x
+        \label{eq:5_1_12_E_Hall}
+        \end{equation}
+    \end{thm}
+    \begin{prf}
+        For steady state, $v_y=0$. By solution in Eq.\eqref{eq:5_1_11_v_EB},
+        \[v_x = - \frac{e\tau}{m} E_x , \quad
+        0 = - \frac{e\tau}{m} E_y + \omega_c \tau v_x \]
+        which gives Eq.\eqref{eq:5_1_12_E_Hall}.
+    \end{prf}
+
+    \begin{prop}
+        Define a constant $R_H$ called \textbf{Hall coefficient}.
+        \begin{equation}
+            R_H \equiv \frac{E_y}{j_x B}
+            = - \frac{1}{ne}
+        \label{eq:5_1_13_RH}
+        \end{equation}
+    \end{prop}
+
+    \begin{rem}
+        Hall effect is a sufficient method to measure carrier concentration $n$.
+    \end{rem}
+
+
+\paragraph{Landau levels}
+
+    \begin{thm}[\textbf{Landau level}]
+        Under external magnetic field $\mathbf{B}=B\mathbf{e}_z$, the motion of electrons in $x$-$y$ plane are quantized, cycling with certain momentum $\mathbf{k}$, and so does the energy $E_n$, called \textbf{Landau levels}. For free electrons, the energy levels are similar to simple harmonic oscillator.
+        \begin{align}
+        \label{eq:5_1_ky_Landau}
+            k_y = &\, \frac{2\pi s}{L_y}, \quad s \in \ZZ \\
+        \label{eq:5_1_En_Landau}
+            E_n = &\, \left(n+\frac{1}{2}\right) \hbar\omega_c, \quad
+            \omega_c = eB/m
+        \end{align}
+    \end{thm}
+    \begin{prf}
+        The Schr\"odinger equation of electrons in magnetic field is
+        \[ \left[\frac{1}{2m}\left(\mathbf{p}+e\mathbf{A}\right)^2 + V(z)\right] \psi(x,y,z) = E \psi(x,y,z) \]
+        where $\mathbf{A}=xB\mathbf{j}$ is the vector potential. Separating variables, we get two equations
+        \[ \psi(x,y,z) = \zeta(z) \phi(x) \ee^{ik_yy}, \quad
+        E = E_n' + E_n \]
+        \[\begin{aligned}
+            \left[-\frac{\hbar^2}{2m}\frac{\dd^2}{\dd z^2} + V(z) \right] \zeta(z) = &\, E_n' \zeta(z) \\
+            \left[-\frac{\hbar^2}{2m}\frac{\dd^2}{\dd z^2} + \frac{m}{2}\omega_c^2(x-x_0)^2 \right] \phi(x) = &\, E_n \phi(x), \quad
+            \omega_c = eB/m
+        \end{aligned}\]
+        where the $x$ equation is a similar to harmonic oscillator, which gives Eq.\eqref{eq:5_1_En_Landau}. Due to periodic boundary condition, momentum $k_y$ is given by length of system $L_x$ \& $L_y$, which gives Eq.\eqref{eq:5_1_ky_Landau}.
+    \end{prf}
+
+    \begin{cor}
+        The system is highly degenerated, with degeneracy $g_L$ as
+        \begin{equation}
+        \label{eq:5_1_gL_Landau}
+            g_L =  \frac{eB}{2\pi\hbar}
+        \end{equation}
+    \end{cor}
+    \begin{prf}
+        By Eq.\eqref{eq:5_1_ky_Landau}, the space between two neighboring oscillator in $k$-space and real space is
+        \[\Delta k_y = \frac{2\pi}{L_y}, \quad
+        \Delta x = \frac{\hbar}{eB} \Delta k_y = \frac{2\pi\hbar}{2BL_y} \]
+        So that within length of $L_x$, the number of oscillator is
+        \[ N_L = \frac{L_x}{\Delta x} = \frac{L_xL_yeB}{2\pi\hbar} = g_L L_x L_y \]
+        which give $g_L$ as Eq.\eqref{eq:5_1_gL_Landau}.
+    \end{prf}
+
+
+\paragraph{Relation with Berry phase}
+
+    For a Bloch electron undergoing cyclotron motion in a magnetic field,
+    the total phase accumulated along a closed orbit must satisfy
+    \begin{equation}
+        \theta_{\mathrm{tot}} = 2\pi n , \qquad n \in \ZZ.
+    \end{equation}
+
+    The total phase consists of three contributions:
+    \begin{equation}
+    \label{eq:phase_condition}
+        \theta_{\mathrm{tot}} = \theta_{\mathrm{dyn}} + \theta_{\mathrm{Maslov}} - \phi_B
+    \end{equation}
+    where $\theta_{\mathrm{dyn}}$ is the dynamical phase, $\theta_{\mathrm{Maslov}} = \pi$ is the Maslov phase from two turning points, $\phi_B$ is the Berry phase.
+
+    For the first term, use the semiclassical equations of motion,
+    \[\begin{aligned}
+        \theta_{dyn}
+        = \frac{1}{\hbar} \int_0^T L \dd t
+        = \frac{1}{\hbar} \int_0^T \left(\mathbf{p} \cdot \mathbf{r}\right) \dd t - \frac{1}{\hbar} \int_0^T H \dd t
+    \end{aligned}\]
+    Since the orbit of Landau level has the same $E$, the seconde term gives $−ET/\hbar$. This contributes only a global time-dependent phase, irrelevant for quantization between neighboring orbits. For an electron in a crystal under a magnetic field, $\mathbf{p} = \hbar \mathbf{k} - e\mathbf{A}$,
+    \[
+        \theta_{dyn}
+        = \frac{1}{\hbar} \oint \left(\hbar \mathbf{k} - e\mathbf{A}\right) \cdot \dd \mathbf{r}
+    \]
+    Using the semiclassical equation of motion,
+    \[
+        \dot{\mathbf{r}} = \frac{1}{\hbar} \nabla_k \epsilon(\mathbf{k}), \qquad
+        \hbar \dot{\mathbf{k}} = - e \dot{\mathbf{r}} \times \mathbf{B}
+    \]
+    under a perpendicular magnetic field $\mathbf{B} = B \hat{z}$, the trajectory of electrons in real space is its trajectory in $k$-space rotated by $\pi/2$,
+    \begin{equation}
+    \label{eq:dr}
+        \dd \mathbf{r} = \frac{\hbar}{eB} \hat{z} \times \dd \mathbf{k}
+    \end{equation}
+    Insert the relation into the dynamic phase, the first term is
+    \[
+        \theta_{dyn}
+        = \oint \mathbf{k} \cdot \dd \mathbf{r}
+        = \frac{\hbar}{eB} \oint \mathbf{k} \cdot \left(\hat{z} \times \dd \mathbf{k}\right)
+    \]
+    Using vector rules, the integration gives
+    \[
+        \oint \mathbf{k} \cdot \left(\hat{z} \times \dd \mathbf{k}\right)
+        = \oint \hat{z} \cdot \left(\mathbf{k} \times \dd \mathbf{k}\right)
+        = 2 A_k(E)
+    \]
+    where $A_k(E)$ is the area enclosed by the cyclotron orbit $\epsilon(\mathbf{k}) = E$ in $k$-space. Now consider the second term, usin Stokes' theorem, under uniform magnetic field,
+    \[
+        \frac{e}{\hbar}\oint \mathbf{A}\cdot\dd\mathbf{r}
+        = \frac{e}{\hbar}\int_S \mathbf{B}\cdot\dd\mathbf{S}
+        = \frac{e}{\hbar} B \cdot A(E)
+    \]
+    Using the relation between $k$-space and real space Eq.\eqref{eq:dr}, we have $A(E) = \left(\frac{\hbar}{eB}\right)^2 A_k(E)$, so that we get the dynamic phase
+    \begin{equation}
+        \theta_{dyn} = \frac{2\hbar}{eB} A_k(E) - \frac{\hbar}{eB} A_k(E)
+        = \frac{\hbar}{eB} A_k(E)
+    \end{equation}
+
+    Substitute into the phase condition Eq.\eqref{eq:phase_condition} and rearrange it. By defining a phase offset as
+    \begin{equation}
+        \gamma \equiv \frac{1}{2} - \frac{\phi_B}{2\pi}
+    \end{equation}
+    we obtain the Onsager–Lifshitz quantization rule
+    \begin{equation}
+        A_k(E_n) = 2\pi \frac{eB}{\hbar} (n + \gamma).
+    \end{equation}
+
+    Next we consider the carrier density $n_e$ and its relation with Landau level. Allowed k-points form a lattice with spacing
+    \[ \Delta k_i = \frac{2\pi}{L_i} \]
+    So that each $k$-state occupies $k$-space area as
+    \[ \Delta A_k = \frac{\left(2\pi\right)^2}{A} \]
+    where $A = L_x L_y$ is the real area for 2D system. The total number of electron state is then
+    \[
+        N = g_s \frac{A_k(E_F)}{\Delta A_k}
+        = \frac{A}{2\pi} \frac{eB}{\hbar} g_s \left(n + \gamma\right)
+    \]
+    which has a degeneracy per unit area $eB/h$ per internal degree of freedom. The carrier density is
+    \begin{equation}
+    \label{eq:ne}
+        n_e = \frac{N}{A} = g_s \frac{eB}{h} (n + \gamma)
+    \end{equation}
+    using $2\pi\hbar = h$.
+
+\paragraph{Quantum Hall effect---Semi-classical approch}
+
+    At zero temperature and high magnetic field, vertical Hall conductivity $\sigma_{xy}$ is quantized due to Landau level, in step of $e^2/h$. This phenonenom is called quantum Hall effect.
+
+    From classical result as Eq.\eqref{eq:sigma}, we get the relation between vertical conductivity $\sigma_{xy}$ and carrier density $n_e$ under non-friction approximation
+    \[ \sigma_{xy} = \frac{e}{B} n_e\]
+    Under external field $B$, $n_e$ is given by Landau levels under $E_F$ by Eq.\eqref{eq:ne},
+    \[ n_e = g_s \frac{eB}{h} (n + \gamma) \]
+    So $\sigma_{xy}$ is quantized as
+    \[ \sigma_{xy}
+    = g_s (n + \gamma) \frac{e^2}{h}
+    = g_s (n + \frac{1}{2} - \frac{\phi_B}{2\pi}) \frac{e^2}{h} \]
+    where $g_s(n+\gamma)$ is an integer. Denote it as filling factor $\nu$, then we get the desired expression of $\sigma_{xy}$ as
+    \begin{equation}
+    \label{eq:sigmaxy_semi}
+        \sigma_{xy} = \nu \frac{e^2}{h}
+    \end{equation}
+    In QHE, consider electron carrier, as we enlarge $B$, the degeneracy of LL also enlarged, so that the number of LL under $E_F$, i.e. $n$ drops. Each times a LL cross $E_F$, $\sigma_{xy}$ will drop by a step of $g_s e^2/h$ and $R_{xy} = \sigma_{xy}^{-1}$ will rise. Such a process is shown in Fig.\ref{fig_QHE_sigma} and Fig.\ref{fig_QHE_R}. In the experiment, $\nu$ is determined by $\sigma_{xy}$ as
+    \[ \nu = \sigma_{xy} \frac{h}{e^2} \]
+
+
+\subsection{TKNN approach}
+
+\paragraph{Magnetic Brillouin zone}
+
+    Consider free electron in magnetic field $\mathbf{B}$, the Hamiltonian has $U(1)$ gauge symmetry given by
+    \begin{equation}
+    % \label{eq:}
+    \begin{aligned}
+        A'
+        &\, = A + \dd \chi \\
+        -i\hbar \partial_{\alpha}'
+        &\, = -i\hbar \partial_{\alpha} - e \partial_{\alpha} \chi
+    \end{aligned}
+    \end{equation}
+    So that in stead of normal momentum operator $p_{\alpha} = -i\hbar \partial_{\alpha}$, we use covariant momentum,
+    \begin{equation}
+    \label{eq:Pi}
+        \Pi_{\alpha} = p_{\alpha} + e A_{\alpha}
+    \end{equation}
+    which is invariant under gauge transformation.
+    \[\begin{aligned}
+        \Pi_{\alpha}'
+        &\, = -i\hbar \partial_{\alpha}' + e A_{\alpha}' \\
+        &\, = \left(-i\hbar \partial_{\alpha} - e \partial_{\alpha} \chi\right)
+        + e \left(A + \dd \chi\right)
+        = \Pi_{\alpha}
+    \end{aligned}\]
+    And the Hamiltonian can be given by $\Pi_{\alpha}$ as
+    \begin{equation}
+    \label{eq:H_MBZ}
+    \begin{aligned}
+        H = \frac{1}{2m} \left(\Pi_x^2 + \Pi_y^2\right) \\
+    \end{aligned}
+    \end{equation}
+    which is also invariant.
+    \[ H' = H \]
+    The covariant momentum that does note commute with each other
+    \[\begin{aligned}
+        \left[\Pi_x, \Pi_y\right]
+        &\, = [p_x, p_y] + e [p_x, A_y] + e [A_x, p_y] + e^2 [A_x, A_y] \\
+        &\, = i\hbar e \left(\partial_y A_x - \partial_x A_y\right) \\
+        &\, = -i\hbar e B
+        = -i\frac{\hbar^2}{l^2}, \quad
+        l = \left(\frac{\hbar}{eB}\right)^{1/2}
+    \end{aligned}\]
+
+    Using $\Pi_{\alpha}$, we can introduce the ladder operators
+    \begin{equation}
+        a = \frac{l}{\sqrt{2}\hbar}(\Pi_x - i\Pi_y), \qquad
+        a^\dagger = \frac{l}{\sqrt{2}\hbar}(\Pi_x + i\Pi_y)
+    \end{equation}
+    satisfying $[a,a^\dagger] = 1$. The Hamiltonian becomes
+    \begin{equation}
+        H = \hbar\omega_c\left(a^\dagger a + \frac{1}{2}\right), \qquad
+        \omega_c = \frac{eB}{m}
+    \end{equation}
+    The energy eigenvalues are the Landau levels, with Landau gap $\hbar\omega_c$.
+    \begin{equation}
+        E_n = \hbar\omega_c\left(n + \frac{1}{2}\right), \qquad n = 0,1,2,\ldots
+    \end{equation}
+    To describe the motion of electrons in Landau levels, we can define the guiding center operators
+    \begin{equation}
+        R_x = x - \frac{l^2}{\hbar}\Pi_y, \qquad
+        R_y = y + \frac{l^2}{\hbar}\Pi_x
+    \end{equation}
+    These operators commute with the Hamiltonian,
+    \begin{equation}
+        [H, R_x] = [H, R_y] = 0
+    \end{equation}
+    but do not commute with each other,
+    \begin{equation}
+        [R_x, R_y] = i l^2
+    \end{equation}
+    \begin{prf}
+        Compute directly using the commutation relations $[x,\Pi_x] = i\hbar$, $[y,\Pi_y] = i\hbar$, and $[\Pi_x,\Pi_y] = -i\hbar^2/l^2$. For $R_x$,
+        \[ [H, R_x] = [H, x] - \frac{l^2}{\hbar}[H, \Pi_y] = -\frac{i\hbar}{m}\Pi_x - \frac{l^2}{\hbar}\cdot\frac{i\hbar^2}{m l^2}\Pi_x = 0 \]
+        Similarly for $R_y$. The commutator $[R_x,R_y]$ follows from direct calculation.
+    \end{prf}
+    The guiding center operators provide the degeneracy. Define
+    \begin{equation}
+        b = \frac{1}{\sqrt{2}l}(R_x + iR_y), \qquad
+        b^\dagger = \frac{1}{\sqrt{2}l}(R_x - iR_y)
+    \end{equation}
+    satisfying $[b,b^\dagger] = 1$ and $[a,b] = [a,b^\dagger] = 0$. The Hilbert space factorizes as
+    \begin{equation}
+        \mathcal{H} = \mathcal{H}_{\mathrm{cyclotron}} \otimes \mathcal{H}_{\mathrm{guiding}}
+    \end{equation}
+    For a system of area $A = L_xL_y$, the degeneracy of each Landau level is
+    \begin{equation}
+        N_\phi = \frac{A}{2\pi l^2} = \frac{eB}{h}A
+    \end{equation}
+    which is the number of flux quanta penetrating the sample.
+
+    Now consider a weak periodic potential with period $a$ \& $b$. Instead of normal translation operators $t_{\alpha}(a) = \exp(i/\hbar a p_{\alpha})$, we define the covariant translation operators $T_{\alpha}(a)$ which contains spatial translation and gauge transformation.
+    \begin{equation}
+    \label{eq:T_MBZ}
+        T_{\alpha} = \ee^{\frac{i}{\hbar}a\Pi_{\alpha}}, \quad \alpha = x,y
+    \end{equation}
+    Translation in $x$ and $y$ direction does not commute. Using relations
+    \[
+        \ee^{-A} \ee^{-B} \ee^A \ee^B = \ee^{[A, B]}
+    \]
+    Define $A = i/\hbar a\Pi_x$ and $B = i/\hbar b\Pi_y$, we get
+    \[
+        [A,B]
+        = \frac{ab}{\hbar^2} [\Pi_x, \Pi_y]
+        = i \frac{ab}{l^2}
+    \]
+    \begin{equation}
+    \label{eq:TxTy}
+        T_x^{-1}(a) T_y^{-1}(b) T_x(a) T_y(b) = e^{iab/l^2}
+    \end{equation}
+    For more general case, translation along an enclosed curve $C$ will accumulate a phase difference that proportion to the area $S_C$.
+    \begin{equation}
+    % \label{eq:}
+        P \cdot \exp\left(\frac{i}{\hbar}\oint_C \dd \mathbf{l} \cdot \bm{\Pi} \right)
+        = \exp\left(i\frac{S_C}{l^2}\right)
+    \end{equation}
+    Such phase is th origin of the topological character of the problem. Consider its commutator with Hamiltonian $H$, for $\Pi_x$
+    \[\begin{aligned}
+        \left[\Pi_x, H\right]
+        &\, = \frac{1}{2m} \left\{\left[ \Pi_x, \Pi_x^2\right] + \left[ \Pi_x, \Pi_y^2\right] \right\} \\
+        &\, = \frac{1}{2m} \left[\Pi_x, \Pi_y\right]\Pi_y + \Pi_y\left[\Pi_x, \Pi_y\right] \\
+        &\, = -\frac{i\hbar eB}{m} \Pi_y
+        \neq 0 \\
+        \left[\Pi_y, H\right]
+        &\, = \frac{i\hbar eB}{m} \Pi_x
+        \neq 0
+    \end{aligned}\]
+    Since $T_{\alpha} = \exp(i/\hbar a \Pi_{\alpha})$, then $[T_{\alpha}, H] \neq 0$, i.e. covariant translation operator do not commute with Hamiltonian $H$ and we can not construct the normal Brillouin zone as we did in zero magnetic case.
+
+    To find the symmetry of Hamiltonian $H$, we define guiding-center momentum $\hat{\Pi}_{\alpha}$,
+
+    \begin{equation}
+    % \label{eq:hatT}
+        \hat{\Pi}_x = \Pi_x + eBy, \quad
+        \hat{\Pi}_y = \Pi_y - eBx
+    \end{equation}
+    Under symmetric gauge,
+    \[
+        \hat{\Pi}_x = -i\hbar\partial_x + \frac{eB}{2}y, \quad
+        \hat{\Pi}_y = -i\hbar\partial_y - \frac{eB}{2}x
+    \]
+    Like $\Pi_{\alpha}$, guiding-center momentum $\hat{\Pi}_{\alpha}$ also do not commute with each other,
+    \[
+        [\hat{\Pi}_x, \hat{\Pi}_y] = i\hbar eB
+    \]
+    Under such definition, the phase difference in commutator canceled.
+    \[\begin{aligned}\relax
+        [\hat{\Pi}_x, H]
+        &\, = \left[\Pi_x, H\right] + \left[eBy, H\right] \\
+        &\, = -\frac{i\hbar eB}{m} \Pi_y + \frac{eB}{2m} \left[y,\Pi_y^2\right] \\
+        &\, = -\frac{i\hbar eB}{m} \Pi_y + \frac{eB}{2m} \cdot 2i\hbar\Pi_y
+        = 0
+    \end{aligned}\]
+    Similar to covariant translation operator, we define magnetic translation operators $\hat{T}_{\alpha}$ as
+    \begin{equation}
+    % \label{eq:hatT}
+        \hat{T}_{\alpha}(a)
+        = \ee^{\frac{i}{\hbar}a \hat{\Pi}_{\alpha}}
+    \end{equation}
+    Since $[\hat{\Pi}_x, H]=0$ and $[\hat{T}_x, H]$ can be expand as its power series, then $\hat{T}_{\alpha}(a)$ commute with $H$.
+    \begin{equation}
+    % \label{eq:}
+        [\hat{T}_x, H] = [\hat{T}_y, H] = 0
+    \end{equation}
+    The magnetic translation operators implies the symmetry of Hamiltonian. But in general, $\hat{T}_x$ does not commute with $\hat{T}_y$,
+    \begin{equation}
+    % \label{eq:}
+        \hat{T}_x(a) \hat{T}_y(b) = \hat{T}_y(b) \hat{T}_x(a) \ee^{-iabeB/\hbar}
+    \end{equation}
+    Only when $\exp(-iabeB/\hbar) =1$, i.e.
+    \begin{equation}
+    % \label{eq:}
+        \frac{\phi}{\phi_0} = n, \quad n \in \ZZ, \qquad
+        \phi = ab\cdot B, \quad
+        \phi_0 = \frac{e}{2\pi\hbar}
+    \end{equation}
+    does they commute. Consider a more general case, if the magnetic flux enclosed by a plaquette is $(p / q) \phi_0$, where $p$ and $q$ are coprime integers, then $\hat{T}_x(qa)$ and would commute with $\hat{T}_y(b)$. Thus we can construct an $q$ times enlarged magnetic unit cell and a $q$ time smaller magnetic Brillouin zone ($0 \leq k_x \leq 2\pi/q$, mod $2\pi/q$, $0 \leq k_y \leq 2\pi$, mod $2\pi$), in which we can have simultaneous eigenstates $\ket{k_x, k_y}$
+    \[\begin{aligned}
+        H\ket{k_x, k_y}
+        &\, = E(k_x, k_y)\ket{k_x, k_y} \\
+        \hat{T}_x^q\ket{k_x, k_y}
+        &\, = e^{iqk_x}\ket{k_x, k_y} \\
+        \hat{T}_y\ket{k_x, k_y}
+        &\, = e^{ik_y}\ket{k_x, k_y}
+    \end{aligned}\]
+    as modified Bloch theorem.
+
+    When $a\to 0$ and $\phi = p/q\to 0$, the lattice case will recover to the continum case of Landau levels.
+
+
+\paragraph{Laughlin-Halperin geometry}
+
+    Consider a two-dimensional electron gas wrapped into a cylinder of circumference $L_y$ in the $y$-direction and finite length $L_x$ in the $x$-direction (with edges at $x=0$ and $x=L_x$). A uniform magnetic field $B$ is applied perpendicular to the surface of the cylinder (radially outward). Additionally, an Aharonov-Bohm flux $\Phi$ is threaded through the hole of the cylinder. The two fluxes of $B$ and $\Phi$ are completely independent. The uniform field $B$ creates Landau levels and determines the bulk physics. The AB flux $\Phi$ is an independent parameter that affects only the boundary conditions:
+    \[
+        \psi(x, y + L_y) = e^{i2\pi\frac{\Phi}{\Phi_0}} \psi(x, y), \quad \Phi_0 = \frac{h}{e}
+    \]
+    This flux does not create any additional magnetic field on the cylinder surface—it only introduces a phase when electrons go around the cylinder.
+
+    The Hamiltonian $H$ depends on $\Phi$ through the boundary condition. In the Landau gauge $A_x = 0$, $A_y = Bx$, the flux $\Phi$ enters via a twisted boundary condition:
+    \[
+        \psi(x, y + L_y) = e^{i2\pi\frac{\Phi}{\Phi_0}} \psi(x, y)
+    \]
+    This is equivalent to shifting the allowed $k_y$ values:
+    \[
+        k_y \to k_y + \frac{2\pi}{\Phi_0 L_y} \Phi
+    \]
+    The energy eigenvalues depend on $\Phi$ through this shift: $E_n(k_y) \to E_n(k_y + \frac{2\pi}{\Phi_0 L_y}\Phi)$. Therefore, the total energy of the system $E_{\text{total}}(\Phi) = \sum_{\text{occupied}} E_n(k_y + \frac{2\pi}{\Phi_0 L_y}\Phi)$ is a function of $\Phi$. Since $\Phi$ is the thermodynamic conjugate to the current $I_y$, and we can get $I_y$ by Byers-Yang formula
+    \begin{equation}
+    \label{eq:BY_Iy}
+        I_y
+        = \frac{\partial H}{\partial \Phi}
+        = \frac{\Delta E}{\Delta \Phi}
+    \end{equation}
+    \begin{prf}
+        For a small change $d\Phi$, the change in ground state energy is $dE = \langle \partial H/\partial \Phi \rangle d\Phi$ by the Hellmann-Feynman theorem. Identifying $\langle \partial H/\partial \Phi \rangle$ as the current operator (from the continuity equation) gives $I_y = -\partial E/\partial \Phi$.
+    \end{prf}
+
+    Now consider an adiabatic process where we slowly increase the flux $\Phi$ from $0$ to $\Phi_0 = h/e$. The key observations:
+    \begin{enumerate}
+        \item Gauge invariance: When $\Phi$ changes by exactly $\Phi_0$, the Hamiltonian returns to itself up to a large gauge transformation. Therefore, the energy spectrum is periodic in $\Phi$ with period $\Phi_0$:
+        \[ E_{\text{total}}(\Phi + \Phi_0) = E_{\text{total}}(\Phi) \]
+
+        \item Adiabatic evolution: If the Fermi energy lies in a gap (so the system is insulating in the bulk), the system remains in its instantaneous ground state throughout the adiabatic process.
+
+        \item Charge transport: Although the spectrum returns to itself, the state may not return to the original state. Some electrons may be transported from one edge to the other.
+    \end{enumerate}
+    Let $n$ be the net number of electrons transferred from the right edge to the left edge during the process. Each transferred electron gains energy $eV_x$, where $V_x$ is the Hall voltage (the potential difference between the two edges). Therefore, the total energy change is
+    \[
+        \Delta E = n e V_x
+    \]
+    From the Byers-Yang formula, the current is
+    \[
+        I_y = \frac{\Delta E}{\Delta \Phi}
+        = \frac{n e V_x}{\Phi_0}
+        = n e V_x \cdot \frac{e}{h}
+        = n \frac{e^2}{h} V_x
+    \]
+    The Hall conductance is defined as $\sigma_{xy} = I_y / V_x$, so
+    \begin{equation}
+        \sigma_{xy} = n \frac{e^2}{h}
+    \end{equation}
+
+    To identify the integer $n$, we considered the edge states in the cylinder geometry. In the Landau gauge, the eigenstates are
+    \[
+        \psi_{nk_y}(x,y)
+        = \frac{1}{\sqrt{L_y}} e^{ik_y y} \phi_n(x - x_0), \quad
+        x_0 = -l_B^2 k_y
+    \]
+    where $l_B = \sqrt{\hbar/eB}$. The guiding center position $x_0$ is proportional to $k_y$ as we discussed previous. The AB flux $\Phi$ shifts $k_y$ by $\Delta k_y = \frac{2\pi}{\Phi_0 L_y} \Phi$, which shifts all guiding centers by
+    \[
+        \Delta x_0
+        = -l_B^2 \Delta k_y
+        = -\frac{2\pi l_B^2}{\Phi_0 L_y} \Phi
+    \]
+    When $\Phi$ increases by $\Phi_0$, each guiding center shifts by exactly one spacing between states:
+    \[
+        \Delta x_0
+        = -\frac{2\pi l_B^2}{L_y}
+        = -\frac{h}{eB L_y}
+    \]
+    This is precisely the spacing between adjacent $k_y$ states in real space. Therefore, after one flux quantum, every state has moved to the position previously occupied by its neighbor. Then the net effect of adding $\Phi_0$ is transport exactly one state from the right edge to the left edge. Therefore, if $n$ Landau levels are completely filled (i.e., the Fermi energy lies between Landau levels $n-1$ and $n$), the total number of electrons transferred from right to left is $n$.
+    \begin{equation}
+        \sigma_{xy} = n \frac{e^2}{h}, \quad n = \text{number of filled Landau levels}
+    \end{equation}
+
+\paragraph{Adiabatic approximation}
+
+    Consider a periodic boundary condition on $L_x \times L_y$ lattice, the Hamiltonian can be described by TB model
+    \begin{equation}
+    % \label{eq:}
+        H = T_x + T_y + T_x^{\dagger} + T_y^{\dagger}
+    \end{equation}
+    % \begin{equation}
+    % \begin{aligned}
+    %     T_x &= \sum_{m,n} c_{m+1,n}^\dagger c_{m,n} \, e^{i\theta^x_{m,n}} \\
+    %     T_y &= \sum_{m,n} c_{m,n+1}^\dagger c_{m,n} \, e^{i\theta^y_{m,n}}
+    % \end{aligned}
+    % \end{equation}
+    where $T_x$ and $T_y$ are the covariant translation operators defined using the covariant momentum $\Pi_\alpha = p_\alpha + eA_\alpha$,
+    \begin{equation}
+    \begin{aligned}
+        T_x &= \sum_{m,n} c_{m+1,n}^\dagger c_{m,n} \, \exp\left(i\frac{e}{\hbar}\int_{(m,n)}^{(m+1,n)} \mathbf{A}\cdot d\mathbf{l}\right) \\
+        T_y &= \sum_{m,n} c_{m,n+1}^\dagger c_{m,n} \, \exp\left(i\frac{e}{\hbar}\int_{(m,n)}^{(m,n+1)} \mathbf{A}\cdot d\mathbf{l}\right)
+    \end{aligned}
+    \end{equation}
+    The line integrals give the Peierls phases that incorporate the uniform magnetic field $B$. In the Landau gauge $A_x = 0$, $A_y = Bx$, these phases become
+    \[
+        \exp\left(i\frac{e}{\hbar}\int_{(m,n)}^{(m+1,n)} \mathbf{A}\cdot d\mathbf{l}\right) = 1, \quad
+        \exp\left(i\frac{e}{\hbar}\int_{(m,n)}^{(m,n+1)} \mathbf{A}\cdot d\mathbf{l}\right) = e^{i2\pi\phi m}
+    \]
+    where $\phi = Ba^2/(h/e) = p/q$ is the flux per plaquette.
+
+    Like the principle of virtual work, we examine the problem by introducing a virtual AB flux $\Phi$ along $\hat{y}$, and the effect of external field by $E_x = -\partial A_x/\partial t$. Then the time-dependent Hamiltonian is adjust as
+    \begin{equation}
+    % \label{eq:}
+        H(t, \Phi)
+        = T_x \exp\left(-i2\pi \frac{E_x}{\Phi_0}t\right)
+        + T_y \exp\left(i2\pi\frac{\Phi}{\Phi_0}\frac{1}{L_y}\right)
+        + \mathrm{h.c.}
+    \end{equation}
+    In $k$-space,
+    \begin{equation}
+    \label{eq:H_ktPhi}
+    \begin{aligned}
+        H(\mathbf{k}, t, \Phi)
+        = &\, \exp\left[i\left(k_x + 2\pi\frac{E_x}{\Phi_0}\right)\right] c^{\dagger}(\mathbf{k}) c(\mathbf{k}) \\
+        &\, + \exp\left[-i\left(k_y - 2\pi\frac{\Phi}{\Phi_0}\frac{1}{L_y}\right)\right] c^{\dagger}(\mathbf{k}+\Delta\mathbf{k}) c(\mathbf{k})
+        + \mathrm{h.c.}
+    \end{aligned}
+    \end{equation}
+    where $\Delta\mathbf{k} = (2\pi\phi, 0)$. It correspond to $H(t, \Phi)$ as
+    \[
+        H(t,\Phi) = L_x L_y \int_{-\pi}^{\phi} \frac{\dd k_x}{2\pi} \int_{-\pi}^{\phi} \frac{\dd k_y}{2\pi} H(\mathbf{k},t,\Phi)
+    \]
+    Since $\Phi$ and $k_y$ combined into a single phase $\exp(-ik_y + 2\pi i \frac{\Phi}{\Phi_0}\frac{1}{L_y})$, using chain rule, the derivation of $\Phi$ can be transverse to $k_y$,
+    \begin{equation}
+        \frac{\partial}{\partial \Phi} H(k, t, \Phi)
+        = -\frac{2\pi}{\Phi_0 L_y} \, \frac{\partial}{\partial k_y} H(k, t, \Phi)
+        = -\frac{1}{L_y} \frac{e}{\hbar} \, \frac{\partial}{\partial k_y} H(k, t, \Phi)
+    \end{equation}
+    As an analogue to Laughlin-Halperin geometry where the donut of magnetic Brillouin zone replace the real space cylinder, we can define the current operator along $\hat{y}$ using Byers-Yang formula as Eq.\eqref{eq:BY_Iy} with $k_y$ act as $\Phi$,
+    \begin{equation}
+        I_y = \frac{\partial H}{\partial \Phi}
+        = \mathrm{i} \frac{e}{\hbar} \frac{1}{L_y} T_y + \mathrm{h.c.}
+    \end{equation}
+    where a factor of $\exp(2\pi i \frac{\Phi}{\Phi_0}\frac{1}{L_y})$ is absorbed into $T_y$ since it is small and alwaysconbined with $k_y$. In $k$-space,
+    \begin{equation}
+        I_y = -L_x \frac{e}{\hbar} \int_{-\pi}^{\pi} \frac{\mathrm{d}k_x}{2\pi} \int_{-\pi}^{\pi} \frac{\mathrm{d}k_y}{2\pi} \, \frac{\partial}{\partial k_y} H(k, t, \Phi).
+    \end{equation}
+
+    Consider the of time-dependent ground state $\ket{G(t)}$,
+    \[
+        i\hbar \frac{\partial}{\partial t} \ket{G(t)} = H(t,\Phi) \ket{G(t)}
+    \]
+    expand it in a set of eigenstates $\ket{\alpha(t)}$ of $H(t,\Phi)$,
+    \begin{equation}
+    \label{eq:H_alpha}
+        H(t,\Phi)\ket{\alpha(t)} = E_{\alpha}\ket{\alpha(t)}
+    \end{equation}
+    \[
+        \ket{G(t)} = \exp\left(-\frac{i}{\hbar}\int_0^t \dd t' E_g(t')\right) \sum_{\alpha} a_{\alpha}(t) \ket{\alpha(t)}
+    \]
+    And the instant time-independent ground state $\ket{g(t)}$ at time $t$, which is the lowest eigenstate for electrons Fermi sea.
+    \[
+        H(t, \Phi) \ket{g(t)} = E_g(t) \ket{g(t)}
+    \]
+    When $E_g(t)$ is separated from the rest of spectrum by an energy band, by first-order adiabatic perturbation theory, $\ket{G(t)}$ can be expand by $\ket{g(t)}$ as
+    \begin{equation}
+        \ket{G(t)}
+        = \exp\left(i\gamma\right) \exp\left(-\frac{i}{\hbar} \int_0^t \mathrm{d}t' \, E_g(t')\right)
+        \left(\ket{g(t)} + i\hbar \sum_{\alpha \neq g} \frac{\ket{\alpha(t)} \bra{\alpha(t)} \ket{\partial_t g(t)}}{E_\alpha(t) - E_g(t)}
+        \right)
+    \end{equation}
+    where $i\gamma=\int \dd t \braket{\alpha}{\dot{\alpha}}$ is the Berry phase. For rational flux $\phi = p/q$, the Hamiltonian reduces to a $q\times q$ matrix acting on the internal degrees of freedom within the magnetic unit cell:
+    \begin{equation}
+        \sum_{j=1}^{q} h_{i,j}(\mathbf{k},t) \psi_j^{l}(\mathbf{k},t)
+        = \epsilon^{l}(\mathbf{k},t) \psi_i^{l}(\mathbf{k},t)
+    \end{equation}
+    where $k_x\in[0,2\pi/q]$, $k_y\in[0,2\pi]$ define the magnetic Brillouin zone, and $l=1,\dots,q$ labels the magnetic subbands. When the Fermi energy lies in the $j$th gap, the ground state is the Slater determinant of all occupied states:
+    \begin{equation}
+        \ket{g(t)} = \prod_{\mathbf{k}} \prod_{l=1}^{j} c^\dagger(\mathbf{k},l) \ket{0}, \quad
+        c^\dagger(\mathbf{k},l) = \sum_{m=1}^{q} \psi_m^l c^\dagger(k_x+2\pi m/q, k_y)
+    \end{equation}
+
+    Since we are interest in the transport properties, calc the transport current as
+    \begin{align*}
+        \langle I_y \rangle &= \bra{G}I_y\ket{G} - \bra{g}I_y\ket{g} \\
+        &= L_x i \int_{T^2_{\mathrm{MBZ}}} \frac{\mathrm{d}^2 k}{(2\pi)^2} \sum_{\alpha \neq g}
+        \frac{
+            \braket{g}{\partial_{k_y} H|\alpha}\braket{\alpha}{\partial_t g}
+            - \braket{\partial_t g}{\alpha}\braket{\alpha}{\partial_{k_y} H|g}
+        }{E_\alpha - E_g} \\
+        &= \frac{E_x L_x i}{2\pi \Phi_0} \int_{T^2_{\mathrm{MBZ}}} \mathrm{d}^2 k \sum_{\alpha \neq g}
+        \frac{
+            \braket{g}{\partial_{k_y} H|\alpha}\braket{\alpha}{\partial_{k_x} g}
+            - \braket{\partial_{k_x} g}{\alpha}\braket{\alpha}{\partial_{k_y} H|g}
+        }{E_\alpha - E_g} \\
+        &= V_x \frac{e^2}{h} \frac{1}{2\pi i} \int_{T^2_{\mathrm{MBZ}}} \mathrm{d}^2 k \sum_{\alpha \neq g}
+        \left[
+            \braket{g}{\partial_{k_y} \alpha}\braket{\alpha}{\partial_{k_x} g}
+            + \braket{\partial_{k_x} \alpha}{g}\braket{g}{\partial_{k_y} \alpha}
+        \right] \\
+        &= V_x \frac{e^2}{h} \frac{1}{2\pi i} \int_{T^2_{\mathrm{MBZ}}} \mathrm{d}^2 k
+        \left(
+            \braket{\partial_{k_x} g}{\partial_{k_y} g}
+            - \braket{\partial_{k_y} g}{\partial_{k_x} g}
+        \right)
+    \end{align*}
+    The Hall conductance is defined as $\sigma_{xy}=-\sigma_{yx} = -I_y/V_x$, so that
+    \begin{equation}
+    % \label{eq:}
+    \begin{aligned}
+        \sigma_{xy}^{j,\mathrm{bulk}}
+        &\, = - \frac{e^2}{h} \frac{1}{2\pi i} \int_{T_{\mathrm{MBZ}}^2}  \dd k_i\times \dd k_j \braket{\partial_{k_i}g}{\partial_{k_j}g} \\
+        &\, = - \frac{e^2}{h} \frac{1}{2\pi i} \int_{T_{\mathrm{MBZ}}^2}  \dd k_x \dd k_y \left(\nabla_k \times \braket{g}{\nabla_\mathbf{k} g} \right)_z
+    \end{aligned}
+    \end{equation}
+    Since $\ket{g}$ is the Fermi sea under $E_F$, we can integrate each band and then sum up from $l=1$ to $j$.
+    \begin{align}
+        \sigma_{xy}^{j,\mathrm{bulk}}
+        &\, = \frac{e^2}{h} \sum_{l=1}^{j} C_l, \quad
+        C_l
+        = - \frac{1}{2\pi i} \int_{T_{\mathrm{MBZ}}^2}  \dd k_x \dd k_y \left(\nabla_k \times A^l(\mathbf{k}) \right)_z \\
+        A^l(\mathbf{k})
+        &\, = \sum_{m=1}^{q} \psi_m^{l*}(\mathbf{k}) \nabla_{\mathbf{k}} \psi_m^{l}(\mathbf{k})
+    \end{align}
+    where $C_l$ is the Chern number for $l$th band, $A^l(\mathbf{k})$ is the Berry connection of $l$th band as Eq.\eqref{eq:A}.
+
+
+\subsection{Kubo formula}
+
+\paragraph{Hall conductance}
+
+    At zero temperature, the Hall conductivity is given by the Kubo formula
+    \begin{equation}
+    \label{eq:Kubo}
+        \sigma_{xy}
+        = -\frac{ie^2\hbar}{A} \sum_{n\neq m}
+        \frac{f_n-f_m}{(\epsilon_n-\epsilon_m)^2}
+        \bra{n} v_x \ket{m} \bra{m} v_y \ket{n}
+    \end{equation}
+    where $\ket{n}$ are exact single-particle eigenstates,
+    $f_n=\Theta(E_F-E_n)$, and $A$ is the sample area.
+
+    For a translationally invariant system, we use Bloch state
+    \[
+        \ket{n} \to \ket{n\mathbf{k}}
+        =
+        e^{i\mathbf{k}\cdot\mathbf{r}} \ket{u_{n\mathbf{k}}},
+        \qquad
+        E_n \to \epsilon_n(\mathbf{k}).
+    \]
+    The sum over states becomes
+    \[
+        \frac{1}{A}\sum_n \;\to\;
+        \sum_n \int_{\mathrm{BZ}}\frac{d^2k}{(2\pi)^2}.
+    \]
+    The velocity operators are
+    \[\begin{aligned}
+        v_\alpha
+        &\, = \frac{1}{\hbar} \frac{\partial H}{\partial k_\alpha},
+        \qquad \alpha = x,y \\
+        \langle n\mathbf{k}|v_\alpha|m\mathbf{k}\rangle
+        &\, = \frac{\epsilon_n-\epsilon_m}{\hbar}
+        \braket{u_{n\mathbf{k}}}{\partial_{k_\alpha}u_{m\mathbf{k}}}
+    \end{aligned}\]
+
+    Substituting the velocity matrix elements to Kubo formula Eq.\eqref{eq:Kubo},
+    \[\begin{aligned}
+        \sigma_{xy}
+        &\, = -ie^2\hbar \sum_n
+        \int_{\mathrm{BZ}}\frac{d^2k}{(2\pi)^2} \sum_{m\neq n}
+        \frac{f_n-f_m}{(\epsilon_n-\epsilon_m)^2}
+        \frac{(\epsilon_n-\epsilon_m)^2}{\hbar^2}
+        \braket{u_n}{\partial_{k_x}u_m} \braket{u_m}{\partial_{k_y}u_n} \\
+        &\, = -\frac{ie^2}{\hbar} \sum_n
+        \int_{\mathrm{BZ}}\frac{d^2k}{(2\pi)^2} \sum_{m\neq n}
+        (f_n-f_m) \braket{u_n}{\partial_{k_x}u_m} \braket{u_m}{\partial_{k_y}u_n}
+    \end{aligned}\]
+    At $T=0$, $f_n=1$ for occupied bands and $f_n=0$ for empty bands. Only when one of $n$, $m$ is occupied and the other is empty does the term non-zero,
+    \[\begin{aligned}
+        \sigma_{xy}
+        = -\frac{ie^2}{\hbar} \sum_{n\in\mathrm{occ}}
+        \int_{\mathrm{BZ}}\frac{d^2k}{(2\pi)^2} \sum_{m\notin\mathrm{occ}}
+        \left[ \braket{u_n}{\partial_{k_x}u_m} \braket{u_m}{\partial_{k_y}u_n}
+        -
+        (x\leftrightarrow y) \right]
+    \end{aligned}\]
+    Using completeness,
+    \[\begin{aligned}
+        \sum_m \ket{u_m}\bra{u_m} &\, = 1 \\
+        \sum_{m\neq n} \ket{u_m}\bra{u_m}
+        &\, = 1 - \ket{u_n}\bra{u_n}
+    \end{aligned}\]
+    since $\braket{u_n}{\partial_{k_x}u_m} = - \braket{\partial_{k_x}u_m}{u_n}$, we get
+    \[
+        \sum_{m\neq n} \braket{u_n}{\partial_{k_x}u_m} \braket{u_m}{\partial_{k_y}u_n}
+        = - \braket {\partial_{k_x}u_n}{\partial_{k_y}u_n}
+        + \braket{\partial_{k_x}u_n}{u_n} \braket{u_n}{\partial_{k_y}u_n}
+    \]
+    The second term is just numbers that canceled with its counterpart of $(x\leftrightarrow y)$.
+
+    Using definition of Berry connection in Eq.\eqref{eq:A}, as
+    \begin{equation}
+        \mathcal{A}_n(\mathbf{k})
+        = i\langle u_n|\nabla_{\mathbf{k}}u_n\rangle,
+    \end{equation}
+    and the Berry curvature in Eq.\eqref{eq:curvature}
+    \begin{equation}
+    \begin{aligned}
+        \Omega_n(\mathbf{k})
+        = &\, \nabla\times \mathcal{A}
+        = \partial_{k_x}\mathcal{A}_{n,y} - \partial_{k_y}\mathcal{A}_{n,x} \\
+        = &\, i\left( \braket{\partial_{k_x}u_n}{\partial_{k_y}u_n}
+        - \braket{\partial_{k_y}u_n}{\partial_{k_x}u_n} \right)
+    \end{aligned}
+    \end{equation}
+    Then Hall conductance is
+    \begin{equation}
+    \begin{aligned}
+        \sigma_{xy}
+        = &\, \frac{e^2}{\hbar} \sum_{n\in\mathrm{occ}} \int_{\mathrm{BZ}}
+        \frac{d^2k}{(2\pi)^2} \Omega_n(\mathbf{k}) \\
+        = &\, \frac{e^2}{h} \sum_{n\in\mathrm{occ}} C_n
+        = \nu \frac{e^2}{h} \\
+        C_n
+        = &\, \frac{1}{2\pi} \int_{\mathrm{BZ}} \dd^2k \Omega_n(\mathbf{k}),
+        \qquad C_n\in\mathbb{Z}.
+    \end{aligned}
+    \end{equation}
+    When there is non-zero magnetic field $B$, the Brillouin zone becomes Magnetic Brillouin zone, so that the integration should be taken in MBZ.
+
+\paragraph{Time-reversal symmetry \& Chern number}
+
+% \textbf{Time‑reversal operator.}
+    In quantum mechanics, time reversal is represented by an antiunitary operator \(\mathcal{T}\). For a spinless particle (e.g., an electron in a model without spin–orbit coupling) one can take \(\mathcal{T} = \mathcal{K}\), where \(\mathcal{K}\) performs complex conjugation in the position representation. Under \(\mathcal{T}\):
+    \begin{align}
+        \mathcal{T} \mathbf{r} \mathcal{T}^{-1} = \mathbf{r}, \quad
+        \mathcal{T} \mathbf{p} \mathcal{T}^{-1} = -\mathbf{p}, \quad
+        \mathcal{T} i \mathcal{T}^{-1} = -i
+    \end{align}
+
+% \textbf{Action on Bloch states.}
+    For a TR-invariant system, if $\ket{u_{n\mathbf{k}}}$ is an eigenstate at $\mathbf{k}$, then $\mathcal{T}\ket{u_{n\mathbf{k}}}$ is an eigenstate at $-\mathbf{k}$. In following derivation, we drop the notation $n$ of band. For a nondegenerate band,
+    \[\begin{aligned}
+        \mathcal{T}\ket{u(\mathbf{k})}
+        = &\, \ee^{i\theta(\mathbf{k})} \ket{u(\mathbf{-k})} \\
+        \ket{u(\mathbf{-k})}
+        = &\, \ee^{-i\theta(\mathbf{k})} \mathcal{T}\ket{u(\mathbf{-k})}
+    \end{aligned}\]
+    where $\theta(\mathbf{k})$ is a phase defined up to gauge.
+
+% \textbf{Transformation of the Berry connection.}
+    Examine the behaviour of Berry connection under \(\mathbf{k}\to -\mathbf{k}\).
+    \[
+        \mathcal{A}(\mathbf{k})
+        = i \braket{u(\mathbf{k})}{\nabla_\mathbf{k}u(\mathbf{k})}
+    \]
+    Using the TRS relation,
+    \[
+        \nabla_{-\mathbf{k}} \ket{u(\mathbf{-k})}
+        = \left(i\nabla_\mathbf{k}\theta\right) \ee^{-i\theta}\ket{u(\mathbf{k})}
+        - \ee^{-i\theta} \mathcal{T} \nabla_\mathbf{k} \ket{u(\mathbf{k})}
+    \]
+    \[\begin{aligned}
+        \mathcal{A}(-\mathbf{k})
+        = &\, i \bra{\mathcal{T}u(\mathbf{k})} \ee^{i\theta}
+        \left[
+        \left(i\nabla_\mathbf{k}\theta\right) \ee^{-i\theta}\ket{u(\mathbf{k})}
+        - \ee^{-i\theta} \mathcal{T} \nabla_\mathbf{k} \ket{u(\mathbf{k})}
+        \right] \\
+        = &\, - \left(\nabla_\mathbf{k}\theta\braket{\mathcal{T}u}{\mathcal{T}u}\right)
+        - i \braket{\mathcal{T}u}{\mathcal{T}\nabla_\mathbf{k}u}
+    \end{aligned}\]
+    Since $\mathcal{T}$ preserves norm, i.e. $\braket{\mathcal{T}u}{\mathcal{T}u} = 1$ and antiunitary property, i.e. $\braket{\mathcal{T}\phi}{\mathcal{T}\psi} = \braket{\psi}{\phi}$,
+    \[
+        \mathcal{A}(-\mathbf{k})
+        = -\nabla_\mathbf{k}\theta
+        - i \braket{\nabla_\mathbf{k}u(\mathbf{k})}{u(\mathbf{k})}
+    \]
+    Using $\braket{\nabla_\mathbf{k}u}{u} = - \braket{u}{\nabla_\mathbf{k}u}$, we get
+    \begin{equation}
+    \label{eq:A_TR}
+        \mathcal{A}(-\mathbf{k})
+        = \mathcal{A}(\mathbf{k})
+        - \nabla_\mathbf{k}\theta
+    \end{equation}
+
+% \textbf{Transformation of the Berry curvature.}
+    Examine the behaviour of Berry curvature by definition,
+    \[\begin{aligned}
+        \Omega(\mathbf{-k})
+        = &\, \nabla_\mathbf{-k} \times \mathcal{A}(\mathbf{-k}) \\
+        = &\, -\nabla_\mathbf{k} \times \left[\mathcal{A}(\mathbf{k})
+        - \nabla_\mathbf{k}\theta\right] \\
+        = &\, - \nabla_\mathbf{k} \times \mathcal{A}(\mathbf{k})
+        - \nabla_\mathbf{k} \times \nabla_\mathbf{k} \theta
+    \end{aligned}\]
+    since curl of a gradient vanishes, we get
+    \begin{equation}
+    \label{eq:Omega_TR}
+        \Omega(-\mathbf{k}) = - \Omega(\mathbf{k})
+    \end{equation}
+    Also we can derive its explicit form in 2D
+    \[\begin{aligned}
+        \Omega(-\mathbf{k})
+        = &\, \partial_{-k_x} A_y(-\mathbf{k})
+        - \partial_{-k_y} A_x(-\mathbf{k}) \\
+        = &\, -\left[ \partial_{k_x} (\mathcal{A}_y(\mathbf{k}) - \partial_{k_y}\theta)
+        - \partial_{k_y} (\mathcal{A}_x(\mathbf{k}) - \partial_{k_x}\theta) \right] \\
+        = &\, -\left[ \partial_{k_x} A_y(\mathbf{k})
+        - \partial_{k_y} A_x(\mathbf{k}) \right]
+        = \Omega(\mathbf{k})
+    \end{aligned}\]
+    So that $\Omega(\mathbf{k})$ is an odd function if TRS preserved.
+
+    % \textbf{Consequence for the Chern number.}
+    Since the Chern number of band \(n\) is defined in BZ as
+    \[\begin{aligned}
+        C_n
+        = &\, \frac{1}{2\pi} \int_{\mathrm{BZ}} \Omega_n(\mathbf{k}) \, d^2k \\
+        = &\, \frac{1}{2\pi} \left[
+            \int_{H_+} \Omega_n(\mathbf{k}) \, d^2k
+            +\int_{H_-} \Omega_n(\mathbf{k}) \, d^2k
+        \right]
+    \end{aligned}\]
+    Because the Brillouin zone is invariant under the inversion \(\mathbf{k}\to -\mathbf{k}\), we can split the integral into two halves \(H_+\) and \(H_- = -H_+\), which canceled with the other since $\Omega(\mathbf{k})$ is odd in Eq.\eqref{eq:Omega_TR}. Hence under TRS, the Chern number is zero.
+    \begin{equation}
+    \label{eq:C_TRS}
+        C_n = 0, \quad \text{for every band } n.
+    \end{equation}
+
+\subsection{Edge state}
+
+\paragraph{Eigenvalue equation of Effective 1D Hamiltonian}
+
+    For Hamiltonian of Lauglin-Halperin geometry in Eq.\eqref{eq:H_ktPhi}, consider a one-particle state
+    \[
+        \ket{\Psi(k_y, \Phi)}
+        = \sum_m \Psi(k_y, \Phi) c_m^{\dagger}(k_y) \ket{0}
+    \]
+    where $\Psi_m$ is the amplitude of wavefunction on site $m$. The eigenvalue equation is
+    \begin{equation}
+    \label{eq:H_LH}
+    \begin{aligned}
+        - t_x \left[\Psi_{m+1}(k_x, \Phi) + \Psi_{m-1}(k_x, \Phi)\right]
+        - 2t_y \cos\left(k_y - 2\pi\frac{\Phi}{\Phi_0L_y} - 2\pi\phi m\right) \Psi_m(k_y, \Phi) \\
+        = E \Psi_m(k_y, \Phi)
+    \end{aligned}
+    \end{equation}
+    with boundary condition
+    \[
+        \Psi_0 = \Psi_{L_x} = 0
+    \]
+    This is an Effective 1D Hamiltonian for the 2D Lauglin-Halperin geometry.
+
+    Denote the eigenvalue equation by transfer matrix $\tilde{M}(\epsilon)$ of two adjacent lattice point
+    \begin{equation}
+    % \label{eq:}
+        \begin{pmatrix}
+            \Psi_{m+1} \\ \Psi_m
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            -\epsilon -2r\cos\theta & -1 \\ 1 & 0
+        \end{pmatrix}
+        \begin{pmatrix}
+            \Psi_{m} \\ \Psi_{m-1}
+        \end{pmatrix}
+    \end{equation}
+    where $\epsilon=E/t_x$ is the reduced energy, $r=t_y/t_x$ is the anisotropy of hopping. $\theta$ is phase factor heritaged from Hamiltonian
+    \[
+        \theta = k_y - 2\pi\frac{\Phi}{\Phi_0L_y} - 2\pi \phi m
+    \]
+
+    Assume system size as $L_x = q\cdot l$, $l\in \ZZ$,
+    \begin{equation}
+    \label{eq:Psi_M}
+        \begin{pmatrix}
+            \Psi_{m+1} \\ \Psi_m
+        \end{pmatrix}
+        =
+        M(\epsilon)^l
+        \begin{pmatrix}
+            \Psi_{1} \\ \Psi_{0}
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            M_{11}(\epsilon) & M_{12}(\epsilon) \\ M_{21}(\epsilon) & M_{22}(\epsilon)
+        \end{pmatrix}^l
+        \begin{pmatrix}
+            \Psi_{1} \\ \Psi_{0}
+        \end{pmatrix}
+    \end{equation}
+    where $M(\epsilon) = \tilde{M}_q(\epsilon)\tilde{M}_{q-1}(\epsilon)\cdots\tilde{M}_1(\epsilon)$, $M_{11}(\epsilon)$ is polymonial of $\epsilon$ in $q$ degree, $M_{12}(\epsilon)$ \& $M_{21}(\epsilon)$ in $q-1$ degree, $M_{22}(\epsilon)$ in $q-2$ degree.
+
+
+\paragraph{Energy bands \& Edge state}
+
+    Consider the spectrum by Eq.\eqref{eq:Psi_M}, set $\Psi_0 = 0$ and $\Psi_1 = 1$, the condition of energies of the edge states is
+    \begin{equation}
+    \label{eq:M21}
+        M_{21}(\mu_j) = 0, \qquad
+        \mu_i < \mu_j \quad \text{for} \quad i<j
+    \end{equation}
+    The localization of edge state is given by $M_11(\mu)$ as
+    \begin{equation}
+    % \label{eq:}
+    \begin{aligned}
+        |M_{11}(\mu_j)| < 1 :& \quad \text{localized at left}, \quad  x \approx 1 \\
+        |M_{11}(\mu_j)| > 1 :& \quad \text{localized at right}, \quad  x \approx L_x - 1
+    \end{aligned}
+    \end{equation}
+    \begin{prf}
+        If $M(\mu_j)_{21} = 0$, so does $\left[M(\mu_j)\right]^k_{21} = 0$. Then $M^k$ is an upper triangular matrix, due to the property of upper triangular matrix, the eigenvalue is $M_{11}$ and the wavefunction amplitude at site $qk+1$ is
+        \[
+            \Psi_{qk+1}(\epsilon) = \left[M_{11}(\epsilon) \right]^k
+        \]
+        Due to normalization, i.e. $\sum|\Psi_m|^2 = 1$, the wavefunction decays or grows exponetially, depend on $|M(\mu_j)_{11}| <1$ or $>1$. So that the wavefunction must localized at left edge or right edge.
+    \end{prf}
+    It also indicate that the wavefunction satisfies
+    \[
+        \Psi_0 = \Psi_q = 0
+    \]
+    as a boundary condition of $M$ with $q$ $k_y$ sites.
+
+    If we consider the system as infinite along the $x$-direction instead of having edges, the one-dimensional Hamiltonian Eq.\eqref{eq:H_LH} has a translational invariance of period $q$. The Bloch theorem requires that
+    \begin{equation}
+    \label{eq:Bloch}
+        \Psi_{m+q}(\epsilon) = \rho(\epsilon) \Psi_m(\epsilon) \qquad
+        |\rho(\epsilon)| = 1
+    \end{equation}
+    By applying to $m=0,1$, $\rho$ also plays a role as eigenvalue of $M$, which is the solution of
+    \begin{equation}
+    % \label{eq:}
+        \rho^2 - \Delta(\epsilon) \rho + 1 = 0
+    \end{equation}
+    where $\Delta(\epsilon) = \left[M_{11}(\epsilon) + M_{22}(\epsilon)\right]$ is the trace of $M$.
+    \begin{prf}
+        Set $m=0,1$, write then in a matrix
+        \[
+            \begin{pmatrix}
+                M_{11}(\epsilon) & M_{12}(\epsilon) \\ M_{21}(\epsilon) & M_{22}(\epsilon)
+            \end{pmatrix}
+            \begin{pmatrix}
+                \Psi_{1} \\ \Psi_{0}
+            \end{pmatrix}
+            =
+            \begin{pmatrix}
+                \Psi_{q+1} \\ \Psi_{q}
+            \end{pmatrix}
+            =
+            \rho(\epsilon)
+            \begin{pmatrix}
+                \Psi_{1} \\ \Psi_{0}
+            \end{pmatrix}
+        \]
+        So $\rho$ is eigenvalue of $M$, the eigenvalue equation is
+        \[\begin{aligned}
+            \begin{vmatrix}
+                M_{11}-\rho & M_{12} \\ M_{21} & M_{22}-\rho
+            \end{vmatrix}
+            = & (M_{11}-\rho)(M_{22}-\rho) - M_{12}M_{21} \\
+            = & \det(M) + \rho^2 - (M_{11}+M_{22}) \rho
+            = 0
+        \end{aligned}
+        \]
+        Since $\det(M)=1$, we get the equation for $\rho$.
+    \end{prf}
+    From mathematical derivation, we knew that it consists of $q$ energy bands, i.e.
+    \[
+        \epsilon \in
+        [\lambda_1, \lambda_2], \dots, [\lambda_{2j-1}, \lambda_{2j}], \dots, [\lambda_{2q-1}, \lambda_{2q}]
+        \qquad (\lambda_i\leq\lambda_j, i<j)
+    \]
+    where $\lambda_i$ are roots of equation
+    \[
+        \Delta(\epsilon)^2 - 4
+        = \prod_{i=1}^{2q} (\epsilon-\lambda_i)
+        = 0
+    \]
+    The condition for energy in band, i.e. $\epsilon\in[\lambda_{2j-1}, \lambda_{2j}]$ is
+    \begin{equation}
+    % \label{eq:}
+        |\Delta(\epsilon)|^2
+        = \left|M_{11}(\epsilon) + M_{22}(\epsilon)\right|^2 \leq 4
+    \end{equation}
+    \begin{prf}
+        Solve the equation of $\rho$,
+        \[
+            \rho = \frac{1}{2} \left[
+                \Delta \pm \sqrt{\Delta^2 - 4}
+            \right]
+        \]
+        If energy lies in band, the wavefunction satisfies Bloch theorem, which requires $|\rho(\epsilon)|=1$ and $\sqrt{\Delta^2 - 4}$ is imaginary. So we get the condition for energy bands. $\sqrt{\Delta^2 - 4} = 0$ is the critic point for band edge, which is correspond to $\lambda_i$.
+    \end{prf}
+
+    Consider the edge state, which is determined by $M_{21}(\mu_j) = 0$, we have
+    \[
+        \left|M_{11}(\epsilon) + M_{22}(\epsilon)\right|^2 \geq 4
+    \]
+    i.e. \textbf{edge state always lies in gap or edge of bands}.
+    \begin{prf}
+        Since $\det(M) = M_{11}M_{22}-M_{12}M_{21} = 1$, for $\epsilon=\mu_j$, $M_{11}M_{22}=1$,
+        \[
+            \left|M_{11} + M_{22}\right|
+            = \left|M_{11}(\mu_j) + \frac{1}{M_{11}(\mu_j)}\right|
+            \geq 2
+        \]
+        due to the function of $x+1/x$. So the edge state always lies in gap or band edge.
+    \end{prf}
+
+
+\paragraph{Riemann surface}
+
+    Due to the ambiguity of the sign of $\rho$, we define a Riemann surface that contains two sheets by
+    \begin{equation}
+    \label{eq:Riemann}
+    \begin{aligned}
+        \omega
+        = & \sqrt{\left[M_{11}(z)+M_{22}(z)\right]^2 - 4} \\
+        = & \sqrt{(z-\lambda_1)(z-\lambda_2)\cdots(z-\lambda_{2q-1})(z-\lambda_{2q})}
+    \end{aligned}
+    \end{equation}
+    where the energy $z$ is complex. The two sheets are glued together at band, where $\left[M_{11}(z)+M_{22}(z)\right]^2 - 4 \geq 0$ and $\omega$ has only one value, i.e. $\epsilon \in [\lambda_1, \lambda_2], \dots, [\lambda_{2j-1}, \lambda_{2j}],$ $\dots, [\lambda_{2q-1}, \lambda_{2q}]$, and compactifying $z = \infty$ to one point. The sheets are separated at gaps, which makes a genus-$(q-1)$ Riemann surface. The sheet index $\alpha$ is define by the sign of $\omega$ as $R^+$ or $R^-$. We make convention that $\sqrt{\Delta^2-4}>0$ for $z\to-\infty$ on real axis is $R^+$.
+
+    By setting $\Psi_1=1$, the Bloch function at $q$ is
+    \begin{equation}
+    \label{eq:Psi_q}
+        \Psi_q(z) =
+        -\frac{M_{11}+M_{22} - \sqrt{\Delta^2-4}}{-M_{11}+M_{22} - \sqrt{\Delta^2-4}} M_{21}
+    \end{equation}
+    where all $M_{ij}$ depend on $z$. Since the energy of gap is determined by $M_{21}(\mu_j) = 0$, the energy of the edge state $\mu_j$ gives a zero point of the Bloch function $\Psi_q(z)$ on the genus-$(q-1)$ Riemann surface.
+
+
+
+    Consider the sign of $\Delta$, the leading term of $\Delta(\epsilon) = M_{11}(\epsilon) + M_{22}(\epsilon)$ is $(-\epsilon)^q$, so we have
+    \[
+        \epsilon \to -\infty, \qquad \Delta(\epsilon) \to +\infty \\
+    \]
+    As a polynomial, and $\Delta^2 - 4 = \prod (\epsilon-\lambda_i)$, each time $\epsilon$ cross a band, $\Delta$ continuously change from $\pm2$ to $\mp2$. So the sign of $\Delta$ correspond to the index of gap $j$ as
+    \[
+        \Delta(\epsilon) = M_{11}(\epsilon) + M_{22}(\epsilon)
+        \begin{cases}
+            \leq -2,    & j \quad \text{odd} \\
+            \geq 2,     & j \quad \text{even}
+        \end{cases}
+    \]
+    In gap where $M_{22}=1/M_{11}$, the sign of $M_{11}$ also correspond to $j$ since $\mathrm{sgn}(M_{11})= \mathrm{sgn}(\Delta)$.
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{*{3}{c}}
+            \toprule
+            $j$    & $\Delta$   & $M_{11}$ \\
+            \midrule
+            odd    & $\leq -2$  & $< 0$ \\
+            even   & $\geq 2$   & $> 0$ \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+
+    Using convention of sheet index, the property of $\sqrt{\Delta^2-4}$ flipping sign each time it cross a band and $\Delta^2-4 = (M_{11}+M_{22})^2-4 = (M_{11}-M_{22})^2$,
+    \[
+        \sqrt{\Delta(\mu_j)^2 - 4}
+        = \alpha(-1)^j|M_{11}-M_{22}|
+    \]
+    \[
+        \Psi_q(\mu_j+\delta) =
+        -\frac{M_{11}+M_{22} - \alpha(-1)^j|M_{11}-M_{22}|}{-M_{11}+M_{22} - \alpha(-1)^j|M_{11}-M_{22}|} M_{21}(\mu_j+\delta)
+    \]
+    Near zero point, the denominator should not be zero so that $\Psi_q$ is finite,
+    \[
+        -M_{11}+M_{22} - \alpha(-1)^j|M_{11}-M_{22}| \neq 0
+        \quad \Rightarrow \quad
+        \mathrm{sgn}\left(M_{11} - M_{22}\right)
+        = -\alpha(-1)^j
+    \]
+    Consider the parity of $j$, index of sheets $\alpha$ and function of $x-1/x$, we get the condition for $M_{11}$.
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{*{3}{c}{l}}
+            \toprule
+            $j$    & $\alpha$   & sgn   & $M_{11}$ \\
+            \midrule
+            odd    & +          & +	    & $[-1,0]\cup[1,+\infty)$ \\
+            odd    & -          & -	    & $(-\infty,0]\cup[0,1]$ \\
+            even   & +          & -     & $(-\infty,0]\cup[0,1]$ \\
+            even   & -          & +     & $[-1,0]\cup[1,+\infty)$ \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+
+    Combined the two restriction of $M_{11}$, we get the relation between sheet index $\alpha$ and the side of the edge state,
+    \[\begin{cases}
+        \mu_j \in R^+,\; |M_{11}(\mu_j)|<1,
+        \quad & \text{edge state on left side} \\
+        \mu_j \in R^-,\; |M_{11}(\mu_j)|>1,
+        \quad & \text{edge state on right side} \\
+    \end{cases}\]
+
+\paragraph{Winding number}
+
+    The spectrum is a function of $k_y - 2\pi\Phi/L_y$, for large $L_y$, $k_y$ can be seen as continuous. As we change $k_y$, the Riemann surface will change, but the genus of the surface will remain as there is no band close. Due to the periodicity of $k_y$, as we change $k_y$ from $0$ to $2\pi$, the energy of the edge state, $\mu_j(k_y)$, forms a closed loop $C(\mu_j)$ on the Riemann surface.
+
+    On genus-$g$ Riemann surface, all kinds of closed loopare generated by the $2g$ canonical loops (generators), $\alpha_j$ and $\beta_j$, $j = 1,\dots,g$,
+    \[
+        \prod_{j=1}^g \left(\alpha_j\beta_j\alpha_j^{-1}\beta_j^{-1}\right) = I
+    \]
+    The intersection number of these curves  $I(\alpha_j , \beta_k)$ is given by
+    \[
+        I(\alpha_j , \beta_k) = \delta_{jk}
+    \]
+    All of the closed loops on the surface are spanned by $\alpha_j$ and $\beta_j$. If $\mu_j$ moves $t$ times around the $j$th hole for some integer $t$,
+    \[
+        I(\alpha_j , C(\mu_j)) = t \delta_{kj}
+    \]
+    The winding number of the edge state $\mu_j$, which is given by the number of intersections $I(\alpha_j , C(\mu_j))$ between the canonical loop αj on the Riemann surface and the trace of $\mu_j$, $C(\mu_j)$, gives the quantized Hall conductance σxy when the Fermi energy lies in the $j$th gap:
+    \[
+        \sigma_{xy} = -\frac{e^2}{h} I(\alpha_j , C(\mu_j))
+    \]
+
+\paragraph{Relation between bulk \& edge}
+
+    The bulk Chern number can be reinterpreted as the sum of vorticities (winding numbers) of the Bloch wavefunction zeros in the magnetic Brillouin zone. Each such zero is associated with a band‑edge degeneracy where an edge state touches the bulk continuum. As $k_{y}$ varies, the edge state winds around the holes of the Riemann surface, and the winding number counts the net number of electrons transferred from one edge to the other in Laughlin’s adiabatic process. Hence the bulk and edge descriptions are two complementary manifestations of the same topological phenomenon.
+
+    The TKNN formula gives the Hall conductance when the Fermi energy lies in the $j$‑th gap as
+    \[
+    \sigma_{xy}^{\mathrm{bulk},j} = -\frac{e^{2}}{h}\sum_{l=1}^{j} C_{l},
+    \qquad
+    C_{l} = \frac{1}{2\pi i}\int_{T_{\mathrm{MBZ}}^{2}} dk_{x}dk_{y}\,
+    \bigl[\nabla_{k}\times \mathbf{A}^{l}(k)\bigr]_{z},
+    \]
+    Choosing a gauge in which the $q$‑th component of the Bloch function $\Psi_{q}^{l}(k)$ is real and positive except at its zeros, and using Stokes' theorem, the Chern number $C_l$ of each band can be written as the sum of the vorticities around the zeros $\mu_j$ of this component in the magnetic Brillouin zone,
+    \[
+        C_{l} = -\sum_{s} n_{s}^{(l)}, \quad
+        n_{s}^{(l)} = \frac{1}{2\pi}\oint_{\partial R_{s}} dk\cdot\nabla\operatorname{Im}\ln\Psi_{q}^{l}(k)
+    \]
+    where each $n_{s}^{(l)}\in\mathbb{Z}$ is the vorticity around a zero of $\Psi_{q}^{l}(k)$. Hence the bulk conductance is the summation of vorticity around a zero of $\Psi_{q}^{l}(k)$ of occupied bands.
+    \begin{equation}
+    \label{eq:sigma_bulk}
+        \sigma_{xy}^{\mathrm{bulk},j} = \frac{e^{2}}{h}\sum_{l=1}^{j}\sum_{s} n_{s}^{(l)}
+    \end{equation}
+
+    The zeros of $\Psi_{q}^{l}(k)$ occur precisely at the band edges where the edge state with energy $\mu_{j}(k_{y})$ becomes degenerate with the bulk. For a given gap index $j$, the zero points in the Brillouin zone appear in pairs: one at the top of the $j$‑th band and one at the bottom of the $(j+1)$-th band. The edge state energy $\mu_{j}(k_{y})$ moves on the Riemann surface $\Sigma_{g}(k_{y})$ defined by $\omega=\sqrt{\Delta(\epsilon,k_{y})^{2}-4}$. As $k_{y}$ goes from $0$ to $2\pi$, $\mu_{j}$ traces a closed loop $C(\mu_{j})$. The homotopy class of $C(\mu_{j})$ is characterized by the intersection number with the canonical loop $\alpha_{j}$ around the $j$‑th hole of the Riemann surface:
+    \[
+        I(\alpha_{j},C(\mu_{j})) \in \mathbb{Z}.
+    \]
+    Analytic continuation shows that this intersection number equals the sum of vorticities from the zeros at the top of the $j$‑th band minus the sum from the bottom of the $j$‑th band:
+    \begin{equation}
+    \label{eq:I_V}
+        I(\alpha_j,C(\mu_j)) = V_j^{\mathrm{top}} - V_j^{\mathrm{bottom}}
+    \end{equation}
+    where $V_{j}^{\mathrm{top}}=\sum_{s\in\text{top}} n_{s}^{(j)}$ and $V_{j}^{\mathrm{bottom}}=\sum_{s\in\text{bottom}} n_{s}^{(j)}$.
+
+    For $j$ filled bands, the total vorticity in Eq.\eqref{eq:sigma_bulk} is
+    \[
+        \sum_{l=1}^{j}\sum_{s} n_{s}^{(l)}
+        = \sum_{l=1}^{j}\bigl(V_{l}^{\mathrm{top}} - V_{l}^{\mathrm{bottom}}\bigr).
+    \]
+    Because the bottom of the first band has no vorticity ($V_{1}^{\mathrm{bottom}}=0$) and the top of the $l$‑th band coincides with the bottom of the $(l+1)$-th band, the sum telescopes:
+    \[
+        \sum_{l=1}^{j}\bigl(V_{l}^{\mathrm{top}} - V_{l}^{\mathrm{bottom}}\bigr) = V_{j}^{\mathrm{top}}
+    \]
+    From Eq.\eqref{eq:I_V}, $V_{j}^{\mathrm{top}} = I(\alpha_{j},C(\mu_{j}))$. Substituting into Eq.\eqref{eq:sigma_bulk} gives
+    \[
+    \sigma_{xy}^{\mathrm{bulk},j} = -\frac{e^{2}}{h}\, I(\alpha_{j},C(\mu_{j})).
+    \]
+
+    So the two expression of $\sigma_{xy}$ is equivalent.
+    \[
+        \sigma_{xy}^{\text{bulk},j} = -\frac{e^{2}}{h}\bigl[ I(C_{j}) - I(C_{j-1}) \bigr] \equiv \sigma_{xy}^{\text{edge},j}
+    \]
+
+    \begin{rem}
+        This mapping is actually a \textit{covering map} or a \textit{section of a fiber bundle}. The MBZ is the base space (parameter space), and the Riemann surface is the fiber (the complex energy plane with branch structure). The energy $\epsilon_l(k_x, k_y)$ gives a section from the base space to the fiber. The zero vorticity is the integral of the \textit{Chern–Simons form} over the base space, while the winding number is the \textit{intersection number} on the fiber. The two are equal because they both correspond to the same first Chern number (on the appropriate fiber bundle).
+    \end{rem}
+
+
+\section{Experiments}
+
+\subsection{Shubnikov-de Haas oscillation}
+
+    SdHO is the phenonenom of $\sigma_{xx}$ or $R_{xx}$ oscillate with $B$ for given $E_F$.
+
+    Under Kubo-Boltzmann formula, $\sigma_{xx}$ depend only on DOS on Fermi surface,
+    \begin{equation}
+    \label{eq:sigmaxx}
+        \sigma_{xx} \propto e^2 v_F^2 \tau \cdot D(E_F)
+    \end{equation}
+    So that as we enlarge magnetic field $B$, the degeneracy of Landau level $g_L$ also enlarge, as shown in Eq.\eqref{eq:5_1_gL_Landau}. Each times a LL reaches the Fermi-surface, i.e. $E_F = E_n(B)$, $\sigma_{xx}$ reaches a peak. Otherwise $\sigma_{xx}$ is zero, since there is no state between LL, as shown in Fig.\ref{fig_LL}. The energy dispersion near LL is due to thermal dynamic and imperfection.
+
+    Under a semi-calssical magneto-oscillation description,the cycltron area in $k$-space $A_k$ is quantized as
+    \[ A_k(E_F) = 2\pi \frac{eB}{\hbar} (n + \gamma) \]
+    where $\gamma$ is a phase offset that we will discuss below. Since $A_k(E_F)$ is determined by gate voltage $V_g$, every integer $n$ corresponded to a Landau level will give a maximum of $\sigma_{xx}$ expressed in Eq.\eqref{eq:sigmaxx} and a certain value of $1/B$. By rearranging the equation, we can get a linear relation between Landau index $n$ and the magnetic field
+    \begin{equation}
+    \label{eq:BF}
+        n = B_F \cdot \frac{1}{B} - \gamma
+    \end{equation}
+    where the slope or frequency $B_F = \frac{\hbar}{2\pi e} A_k(E_F)$ is determined soly by Fermi energy, $-\gamma$ is its intercept. So that as we enlarging $B$, $\sigma_{xx}$ will oscillate with $1/B$, which could be expressed by $\cos$ as
+    \begin{equation}
+    \label{eq:DRxx}
+        \Delta R_{xx} = R(B, T) \cos\left[2\pi\left(\frac{B_F}{B} -\gamma \right)\right]
+    \end{equation}
+    where $\Delta R_{xx}$ is the oscillation part of $R_{xx}$, $R(B,T)$ is the SdHO amplitude, $B_F$ is the frequency of SdHO in $1/B$, $\phi_B$ is the Berry phase. This relation is often used in literature, despite the fancy form, we soly interest in its oscillation behavior and the phase offset $\beta$.
+
+    Such relation can be acuired by LL of near free electrons
+    \[
+        E_n
+        = \left(n + \frac{1}{2}\right) \hbar \omega_c
+        = \left(n + \frac{1}{2}\right) \frac{\hbar e}{m^*} B, \quad
+        n = \frac{E_F m^*}{e\hbar} \cdot \frac{1}{B} - \frac{1}{2}
+    \]
+    Or by LL of monolayer graphene
+    \[
+        E_n = \mathrm{sgn}(n) \sqrt{2e\hbar v_F^2 |n| B}, \quad
+        n = \frac{E_F^2}{2e\hbar v_F^2} \cdot \frac{1}{B}
+    \]
+    All these can be reduced to the general form of $A_k(E_k)$ in Eq.\eqref{eq:BF}.
+
+    \noindent
+    \begin{minipage}{0.4\linewidth}
+        \begin{figure}[H]
+        \centering
+        \includegraphics[height=6cm]{SdHO.png}
+        \caption{SdHO}
+        \label{fig_SdHO}
+    \end{figure}
+    \end{minipage}\hfill
+    \begin{minipage}{0.5\linewidth}
+        \begin{figure}[H]
+        \centering
+        \includegraphics[height=6cm]{LFD.png}
+        \caption{Landau fan diagram}
+        \label{fig_LFD}
+    \end{figure}
+    \end{minipage}
+    \vspace{1em}
+
+    By labeling the maximum in Fig.\ref{fig_SdHO}, we can draw a line in the $n$--$1/B$ figure, as shown in Fig.\ref{fig_LFD}. By changing $V_g$, we can adjust $E_F$ as well as $B_F$ and get another line in the same figure, which has the same intercept. These lines form the so called Landau fan diagram, which is used to determine the Berry phase by its intercept.
+    \begin{equation}
+    % \label{eq:}
+        n + \frac{1}{2} = \frac{B_F}{B} + \beta
+    \end{equation}
+    So that conventionally we plot $n+1/2$ instead of $n$, and the intercept $\beta = \phi_B/2\pi$ will directly give the Berry phase. In some article Berry phase is expressed as $\beta$, don't miss it up.
+
+    \begin{prop}
+        DOS of Landau levels, as Fig.\ref{fig_LL}. When there is no magnetic field, DOS is continuous. By introducing $B$, DOS will be dispersed. Since the degeneracy is the same, given in Eq.\eqref{eq:5_1_gL_Landau}, LL is sparse where DOS is low in the original $B=0$ case. As $B$ gets higher, $g_L$ is larger and the seperation between LL peak is larger. In real crystal, the energy level will have a distribution around $E_n$ due to thermal dynamic and imperfection.
+    \end{prop}
+
+    \begin{rem}
+        The contribution of $\sigma$ has two part, Fermi sea below $E_F$ and Fermi surface at $E_F$, which is contained in Kubo-Bastin formula. For $\sigma_{xx}$, the Fermi sea part canceled due to symmetry, which leave just $D(E_F)$, as shown in Eq.\eqref{eq:sigmaxx}
+        So that between LL, i.e. the maximum of $\sigma_{xx}$ there will be a pleatu of $\sigma_{xy}$, which is quantized in unit of $e^2/h$.
+    \end{rem}
+
+    \noindent
+    \begin{minipage}{0.4\linewidth}
+        \begin{figure}[H]
+        \centering
+        \includegraphics[width=\linewidth]{LL.png}
+        \caption{LL of graphene}
+        \label{fig_LL}
+    \end{figure}
+    \end{minipage}\hfill
+    \begin{minipage}{0.55\linewidth}
+        \begin{figure}[H]
+        \centering
+        \includegraphics[width=\linewidth]{LL2.png}
+        \caption{Landau level by $\sigma_{xx}$}
+        \label{fig_LL2}
+    \end{figure}
+    \end{minipage}
+
+    \noindent
+    \begin{minipage}{0.45\linewidth}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[height = 6cm]{QHE_sigma.png}
+        \caption{QHE of graphene $\sigma_{xy}$}
+        \label{fig_QHE_sigma}
+    \end{figure}
+    \end{minipage}\hfill
+    \begin{minipage}{0.45\linewidth}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[height = 6cm]{QHE_R.png}
+        \caption{QHE of graphene $R_{xy}$}
+        \label{fig_QHE_R}
+    \end{figure}
+    \end{minipage}
+
+
+
+\appendix
+
+\section{Wannier function}
+
+\paragraph{Definition}
+
+    Bloch functions
+
+    \[ \psi_{i\mathbf{k}} = \ee^{i\mathbf{k}\cdot \mathbf{r}} u_{i\mathbf{k}}(\mathbf{r})\]
+
+    For a single band $i$, \vip{Wannier functions} associated with cell $\mathbf{n} = (n_1, n_2, \cdots)$ at position $\mathbf{T}_n$ is
+
+    \begin{equation}
+    \label{eq:Wannier}
+    \begin{aligned}
+        w_{i\mathbf{n}}(\mathbf{r})
+        = &\, \frac{\Omega_{\text{cell}}}{(2\pi)^3}
+        \int_{\text{BZ}} \ee^{-i\mathbf{k}\cdot \mathbf{T}_n} \psi_{i\mathbf{k}}(\mathbf{r}) \dd \mathbf{\mathbf{k}} \\
+        = &\, \frac{\Omega_{\text{cell}}}{(2\pi)^3}
+        \int_{\text{BZ}} \ee^{-i\mathbf{k}\cdot (r-\mathbf{T}_n)} u_{i\mathbf{k}}(\mathbf{r}) \dd \mathbf{\mathbf{k}}
+    \end{aligned}
+    \end{equation}
+
+    which is the Fourier transformation of Bloch function.
+
+    \[ \psi_{i\mathbf{k}}(\mathbf{r})
+    = \sum_m \ee^{-i\mathbf{k}\cdot \mathbf{T}_m} w_i(\mathbf{r} - \mathbf{T}_m) \]
+
+\paragraph{Property}
+
+    Orthonormal
+
+    \[ \left\langle im | jm' \right\rangle
+    = \int w_i^*(\mathbf{r}-\mathbf{T}_m) w_j(\mathbf{r}-\mathbf{T}_{m'}) \dd \mathbf{r}
+    = \delta_{ij} \delta_{mm'} \]
+
+    Localized, atom-centered or bond-centered.
+
+\paragraph{Gauge \& Maximally localize}
+
+    Bloch function can goes under ``gauge transformation'',
+
+    \[ \psi_{i\mathbf{k}} = \ee^{i\alpha_i(\mathbf{k})} \tilde{\psi}_{i\mathbf{k}}(\mathbf{r}) \]
+
+    which lead to different Wannier functions $w_{in}$.
+
+    Define ``maximally localized'' by mean square spread $\Omega$
+
+    \[ \Omega = \sum_{i=1}^{N_{\text{bands}}}
+    \left[\left\langle r^2\right\rangle _i
+    - \left\langle \mathbf{r}\right\rangle _i^2 \right] \]
+    which can be separate into gauge-independent part $\Omega_I$ and gauge-dependent part $\tilde{\Omega}$,
+
+    \begin{align}
+    \label{eq:Omega}
+        \Omega = &\, \Omega_I + \tilde{\Omega} \\
+    \label{eq:OmegaI}
+        \Omega_I = &\, \sum_{i=1}^{N_{\text{bands}}}
+    \left[\left\langle r^2\right\rangle _i
+    - \sum_{\textbf{T}j} |\left\langle \textbf{T}j | \hat{\mathbf{r}} | 0i\right\rangle|^2 \right] \\
+    \label{eq:Omegatilde}
+        \tilde{\Omega} = &\, \sum_{i=1}^{N_{\text{bands}}} \sum_{\textbf{T}j\neq0j}
+        |\left\langle \textbf{T}j | \hat{\mathbf{r}} | 0i\right\rangle|^2
+    \end{align}
+    where $\tilde{\Omega}$ is non-negative, so that the maximally localized Wannier function is given by gauge that minimizing $\tilde{\Omega}$.
+
+
+\section{Effective Hamiltonian}
+
+    Consider a general system divided into low-energy (l) and high-energy (h) subspaces:
+    \begin{equation}
+    \label{eq:H_lh}
+        H = \begin{pmatrix}
+            H_{ll} & H_{lh} \\ H_{hl} & H_{lh}
+        \end{pmatrix}
+    \end{equation}
+    where $H_{hl} = H_{lh}^\dagger$. Eigenvalue equation gives
+    \[\left\{\begin{aligned}
+        &\, H_{ll} \psi_l \,+ H_{lh} \psi_h \,= E \psi_l \\
+        &\, H_{hl} \psi_l + H_{hh} \psi_h = E \psi_h \\
+    \end{aligned}\right.\]
+    Under assumption that $E \ll H_{hh}$, we approximate that
+    \[\begin{aligned}
+        \psi_h
+        &\, = \left(E - H_{hh}\right)^{-1} H_{hl} \psi_l \\
+        &\, \approx \left(-H_{hh}^{-1} + O(E^2)\right) H_{hl} \psi_l
+    \end{aligned}\]
+    \[ H_{ll} \psi_l + \left(-H_{hh}^{-1} + O(E^2)\right) H_{hl} \psi_l = E \psi_l\]
+    \[ \left(H_{ll} - H_{lh}H_{hh}^{-1}H_{hl}\right) \psi_l = E \psi_l \]
+    So that the effective Hamiltonian is
+    \begin{equation}
+    \label{eq:Heff}
+        H_{\mathrm{eff}} = H_{ll} - H_{lh}H_{hh}^{-1}H_{hl}
+    \end{equation}
+
+\paragraph{Bilayer graphene}
+
+    The TB Hamiltonian of Bernal bilayer graphene near Dirac cone is
+    \begin{equation}
+    % \label{eq:}
+        H = \begin{pmatrix}
+            \Delta                  & v_0 \pi^\dagger   & \gamma_4 \pi^\dagger  & -\gamma_3 \pi         \\
+            v_0 \pi                 & \Delta            & \gamma_1              & \gamma_4 \pi^\dagger  \\
+            \gamma_4 \pi            & \gamma_1          & -\Delta               &  v_0^\dagger \pi      \\
+            -\gamma_3 \pi^\dagger   & \gamma_4 \pi      & v_0 \pi               & -\Delta
+        \end{pmatrix}
+    \end{equation}
+    The low energy band is
+    \begin{equation}
+    % \label{eq:}
+        \epsilon_{\pm} \approx \pm \frac{\gamma_1}{2} \left( \sqrt{1 + \frac{4v_0^2k^2}{\gamma_1^2}} - 1\right)
+    \end{equation}
+
+    Ignoring $\gamma_3$ and $\gamma_4$ for low energy Berry curvature, the dimer site with $\gamma_1$ gives the high energy subspace $H_{hh}$.
+    \[
+        H_{ll} = \begin{pmatrix}
+            \Delta                  & -\gamma_3 \pi \\
+            -\gamma_3 \pi^\dagger   & -\Delta
+        \end{pmatrix}, \qquad
+        H_{hh} = \begin{pmatrix}
+            \Delta      & \gamma_1  \\
+            \gamma_1    & -\Delta
+        \end{pmatrix}, \qquad
+        H_{lh} = \begin{pmatrix}
+            \gamma_3 \pi^\dagger    & \gamma_4 \pi^\dagger \\
+            \gamma_4 \pi            & v_0 \pi
+        \end{pmatrix}
+    \]
+    Using Eq.\eqref{eq:Heff} and ignoring $\gamma_4$, we get the effective two-band Hamiltonian
+    \begin{equation}
+    % \label{eq:}
+        H = \begin{pmatrix}
+            \Delta                                  & -\gamma_3 \pi -\beta (\pi^\dagger)^2 \\
+            -\gamma_3 \pi^\dagger - \beta \pi^2     & -\Delta
+        \end{pmatrix}
+    \end{equation}
+    where $\beta = v_0^2/\gamma_1$, $\xi$ in $\pi$ vanished by quadratic.
+
+\paragraph{ABC-Trilayer graphene}
+
+    The full tight-binding Hamiltonian for ABC trilayer graphene near Dirac cone in the basis $A_1, B_3, B_1, A_2, B_2, A_3$ is:
+    \[
+    \hat{H} =
+    \begin{pmatrix}
+    u_1 + \delta & \gamma_2/2 & v_0\pi^\dagger & v_4\pi^\dagger & v_3\pi & v_6\pi \\
+    \gamma_2/2  & u_3 + \delta & v_6\pi^\dagger & v_3\pi^\dagger & v_4\pi & v_0\pi \\
+    v_0\pi      & v_6\pi        & u_1           & \gamma_1  & v_4\pi^\dagger & v_5\pi^\dagger  \\
+    v_4\pi      & v_3\pi        & \gamma_1      & u_2       & v_0\pi^\dagger & v_4\pi^\dagger \\
+    v_3\pi^\dagger & v_4\pi^\dagger & v_4\pi & v_0\pi & u_2         & \gamma_1  \\
+    v_6\pi^\dagger & v_0\pi^\dagger & v_5\pi & v_4\pi & \gamma_1 & u_3
+    \end{pmatrix},
+    \]
+
+    where $\pi = \xi k_x + ik_y$, $\xi = \pm 1$ for valley $K$ and $K'$, $v_i = \sqrt{3} a \gamma_i/ 2\hbar$, $a = 0.246\mathrm{nm}$ is the lattice constant\ref{Zhang_Band_2010}.
+    Consider only the nearest hopping,
+    \begin{equation}
+    \label{eq:HABC}
+        H_{\mathrm{eff}} = \begin{pmatrix}
+            \Delta & \frac{v_0^3}{\gamma_1^2} \left(\pi^\dagger\right)^3 \\
+            \frac{v_0^3}{\gamma_1^2} \pi^3 & -\Delta
+        \end{pmatrix}
+    \end{equation}
+
+    The effective Hamiltonian is:
+    \begin{align*}
+        H_{\text{eff}}
+        & = \begin{pmatrix}
+            \Delta & \frac{v_0^3}{\gamma_1^2} (\pi^\dagger)^3 \\
+            \frac{v_0^3}{\gamma_1^2} \pi^3 & -\Delta
+        \end{pmatrix} \\
+        & = \frac{v_0^3}{\gamma_1^2} k^3\cos(3\theta) \cdot \sigma_x
+        - \frac{v_0^3}{\gamma_1^2} k^3\sin(3\theta) \cdot \sigma_y
+        + \Delta \cdot \sigma_z
+    \end{align*}
+    where $k = \sqrt{k_x^2 + k_y^2}$, $\theta = \arg(\xi k_y + ik_x)$.
+
+\paragraph{ABA-Trilayer graphene}
+
+    Under basis $\left(A_1, B_1, A_2, B_2, A_3, B_3\right)$, full Hamiltonian of ABA trilayer graphene is
+    \begin{equation}
+    \begin{aligned}
+        & H = H_0 + H_{\Delta_1} + H_{\Delta_2} \\
+        & = \begin{pmatrix}
+        \Delta_1 + \Delta_2 & -\gamma_0 s(k)                & \gamma_4 s(k)         & -\gamma_3 s^*(k)  & \gamma_2/2            & 0                 \\
+        -\gamma_0 s^*(k)    & \Delta_1 + \Delta_2 + \delta  & \gamma_1              & \gamma_4 s(k)     & 0                     & \gamma_5/2        \\
+        \gamma_4 s^*(k)     & \gamma_1                      & -2\Delta_2 + \delta   & -\gamma_0 s(k)    & \gamma_4 s^*(k)       & \gamma_1          \\
+        -\gamma_3 s(k)      & \gamma_4 s^*(k)               & -\gamma_0 s^*(k)      & -2\Delta_2        & -\gamma_3 s(k)        & \gamma_4 s^*(k)   \\
+        \gamma_2/2          & 0                             & \gamma_4 s(k)         & -\gamma_3 s^*(k)  & -\Delta_1 + \Delta_2  & -\gamma_0 s(k)    \\
+        0                   & \gamma_5/2                    & \gamma_1              & \gamma_4 s(k)     & -\gamma_0 s^*(k)      & -\Delta_1 + \Delta_2 + \delta
+        \end{pmatrix}
+    \end{aligned}
+    \end{equation}
+    where $\Delta_1$ and $\Delta_2$ are potential differences between the three layers.
+    \begin{align*}
+        \Delta_1 &\, = \frac{1}{2} \left(U_1 - U_3\right) \\
+        \Delta_2 &\, = \frac{1}{6} \left(U_1 + U_3 - 2U_2\right) \\
+        U_1 &\, + U_2 + U_3 = 0
+    \end{align*}
+    The $6\times6$ Hamiltonian can be separated into a monolayer-like $H_{\mathrm{MLG}}$ and a bilayer-like $H_{\mathrm{BLG}}$ by changing the basis to $\left(\frac{A_1-A_3}{\sqrt{2}}, \frac{B_1-B_3}{\sqrt{2}}, \frac{A_1+A_3}{\sqrt{2}}, B_2, A_2, \frac{B_1+B_3}{\sqrt{2}}\right)$. The transformation matrix is
+    \[
+        U = \begin{pmatrix}
+        \frac{1}{\sqrt{2}}  & 0                     & 0     & 0     & -\frac{1}{\sqrt{2}}   & 0                     \\
+        0                   & \frac{1}{\sqrt{2}}    & 0     & 0     & 0                     & -\frac{1}{\sqrt{2}}   \\
+        \frac{1}{\sqrt{2}}  & 0                     & 0     & 0     & \frac{1}{\sqrt{2}}    & 0                     \\
+        0                   & 0                     & 0     & 1     & 0                     & 0                     \\
+        0                   & 0                     & 1     & 0     & 0                     & 0                     \\
+        0                   & \frac{1}{\sqrt{2}}    & 0     & 0     & 0                     & \frac{1}{\sqrt{2}}
+        \end{pmatrix}
+    \]
+    Under transformation $H' = U H U^{-1}$ and expansion near Dirac cone, the Hamiltonian is
+    \begin{align}
+        H' & = \begin{pmatrix}
+            [H_{MLG}]_{2\times2} & [H_{hyb}]_{2\times4} \\
+            [H_{hyb}^T]_{4\times2} & [H_{BLG}]_{4\times4}
+        \end{pmatrix} \\[5pt]
+        H_{hyb} &= \begin{pmatrix}
+            \Delta_1    & 0     & 0     & 0         \\
+            0           & 0     & 0     &\Delta_1
+        \end{pmatrix} \\[5pt]
+        H_{MLG} & = \begin{pmatrix}
+            -\gamma_2/2+\Delta_2    & v_0\pi^\dagger      \\
+            v_0\pi                  &\delta - \gamma_5/2+\Delta_2
+        \end{pmatrix} \\[5pt]
+        H_{BLG} & = \begin{pmatrix}
+            \gamma_2/2+\Delta_2         & \sqrt{2}v_3\pi            & \sqrt{2}v_4\pi^\dagger  & v_0\pi^\dagger      \\
+            \sqrt{2}v_3\pi^\dagger    & -2\Delta_2                & v_0\pi                    & -\sqrt{2}v_4\pi       \\
+            -\sqrt{2}v_4\pi             & v_0\pi^\dagger          & \delta - 2\Delta_2        & \sqrt{2}\gamma_1      \\
+            v_0\pi                      & -\sqrt{2}v_4\pi^\dagger & \sqrt{2}\gamma_1          & \delta+\gamma_5/2+\Delta_2
+        \end{pmatrix}
+    \end{align}
+    The effective Hamiltonian can be given as a monolayer graphgene plus a bilayer graphene.
+
+\end{document}

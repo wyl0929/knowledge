@@ -1,16 +1,8 @@
 <!--
- * @Author       : Yulong Wang
- * @Date         : 2026-08-06 22:02:15
- * @LastEditors  : Yulong Wang
- * @LastEditTime : 2026-08-06 22:02:19
- * @FilePath     : /.agents/home/wyl/project/knowledge/physics/twisted_bilayer_graphene/note/experiments/paper_review_E11_yoo2019_natmater.md
- * @Description  :
--->
-<!--
- * @Author       : AI 精读 (research_onboarding_skill)
- * @Date         : 2026-08-06
- * @FilePath     : /project/knowledge/physics/twisted_bilayer_graphene/note/experiments/paper_review_E11_yoo2019_natmater.md
- * @Description  : E11: Yoo et al. 2019 — TBG 原子/电子重构的结构基础
+ * @Author       : AI 精读 (系统辨识式阅读法 → 4 块辨识结构)
+ * @Date         : 2026-08-06（初读）→ 2026-09-01（按 4 块新架构重读）
+ * @FilePath     : /home/wyl/project/knowledge/physics/twisted_bilayer_graphene/note/experiments/paper_review_E11_yoo2019_natmater.md
+ * @Description  : E11: Yoo et al. 2019 — TBG 原子/电子重构的跨越角 θc≈1°（4 块辨识结构重读；纯 review，物理讲义用 [PHY-*] 锚点引用）
 -->
 
 # Paper Review: Yoo et al. (2019) — TBG 原子与电子重构
@@ -21,356 +13,228 @@
 | **标题** | Atomic and electronic reconstruction at the van der Waals interface in twisted bilayer graphene |
 | **作者** | Hyobin Yoo, Rebecca Engelke, Stephen Carr, Shiang Fang, Kuan Zhang, Paul Cazeaux, Suk Hyun Sung, Robert Hovden, Adam W. Tsen, Takashi Taniguchi, Kenji Watanabe, Gyu-Chul Yi, Miyoung Kim, Mitchell Luskin, Ellad B. Tadmor, Efthimios Kaxiras, Philip Kim |
 | **期刊** | Nature Materials 18, 448–453 (2019) |
-| **DOI** | 10.1038/s41563-019-0346-z |
-| **arXiv** | 1804.03806 |
-| **类型** | 实验 + 理论 — TEM/SAED + 输运 + 第一性原理 |
+| **DOI / arXiv** | 10.1038/s41563-019-0346-z（PDF 原文多处置此 DOI）/ 1804.03806 ⚠️ 任务单给的 0347-y 与 PDF 不符，已按 PDF 更正为 0346-z |
+| **类型** | 实验 + 理论 — TEM 暗场成像/SAED + 双栅输运 + FEM 结构弛豫 + ab initio TB/连续模型 |
 | **课题组** | Kim group (Harvard) |
-| **PDF** | ✅ reference/pdfs/Yoo 等 - 2019 - ...pdf |
-| **DW.bib** | ✅ `yoo_atomic_2019` |
-| **精读日期** | 2026-08-06 (初稿), 2026-08-08 (更新 §5b/5c: Hofstadter 2D→1D 输运跨越 + DOS/band 计算方法) |
+| **PDF / SI PDF** | ✅ reference/pdfs/Yoo 等 - 2019 - …（正文 8 页）+ `…_SI.pdf`（S1–S10） |
+| **精读日期** | 2026-08-06（初读）→ 2026-09-01（按 4 块新架构重读） |
+
+> **共享知识引用**：费米能/填充因子归一化 `[PHY-EF]`、1D 网络通道计数 `[PHY-MB]`、Hofstadter 蝴蝶与 moiré 标定 `[PHY-HOF]`、双栅静电学 `[PHY-GATE]`。本 review 只写「本文代入」的数值，不重复讲义。阅读疑问模板见 `note/shared/method/mechanism_questions.md` `[METHOD-Q]`。
 
 ---
 
-## 1. 核心贡献
+## TL;DR
 
-这是整个 mTBG 畴壁领域的**结构地基论文**。核心发现：
+**本文想解决的问题**：小扭角 TBG 中，层间 vdW 相互作用（偏好 AB/BA 共格）与层内弹性能（抵抗晶格畸变）的竞争，是否导致原子尺度结构重构？这种重构如何改写电子结构（能隙、次级 Dirac 带、畴壁输运）？
 
-1. 存在从"刚性莫尔结构"到"重构溶畴（solitonic）结构"的跨越，**特征角 θ_c ≈ 1°**
-2. θ > θ_c：接近刚性扭转的莫尔图景
-3. θ < θ_c：系统重构为近 Bernal（AB/BA）三角域 + 锐利域壁（soliton boundaries）网络
-4. 结构重构直接引发电学重构：莫尔能带简单描述失效 → 次级 Dirac 带出现 → E 场下 1D 拓扑通道形成
+**主结果**：① **结构跨越角 θc ≈ 1°**：θ > θc 接近刚性 moiré（卫星峰强度 $I_{sat}/I_{Bra}\sim e^{-\alpha\theta}$，α ≈ 2.75±0.3 deg⁻¹，θ>4° 低于检测限）；θ < θc 重构为近共格 AB/BA 三角畴 + 锐利 soliton 边界（畴边界宽度守恒，无数值）📜Q[~]。② **电子重构**：θ~1.1°（第一魔角）单粒子隙 32/26 meV（计算）+ 激活能 27/18 meV + Mott 隙 0.30/0.22 meV；θ~0.5°（第二魔角）出现 secondary Dirac 带（G 在 n/n₀=0,±4,±8 处极小但无隙、Hall 变号）📜Q。③ **θ=0.47° 加 D 后 2D→1D 网络输运**：Hofstadter 特征随 |D| 增大减弱 + R(D) 饱和至 ~R_q=h/4e² 量级（S1–S4 饱和 1.6–13 kΩ）📜Q。
 
-## 2. 物理机制
+**结论/意义**：结构重构与电子重构在小角区不可忽略，简单 moiré 能带描述在 θ<θc 失效；重构网络是畴壁 1D 拓扑通道的结构地基。作者措辞为 "transition / attribute / can be further utilized"（观察性 + 归因，非"证明"）📜Q。
 
-### 2.1 两种能量竞争
+---
 
-- **层间 vdW 相互作用**：偏好局域共格堆垛（AB/BA），倾向于扩大低能域
-- **层内弹性能**：抵抗过大晶格形变
+## 1. 系统辨识导览（判别表为全文唯一权威）
 
-### 2.2 原子重构
+**黑箱三要素**：`{输入旋钮：θ, V_top, V_bot, B, T | 输出观测量：暗场像/SAED 卫星峰, G(n,T), R_xx(V,B,n), σ_xy | 声称结论：θc≈1° 结构重构跨越 + 电子重构 + 2D→1D 网络输运}`
 
-- 不是两层刚性旋转简单叠加
-- 局部原子位置/局部转角被"再分配"：扩大低能 AB/BA 区域、压缩高能 AA 区域
-- AA 区域被压缩成节点，AB/BA 域壁成为窄 soliton 边界
+**四层变量图**（符号层一次钉死）：
 
-### 2.3 Soliton 边界特征
+| 层 | Yoo 2019 实例 |
+|----|---------------|
+| **L1 旋钮 u** | $V_{top}$、$V_{bot}$（双栅，底栅 = 285 nm SiO₂/Si）；$B$（0–10 T）；$T$（0.3–282 K for 1.1°、2–280 K for 0.47°、1.7 K 磁输运）；$\theta$（制备时设定） |
+| **L2 导出量 x₁** | $n$（栅压换算）；$n/n_0$（**本文 $n_0=1/A$**，$A$=moiré 单胞面积 → 满第一带 = ±4，见 [PHY-EF] §5 的约定差异）；$D=\frac{C_{top}V_{top}-C_{bot}V_{bot}}{2}-D_0$（位移场，图轴用 $D/\varepsilon_0$ [V/nm]，$D_0$=残余场）📜Q |
+| **L3 模型量 x₂** | $\lambda=a/[2\sin(\theta/2)]$（moiré 周期）、$A=\frac{\sqrt3}{2}\lambda^2$（超晶格单胞面积）、$\theta_{loc}^{(T,B)}(\mathbf r)$（局域转角，FEM 输出） |
+| **固定参数（非旋钮）** | $a$（石墨烯晶格常数）、$C_{top},C_{bot}$（栅电容） |
+| **反推量 θ̂** | $\theta$（三法互验：卫星峰→侧峰→Hofstadter）、$\lambda$、单粒子隙、激活能、$R_q$ |
+| **L4 观测量 y** | 暗场像（AB/BA 对比）、SAED（$I_{sat}/I_{Bra}$）、$G(n,T)$、$R_{xx}(V_{top},V_{bot})$、$R_{xx}(B,n)$、$\sigma_{xy}$ |
 
-- AB 与 BA 近共格三角域之间的窄边界
-- θ < θ_c：边界宽度近似守恒（solitonic 特征）
-- θ > θ_c：域间过渡更平滑，AB/BA 纯度降低
-- 跨越发生在莫尔长度与域壁宽度可比时 ≈ θ_c 判据
+> 与 E12 的符号差异：E12 用 $\rho_{xx}/\rho_{xy}$ 且 $n$ 未归一；本文测电导 $G$（θ=1.1°、0.5° 器件）与电阻 $R_{xx}$（θ=0.47° 器件），密度轴统一归一为 $n/n_0$（$n_0=1/A$）。⚠️ **$n_0=1/A$ 是"每 moiré 单胞 1 电子"单位，[PHY-EF] §5 记的 $n_0=4/A_M$ 是"满带单位"，差 4 倍**——本文满第一带在 $n/n_0=\pm4$，不要与 [PHY-EF] 的 ν=±1 混淆。
+
+**可辨识性判别表**（唯一权威；本文六条判据）：
+
+| 判别 | 判据（数据） | 排除谁 | 确立谁 |
+|------|-------------|--------|--------|
+| **卫星峰=重构，非多重散射** | multislice 模拟：未重构 TBG 80 keV 无卫星峰（>80 keV <0.13% 峰强）；Ta/Mo/Ti 重原子 toy-model 也低于 0.4% 截止；加 20 nm 厚 BN 不增强卫星峰 📜Q（SI S3） | 多重散射 / 热漫散射假卫星峰 | 卫星峰 = 界面周期晶格调制（重构的衍射指纹） |
+| **重构 vs 刚性 moiré** | $I_{sat}/I_{Bra}>0$ 且随 θ 指数衰减 $e^{-\alpha\theta}$（α≈2.75±0.3 deg⁻¹）；θ>4° 低于检测限 📜Q | 刚性旋转（无重构） | 界面重构存在 + 强度随 θ 减小 |
+| **solitonic vs moiré 跨越** | θ<θc：暗场像三角畴 AB/BA 交替 + 畴边界宽度守恒（soliton 特征）；θ>θc：畴对比减弱→近一维条纹（典型未重构 moiré）+ 畴内偏离 Bernal 📜Q（Fig 1d + SI S2/S4） | 无跨越（单一 regime） | θc ≈ 1° 跨越（判据 = moiré 长度~畴边界宽度，ref 15） |
+| **secondary Dirac vs 单粒子隙** | θ=0.47°：G(n) 在 n/n₀=0,±4,±8 极小但**无激活行为**（vs 1.1° 有隙激活）+ 低场 σxy 变号 📜Q（Fig 2c + SI S9d） | gap 打开（如 1.1° 单粒子隙） | 无隙 Dirac 锥（secondary Dirac bands） |
+| **2D→1D 网络输运 vs 2D 体输运** | \|D\|↑ → Hofstadter/量子霍尔特征减弱 + R(D) 饱和至 ~R_q 量级（S1–S4: 1.6–13 kΩ）📜Q（Fig 3e,f + SI S10i） | 2D 体 QH 输运 | 1D 拓扑通道网络输运 |
+| **θ 多法自洽** | φ/φ₀=1 @ 5.4 T → λ=29.7 nm → θ=0.47°；侧峰 n≈±5.2×10¹¹ cm⁻² → λ=29.8 nm → θ=0.47°；与目标 θ 一致（精度 ±0.3°）📜Q（SI S9） | 单法估计偶然 | θ 估计可靠 + 畴结构样品内均匀 |
+
+> **主结果 ↔ 判别表映射**：
+> - 主结果① 结构跨越 θc≈1° ← {卫星峰=重构, 重构 vs 刚性 moiré, solitonic vs moiré}
+> - 主结果② 电子重构（1.1° 隙 / 0.5° secondary Dirac）← {secondary Dirac vs 单粒子隙}（1.1° 隙是计算+激活能直接量，非判别）
+> - 主结果③ 2D→1D 网络输运 ← {2D→1D, θ 多法自洽}
+>
+> **分层排除注**：①「卫星峰=重构」先证衍射指纹来自重构（排除多重散射）；②「重构 vs 刚性」「solitonic vs moiré」证跨越存在并定 θc；③「secondary Dirac vs 单粒子隙」证电子重构（无隙 Dirac，非开隙）；④「2D→1D」证畴壁网络输运。每步只证一层。作者用 "We thus attribute…"、"suggesting"（归因/提示，非"证明"）📜Q（正文末段）。
+
+> **[前提与限定]**（判别结论的适用范围）：
+> - **噪声/扰动**：SAED 强度误差棒来自背景涨落（Fig 1f caption 📜Q）；输运 R(D) 饱和值分散 1.6–13 kΩ（作者归因于器件几何/样品不均匀/层间偏置差异，SI S10 📜Q）；S4 侧峰太靠近主峰无法分辨（θ 估计有误风险，SI S10 📜Q）；**全文无 ± 误差棒，除 α=2.75±0.3 外数字均为 =/≈ 给出**。
+> - **判别性扫轴**：θ 轴（结构，0–4.6°）、D 轴（输运 −0.7~+0.7 V/nm）、B 轴（0–10 T）、T 轴（0.3–282 K）、n 轴（密度归一 $n/n_0$）。
+> - **候选集 M 边界**：{刚性 moiré, 多重散射, 单粒子隙, 2D 体输运} —— "重构+电子重构+1D 网络"在该集合内唯一幸存；**集外候选未排除的必须声明**：① 畴边界宽度**数值**原文未给（曾误记 ~5 nm，已删，见更正日志）；② "原子分辨"成像非本文直接手段（DF 是 ~200 nm 域图，原子坐标来自 FEM）；③ 1D 通道的"拓扑保护"来自既有理论 refs 22–29 引用，本文无单条畴壁的相干/退相干直接测量。
+
+三层标注：📜Q = 原文事实（附位置）｜推导｜📊F = 读图估算｜💭I = 推断。**不确定度（正交轴）**：[±] 原文误差棒 / [~] 原文无误差棒 / [读图] 图提取·色标值 / [相对] 仅相对量。所有数字经 pdftotext + grep 反向核对。
+
+---
+
+## 2. 结果与机制（按论文论证结构：结构重构 → 电子重构 → 网络输运）
+
+### 2.1 结构重构：暗场像 + SAED 卫星峰 → θc ≈ 1°
+
+**物理机制（两种能量竞争）**：层间 vdW 相互作用偏好局域共格 AB/BA 堆垛（扩低能域），层内弹性能抵抗过大晶格畸变；两者平衡决定重构强度 📜Q（引言）。重构 = 局域转动晶格（Fig 1a 箭头）把高能 AA 区压缩、低能 AB/BA 区扩大 → 形成三角畴 + 锐利畴边界（soliton）📜Q。
+
+**暗场证据**：g = 101̄0 暗场像在 θ=0.1° 显示 AB/BA 交替三角畴镶嵌（tessellation），对比来自 AB/BA 畴内晶格周期的反对称位移 📜Q（Fig 1d caption）。θ 增大（0.4°, 0.8°, 1.2°）畴对比减弱、趋近一维条纹（未重构旋转 moiré 的典型特征）📜Q。畴边界 = 剪切型部分位错，Burgers 矢量 b = (1/3)⟨101̄0⟩（SI S2 用 g·b 判据三套二阶 Bragg 峰确定）📜Q；剪切位移方向与 CVD/SiC 样品不同 📜Q（SI S2）。
+
+**SAED 定量证据**：卫星峰（satellite）围绕 Bragg 峰，来自周期晶格调制（> 原子尺度、= moiré 尺度）；其位置 = moiré 波矢 qⱼ = 顶/底层倒格矢之差 📜Q（Fig 1f + SI S4）。$I_{sat}/I_{Bra}\sim e^{-\alpha\theta}$，α ≈ 2.75±0.3 deg⁻¹（11 个样品，0<θ<4°）📜Q[±]；θ>4° 低于检测限（4.6° 样品未观察到卫星峰）📜Q（SI S5）。α 度量重构强度随 θ 的衰减速率，与层间相互作用强度相关 📜Q。
+
+**跨越判据**：FEM 模型显示跨越在 θc ≅ 1°（ref 16）；θ<θc 畴边界宽度守恒（soliton 特征，与 θ 无关）、θ>θc 畴内偏离 Bernal、畴间过渡变缓 📜Q。跨越发生在 moiré 长度尺度 ~ 畴边界宽度时（ref 15）📜Q。⚠️ **畴边界宽度数值原文未给**（正文只定性"constant/宽窄"，无 nm 数）。
+
+**机制溯源五问**（模板见 [METHOD-Q]）：① 卫星峰从哪来？——周期晶格调制的傅里叶分量（SI S4 把原子位移展开为 $\mathbf r'=\mathbf r+\sum_j \boldsymbol\eta_j\sin(\mathbf q_j\cdot\mathbf r+\phi_j)$）📜Q；② 为什么 θ>4° 消失？——重构强度 $e^{-\alpha\theta}$ 指数衰减到检测限下 📜Q；③ 为什么畴边界宽度守恒只在 θ<θc？——平衡态下 AA 畴尺寸与畴壁宽度恒定（SI S4，"size of the AA domain and width of the domain boundaries stays constant below the crossover angle (θc≤1°)"）📜Q。
+
+### 2.2 电子重构 θ~1.1°（第一魔角）：隙修正但关联物理定性不变
+
+θ=1.1° 器件 G(n,T)（0.3–282 K）在 n=±4n₀ 出现良好发展的零（单粒子隙）、n=±2n₀ 出现 Mott 隙（半满）📜Q。FEM 重构结构算得的单粒子隙 = 32 meV（电子）/26 meV（空穴），比未重构（无隙或小得多）更贴近实验 📜Q。激活能（Arrhenius 拟合）单粒子隙 27 meV/18 meV、Mott 隙 0.30 meV/0.22 meV（电子/空穴）📜Q（SI S8）。结论：重构改单粒子隙大小/带宽/DOS 细节，但 **magic-angle 关联物理定性保持**（Fig 2b caption）📜Q。SI S8 补充：两隙低温都偏离 Arrhenius → 变程跳跃（variable range hopping，$G\sim\exp[-(T_0/T)^{1/3}]$）📜Q；Mott 隙 <15 K 热激活、>15 K 金属 📜Q。
+
+### 2.3 电子重构 θ~0.5°（第二魔角）：secondary Dirac 带
+
+未重构 TBG 近 0.5° 的 DOS 有许多尖锐但不稳定峰（对 θ 微小变化极敏感）；重构后 DOS 在 n/n₀=0,±4,±8 出现接近零的极小，对应重构能带中的 Dirac 型带交叉，且对 θ 微小变化可复现 📜Q（Fig 2c,d）。实验 θ=0.47° 器件 G(n)（2–280 K）在 n/n₀=0,±4,±8 出现极小**但无激活行为**（无隙）→ secondary Dirac 谱；低场 Hall 测量 σxy 在 n/n₀=0,±4,±8 变号 → 支持 Dirac 锥形成 📜Q（Fig 2c + SI S9d）。小角区 DOS 峰比 1.1° 压低**一个量级以上** → 无显著关联电子行为 📜Q。⚠️ n/n₀=±4 处特征有时被抬离零、变钝，作者归因于高阶 Dirac 点附近的非简并色散对重构晶格描述细节敏感 📜Q。
+
+### 2.4 θ=0.47° 输运：D 开隙 → 2D→1D 网络输运
+
+三器件对照（Fig 3a–c）：(i) Bernal BLG（θ=0）R/R₀ 随 |D| 增大快速上升（开隙绝缘）；(ii) 大角 TBG（θ≅2.8°）R/R₀ 随 |D| 下降（两弱耦合层被等量反号掺杂，都变导电）；(iii) 小角 TBG（θ=0.47°）**不同**：R(D) 先增后**饱和**（inset of Fig 3d）📜Q。机制：D 开隙 AB/BA 畴（两拓扑不等价绝缘态）→ 电流被限制在畴壁 1D 拓扑通道网络；每通道携带量子电阻 R_q=h/4e²（顶点处非相干混流假设）📜Q。饱和值 ~R_q 量级；4 个额外器件 S1–S4（θ=0.41°, 0.39°, 0.37°, <0.37°）饱和 1.6–13 kΩ 📜Q（SI S10i）。⚠️ 此步证明"输运在网络"（必要条件），拓扑/1D/相干由引文 refs 22–29 支撑，本文无单通道直接测量。
+
+**磁输运（Hofstadter + 2D→1D）**：θ=0.47°、1.7 K、D/ε₀ ≈ −0.7/0/+0.7 V/nm 的 Landau fan（Fig 3e）：主 Dirac 峰 + 侧峰各扇出 Landau 能级 → Hofstadter 分形谱；每超胞磁通 φ = 整数×φ₀=h/e 时出现周期 QH 特征 📜Q。最显著 = 三个 D 条件下都在 **B=5.4 T**（φ/φ₀=1）出现水平特征；由 φ=BA=5.4 T×(√3/2)λ² 得 λ≈29.7 nm → θ=0.47°，与侧峰估计一致 📜Q（SI S9）。**|D| 增大 → Hofstadter/QH 特征显著减弱**（Fig 3f）→ Landau 隙在分形谱中减小 → 作者归因为**输运从 2D 体模式转向 1D 网络模式**（载流子被限制在开隙 AB/BA 畴的拓扑保护边界）📜Q。末句：跨越发现 + 拓扑模式可进一步用于工程 2D 材料的 vdW 外延 📜Q。
+
+---
 
 ## 3. 实验方法
 
-### 3.1 TEM 暗场成像
+### 3.1 器件
+tear-and-stack：撕单层石墨烯为两半，用顶 hBN 以受控 θ 对合（SI S1：hBN 于 70°C 被 PC/PDMS 印章拾取，旋转衬底，再对合另一半石墨烯）📜Q。TEM 样品：石墨烯上盖 <5 nm hBN（薄，防 BN 衍射峰重叠 + 减背景）、载于 <10 nm 非晶 SiN 膜 📜Q。输运样品：双栅 hBN 封装器件于 SiO₂/Si，顶/底 BN 典型厚 15–40 nm，底栅 = 285 nm SiO₂ 重掺杂 Si 📜Q。
 
-- 选取特定 Bragg 峰（如 g = 10̄10）做实空间堆垛映射
-- 直接看到 AB/BA 交替三角域与镜像域壁
+### 3.2 静电学（[PHY-GATE] 通用推导；本文代入）
+$$D=\frac{C_{top}V_{top}-C_{bot}V_{bot}}{2}-D_0$$
+📜Q（正文）；$D_0$ 为小残余位移场；图轴标 $D/\varepsilon_0$ [V/nm]（即电场）。⚠️ 与 [PHY-GATE] §3 的 $D=(C_{tg}V_{tg}-C_{bg}V_{bg})/(2\varepsilon_0)$ 差一个 $\varepsilon_0$：本文 D 是位移场（C/m²），除以 $\varepsilon_0$ 才是 V/nm，且带 $-D_0$ 偏移。密度归一 $n_0=1/A$（每 moiré 单胞 1 电子），满带 = ±4（见 §1 约定差异注）。
 
-### 3.2 SAED（选区电子衍射）
+### 3.3 测量
+TEM/SAED：80 kV 场发射 TEM（Jeol 2010F）+ Gatan One View；g = 101̄0 暗场像在离轴倾斜（5°）下增强 AB/BA 对比 📜Q（Methods + SI S2）。输运：四探针 lock-in 17.7 Hz、偏置电流 10–30 nA；θ=1.1° 器件两探针 17.7 Hz、偏压 200 μV（³He 低温恒温器）📜Q。磁输运 1.7 K（Fig 3 caption）📜Q。**计算**（§9）：FEM 结构弛豫（SVK 膜 + Helfrich 弯曲 + Kolmogorov-Crespi 层间势，L-BFGS 最小化）+ supercell TB 能带 + ab initio 连续模型 DOS（FEM=Lehmann-Taut，60×60 k 网格）📜Q（Methods）。
 
-- 关键指标：$I_{sat}/I_{Bra}$（satellite 峰与 Bragg 峰强度比）
-- 量化重构周期与强度
+---
 
-### 3.3 电输运
+## 4. 关键数据（提取链 + 验证链 + 不确定度标注）
 
-- 双栅器件，扫描 n、D、B
-- 温度依赖 + Hall 符号翻转识别能带重构
+### 4.1 结构（正文 + SI S2–S5）
+| 参数 | 值 | 等级/不确定度 |
+|------|-----|--------------|
+| 跨越角 θc | ≈1°（正文 abstract/引言 "θc ≈ 1°"、正文 "θc ≅ 1∘ (ref. 16)"；SI S4 记 "θc≤1°"） | 📜Q[~]（两处措辞 ≈1° vs ≤1°） |
+| 扭角范围 | 0 < θ < 4°（正文）；SAED 到 4.6°（SI S5） | 📜Q |
+| 样品数 | 11 个不同样品（SAED 定量） | 📜Q |
+| 衰减系数 α | ≈2.75±0.3 deg⁻¹（$I_{sat}/I_{Bra}\sim e^{-\alpha\theta}$） | 📜Q[±] |
+| 域尺寸/均匀性 | 达 ~200 nm；>10³ moiré 胞；尺度波动 <10% | 📜Q[~] |
+| 卫星峰检测限 | θ>4° 低于检测限（4.6° 未观察到） | 📜Q |
+| 局域转角（θ=0.6° FEM） | Bernal 畴残余转角 ±0.13°；AA 区局域转角达 ~1.9° | 📜Q[~]（SI S4） |
+| 畴边界宽度 | **守恒（θ<θc），无数值** | 📜Q（定性）；⚠️ 旧卡片 "~5 nm" 无源已删 |
 
-### 3.4 多尺度计算
+### 4.2 电子结构 θ~1.1°
+| 参数 | 值 | 等级 |
+|------|-----|------|
+| 单粒子隙（计算） | 32 meV（电子）/ 26 meV（空穴），重构 TBG | 📜Q[~] |
+| 激活能（n=±4n₀ 单粒子隙） | 27 / 18 meV（电子/空穴） | 📜Q[~]（SI S8） |
+| Mott 隙激活能（n=±2n₀） | 0.30 / 0.22 meV | 📜Q[~]（SI S8） |
+| 测量温度 | 0.3–282 K | 📜Q（Fig 2a caption） |
+| 第一魔角 | ~1.1°（正文） | 📜Q |
 
-- FEM 连续-原子耦合结构弛豫 + 基于 ab initio 参数的紧束缚/连续模型
+### 4.3 电子结构 θ~0.5°
+| 参数 | 值 | 等级 |
+|------|-----|------|
+| secondary Dirac 位置 | n/n₀ = 0, ±4, ±8（G 极小无隙 + Hall 变号） | 📜Q（Fig 2c + SI S9d） |
+| DOS 压低 | 比 1.1° 压低 >1 个量级 → 无显著关联行为 | 📜Q[相对] |
+| 测量温度 | 2–280 K（θ=0.47° 器件） | 📜Q（Fig 2c caption） |
+| 第二魔角 | ≈0.5°（预测，无重构） | 📜Q |
 
-## 4. 关键数据
+### 4.4 θ=0.47° 输运（正文 + SI S9/S10）
+| 参数 | 值 | 等级 |
+|------|-----|------|
+| φ/φ₀=1 | B=5.4 T（φ=2φ₀ @ 10.8 T） | 📜Q（SI S9） |
+| λ（Hofstadter 反推） | 29.7 nm（φ=BA=5.4 T×(√3/2)λ²） | 📜Q（SI S9） |
+| 侧峰密度 | n≈±5.2×10¹¹ cm⁻² = 4 e/超胞 | 📜Q（SI S9） |
+| λ（侧峰反推） | 29.8 nm（(√3/2)λ² = 4/n = 770 nm²） | 📜Q（SI S9） |
+| θ 反推 | 0.47°（两法一致；与目标 θ 一致，精度 ±0.3°） | 📜Q[~] |
+| R_q | h/4e² ≅ 6.4 kΩ | 📜Q（SI S10） |
+| 额外器件饱和 | S1–S4（θ=0.41°, 0.39°, 0.37°, <0.37°）饱和 1.6–13 kΩ | 📜Q[~]（SI S10） |
+| 大角器件 | θ≅2.8°（对照 ii） | 📜Q |
 
-### 4.1 结构参数
+### 4.5 验证链（本文最硬的闭环）
+- **θ 三法互验**：卫星峰（结构，SAED）↔ 侧峰位置（B=0，n=±5.2×10¹¹ → λ=29.8 nm → 0.47°）↔ Hofstadter（φ/φ₀=1 @ 5.4 T → λ=29.7 nm → 0.47°）三者一致 + 与目标 θ 一致（±0.3°）📜Q（SI S9 "similar"/"consistent"）。
+- **结构与电子自洽**：FEM 重构结构 → TB/连续模型能带 → 与实验 G(n)/Hall 变号吻合（θ=0.5° 与 1.1° 两档）📜Q（Fig 2 + SI S9d）。
+- **对照设计**：三器件（θ=0 / 2.8° / 0.47°）同一 D 轴上的行为分叉 → 小角独有的"先增后饱和" 📜Q（Fig 3d）。
 
-| 参数 | 值 |
-|------|-----|
-| 扭角范围 | 0° < θ < 4° |
-| 样品均匀性 | >10³ moiré 胞元，域尺度波动 <10%，域尺寸可达 ~200 nm |
-| θ_c（跨越角） | ≈ 1° |
-| Isat/IBra 衰减系数 α | ≈ 2.75 ± 0.3 deg⁻¹ |
-| θ > 4° 时 satellite 峰 | 低于检测极限（重构可忽略）|
-
-### 4.2 暗场图像证据
-
-| θ | 特征 |
-|---|------|
-| 0.1° | 清晰 AB/BA 交替三角域网络（强重构）|
-| 0.4°, 0.8°, 1.2° | 三角域对比逐步减弱，向条纹化莫尔过渡 |
-
-### 4.3 电子结构（θ ~ 1.1°）
-
-| 参数 | 值 |
-|------|-----|
-| 单粒子隙（电子侧）| ~32 meV |
-| 单粒子隙（空穴侧）| ~26 meV |
-| 激活能（电子，n/n₀=±4）| ~27 meV |
-| 激活能（空穴，n/n₀=±4）| ~18 meV |
-| 关联绝缘态激活能（±2）| 0.30 / 0.22 meV |
-
-### 4.4 次级 Dirac 特征（θ ~ 0.47°–0.5°）
-
-- G(n) 在 $n/n_0 = 0, \pm4, \pm8$ 出现极小值但不完全开隙
-- 低场 Hall 符号翻转 → 支持 secondary Dirac band
-
-### 4.5 Solitonic 区域拓扑输运（θ = 0.47° < θ_c）
-
-- 加 E 场 → AB/BA 域开隙 → 电流转移到域壁 1D 通道网络
-- $D/\varepsilon_0 \approx -0.7, 0, +0.7$ V/nm 下比较 Landau 图
-- B = 5.4 T 出现横向特征对应 Φ/Φ₀ = 1 → θ ≈ 0.47°
-- |D|↑ → Hofstadter 特征减弱 → 从 2D 体输运向 1D 网络输运转变
+---
 
 ## 5. 主要结论
-
-1. **θ_c ≈ 1°** 是原子/电子重构跨越角：上方偏莫尔、下方偏溶畴网络
-2. θ < θ_c 时刚性莫尔能带描述失效，必须纳入结构弛豫
-3. 低角区（~0.5°）出现稳定 secondary Dirac 光谱特征
-4. 位移场可开隙 AB/BA 域，激活域壁 1D 拓扑通道网络输运
-5. TBG 核心自由度 = 几何扭角 + 可调重构强度
-
----
-
-## 5b. Figure 3e/3f 与最后一段详解 — Hofstadter 谱与 2D→1D 输运跨越
-
-### 5b.1 实验设置
-
-- 样品：小角 TBG，**θ = 0.47°**（< θ_c，solitonic 区间）
-- 双栅器件，温度 **1.7 K**
-- 三个位移场条件：$D/\varepsilon_0 \approx$ **−0.7, 0, +0.7 V/nm**
-- 磁场 B 垂直平面，测量 $R_{xx}(B, n)$
-
-### 5b.2 Figure 3e: D 依赖的 Hofstadter 扇图
-
-**观察到的现象：**
-
-1. 在所有三个 D 条件下，均出现发育良好的 **Landau fan**：
-   - 从 CNP（主 Dirac 峰）发出的主 Landau 能级序列
-   - 从 **side peaks**（$n/n_0 = \pm 4$）发出的额外 Landau fan → 表明 moiré 超晶格 Hofstadter 分形谱的形成
-
-2. 多重 QH 特征从两套 side peaks 扇出，当每超胞磁通 $\phi$ 为磁通量子 $\phi_0 = h/e$ 的整数倍时出现周期性 QH 特征
-
-3. **最显著特征**：在 $B = \mathbf{5.4\ T}$ 处（黑色箭头标注），所有三个 D 条件下均出现**水平特征**（即不随 n 变化、只由 B 决定的电阻特征）
-   - 该场对应 $\phi/\phi_0 = 1$ → 每 moiré 超胞恰好穿过一个磁通量子
-   - 由 $\phi = BA = 5.4\ \text{T} \times \frac{\sqrt{3}}{2}\lambda^2$ 可得 $\lambda \approx 29.7$ nm → **θ ≈ 0.47°**
-   - 从 side peak 位置（B=0 时 $n \approx \pm 5.2 \times 10^{11}\ \text{cm}^{-2} = 4$ 电子/超胞）估算的 θ 与此一致（SI §6 详述）
-
-| 特征 B 场 | $\phi/\phi_0$ | 含义 |
-|:---:|:---:|------|
-| 5.4 T | 1 | 每超胞 1 磁通量子 |
-| 10.8 T | 2 | 每超胞 2 磁通量子 |
-
-### 5b.3 Figure 3f: 固定 B 场下 D 依赖的 R_xx 线扫
-
-**观察到的现象：**
-
-- **左图**：$B = 10$ T 下三种 D 条件的 $R_{xx}(n)$
-- **右图**：$B = 4$ T 下三种 D 条件的 $R_{xx}(n)$
-- **核心观察**：$|D|$ 增大时，Hofstadter 特征（QH 振荡幅度、Landau gap 的锐利程度）**显著减弱**
-
-### 5b.4 结论：2D→1D 输运跨越（最后一段的核心论证）
-
-论文最后一段（正文倒数第 2–3 段 + 最后一段）的逻辑链：
-
-**① 观察到 1D 网络的形成证据（Figure 3d + 前文）**
-
-- $R(D)/R_0$ 在 $|D|$ 增大时上升并**饱和**（Fig. 3d 插图）
-- 饱和值与 $R_q = h/4e^2 \approx 6.4$ kΩ 同数量级 → AB/BA 域被开隙后电流以**非相干混合**方式在 1D 通道网络中流动
-- 四个额外样品（SI S1–S4, θ = 0.37°–0.41°）均显示类似行为，饱和电阻值 1.6–13 kΩ 不等（SI Fig. S10i）
-
-**② Hofstadter 特征随 |D| 增大而减弱（Figure 3e, 3f）**
-
-- QH 特征在高位移场下变弱 → **Landau gap 在 Hofstadter 分形能谱中减小**
-- 这表明载流子不再以 2D 体态方式参与 QH 效应
-
-**③ 归因：2D→1D 网络输运转变**
-
-> "We thus attribute this change in the fan diagram to the **transition of electronic transport from the 2D to 1D network mode** with increasing |D|, confining the carriers to the topologically protected boundaries of gapped AB/BA domains in structurally reconstructed TBG."
-
-- |D| 小 → AB/BA 域未充分开隙 → 电子在 2D 平面内运动 → 完整 Hofstadter 分形谱
-- |D| 大 → AB/BA 域充分开隙（绝缘化）→ 电子被迫沿畴壁 1D 拓扑通道运动 → Hofstadter 特征减弱（因为 1D 通道不支持同样的 2D Landau 量子化）
-
-**④ 全文总结句（最后一句）**
-
-> "Together with our experimental finding of the crossover between the soliton and moiré regime, the appearance of these topological modes can be further utilized in **engineering vdW epitaxy of 2D materials**."
-
-### 5b.5 跨实验的一致性验证
-
-| 证据 | 来源 |
-|------|------|
-| θ 从 Hofstadter 谱 ($\phi/\phi_0=1$ 处 B=5.4T) 估算 | Fig. 3e |
-| θ 从 side peak 位置 (B=0, n≈±5.2×10¹¹ cm⁻²) 估算 | Fig. S9c |
-| θ 两方法一致 → **同一样品均匀畴结构** | SI §6 |
-| Hall 符号在 $n/n_0=0,\pm4,\pm8$ 处翻转 → Dirac 锥形成 | Fig. S9d |
-| 4 个额外器件均显示 $R(D)$ 饱和行为 | Fig. S10i |
-
----
-
-## 5c. DOS 和能带计算方法详解
-
-Yoo 2019 中的电子结构计算采用的是**多方法混合策略**——不同层次的计算分工明确，最终由重构的原子坐标驱动电子结构。
-
-### 5c.1 计算流程图
-
-```
-FEM 结构弛豫（得到重构后原子坐标）
-        │
-        ├──→ 紧束缚模型（supercell TB）→ 能带结构 E(k)
-        │         │
-        │         └── 输入：ab initio TB 参数 (Fang & Kaxiras 2016)
-        │
-        └──→ ab initio 连续模型 → DOS
-                  │
-                  ├── FEM (Lehmann-Taut 方法) 在 60×60 k 点网格上
-                  ├── 输入：动量依赖的应变场 + 层间耦合项
-                  └── 对重构晶格的描述需足够大的 k 范围
-```
-
-### 5c.2 各方法详细说明
-
-#### A. 结构弛豫：FEM（有限元法）
-
-| 项目 | 内容 |
-|------|------|
-| 方法 | 连续-原子混合 FEM（Zhang & Tadmor 2018, Ref. 16）|
-| 层内力学 | 非线性弹性模型：Saint Venant–Kirchhoff 膜项 + Helfrich 弯曲项 |
-| 层间相互作用 | **Kolmogorov-Crespi (KC)** registry-dependent 势（Ref. 40）|
-| 优化算法 | L-BFGS 能量最小化 |
-| 输出 | 弛豫后的原子坐标 + 局域应变场 |
-
-> 详见 SI §4 和 Ref. 16 (Zhang & Tadmor, JMPS 2018)
-
-#### B. 能带结构：紧束缚（Tight-Binding）
-
-| 项目 | 内容 |
-|------|------|
-| 方法 | 标准超胞紧束缚哈密顿量 |
-| 参数来源 | **Fang & Kaxiras (2016)** 的 ab initio 紧束缚参数（Ref. 41）|
-| 参数特点 | 从 DFT 计算中提取，适合弱相互作用双层体系 |
-| 适用体系 | 重构/未重构的 TBG，不同扭角 |
-
-> "The electronic structure of TBG was modelled using **previously obtained ab initio tight-binding parameters**." (Methods, Ref. 41, 42)
-
-- Ref. 41: Fang & Kaxiras, PRB 93, 235153 (2016) — 弱相互作用双层的电子结构理论
-- Ref. 42: Carr, Fang et al., PRB 98, 085144 (2018) — magic angle 的压力依赖性
-
-#### C. DOS：ab initio 连续模型
-
-| 项目 | 内容 |
-|------|------|
-| 方法 | ab initio 连续模型（continuum model）|
-| k 点网格 | **60 × 60** |
-| 积分方法 | **FEM（Lehmann-Taut 方法）**（Ref. 44）— 四面体数值积分 |
-| 关键输入 | **动量依赖的应变场** + 层间耦合项（从 FEM 重构结构提取）|
-| 应变场处理 | 在足够大的 k 范围内定义，以捕获重构晶格的细节 |
-
-> "The DOS used an **ab initio continuum model**. An **FEM** was used on a **60 × 60 k-point grid** to generate the DOS profiles." (Methods)
-
-> "The **momentum-dependent strain field** and **interlayer coupling terms** were defined in a large enough range of k to capture the details of the reconstructed lattice. This strain field correction becomes **more significant as one approaches the solitonic regime (θ < θ_c)** where the reconstructed lattice cannot be captured with only a few Fourier components." (Methods)
-
-这意味着对于 θ < θ_c（solitonic 区间），简单的 Bistritzer-MacDonald 连续模型（只用少数几个傅里叶分量）不再足够——必须纳入应变场修正。
-
-### 5c.3 重构在计算中的角色
-
-| 体系 | 处理方法 | 特点 |
-|------|---------|------|
-| **未重构** TBG | 刚性扭转晶格 → 标准紧束缚/连续模型 | 简单 moiré 描述 |
-| **重构** TBG（θ ~ 1.1°）| FEM 弛豫后 → 紧束缚能带 + 连续模型 DOS | 修正单粒子隙和带宽，但 magic-angle 基本物理不变 |
-| **重构** TBG（θ < θ_c）| FEM 弛豫 → **需在足够大 k 范围纳入动量依赖应变场** | 少量傅里叶分量**不能**捕获重构晶格 → 必须用完整应变场修正 |
-
-### 5c.4 未重构 vs 重构的结果差异
-
-#### θ ~ 1.1°（第一 magic angle）— Fig. 2a, 2b
-
-| 方面 | 未重构 | 重构 |
-|------|--------|------|
-| 单粒子隙 | 无或很小 (~0) | 电子侧 32 meV, 空穴侧 26 meV |
-| 带宽 | 较窄 | 修正 |
-| DOS 峰值 | 尖锐 | 略压低 |
-| **物理本质** | 不变 — magic-angle 关联物理**定性保持** | |
-
-> "Reconstruction changes the details of the band structure such as single-particle gap size, bandwidth and overall DOS. However, the **essential physics of the correlated behaviour stays the same**." (Fig. 2 caption)
-
-#### θ ~ 0.5°（第二 magic angle）— Fig. 2c, 2d
-
-| 方面 | 未重构 | 重构 |
-|------|--------|------|
-| DOS 特征 | 许多尖锐但不稳定的峰（对 θ 微小变化极敏感）| **稳定**的 Dirac 锥特征在 $n/n_0 = 0, \pm 4, \pm 8$ |
-| 能带结构 | 杂乱的多带交叉 | 清晰的 secondary Dirac 谱 |
-| 实验可重复性 | 不可能（任何小 θ 变化都会改变 DOS）| **可重复**（对 θ 微小变化鲁棒）|
-| 关联态 | — | DOS 峰值比 1.1° 压低一个数量级以上 → **无显著关联电子行为** |
-
-### 5c.5 SI 中的数学建模（SI §5）
-
-SI §5 (Cazeaux, Luskin & Massatt) 提供了一个补充的数学建模视角：
-
-- 用**广义堆垛层错能（GSFE）** 作为连续模型的层间能量泛函
-- GSFE 函数形式（六重对称傅里叶展开）：
-
-$$\phi(x,y) = c_0 + c_1[\cos x + \cos y + \cos(x+y)] + c_2[\cos(x+2y) + \cos(x-y) + \cos(2x+y)] + c_3[\cos 2x + \cos 2y + \cos(2x+2y)]$$
-
-- 系数从 vdW-DFT 拟合：
-  - $c_0 = 6.832$, $c_1 = 4.064$, $c_2 = -0.374$, $c_3 = -0.095$ meV/unit cell
-  - 体模量 $K = 69518$ meV/unit cell，剪切模量 $G = 47352$ meV/unit cell
-
-- 该模型可系统地调谐重构强度（Fig. S7），验证了卫星峰强度对域内共格度的敏感性
-
-### 5c.6 方法总结
-
-```
-┌──────────────────────────────────────────────────┐
-│                Yoo 2019 计算方法全景               │
-├──────────────┬──────────────┬────────────────────┤
-│   结构弛豫    │   能带结构    │       DOS          │
-├──────────────┼──────────────┼────────────────────┤
-│ FEM (Zhang & │ 紧束缚 (Fang │ 连续模型 (Massatt  │
-│ Tadmor 2018) │ & Kaxiras    │ et al. 2018)       │
-│              │ 2016)        │                    │
-│ KC 层间势    │ supercell TB │ 60×60 k FEM 积分   │
-│ 非线性弹性   │              │ 动量依赖应变场修正  │
-└──────────────┴──────────────┴────────────────────┘
-```
-
----
-
-## 6. 局限与未解决的问题
-
-| 局限 | 说明 |
-|------|------|
-| 应变未标定 | 无统一实验应变百分比，仅定性讨论 |
-| 低角能带敏感 | ~0.5° DOS 特征对模型参数/局部构型敏感 |
-| 单通道证据不足 | 拓扑网络输运证据来自宏观电输运，单条域壁的散射长度/相干长度缺直接测量 |
-| 角度不确定度 | ±0.3° 影响临界角附近精细比较 |
-| 强关联未展开 | 未完整展开多体态在全角度区间的统一理论 |
-
-## 7. 与其他工作的关系
-
+1. θc ≈ 1° 是原子/电子重构跨越角：上方偏 moiré、下方偏 soliton 网络 📜Q。
+2. θ<θc 时简单 moiré 能带描述失效（secondary Dirac 带出现），必须纳入结构弛豫 📜Q。
+3. 重构改 θ~1.1° 的隙/带宽/DOS 细节，但 magic-angle 关联物理定性保持 📜Q。
+4. 位移场开隙 AB/BA 畴 → 激活畴壁 1D 拓扑通道网络输运（2D→1D 转变）📜Q。
+5. 核心自由度 = 几何扭角 + 可调重构强度（α 度量）📜Q→💭I。
+
+## 6. 局限与未解决
+| 局限 | 说明 | 证据 |
+|------|------|------|
+| 畴边界宽度无数值 | 正文只定性"constant"，无 nm 数；跨越判据（moiré~宽度）靠 ref 15 定性 | 📜Q（正文无该数，grep 证实） |
+| 无单畴壁直接测量 | 1D 拓扑通道的相干长度/散射由引文 refs 22–29 支撑，本文只有宏观 R(D) 饱和 | 💭I（§2.4 已注） |
+| 全文无 ±（除 α） | 32/26 meV、27/18 meV、0.30/0.22 meV、29.7/29.8 nm 等均 =/≈ 无误差棒 | 反向核对结论 |
+| 1.1° 单粒子隙来自计算 | 32/26 meV 是 FEM 重构能带值，实验仅激活能 27/18 meV 间接对标 | 📜Q |
+| 关联行为未展开 | 0.5° 区无显著关联行为（DOS 压低），但多体态全角度统一理论未做 | 📜Q |
+| S4 θ 未解出 | 侧峰太靠近主峰无法分辨（<0.37° 器件） | 📜Q（SI S10） |
+
+## 7. 与其他工作的关系（跨论文对标，不放正文）
 | 工作 | 关系 |
 |------|------|
-| Cao et al. 2018 | Magic-angle 物理要与结构重构共同考虑，尤其在 θ ≲ 1° |
-| Huang 2018 PRL | 本文提供其所依赖的实空间结构基础：AB/BA 三角域 + 域壁网络 = TPH 态几何载体 |
-| Rickhaus 2018 Nano Lett. | 本文给出"为什么网络会形成"的原子尺度根基与临界扭角判据 |
-| Xu 2019 Nat. Commun. | 本文的重构图景是其 AB 振荡几何解释的前提 |
+| Cao 2018（ref 7,8） | 本文 1.1° 的 Mott 隙 0.30/0.22 meV 复现其半满关联绝缘体；并指出 magic-angle 物理须与结构重构共同考虑 | 📜Q |
+| Huang 2018（ref 25）/ San-Jose & Prada 2013（ref 26） | 本文提供畴壁网络 1D 通道的**实空间结构基础**（AB/BA 三角畴 + 锐利边界 = 螺旋态几何载体） | 💭I（本文引 ref 25,26） |
+| Rickhaus 2018（ref 29） | 本文把"网络为何形成"推到原子尺度 + 给 θc 判据；Rickhaus 是局部栅腔 AB 振荡，本文是全域器件 R(D) 饱和 | 📜Q（ref 29）+💭I |
+| Gargiulo & Yazyev 2018（ref 15）/ Zhang & Tadmor 2018（ref 16） | θc 跨越与 moiré~边界宽度判据、FEM 结构弛豫的理论来源 | 📜Q |
+| Ju 2015（ref 24）/ Li, J. 2016（ref 28） | 本文畴壁输运沿用的既有 QVH 畴壁态图像 | 📜Q |
+
+> ⚠️ Phase S 外部对标：E9/E10/E12/E14 的畴壁输运/成像都以本文的 θc≈1° 重构图景为前提（非本文引用方向）💭I。
 
 ## 8. 对后续研究的影响
+- 给出 θc ≈ 1° 实践分界：mTBG 畴壁领域的结构基准 📜Q→💭I。
+- 把"扭角工程"升级为"扭角 + 重构（应变）+ 电场"三参数工程 💭I。
+- 建立从原子结构（TEM/SAED）→ 电子响应（输运/Hall/Landau）→ 理论（FEM/TB/连续模型）的闭环证据链 📜Q。
+- 提出低角区器件设计应优先考虑畴壁网络连通性 + D 场作拓扑网络开关 💭I。
 
-- 将"扭角工程"升级为**"扭角 + 重构 + 电场"三参数工程**
-- 给出 θ_c ≈ 1° 的实践分界 — **这是整个 mTBG 域壁领域不可绕过的基准**
-- 建立了从原子结构表征（TEM/SAED）到电子响应（输运/Hall/Landau）的闭环证据链
-- 对后续的启发：
-  1. 低角区器件设计应优先考虑域壁网络连通性
-  2. E 场可作"拓扑网络开关"
-  3. 关联态研究须纳入重构导致的带宽/能隙/DOS 峰形变化
-  4. 域壁网络为 valley/topological 器件提供结构模板
+## 9. 理论模型映射（供 tbplas / Kubo-Bastin 对照）
+| 映射 | 说明 |
+|------|------|
+| FEM 结构弛豫 | SVK 膜 + Helfrich 弯曲 + Kolmogorov-Crespi 层间势，L-BFGS；输出重构原子坐标 + 局域转角 θ_loc(r) 📜Q（Methods/SI S4） |
+| 能带 | supercell TB，参数 Fang & Kaxiras 2016（ref 41）+ Carr 2018（ref 42）📜Q |
+| DOS | ab initio 连续模型（ref 43 Massatt 2018）；FEM=Lehmann-Taut（ref 44）在 60×60 k 网格；**动量依赖应变场 + 层间耦合项**，θ<θc 时必须大 k 范围（少数傅里叶分量不够）📜Q |
+| 重构参数化 | 连续模型（ref 45 Carr 2018）+ GSFE 参数（ref 46 Zhou 2015）；SI S5 数学建模 GSFE 六重对称展开：$K=69518$、$G=47352$ meV/unit cell，$c_0=6.832, c_1=4.064, c_2=-0.374, c_3=-0.095$ meV/unit cell 📜Q |
+| $n_0=1/A$ | 密度归一（每 moiré 单胞 1 电子），满带 ±4；⚠️ 与 [PHY-EF] §5 的 $n_0=4/A_M$ 差 4 倍 |
+| $\theta\to\lambda\to A$ | $\lambda=a/[2\sin(\theta/2)]$、$A=(\sqrt3/2)\lambda^2$；侧峰/Hofstadter 标定用 |
+| $R_q=h/4e^2$ | 网络每 1D 通道量子电阻（顶点非相干混流假设）📜Q |
+
+> 与 TBPM/Kubo 对应：本文电子结构是**重构结构驱动的**——tbplas 若做 θ<θc 低角能带，须先输入 FEM 重构（或等效弛豫）原子坐标 + 动量依赖应变场，刚性旋转的简单连续模型在 θ<θc 失效（本文核心论点）💭I。输运层面 R(D) 饱和 / Hofstadter 减弱是**器件尺度的 1D 网络效应**，bulk σxx 只给 2D 背景，复现需有限器件 Landauer 计算（同 E10/E12 §9 注记）💭I。
 
 ---
 
-*初稿：2026-08-06 | 更新 §5b/§5c：2026-08-08 | 基于 pdftotext 全文(含SI)提取 + AI 精读分析*
+## Phase S 补充：三问框架（引用式）
 
----
+- **Q1（edge state 如何表征）**：结构侧——TEM 暗场像 + SAED 卫星峰强度 $e^{-\alpha\theta}$ 量化 AB/BA 畴重构与 θc；电子侧——θ=0.47° 双栅输运，D 开隙后 R(D) 饱和 ~R_q + Hofstadter 特征减弱 → 2D→1D 网络转变（边-体区分靠 D 轴对照三器件）——详见 §2.1/§2.4。
+- **Q2（理论如何复现）**：无新输运理论；FEM 结构弛豫 + ab initio TB/连续模型算能带/DOS，与实验 G(n)/Hall 变号对标——详见 §9。
+- **Q3（理论↔实验对应）**：θc≈1° 跨越 ↔ 卫星峰衰减 + 暗场畴形貌；secondary Dirac（n/n₀=0,±4,±8）↔ G 极小无隙 + Hall 变号；D 开隙 ↔ 1D 网络输运（R_q 饱和）↔ Hofstadter 减弱 📜Q。
 
-## Phase S 补充 (2026-08-11): Q1
+> **增量价值**：与 E9/E10/E12/E14 分工——本文是**结构地基**（θc≈1° + 重构原子图景 + α 度量），不测单畴壁相干输运（那是 E10/E12 的 AB/FP）、不做实空间电子谱（那是 E9/E13/E14 的 STM）。report.md §2 用其"结构基础"论断与 θc 判据，§3/§4 用其"θ<θc 连续模型失效"作理论谱系的上游约束。
 
-### Q1: edge state 实验上如何表征?
-TEM/SAED 揭示重构 AB/BA 畴区和孤子畴壁网络——结构基础。磁输运显示位移场打开 AB/BA 区域时从 2D 体输运到 1D 网络输运的转变。核心特征：常规 Hofstadter 特征减弱 + 畴壁主导输运出现。通过位移场依赖和 Landau fan 从 2D 到网络响应转变区分边缘 vs 体。
+## 反向核对 pass (2026-09-01)
+pdftotext 提取正文（8 页）+ SI（S1–S10）到 /tmp/e11.txt，逐项 grep：θc≈1°（正文 ✓，SI 记 ≤1°）、α=2.75±0.3 ✓、32/26 meV ✓、27/18 meV ✓、0.30/0.22 meV ✓、0.3–282 K / 2–280 K / 1.7 K ✓、n/n₀=0,±4,±8 ✓、5.4 T / 10.8 T ✓、29.7 / 29.8 nm ✓、±5.2×10¹¹ cm⁻² ✓、770 nm² ✓、6.4 kΩ ✓、1.6–13 kΩ ✓、θ=0.41/0.39/0.37/<0.37° ✓、2.8° ✓、±0.3° ✓、17.7 Hz / 10–30 nA / 200 μV ✓、80 kV / Jeol 2010F ✓、<5 nm hBN / <10 nm SiN ✓、60×60 k / Lehmann-Taut / Fang&Kaxiras / KC ✓、±0.13° / ~1.9° ✓、GSFE 系数（69518/47352/6.832/4.064/−0.374/−0.095）✓、D=(CtopVtop−CbotVbot)/2−D0 ✓、R_q=h/4e² ✓、15 K（Mott 激活界）✓。**修正**：① DOI 0347-y→0346-z（按 PDF）；② 删除无源 "畴边界宽 ~5 nm"（正文/SI 均无此数，grep 证实）；③ "STEM 原子分辨成像"→"TEM 暗场成像 + SAED"（论文用 TEM，DF 是 ~200 nm 域图非原子分辨）。
+
+## 更正日志
+| 日期 | 条目 |
+|------|------|
+| 2026-08-06 | 初读（旧 8 节格式 + §5b/5c 计算方法详解） |
+| 2026-08-08 | 更新 §5b（Hofstadter 2D→1D 跨越）/§5c（DOS/band 计算方法） |
+| 2026-08-19 | （卡片层）S-APP-A QC 更正：E11 "STEM"→"TEM"、"~5 nm" 无源（本 review 相应删除/修正） |
+| 2026-09-01 | **按 4 块辨识结构整体重写**：对齐 E12 canonical（TL;DR 问题句式 + 四层变量 + 判别表 + [前提与限定] + 三问接口 + 反向核对）；保留旧 §3/§5c 有效 📜Q（FEM/TB/连续模型/GSFE 细节移入 §3/§9）；删除无源数字（畴壁 ~5 nm）、更正 DOI（0346-z）、更正 STEM→TEM 表征描述；补 n₀=1/A vs [PHY-EF] n₀=4/A 的 4 倍约定差异注；不确定度标注轴启用（全文除 α=2.75±0.3 外均为 [~] 无误差棒） |

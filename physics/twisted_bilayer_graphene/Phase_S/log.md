@@ -2,10 +2,32 @@
  * @Author       : Yulong Wang
  * @Date         : 2026-08-19 17:01:52
  * @LastEditors  : Yulong Wang
- * @LastEditTime : 2026-08-29 04:20
+ * @LastEditTime : 2026-08-31 21:10
  * @FilePath     : /.agents/home/wyl/project/knowledge/physics/twisted_bilayer_graphene/Phase_S/log.md
  * @Description  : Phase S AI 执行日志（run-task 追加，最新在最前）
 -->
+<a id="ai-0831-E12-shared"></a>
+
+## AI: 0831_E12-shared - E12 三层分离整理（问题模板/答案讲义/论文事实）
+
+按用户确认的三层方案整理 E12：**问题模板 → 方法层；答案讲义 → 物理层；论文事实 → 纯 review**。
+
+**变更**:
+- 备份原 E12（531 行完整版）→ `archive/paper_review_E12_xu2019_natcommun.backup_20260831.md`。
+- 新建 `note/shared/`（跨论文共享知识）：
+  - `README.md`（索引 + 锚点约定 `[PHY-AB/SDH/MB/BERRY] [METHOD-Q]`）；
+  - `physics/01_ab_interference.md`（AB 双路径干涉/退相干 e^{-L/L_φ}/FFT 峰高/高通滤波）；
+  - `physics/02_sdh_landau.md`（SdH/朗道量子化/LK 因子/Landau fan/AB vs SdH 判别/三线签名）；
+  - `physics/03_miniband_network.md`（miniband 驻波/Δn=4/A 域计数/θ² 标度/M≈δ/ε/v_DW 提取/SI Note 5）；
+  - `physics/04_berry_vs_ab_phase.md`（AB 电磁相位 vs Berry/valley 相位 + chiral/helical 辨析）；
+  - `method/mechanism_questions.md`（机制溯源五问 + E12 疑问实例，反哺 15_case_study 的新维度）。
+- E12 review 重写为**纯 review**（531→约 180 行）：TL;DR 问题句式 + 判别表（引用 [PHY-*]）+ 三段结果与机制 + 数据表 + 三支柱论证 + Phase S 三问（引用式）；物理讲义全部剥离。
+- `note/index.md` 目录行补 `shared/`。
+
+**验证**: 共享包内容均源自 E12 备份中已核对的 📜Q/💭I 内容；E12 review 所有数字保留、仅删讲义重复；锚点交叉引用一致。
+
+---
+
 <a id="ai-0829-E12"></a>
 
 ## AI: 0829_E12 - S-Q1-E12 Xu 2019 系统辨识式重读

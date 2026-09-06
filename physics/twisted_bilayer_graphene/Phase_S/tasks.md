@@ -2,7 +2,7 @@
  * @Author       : Yulong Wang
  * @Date         : 2026-08-13 12:40:27
  * @LastEditors  : Yulong Wang
- * @LastEditTime : 2026-08-19 11:11:24
+ * @LastEditTime : 2026-09-01 17:02:46
  * @FilePath     : /.agents/home/wyl/project/knowledge/physics/twisted_bilayer_graphene/Phase_S/tasks.md
  * @Description  : Phase S2 执行任务单 — 精读 + 报告撰写
 -->
@@ -335,7 +335,7 @@
 
 ---
 
-### [ ] S-Q1-E13: Verbakel 2021 — 谷保护 FFT 证据
+### [x] S-Q1-E13: Verbakel 2021 — 谷保护 FFT 证据
 
 **父计划**: `Phase_S/plan.md#2.2`
 
@@ -344,12 +344,12 @@
 **目标**: 三问框架重读，确认 Q1 定论性证据
 
 **成功判据**:
-- [ ] review 中 FFT 谷保护论证与卡片一致
-- [ ] cards.md E13 卡片状态 → ✅
+- [x] review 中 FFT 谷保护论证与卡片一致
+- [x] cards.md E13 卡片状态 → ✅
 
 ---
 
-### [ ] S-Q1-E14: Zheng 2022 — 电子 Kagome 晶格
+### [x] S-Q1-E14: Zheng 2022 — 电子 Kagome 晶格
 
 **父计划**: `Phase_S/plan.md#2.2`
 
@@ -358,8 +358,8 @@
 **目标**: 精读补全，网络干涉产生 2D 超结构的证据链
 
 **成功判据**:
-- [ ] review 含 8 节模板，PLL/Kagome 论证完整
-- [ ] cards.md E14 卡片状态 → ✅
+- [x] review 含 8 节模板，PLL/Kagome 论证完整
+- [x] cards.md E14 卡片状态 → ✅
 
 ---
 

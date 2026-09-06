@@ -1,378 +1,285 @@
 <!--
  * @Author       : Yulong Wang
- * @Date         : 2026-07-15
+ * @Date         : 2026-07-15（初读）→ 2026-07-16（基于原文 PDF 重写）→ 2026-09-01（按 4 块新架构系统辨识式重读）
  * @LastEditors  : Yulong Wang
- * @LastEditTime : 2026-07-16
- * @FilePath     : /project/knowledge/physics/note/experiments/paper_review_E01_ju2015_nature.md
- * @Description  : Ju et al. (2015) Nature 精读报告 — 双层石墨烯畴壁拓扑谷输运的首次实验验证（基于原文 PDF 重写）
+ * @LastEditTime : 2026-09-01
+ * @FilePath     : /home/wyl/project/knowledge/physics/twisted_bilayer_graphene/note/experiments/paper_review_E01_ju2015_nature.md
+ * @Description  : E1: Ju et al. 2015 Nature — 双层石墨烯畴壁拓扑谷输运的首次实验验证（纯 review：通用物理锚点引用 note/shared/physics/）
 -->
 
-# 论文精读：Ju et al., Nature 520, 650 (2015)
+# Paper Review: Ju et al. (2015) — 双层石墨烯畴壁拓扑谷输运的首次实验验证
 
-> **Long Ju\*, Zhiwen Shi\*, Nityan Nair, Yinchuan Lv, Chenhao Jin, Jairo Velasco Jr, Claudia Ojeda-Aristizabal, Hans A. Bechtel, Michael C. Martin, Alex Zettl, James Analytis, Feng Wang** (\*equal contribution)
-> "Topological valley transport at bilayer graphene domain walls"
-> Nature **520**, 650–655 (2015) | 正文 6 页 + Methods + Extended Data
+| 字段 | 内容 |
+|------|------|
+| **编号** | E1 |
+| **标题** | Topological valley transport at bilayer graphene domain walls |
+| **作者** | Long Ju\*, Zhiwen Shi\*, Nityan Nair, Yinchuan Lv, Chenhao Jin, Jairo Velasco Jr, Claudia Ojeda-Aristizabal, Hans A. Bechtel, Michael C. Martin, Alex Zettl, James Analytis, Feng Wang（\*equal contribution） |
+| **期刊** | Nature **520**, 650–655 (2015)（Letter，正文 6 页 + Methods + Extended Data Fig. 1–3） |
+| **DOI / arXiv** | [10.1038/nature14364](https://doi.org/10.1038/nature14364) / 无（Nature 出版，发表前无公开 preprint） |
+| **类型** | 实验 — 近场红外纳米成像（s-SNOM）+ 双栅低温输运 |
+| **课题组** | Feng Wang group（UC Berkeley）+ LBNL Advanced Light Source |
+| **PDF / SI PDF** | ✅ reference/pdfs/Ju 等 - 2015 - Topological valley transport at bilayer graphene domain walls.pdf（无独立 SI，Methods + Extended Data 含于正文 PDF） |
+| **精读日期** | 2026-07-15（初读）→ 2026-07-16（重写）→ 2026-09-01（按 4 块新架构系统辨识式重读） |
+
+> **共享知识引用**：通用物理（双栅静电学、Berry/valley 相位、谷内 vs 谷间散射、Landauer-Büttiker 输运公式）已剥离到 `note/shared/physics/`，用锚点 `[PHY-GATE] [PHY-BERRY] [PHY-QPI] [PHY-LB]` 引用，不重复讲义。阅读疑问见 `note/shared/method/mechanism_questions.md` `[METHOD-Q]`。
+
+---
+
+## TL;DR
+
+**本文想解决的问题**：机械剥离双层石墨烯（BLG）在 SiO₂/Si 衬底上是否存在 AB/BA 堆叠畴壁？畴壁在位移场 D 打开体带隙后是否承载拓扑保护的谷极化一维导电通道？
+
+**主结果**：① **s-SNOM 首次在器件衬底上直接可视化 AB/BA 畴壁**（~30% 的双层样品有，单层无，三层为 ABA/ABC 畴壁）📜Q；② **输运：D 开隙后畴壁器件 CNP 电阻饱和于 ~14 kΩ，而体绝缘（无 DW 参考 >80 kΩ、~90 kΩ）**——导电在墙不在体 📜Q；③ **长度依赖电导用 Landauer–Büttiker 公式拟合出平均自由程 L0 = 420 nm（摘要称 ballistic length ~400 nm，4 K），最短 200 nm 通道电导接近 4e²/h**（= 2 谷 × 2 自旋 4 通道的理想电导）📜Q；④ **畴壁电阻金属性温度依赖（1.8→50 K 仅增 <50%），体绝缘（增 2.5×）** 📜Q。
+
+**结论/意义**：首次实验证明 AB/BA 畴壁承载拓扑保护的谷极化一维弹道通道（velocity-valley locking 禁止谷内背散射）📜Q。注意作者措辞强度："demonstrate … for the first time"（摘要）/"results demonstrate unambiguously that one-dimensional conducting channels are present"（正文），但对谷极化的直接认定是间接论证（无直接 valley 测量，见 §6）💭I。
+
+---
+
+## 1. 系统辨识导览（判别表为全文唯一权威，机制细节见 [PHY-*]）
+
+**黑箱三要素**：`{输入旋钮 Vtg/Vbg/T | 输出观测量 红外近场像 + R(D,T,L) | 声称结论 畴壁承载拓扑保护的谷极化 1D 弹道通道}`
+
+**四层变量图**（符号层一次钉死）：
+
+| 层 | Ju 2015 实例 |
+|----|-------------|
+| **L1 旋钮 u** | $V_{tg}$（顶栅 TG1/TG2）、$V_{bg}$（Si 底栅）、$T$（1.8–50 K） |
+| **L2 导出量 x₁** | $D$（平均位移场，$D=\tfrac12(D_b+D_t)$，见 §3.2）、能隙 $\Delta(D)$（随 $D$ 单调增） |
+| **L3 模型量 x₂** | 畴壁 1D 通道数（4 = 2 谷 × 2 自旋）、理想电导 $4e^2/h$、色散 K/K′ 反向传播 |
+| **固定参数（非旋钮）** | SiO₂ 280 nm / Al₂O₃ 35 nm 介质、畴壁位置（样品制备决定）、畴壁宽度 ~几 nm（TEM 文献值） |
+| **反推量 θ̂** | 平均自由程 $L_0$（从 $G(L)$ 拟合）、接触电阻 $R_c$（拟合 = 0） |
+| **L4 观测量 y** | 红外近场像（对比度）、两探针电阻 $R(V_{tg},V_{bg})$、$R(T)$、电导 $G(L)$ |
+
+**可辨识性判别表**（唯一权威）：
+
+| 判别 | 判据（数据） | 排除谁 | 确立谁 |
+|------|-------------|--------|--------|
+| **亮线 = 堆叠畴壁** | 亮线只在双层/三层内部出现（单层内部无）；形貌图（AFM）无对应起伏（排除污染/折叠）；三层中亮线分隔不同对比度畴区且拉曼确认 ABA/ABC 📜Q | 表面污染、石墨烯折叠、等离激元（只沿边缘） | 亮线 = 层堆叠畴壁（AB/BA） |
+| **导电在墙不在体** | D 开隙：无 DW 参考 CNP 电阻单调增至 >80 kΩ/~90 kΩ，有 DW 器件饱和于 ~14 kΩ（5 对器件一致；双 DW 器件 ~8 kΩ ≈ 减半）📜Q | 体 2D 导电（体已开隙绝缘） | 导电通路在畴壁（1D 通道**存在**，必要条件） |
+| **1D 弹道 + 量子化** | $G(L)$ 用 Landauer–Büttiker 公式（1D）拟合，$L_0=420$ nm；最短 200 nm 通道接近 $4e^2/h$（4 通道量子化极限）📜Q | 扩散型（非弹道）2D 输运 | 准弹道 1D 输运，4 通道 |
+| **拓扑保护 / 谷锁定** | DW 平均自由程 420 nm ≫ 体 BLG 的 ~8 nm（1D 一般散射更强 → 更长 MFP 反证保护）；谷间散射需大动量 $4\pi/(3\sqrt3 a_{c\text{-}c})$，smooth DW 中禁戒；能带计算 K/K′ 反色散 📜Q | 普通（非拓扑）1D 缺陷/无序束缚态 | 拓扑保护的谷极化手征通道（velocity-valley locking） |
+
+> **主结果 ↔ 判别表的对应**（每条主结果由哪几条判别确立）：
+> - 主结果① s-SNOM 可视化畴壁 ← {亮线 = 堆叠畴壁}
+> - 主结果② 导电在墙（~14 kΩ 饱和 vs 体绝缘）← {导电在墙不在体}
+> - 主结果③ L0 = 420 nm + 200 nm 接近 4e²/h ← {1D 弹道 + 量子化}
+> - 主结果④ 金属性温度依赖 + 谷极化认定 ← {拓扑保护 / 谷锁定}
 >
-> 作者单位：UC Berkeley（F. Wang 组）+ LBNL Advanced Light Source
+> **分层排除，非一步证成**：①「亮线=畴壁」先证畴壁**存在**（光学层）；②「导电在墙」证导电通路在畴壁**不在体**（输运层，必要条件）；③「1D 弹道+量子化」证通道是**准弹道 1D + 4 通道**；④「拓扑/谷锁定」证**保护机制**（间接：MFP 对比 + 谷间散射动量 + 能带计算）。作者对第 ④ 步的措辞是"results demonstrate unambiguously that one-dimensional conducting channels are present"（证的是**通道存在**，不是谷极化本身）📜Q——谷极化的直接证据本文**没有**（无 valley filter/非局域测量），velocity-valley locking 是间接论证 💭I。
+
+> **[前提与限定]**（判别结论的适用范围）：
+> - **噪声/扰动**：SiO₂ 衬底无序（体迁移率 ~2000 cm²/V·s、体 MFP ~8 nm）📜Q；杂质/缺陷使 CNP 电阻低于理想带隙预期（作者自陈 "presumably owing to impurities and defects"）📜Q；两探针测量，接触电阻以 $R_c=0$ 拟合吞并 💭I。
+> - **判别性扫轴**：扫 $V_{tg}$（连续）@ 固定 $V_{bg}$（0→140 V，步长 10 V）；$D$ 轴 0–2 V/nm（Fig. 4a）；长度轴 200/400/600/800/1000 nm；温度轴 1.8–50 K。**无磁场轴**（未测 $B\neq0$，QH 区域完全未探索）💭I。
+> - **候选集 M 边界**：{表面污染/折叠, 等离激元, 体 2D 导电, 扩散输运, 普通非拓扑 1D 束缚态} —— "拓扑谷极化手征通道"在**论文枚举的**该集合内唯一幸存；集外候选（如非谷锁定的拓扑平凡 1D 态、其他拓扑分类）原文未讨论；且**谷极化本身无直接测量**（属间接论证，封闭世界假设风险）💭I。
+
+> **⚠️ 证据强度分层（确立 vs 解释——为什么"拓扑保护"未被实验证明）**：本文 "unambiguously demonstrate" 的只是"1D 通道**存在**"（正文 line 268 📜Q），对"拓扑保护"用的是 "**highlights**"（line 357 📜Q）；摘要 "demonstrate topologically protected transport" 是摘要层过度宣称 💭I。三层证据链：
+> - **实测**：$R(D)$ 饱和、$G(L)$、金属性 $R(T)$、$L_0=420$ nm；
+> - **确立（实验证到的上限）**：畴壁有 1D 导电通道、体开隙后仍导电、准弹道、~$4e^2/h$、稳健；
+> - **解释（从理论进口）**："拓扑保护""谷极化"来自 refs 11–13（Martin/Zhang/Vaezi），**非本实验测量**。
 >
-> **DOI**: [10.1038/nature14364](https://doi.org/10.1038/nature14364)
-> **arXiv**: 无（Nature 论文，发表前无公开 preprint）
-> **Zotero Key**: `IV7DIBD2` → `cmd.exe /c start "zotero://select/items/IV7DIBD2"`
+> **长自由程 = 肯定后件谬误**：拓扑 ⇒ 无背散射 ⇒ 长自由程（$P\Rightarrow Q$），观测 $Q$ 推不出 $P$；且 $Q$ 有平凡竞争解释（畴壁局域势更干净 / 费米速度·态密度不同）——**稳健 ≠ 拓扑** 💭I。逐条证据能否区分"拓扑 vs 非拓扑"：
+>
+> | 证据 | 确立什么 | 区分拓扑/非拓扑 |
+> |---|---|---|
+> | $R(D)$ 饱和 ~14 kΩ | 墙上有导电通路 | ❌ 非拓扑隙内束缚态也导电 |
+> | $G(L)$ 外推 $4e^2/h$ | 1D、4 通道 | ❌ 只给总数；非拓扑势阱可恰有 4 子带 |
+> | 金属性 $R(T)$ | 无隙通道 | ❌ 无隙 ≠ 拓扑 |
+> | $L_0=420$ nm ≫ 体 8 nm | 稳健 | ⚠️ 拓扑预测它，但稳健 ≠ 拓扑 |
+> | 能带 K/K′ 反色散 + 谷陈数 + 动量 | **理论**预言拓扑 | 是理论（refs 11–13），非测量 |
+>
+> 结论：**无一条实测证据能独立区分"拓扑谷极化态"与"普通无隙 1D 束缚态"**；"拓扑保护"是理论认定 + 一致性（必要但不充分），从未被实验测出。直接证据（谷极化非局域信号 / 抗局域化量子化 / 体-边对应检验）由 E2 Shimazaki 2015、E6 Jiang 2017、E13 Verbakel 2021 等后续工作逐步补上 💭I。通用证据阶梯（①存在性→②形态一致→③谷保护→④抗无序+量化）已提升到 `[PHY-BERRY]`「如何证明拓扑保护」节——本文是 ①+② 的 worked example。
 
-> **来源声明**：本笔记基于 `Ju 等 - 2015 - Topological valley transport at bilayer graphene domain walls.pdf` 全文（pdftotext 提取，Nature 出版版本，10 页含 Methods 和 Extended Data）。数据可靠。
-
----
-
-## 1. 一句话总结
-
-**首次实验验证**了双层石墨烯中 AB/BA 堆叠畴壁承载拓扑保护的谷极化一维导电通道。两套互补探针：（1）s-SNOM 红外近场成像直接可视化畴壁；（2）**双栅电学输运测量**——发现畴壁通道电阻在体带隙打开后饱和于 ~14 kΩ，弹道长度 $L_0 \approx 420$ nm（4 K），200 nm 通道电导接近 $4e^2/h$。畴壁表现出金属性温度依赖（$R$ 基本不随 $T$ 变），与体 BLG 的绝缘行为形成鲜明对比。
-
----
-
-## 2. 背景与动机
-
-### 2.1 2015 年的领域状态
-
-- 理论预言双层石墨烯的 AB/BA 堆叠畴壁处存在拓扑保护的谷极化一维通道（Martin et al. PRL 2008 提出静电壁方案；Zhang et al. PRB 2011 / Qiao et al. Nano Lett. 2011 提出结构堆叠壁方案）
-- 透射电镜（TEM）已看到悬浮 BLG 中存在 ~几 nm 宽的 AB-BA 畴壁（Alden et al. 2013, Lin et al. 2013），但悬浮样品无法做栅控输运
-- **核心空白**：没有人（1）在器件衬底上找到畴壁，（2）测量其电学输运，（3）证明谷极化
-
-### 2.2 本文填补的所有空白
-
-| 问题 | 本文的回答 |
-|---|---|
-| 机械剥离 BLG 在 SiO₂/Si 上是否有畴壁？ | ✅ ~30% 的双层样品有，s-SNOM 直接成像 |
-| 畴壁是否导电？ | ✅ 电阻饱和于 ~14 kΩ（体绝缘后） |
-| 导电通道的弹道长度？ | ✅ $L_0 \approx 420$ nm（4 K） |
-| 是否达到量子电导？ | ✅ 200 nm 通道接近 $4e^2/h$ |
-| 畴壁 vs 体 BLG 的温度依赖？ | ✅ 畴壁金属性，体绝缘性 |
+三层标注：📜Q = 原文事实（附位置）｜推导 = 由原文公式合成｜📊F = 读图估算｜💭I = 推断。**不确定度（正交轴）**：[±] 原文误差棒 / [~] 原文无误差棒（=/≈ 给出）/ [读图] 图·色标提取 / [相对] 仅相对量。所有数字经 pdftotext + grep 反向核对。
 
 ---
 
-## 3. 方法与体系
+## 2. 结果与机制（按论文自身论证结构：成像 → 墙/体输运 → 长度依赖 → 谷锁定 → 温度依赖）
 
-### 3.1 样品制备
+### 2.1 s-SNOM 成像：亮线 = 层堆叠畴壁（Fig. 1–2）
 
-| 参数 | 值 |
-|---|---|
-| 材料 | 机械剥离少层石墨烯于 280 nm SiO₂/Si |
-| 畴壁鉴定 | s-SNOM 红外成像（中红外 6.1 μm，空间分辨 ~40 nm） |
-| 畴壁出现率 | ~30% 的双层样品 |
-| 介质 | 35 nm ALD Al₂O₃ 顶栅介质 |
-| 栅极 | Si 底栅 + Au 顶栅（双栅独立调控 $D$ 和 $n$） |
-| 电极 | 40 nm Au / 0.5 nm Cr，EBL 定义 |
+s-SNOM 用 6.1 μm 红外光聚焦到金属镀膜 AFM 针尖（曲率半径 r < 25 nm），散射光由远场 HgCdTe 探测器收集，空间分辨 ~40 nm 📜Q。AB 与 BA 堆叠互为镜面对称 → 电子结构和红外吸收**完全相同**，畴区对比度均匀；畴壁局域能带强烈重构 → 红外对比不同 📜Q。
 
-### 3.2 双探针互补策略
+**畴壁为何是亮线**（Methods）：畴壁区可近似为"随机堆叠双层"= 两个随机堆叠单层 → 红外电导率 ≈ $2\sigma_{\text{monolayer}}$；在 6.1 μm 处 $2\sigma_{\text{monolayer}}$ 比 AB 双层 $\sigma_{\text{bilayer}}$ 高 ~20% → 亮线 📜Q[~]。
 
-| 探针 | 信息 | 空间分辨 |
-|---|---|---|
-| **s-SNOM**（Fig. 1–2） | 畴壁位置 + 红外响应 | ~40 nm |
-| **电学输运**（Fig. 3–4） | $R(D, T)$ + 弹道长度 | 通道长度 200–1000 nm |
+**排除污染/折叠/等离激元的判别**：AFM 形貌中亮线处无对应起伏（双层 step ~1 nm，片内高度起伏 <0.2 nm）→ 排除表面污染或石墨烯折叠 📜Q；单层内部永无亮线（只有沿边缘的平行亮线 = 等离激元）→ 畴壁是双层特有的唯一 1D 结构 📜Q。
 
-### 3.3 s-SNOM 对比度机制
+**跨层数验证**：单层内部无结构边界（均匀）；~30% 双层样品有内部亮线；三层中亮线分隔**不同对比度**畴区（ABA/ABC 堆叠结构不同）→ 微拉曼确认 domain I = ABC、domain II = ABA → "unambiguously" 证明三层亮线是堆叠畴壁，支撑双层归属 📜Q。
 
-- AB 和 BA 堆叠有相同的电子结构和红外吸收 → 畴区内对比度均匀
-- 畴壁可近似为"随机堆叠双层" → 局域红外电导率 $\approx 2\sigma_{\text{monolayer}}$，比 $\sigma_{\text{bilayer}}$ 高 ~20% → **亮线**
+### 2.2 输运：墙/体判别的饱和电阻（Fig. 3, Extended Data Fig. 1）
 
-### 3.4 器件布局（关键！）
+双栅 FET 器件：电极 1–2、2–3 由畴壁连接，3–4、4–5 在单畴内作参考（Fig. 3a）📜Q。
 
-```
-电极 1 ──DW── 电极 2 ──DW── 电极 3
-                 │
-            (单畴 BLG 参考)
-                 │
-              电极 4 ──(无 DW)── 电极 5
-```
+- **无 DW 参考（体）**：每 trace 是固定 $V_{bg}$（步长 10 V）扫 $V_{tg}$ 的 $R$，峰值 = CNP（费米能级在带隙内）。零带隙在 $V_{bg0}=0$ V、$V_{tg0}=1.8$ V。$D$ 增大 → CNP 电阻**单调增**，至 >80 kΩ（Fig. 3c caption）、~90 kΩ（4.2 K）📜Q[~]。实验值低于理想带隙预期，作者归因于杂质/缺陷 📜Q。
+- **有 DW**：小带隙（紫 trace）时与单畴行为相似（体电流主导）；大 $D$ 时 CNP 电阻先增后**饱和于 ~14 kΩ**（红 trace），与参考的单调增长"striking contrast" 📜Q。Fig. 4a 直接对比两器件 CNP 电阻 vs $D$：DW（红圈）饱和值远低于 NDW（黑方）📜Q。
+- **多器件鲁棒性**：5 对器件（固定通道长 1 μm）全部一致——3 个单 DW 器件饱和 ~14 kΩ，1 个双 DW 器件饱和 ~8 kΩ（≈ 减半 = 两墙并联），4 个无边界参考持续增长 📜Q（Methods + ED Fig. 1）。
 
-- 电极 2–3：单条 DW 通道（主测量）
-- 电极 3–4 和 4–5：同片上的无 DW 参考器件
-- 顶栅 TG1/TG2 宽 1 μm 定义通道长度
-- 另外 4 对额外器件（Extended Data Fig. 1），含一个双 DW 器件
+**机制**：体带隙打开 → 畴区绝缘 → 电流改走畴壁的 1D 通道，故电阻被 1D 通道钳制在有限值 📜Q。
 
----
+### 2.3 长度依赖与量子化电导（Fig. 4a–b）
 
-## 4. 核心结果
+同一畴壁上制造不同通道长度（由顶栅宽度定义）：两批 200/400/600/800 nm + 另一批 1000 nm 📜Q。全部电导为电导量子量级（电导量子取 $2e^2/h$，含自旋），最短通道接近 $4e^2/h$ 📜Q。
 
-### 4.1 s-SNOM 畴壁成像（Fig. 1–2）
+**测/推/拟合分工（谁测谁推）**：
 
-- **单层石墨烯**：内部永远均匀，无边界的亮线 → 畴壁仅存在于 ≥ 双层
-- **双层石墨烯**：~30% 样品有内部亮线 → AB-BA 畴壁
-- **三层石墨烯**：亮线分隔不同对比度的畴区 → 不同堆叠（ABA vs ABC）→ 拉曼确认
-- 畴壁宽度：s-SNOM 分辨率限制（~40 nm），实际畴壁宽度 ~几 nm（TEM 文献值）
+| 量 | 身份 | 说明 |
+|----|------|------|
+| $R$ | **实测** | 两探针 $V/I$（Fig. 3 画 $R$，含接触电阻）📜Q |
+| $G$ | **推导** | $G=1/R$（Fig. 4b 画 $G$，单位 $4e^2/h$） |
+| $L$ | **设计量（非测非推）** | 顶栅宽度（光刻定义），长度依赖实验的已知横轴 200–1000 nm 📜Q |
+| $L_0$、$R_c$ | **拟合参数** | 从 $G(L)$ 用 LB 公式拟合提取（$L_0=420$ nm、$R_c=0$） |
 
-### 4.2 输运：畴壁 vs 无畴壁的鲜明对比（Fig. 3–4）
+**Landauer–Büttiker 拟合**（通用推导与使用条件见 [PHY-LB]）：
 
-| | 无 DW 参考器件 | 有 DW 器件 | 双 DW 器件 |
-|---|---|---|---|
-| CNP 电阻行为 | **单调增长**至 > 80 kΩ | **饱和**于 ~14 kΩ | 饱和于 ~8 kΩ |
-| 物理 | 体带隙增大 → 绝缘 | DW 通道分流 → 电阻上限 | 两条 DW 并联 → 更低 |
-| 温度依赖 (1.8→50 K) | $R$ 增加 2.5×（绝缘） | $R$ 仅增 < 50%（金属） | — |
+$$G \approx \left[R_c + R_0\left(1+\frac{L}{L_0}\right)\right]^{-1},\quad R_0=\frac{h}{4e^2}\ (\approx6.45\ \text{kΩ}),\ R_c=0,\ L_0=420\ \text{nm}$$
 
-**5 对器件全部一致**（Extended Data Fig. 1）——畴壁导电是鲁棒的。
+结果 $L_0=420$ nm（Fig. 4b 实线）；摘要称"ballistic length of about 400 nanometres at 4 kelvin" 📜Q[~]。自检：$L=1000$ nm 代入 $G=(4e^2/h)\cdot420/1420\approx0.30\,(4e^2/h)$，与 Fig. 4b 数据一致（推导）。**注意**：① 本文的 "ballistic" 实指平均自由程 420 nm（准弹道），非全弹道；200 nm 通道接近 $4e^2/h$ 才是接近弹道极限的体现 💭I；② $R_c=0$ 是两探针假设（接触电阻无法独立分离，由最短通道接近 $4e^2/h$ 佐证接触基本透明）💭I。
 
-### 4.3 弹道长度与量子电导（Fig. 4b）
+**通道计数**（Fig. 4d caption + 正文）：同一电流方向有 2 条手征模式，每条自旋二重简并 → 共 4 条一维通道 → 理想电导 $4e^2/h$ = 两个电导量子（电导量子 = $2e^2/h$）📜Q。⚠️ 正文另写 "confine a pair of one-dimensional conducting channels along the boundary **for each valley**"，"每谷一对"是松表述，正确读法 = **每谷 1 条**（共 {K, K′} 一对，反向传播）× 2 自旋 = 4 条（Fig. 4c 也只画 K、K′ 各一条线，非各两条）📜Q。
 
-测量同一畴壁上不同长度（200, 400, 600, 800 nm + 另一批 1000 nm）的通道电导：
+> **⚠️ 4e²/h 只给通道"总数"，不给"谷/自旋分解"**：$4e^2/h=N\cdot e^2/h$ 只能推出 $N=4$ 条自旋分辨通道（或 2 条自旋简并模式），**推不出**这 4 条是"2 谷 × 2 自旋"还是别的分解。"2 谷 × 2 自旋"来自额外输入：时间反演对称（反向传播 K/K′ 互为 Kramers 对）+ 能带（Fig. 4c 反色散）+ 谷陈数（AB/BA 谷陈数相反）。换言之 $4e^2/h$ 证实"4 条通道"，但"这 4 条是谷极化通道"是另一个（本文未直接测量的）论断 💭I——通道计数与量子化逻辑见 [PHY-LB] §2。
 
-Landauer-Büttiker 拟合：
+### 2.4 谷-动量锁定与拓扑保护论证（Fig. 4c–d）
 
-$$G = \left(R_c + R_0\left(1 + \frac{L}{L_0}\right)\right)^{-1}, \quad R_0 = \frac{h}{4e^2}$$
+- **能带**：K 与 K′ 谷的畴壁态色散相反 → 反向传播（velocity-valley locking）📜Q。AB 与 BA 畴是谷 Chern 数相反的两个 QVH 绝缘体，畴壁束缚每谷一对 1D 通道 📜Q。
+- **谷间散射禁戒**：谷间散射需大动量 $4\pi/(3\sqrt3\,a_{c\text{-}c})$（$a_{c\text{-}c}=1.42$ Å）；在晶格平滑无原子缺陷的畴壁上此散射**缺位** 📜Q。
+- **MFP 对比（拓扑保护的定量证据）**：DW 平均自由程 420 nm，"orders of magnitude" 长于体 BLG（迁移率 ~2000 cm²/V·s、MFP ~8 nm）📜Q。作者论证：1D 中散射/局域化一般**更强**，畴壁反而更长 MFP → 正是 velocity-valley locking 禁止谷内背散射的拓扑保护体现 📜Q。⚠️ **逻辑边界**：长自由程 ≠ 证明"无谷间散射"——论文原话是 420 nm "can arise from a **finite** inter-valley scattering" 📜Q，即 420 nm 本身就是**有限谷间散射长度的量度**（若谷间散射真为零，自由程应无穷）。此处证明的是谷间散射被**压制（suppressed）而非消除**；且长自由程也可有平凡解释（畴壁局域势更干净、费米速度/态密度不同），属间接证据而非逻辑证明 💭I。
+- **自洽性**：420 nm 与文献中 BLG 在 SiO₂/Si 上的谷间散射长度 300–800 nm（ref 29, Gorbachev et al. PRL 2007）一致 📜Q[~]。
+- **展望**：hBN 封装（ref 30）可望获得极长相干长度 📜Q。
 
-结果：**$L_0 = 420$ nm, $R_c = 0$**（4 K）
+### 2.5 温度依赖：金属性 vs 绝缘性（Extended Data Fig. 3）
 
-- **200 nm 通道电导接近 $4e^2/h$** ← 弹道极限！
-- 所有通道电导在 $e^2/h$ 量级
-
-### 4.4 谷-动量锁定的物理图像（Fig. 4c–d）
-
-- 能带计算：$K$ 和 $K'$ 谷的畴壁态具有**相反的色散** → $K$ 谷态沿 $+x$、$K'$ 谷态沿 $-x$ 传播
-- 每个谷 2 个自旋简并模式 → 共 4 个一维通道 → 理想电导 $4e^2/h$
-- 谷间散射需要 $\Delta k = 4\pi/(3\sqrt{3}a_{c-c})$ 的大动量转移 → 在 smooth DW 中被压制
-- 实测 $L_0 = 420$ nm 与文献中 BLG 在 SiO₂ 上的谷间散射长度 300–800 nm 一致（Gorbachev et al. PRL 2007）
+CNP 电阻（$V_{bg}=-140$ V）从 50 K 降到 1.8 K：无 DW 体器件增 >300 kΩ（≈2.5×，绝缘）；有 DW 器件仅增 5 kΩ（<50%，其中一部分来自与 1D 通道并联的体通道贡献），弱温度依赖 = 金属性 1D 通道 📜Q[~]。
 
 ---
 
-## 5. 与其他工作的关系
+## 3. 实验方法
 
-### 5.1 在三篇单 LSW 实验中的奠基地位
+### 3.1 器件
+少层石墨烯机械剥离于 280 nm SiO₂/Si；双栅 FET 跨畴壁制造 + 同片无 DW 参考；电极 40 nm Au / 0.5 nm Cr（EBL）；35 nm ALD Al₂O₃ 顶栅介质；顶栅 TG1/TG2 宽 1 μm（主器件）；Si 衬底作底栅 📜Q。s-SNOM 用 6.1 μm 红外、针尖 r < 25 nm、空间分辨 ~40 nm 📜Q。
 
-| | Ju 2015 | Li 2016 | Mania 2019 |
-|---|---|---|---|
-| DW 类型 | **结构 AB/BA** | 静电 $V{=}0$ 线 | 折叠结构 |
-| 探针 | s-SNOM **+ 电学** | 电学 | 电学 |
-| 零场弹道长度 | **420 nm** | 70–200 nm | **~20 μm** |
-| 零场量子电导 | 接近（200 nm 通道） | 否（需 8T） | **是（$R \approx h/4e^2$）** |
-| 关键局限 | SiO₂ 衬底（迁移率低） | 宽结引入非手征态 | 折叠随机不可扩展 |
+### 3.2 静电学（推导见 [PHY-GATE]，本文数值在此）
+平均位移场（ref 5 定义）：
+$$D=\tfrac12(D_b+D_t),\qquad D_b\approx \varepsilon_{\mathrm{SiO_2}}\frac{V_{bg}-V_{bg0}}{d_{\mathrm{SiO_2}}},\quad D_t\approx \varepsilon_{\mathrm{Al_2O_3}}\frac{V_{tg}-V_{tg0}}{d_{\mathrm{Al_2O_3}}}$$
+零带隙态在 $V_{bg0}=0$ V、$V_{tg0}=1.8$ V（最低峰值电阻）📜Q。$V_{tg}$、$V_{bg}$ 独立调控上下电场 → 可调带隙；带隙随 $D$ 单调增 📜Q。⚠️ OCR 中系数渲染为 "K"（取"平均"的标准 $\tfrac12$ 定义）；$D_b/D_t$ 用 "~" 表近似 📜Q。
 
-> **重要纠正**：Ju 2015 **确实测量了电学输运**！$R(D)$ 饱和、$L_0 = 420$ nm、接近 $4e^2/h$ 的电导——这些是货真价实的单 LSW 输运测量。之前基于 registry 概要将 Ju 2015 归为"纯光学探针"是不准确的。
-
-### 5.2 Ju 2015 输运 vs Li 2016 输运的本质区别
-
-| 维度 | Ju 2015 | Li 2016 |
-|---|---|---|
-| DW 类型 | 天然结构 AB/BA 边界 | 栅控静电 $V{=}0$ 线 |
-| DW 锐度 | **~几 nm**（smooth shear soliton） | **~70–110 nm**（栅极间距限制） |
-| 器件衬底 | SiO₂/Si | **hBN 封装** |
-| 迁移率 | 低（SiO₂） | **高**（10⁵ cm²/Vs） |
-| 弹道长度 | **420 nm** | 70–200 nm |
-| 为什么 Ju 2015 反而更好？ | SiO₂ 上但 DW 锐利 | hBN 上但 DW 宽（非手征态引入背散射） |
-
-这暗示：**DW 锐度比衬底质量对弹道输运更重要**——Mania 2019（原子级 sharp 折叠 DW + hBN）给出 $L_{MFP} \sim 20$ μm 也支持这一结论。
+### 3.3 测量
+输运：两探针 $R(V_{tg},V_{bg})$（4 K 主数据、4.2 K 多器件、1.8–50 K 温度依赖）；长度依赖测电导 $G(L)$。无磁场数据。光学：s-SNOM 红外近场成像（振幅/相位）+ 微拉曼（三层堆叠序确认）📜Q。无特殊去背景预处理（直接读 CNP 峰值电阻，Fig. 4a）。
 
 ---
 
-## 6. 亮点与局限
+## 4. 关键数据（提取链 + 验证链 + 不确定度标注）
 
-### 亮点
+### 4.1 光学成像
+| 参数 | 值 | 等级 |
+|------|-----|------|
+| 红外波长 | 6.1 μm（中红外） | 📜Q[~] |
+| 空间分辨 / 针尖曲率 | ~40 nm / r < 25 nm | 📜Q[~] |
+| 双层 DW 出现率 | ~30% | 📜Q[~] |
+| 双层厚度 / 片内起伏 | step ~1 nm / <0.2 nm | 📜Q[~] |
+| 畴壁红外电导增强 | $2\sigma_\mathrm{mono}$ 比 $\sigma_\mathrm{bi}$ 高 ~20% | 📜Q[~] |
+| 三层畴壁堆叠 | ABC（domain I）/ ABA（domain II），拉曼确认 | 📜Q |
 
-1. **首次全方位验证**：s-SNOM 定位 + 电学输运 + 温度依赖 + 长度依赖 + 栅控——一套完整证据链
-2. **电学量子输运**：200 nm 通道接近 $4e^2/h$，$L_0 = 420$ nm——首个 DW 弹道输运实验
-3. **双 DW 器件**：电阻减半（~8 kΩ vs ~14 kΩ）→ 证明 DW 通道可并联
-4. **金属性温度依赖**：DW 通道 $R(T)$ 近乎平坦，与体 BLG 绝缘行为鲜明对比
-5. **s-SNOM 对比度机制清晰**：DW ≈ 随机堆叠 → $2\sigma_{\text{monolayer}}$ 的红外响应
-6. **三层畴壁的附带发现**：ABA/ABC 堆叠畴壁也可见，且拉曼可区分
+### 4.2 输运（4 K 主器件 + 4.2 K 多器件）
+| 参数 | 值 | 等级 |
+|------|-----|------|
+| 零带隙栅压 | $V_{bg0}=0$ V, $V_{tg0}=1.8$ V | 📜Q |
+| 单 DW 饱和电阻 | ~14 kΩ（4.2 K） | 📜Q[~] |
+| 双 DW 饱和电阻 | ~8 kΩ（≈ 单墙之半） | 📜Q[~] |
+| 无 DW 参考 CNP 电阻 | >80 kΩ（Fig. 3c）/~90 kΩ（4.2 K） | 📜Q[~] |
+| 平均自由程 $L_0$ | 420 nm（摘要 ~400 nm @ 4 K） | 📜Q[~] |
+| 通道数 / 理想电导 | 4 通道 / $4e^2/h$（= 2×$2e^2/h$） | 📜Q |
+| 最短通道电导 | 200 nm 接近 $4e^2/h$ | 📜Q[~] |
+| 谷间散射动量 | $4\pi/(3\sqrt3 a_{c\text{-}c})$，$a_{c\text{-}c}=1.42$ Å | 📜Q |
+| 谷间散射长度（文献） | 300–800 nm（ref 29） | 📜Q[~] |
+| 体迁移率 / 体 MFP | ~2000 cm²/V·s / ~8 nm | 📜Q[~] |
 
-### 局限
+### 4.3 温度依赖（1.8–50 K，$V_{bg}=-140$ V）
+| 器件 | 变化 | 性质 | 等级 |
+|------|------|------|------|
+| 无 DW（体） | +>300 kΩ（≈2.5×） | 绝缘 | 📜Q[~] |
+| 有 DW | +5 kΩ（<50%，部分来自并联体通道） | 金属 | 📜Q[~] |
 
-1. **SiO₂ 衬底限制**：迁移率远低于 hBN 封装 → 无法探索更高弹道性的可能性
-2. **$L_0 = 420$ nm 仍远短于理论极限**：受限于 SiO₂ 上的谷间散射（已知 300–800 nm）
-3. **仅两探针测量**：无法分离接触电阻和通道电阻（虽然 $R_c = 0$ 拟合支持忽略接触）
-4. **无磁场数据**：QH 区域的行为完全未探索（留给 Mahapatra 2022）
-5. **s-SNOM 无法分辨单条 DW 的内部结构**：~40 nm 空间分辨 vs ~几 nm 的 DW 宽度
-6. **无法独立证明谷极化**：电学测量只能说明通道存在，谷-动量锁定的直接证据需要等离激元或 valley filter 实验
-
----
-
-## 7. 与用户研究的关联
-
-| 维度 | 关联 |
-|---|---|
-| **TBPM 对标** | $L_0 = 420$ nm 是可计算量——TBPM 能否复现？扫 DW 宽度、无序强度 |
-| **$R(D)$ 饱和曲线** | 直接对标——TBPM 计算 $\sigma_{xx}(E_F, D)$ → $R(D)$ |
-| **长度依赖** | Landauer-Büttiker 拟合 → TBPM 计算 $\sigma_{xx}(L)$ 提取 $L_0$ |
-| **双层 AB/BA DW** | TB 模型中构造 shear soliton → 计算能带 → 验证 4 通道简并度 |
-| **双 DW 并联** | 构造 2 条独立 DWs → 验证电导是否加倍 |
-| **LDOS 对标 s-SNOM** | s-SNOM 对比度剖面 ↔ TBPM LDOS 空间分布 |
-
-### 关键待验证的计算预测
-
-1. $L_0 = 420$ nm 在你的 TBPM 模型中能否复现？需多少无序强度？
-2. 200 nm 通道的 $G \approx 4e^2/h$ 在你的计算中是否出现平台？
-3. SiO₂ vs hBN 衬底（即不同无序水平）如何影响 $L_0$？
-
----
-
-## 8. 关键参数速查
-
-| 参数 | 值 | 来源 |
-|---|---|---|
-| 红外波长 | 6.1 μm（中红外） | 正文 |
-| s-SNOM 空间分辨 | ~40 nm | 正文 |
-| DW 出现率（双层） | ~30% | 正文 Fig. 2 |
-| 顶栅介质 | 35 nm ALD Al₂O₃ | 正文 |
-| 顶栅宽度（通道长度） | 200–1000 nm | 正文 Fig. 4 |
-| 单 DW 饱和电阻 | **~14 kΩ**（4.2 K） | 正文 Fig. 3d |
-| 双 DW 饱和电阻 | **~8 kΩ** | Extended Data Fig. 1d |
-| 无 DW 参考电阻 | > 80 kΩ | 正文 Fig. 3c |
-| 弹道长度 $L_0$ | **420 nm** | Landauer-Büttiker 拟合 |
-| 最短通道电导 | ~$4e^2/h$（200 nm, 4 K） | 正文 Fig. 4b |
-| 温度范围 | 1.8–50 K（输运） | Methods |
-| 测量器件数 | 5 对 DW + 参考 + 2 批长度依赖 | 正文 + Extended Data |
-| 理论模型 | $K/K'$ 谷反色散 → valley-momentum locking | 正文 Fig. 4c–d |
+### 4.4 验证链与论证结构
+- **多器件一致性**：5 对器件（3 单墙饱和 ~14 kΩ、1 双墙 ~8 kΩ、4 无墙参考持续增）→ 排除单器件偶然 📜Q。
+- **墙/体对照内控**：同一片上的有 DW vs 无 DW 器件（相同制备/衬底）→ 差异唯一归因于畴壁 📜Q。
+- **三层排除链**：光学层（亮线=畴壁）→ 输运层（导电在墙）→ 保护层（MFP 对比 + 谷间散射动量 + 能带）——每步只证一层，第 ④ 步是间接论证 💭I。
+- **完整认定链**：畴壁存在 → 1D 导电 → 准弹道 4 通道 → 拓扑保护（间接）。"谷极化"的直接测量缺失（见 §6）💭I。
 
 ---
 
-*报告生成日期：2026-07-15 | 重写于 2026-07-16*
-*来源：Nature 520, 650–655 (2015) 出版版 PDF（10 页），pdftotext 全文提取*
-*Zotero Key: IV7DIBD2*
+## 5. 主要结论
+1. 机械剥离 BLG 在 SiO₂/Si 上天然存在 AB/BA 畴壁（~30% 样品），s-SNOM 首次在器件衬底上可视化 📜Q。
+2. 畴壁承载 1D 导电通道：D 开隙使体绝缘后，畴壁器件电阻饱和于 ~14 kΩ（vs 体 >80 kΩ）📜Q。
+3. 通道为准弹道（$L_0=420$ nm），200 nm 通道接近量子化极限 $4e^2/h$（4 通道 = 2 谷 × 2 自旋）📜Q。
+4. 拓扑保护证据：velocity-valley locking 禁止谷内背散射 → 畴壁 MFP（420 nm）远长于体（~8 nm）；谷间散射在 smooth 畴壁禁戒（需 $4\pi/(3\sqrt3 a_{c\text{-}c})$ 大动量）📜Q。
+5. 畴壁电阻金属性（<50% 变化）vs 体绝缘（2.5×）→ 1D 金属通道主导输运 📜Q。
+6. 作者表态："demonstrate topologically protected charge and valley transport … for the first time"（摘要）；"results demonstrate unambiguously that one-dimensional conducting channels are present"（正文）📜Q。
+
+## 6. 局限与未解决
+| 局限 | 说明 | 证据 |
+|------|------|------|
+| **谷极化无直接测量** | velocity-valley locking 由能带计算 + MFP 对比 + 谷间散射动量间接论证；无 valley filter/非局域/等离激元等直接谷探针。① **长自由程 ≠ 证明无谷间散射**：420 nm 是有限谷间散射长度（论文自陈 "finite inter-valley scattering"），只证"压制"非"消除"；② **$4e^2/h$ 只给通道总数、不给谷/自旋分解**（"2 谷×2 自旋"靠 TR 对称 + 能带 + 谷陈数，非电导值本身）。完整逻辑边界（三层证据链 + 肯定后件谬误 + 逐条区分表）见 §1「证据强度分层」 | 💭I |
+| SiO₂ 衬底无序 | 体迁移率 ~2000 cm²/V·s、MFP ~8 nm → 无法探索更高弹道性；作者展望 hBN 封装 | 📜Q |
+| 两探针测量 | 接触电阻未独立分离，以 $R_c=0$ 拟合吞并（作者在拟合中直接设 $R_c=0$） | 💭I |
+| 无磁场数据 | $B\neq0$（QH 区域）完全未探索 | 💭I |
+| s-SNOM 分辨极限 | ~40 nm 无法分辨 ~几 nm 的畴壁内部结构（畴壁宽度取自 TEM 文献值） | 💭I |
+| "ballistic" 措辞偏松 | $L_0=420$ nm 是平均自由程（准弹道），非全弹道；只有 200 nm 通道接近弹道极限 | 💭I |
+
+## 7. 与其他工作的关系（跨论文对标放这里）
+| 工作 | 关系 |
+|------|------|
+| Martin 2008 (ref 11) / Zhang-MacDonald-Mele 2013 (ref 12) / Vaezi 2013 (ref 13) | 理论预言：静电壁（Martin）与 AB/BA 结构壁（Zhang/Vaezi）的谷极化手征态——本文是首次实验实现 📜Q |
+| Alden 2013 (ref 24) / Butz 2013 (ref 25) | TEM 发现悬浮 BLG 中 ~几 nm 平滑 AB/BA 畴壁——本文在器件衬底上成像并测输运 📜Q |
+| Gorbachev 2007 (ref 29) | 谷间散射长度 300–800 nm 来源 → $L_0=420$ nm 自洽 📜Q |
+| Zhang 2009 (ref 5) | 双栅位移场 $D$ 定义与带隙标定 📜Q |
+
+> ⚠️ Phase S 外部对标（非本文引用）💭I：
+> - **E3 Li 2016**（静电 EFW，$L_k\sim100$ nm @ 零场，8 T 恢复 $h/4e^2$）：本文是**结构 AB/BA 畴壁**（~几 nm sharp），零场即 $L_0=420$ nm——暗示 DW 锐度比衬底质量对弹道输运更关键（E7 Mania 2019 折叠原子级 sharp DW + hBN → MFP ~20 μm 佐证）。⚠️ 属跨论文综合，非本文内容。
+> - **E2 Shimazaki 2015 / E6 Jiang 2017**：同组后续用 s-SNOM 升级为等离激元定量谷探针。
+> - **E9 Huang 2018 / E11 Yoo 2019**：STM 在 mTBG 中确认畴壁网络——把本文单条 LSW 推广到网络。
+
+## 8. 对后续研究的影响
+- 建立 **s-SNOM 定位 + 双栅输运**的双探针范式，成为后续所有畴壁实验（E2–E8）的模板 💭I。
+- 给出两个可对标靶：$L_0=420$ nm 与 $4e^2/h$（= 2 谷 × 2 自旋）——理论与计算的直接基准 📜Q。
+- 明确"结构 AB/BA 畴壁（~几 nm sharp）零场即弹道"的事实，为 Li 2016（静电宽墙需 8 T）的对比埋下伏笔 💭I。
+- 提出 valleytronics 前景：velocity-valley locking 使畴壁同时承载弹道电荷流与谷流 📜Q。
+
+## 9. 理论模型映射（供 TBPM / Kubo-Bastin 对标）
+| 映射 | 说明 |
+|------|------|
+| $D\to\Delta$ | 位移场 → 体带隙（随 $D$ 单调增；本文未给 $\Delta$ 绝对值，引用 ref 5 标定）📜Q |
+| 畴壁 → AB/BA shear soliton | TB 模型中构造 AB/BA 堆叠反转 → 验证 4 通道简并度（2 谷 × 2 自旋） |
+| $G(L)\leftrightarrow\sigma_{xx}$ | 实验量 $G$（1D 电导）与 Kubo-Bastin 量 $\sigma_{xx}$（2D 电导率）量纲不同，需换算 |
+| $L_0$ 提取 | 对 $G(L)$ 做 Landauer–Büttiker 拟合 $G=[R_c+R_0(1+L/L_0)]^{-1}$，$R_0=h/4e^2$ → 提取 $L_0$、$R_c$（公式推导与使用条件见 [PHY-LB]） |
+
+**TBPM/Kubo-Bastin 复现三步**（提炼自旧 review 附录 C，供计算对标）💭I：
+1. **减体背景**：$\sigma_{xx}^{\text{DW}}=\sigma_{xx}^{\text{with DW}}-\sigma_{xx}^{\text{no DW}}$（$D$ 大、$E_F$ 在带隙内时 $\sigma_{xx}^{\text{no DW}}\approx0$）。
+2. **2D→1D 换算**：$G_{\text{DW}}(L)=\sigma_{xx}^{\text{DW}}\times(L_y/W_x)$ —— TBPM 把 1D 弹道电导稀释到超胞宽度 $W_x$ 上；自洽检验：固定 $L_y$ 加倍 $W_x$ → $\sigma_{xx}^{\text{DW}}$ 减半 → $G$ 不变。
+3. **长度扫描 + 拟合**：$L_y\in\{200,400,600,800,1000\}$ nm 扫描，拟合得 $L_0$ 对标 420 nm、$R_c$ 应 ≈ 0。
+
+**超胞约束**：$W_x\gg 2x_0$（$x_0$ 为 DW 波函数衰减长度，$W_x\gtrsim30$ nm）；DW 沿 $y$（与电流方向一致）；AB/BA/AB 三区周期边界。⚠️ Anderson 无序 ≠ 长程 Coulomb 无序；KPM $M\leq2560$、`rescale:-1`。
 
 ---
 
-## 附录 C：tbplas Kubo-Bastin 复现 Ju 2015 Fig. 4b 的物理映射
+## Phase S 目的接口（三问引用式 + 增量价值）
 
-> 追加日期：2026-07-16 | 后续 DW 计算项目的操作参考
+- **Q1（edge state 如何表征）**：双探针互补——s-SNOM 红外近场成像（可视化畴壁位置）+ 双栅输运（$R(D)$ 饱和 ~14 kΩ、$G(L)$ 拟合 $L_0=420$ nm、$4e^2/h$ 量子化、金属性 $R(T)$）→ 见 §2/§4。
+- **Q2（理论如何解释）**：无新理论，引用 Martin 2008 / Zhang 2013 / Vaezi 2013 的谷 Chern 畴壁态预言 + 能带计算（K/K′ 反色散）+ Landauer–Büttiker 拟合 → 见 §2.4/§7。
+- **Q3（理论↔实验对应）**：$4e^2/h$ ↔ 4 通道（2 谷 × 2 自旋）；$L_0=420$ nm ↔ 谷间散射 300–800 nm（ref 29）；velocity-valley locking ↔ 反向传播能带 + MFP 对比（420 nm vs 体 8 nm）；$D$ 开隙 ↔ 体绝缘 → 墙导电 → 见 §2.4/§4。
 
-### C.1 核心问题
+> **增量价值**：领域奠基——首个 s-SNOM+输运双探针范式 + 两个 TBPM 直接对标靶（$L_0=420$ nm、$4e^2/h$）。比 E2–E8 少的 = 谷极化的直接探针（等离激元/非局域），多的 = "结构畴壁零场即弹道"这一与 E3 Li 2016（静电宽墙需 8 T）形成关键对照的事实。
 
-Ju 2015 Fig. 4b 测量的是**准 1D DW 通道的两探针电导 $G(L)$**。tbplas 的 Kubo-Bastin 计算的是**2D 周期超胞的电导率张量 $\sigma_{xx}$**。两者量纲不同，需要一套明确的物理映射和数据处理流水线。
+## 反向核对 pass (2026-09-01)
+pdftotext 提取正文 + Methods + Extended Data 全文，逐项 grep 核对：全部数字（280 nm / 6.1 μm / r<25 nm / ~40 nm / ~30% / 40 nm Au·0.5 nm Cr / 35 nm Al₂O₃ / 1 μm 顶栅 / 14 kΩ / 8 kΩ / 80 kΩ / 90 kΩ / 420 nm / 4e²/h / 2e²/h / 300–800 nm / 1.42 Å / 4π/(3√3 a)/ 2000 cm²/V·s / 8 nm / 300 kΩ·2.5× / 5 kΩ·<50% / Vbg0=0·Vtg0=1.8 V / 1.8–50 K / 4.2 K / 20% / 200·400·600·800·1000 nm / 5 对器件）均 grep 到原文。OCR 说明：pdftotext 将 Ω 渲染为 "V"（"14 kV"=14 kΩ）、μ 渲染为 "m"（"6.1 mm"=6.1 μm、"1 mm"=1 μm）、$\tfrac12$ 渲染为 "K"。未发现无源数字。
 
-### C.2 关键物理量的关系
-
-| | 实验 (Ju 2015) | tbplas Kubo-Bastin |
-|---|---|---|
-| **物理量** | $G$ [S] — 1D 通道电导 | $\sigma_{xx}$ [S/□] — 2D 平均电导率 |
-| **几何依赖** | 随 $L$ 变化（Landauer-Büttiker） | 强度量（但含 DW 时反比于 $W_x$） |
-| **量子化极限** | $G_0 = 4e^2/h \approx 155$ μS | 不直接量子化（被 $W_x$ 稀释） |
-
-### C.3 三步提取流水线
-
-#### 步骤 1：减除体背景
-
-$$\boxed{\sigma_{xx}^{\text{DW}}(E_F, D) = \sigma_{xx}^{\text{with DW}}(E_F, D) - \sigma_{xx}^{\text{no DW}}(E_F, D)}$$
-
-- $\sigma_{xx}^{\text{with DW}}$：AB/BA DW 超胞的 Kubo-Bastin 结果（CNP, 大 $D$）
-- $\sigma_{xx}^{\text{no DW}}$：同尺寸纯 AB 超胞的结果
-- 当 $D$ 足够大、$E_F$ 在带隙内时，$\sigma_{xx}^{\text{no DW}} \approx 0$，减法退化为直接使用 $\sigma_{xx}^{\text{with DW}}$
-
-#### 步骤 2：2D → 1D 换算
-
-$$\boxed{G_{\text{DW}}(L) = \sigma_{xx}^{\text{DW}} \times \frac{L_y}{W_x}}$$
-
-| 符号 | 含义 | 建议值 |
-|---|---|---|
-| $L_y$ | 超胞沿 DW 方向的长度 | 扫描 200, 400, 600, 800, 1000 nm |
-| $W_x$ | 超胞垂直于 DW 的宽度 | ≥ 30 nm（含 DW + 两侧足够体区） |
-
-**物理直觉**：TBPM 把 DW 的 1D 弹道电导 $G_{\text{DW}} \sim 4e^2/h$ "稀释"到宽度 $W_x$ 上 → $\sigma_{xx}^{\text{DW}} = G_{\text{DW}} \cdot (W_x/L_y)$。$W_x$ 越大，$\sigma_{xx}^{\text{DW}}$ 越小。
-
-**自洽性检验**：固定 $L_y$，加倍 $W_x$ → $\sigma_{xx}^{\text{DW}}$ 应减半 → $G_{\text{DW}}$ 不变。
-
-#### 步骤 3：长度扫描 + Landauer-Büttiker 拟合
-
-对 $G_{\text{DW}}(L_y)$ 做与 Ju 2015 完全相同的拟合：
-
-$$G(L) = \left(R_c + \frac{h}{4e^2}\left(1 + \frac{L}{L_0}\right)\right)^{-1}$$
-
-提取 **$L_0$**（弹道平均自由程）和 **$R_c$**（接触电阻，TBPM 中应 ≈ 0），直接对标 Ju 2015 的 $L_0 = 420$ nm。
-
-### C.4 超胞设计的约束条件
-
-| 约束 | 原因 | 建议 |
-|---|---|---|
-| $W_x \gg 2x_0$ | DW 波函数衰减长度 $x_0 \propto 1/E_g$；$W_x$ 太小则 DW 态与边界镜像耦合 | $D=1$ V/nm 时 $x_0 \sim 5$ nm → $W_x \geq 30$ nm |
-| DW 沿 $y$ 方向 | 确保 DW 通道与电流方向一致 | $L_y$ 扫描 |
-| 周期边界 | Kubo-Bastin 要求周期超胞 | AB/BA/AB 或 BA/AB/BA 三区结构 |
-| KPM 参数 | $M \leq 2560$, `rescale: -1` | memory 中经验约束 |
-
-### C.5 YAML 配置模板
-
-```yaml
-system:
-  model:
-    type: bilayer_graphene_dw
-    stacking: AB_BA
-    dw_width: 10               # nm
-    supercell:
-      L_x: 30                  # nm
-      L_y: 200                 # nm, 扫描此值
-
-  disorder:
-    type: Anderson
-    strength: 0.1              # eV, 需调参匹配 SiO₂
-
-  field:
-    displacement: 1.0          # V/nm
-
-calc:
-  type: dckb
-  dckb_num_kernel: 2048
-  dckb_num_random: 10
-  temperature: 4               # K
-  energy:
-    range: [-0.1, 0.1]
-    points: 51
-  rescale: -1                  # 必须！
-
-output:
-  quantities: [sigma_xx, sigma_xy]
-```
-
-### C.6 提取伪代码
-
-```python
-from scipy.optimize import curve_fit
-
-h_over_e2 = 25812.807  # Ω, von Klitzing constant
-G0 = 4 / h_over_e2      # 4e²/h in S
-
-def LB(L, L0, Rc):
-    """Landauer-Buttiker formula for 1D ballistic channel"""
-    return 1.0 / (Rc + (1.0/G0) * (1.0 + L/L0))
-
-G_data, L_data = [], []
-for L in [200, 400, 600, 800, 1000]:
-    sigma_with = load_kubo(f"dw_L{L}.h5")    # sigma_xx at CNP
-    sigma_without = load_kubo(f"nodw_L{L}.h5")
-    sigma_dw = sigma_with - sigma_without
-    G_dw = sigma_dw * L / W_x               # 2D → 1D
-    G_data.append(G_dw)
-    L_data.append(L)
-
-popt, _ = curve_fit(LB, L_data, G_data, p0=[420, 0])
-L0_fitted, Rc_fitted = popt
-print(f"TBPM: L0 = {L0_fitted:.0f} nm (Ju 2015: 420 nm)")
-print(f"TBPM: Rc = {Rc_fitted:.0f} Ω (Ju 2015: ~0)")
-```
-
-### C.7 对标实验的检验清单
-
-| # | 检验项 | 判定标准 |
-|---|---|---|
-| 1 | $W_x$ 缩放检验 | $\sigma_{xx}^{\text{DW}} \propto 1/W_x$ → $G_{\text{DW}}$ 不变 |
-| 2 | $L_0$ 的 $D$ 依赖 | $D \uparrow$ → $x_0 \downarrow$ → $L_0 \uparrow$（与 Zhang 2024 机制一致） |
-| 3 | 无序强度扫描 | Anderson $W \uparrow$ → $L_0 \downarrow$ |
-| 4 | 弹道极限 | $L_y \to 0$ 时 $G_{\text{DW}} \to 4e^2/h$ |
-| 5 | 体绝缘极限 | $D$ 足够大时 $\sigma_{xx}^{\text{no DW}} \approx 0$ |
-| 6 | $L_0$ 对标实验 | 在合理无序强度下 $L_0 \approx 420$ nm |
-
-### C.8 TBPM 能捕捉和不能捕捉的物理
-
-| ✅ 能捕捉 | ⚠️ 需注意 |
-|---|---|
-| AB/BA DW 能带色散 | KPM 收敛：$M \leq 2560$, `rescale: -1` |
-| 四重简并模式计数 | Anderson 无序 ≠ 长程 Coulomb 无序 |
-| 谷间散射对 $L_0$ 的影响 | $W_x$ 必须足够大（$\gg$ 波函数衰减长度） |
-| 位移场 $D$ 调控 $L_0$ | 短通道极限（$L_y < 200$ nm）可能欠收敛 |
-| 长度依赖的弹道-扩散过渡 | 体背景扣除在高 $T$ 或小 $D$ 下不干净 |
-
-### C.9 适用范围
-
-此映射方法同样适用于：
-- **Li 2016**：静电 DW → TB 模型中层偏压在空间中平滑翻转
-- **Mania 2019**：折叠 DW → 层序反转的 AB/BA 边界极限情况
-- **Zhang 2024**：多 LSW 束耦合 → 超胞中构造多条 DW，提取耦合效应
-- **任意 DW 构型的 1D 弹道输运对标**
-
----
-
-*附录 C 追加于 2026-07-16 | 基于 tbplas Kubo-Bastin 与 Ju 2015 Fig.4b 的物理映射分析*
+## 更正日志
+| 日期 | 条目 |
+|------|------|
+| 2026-07-15/16 | 初读 + 基于原文 PDF 重写（旧版：IMRaD 式 + tbplas 复现附录 C） |
+| 2026-09-01 | **按 4 块新架构整体重写**（系统辨识式阅读法 + 三层分离）：判别表置顶 + 四层变量表 + 主结果↔判别映射 + [前提与限定]；跨论文对标移入 §7/§8；tbplas 复现附录 C 压缩为 §9（完整版备份于 archive/paper_review_E01_ju2015_nature.backup_20260901.md） |
+| 2026-09-01 | **QC 引用更正**：① 旧版 "Zhang et al. PRB 2011 / Qiao et al. Nano Lett. 2011 提出结构堆叠壁方案" 有误 → 正确 refs 11–13 = Martin 2008 (PRL 100, 036804) / Zhang-MacDonald-Mele 2013 (PNAS 110, 10546) / Vaezi 2013 (PRX 3, 021018)；② 旧版 "Lin et al. 2013" 有误 → Butz et al. 2013 (Nature 505, 533) |
+| 2026-09-01 | **QC 措辞修正**：① "400 nm vs 420 nm" 澄清（摘要 ~400 nm / Fig. 4b 拟合 420 nm）；② 电导量子约定澄清（本文取 $2e^2/h$，$4e^2/h$=2 量子）；③ 通道计数修正（4 = 每电流方向 2 手征模式 × 自旋 2，即 2 谷 × 2 自旋，非"每谷 2 自旋简并模式"）；④ ">80 kΩ" 与 "~90 kΩ" 并记（Fig. 3c caption vs 正文）；⑤ 明确"谷极化无直接测量"为 💭I 局限（旧版未显式标注） |
+| 2026-09-01 | 保留旧版重要纠正（Ju 2015 **确实测量了电学输运**，非纯光学探针——旧 registry 概要不准确），归入 §7/§TL;DR |
+| 2026-09-01 | **机制澄清（Q2 入笔记）**：§2.3 补"测/推/拟合分工"表（R 实测 / G=1/R 推导 / L=顶栅宽度设计量 / L₀·Rc 拟合参数）；Landauer–Büttiker 通用推导与使用条件剥离到 `note/shared/physics/10_landauer_buttiker.md`（新锚点 `[PHY-LB]`，已在 `note/shared/README.md` 登记）；§2.3/§9 改引用 [PHY-LB]，只保留本文代入数字（$R_0=h/4e^2\approx6.45$ kΩ、$L=1000$ nm 自检 $G\approx0.30\times4e^2/h$） |
+| 2026-09-01 | **机制澄清（自由程 vs 谷间散射 + 通道计数）**：① §2.4/§6 补"长自由程 ≠ 证明无谷间散射"——420 nm 是有限谷间散射长度（论文自陈 "finite inter-valley scattering"），只证"压制"非"消除"，且属间接证据；② §2.3 补"$4e^2/h$ 只给通道总数（4 条）、不给谷/自旋分解"（"2 谷×2 自旋"靠 TR 对称 + 能带 + 谷陈数）；③ 修正"每谷一对通道"松表述 → 每谷 1 条（{K,K′} 一对）× 2 自旋 = 4 条 |
+| 2026-09-01 | **证据强度分层（§1 新增块）**：补"确立 vs 解释"三层证据链（实测→确立→解释）+"长自由程=肯定后件谬误（P⇒Q 推不出 Q⇒P，稳健≠拓扑）"+"逐条证据能否区分拓扑/非拓扑"表；结论 = 无一条实测证据能独立区分拓扑态 vs 普通无隙 1D 束缚态，"拓扑保护"是理论认定 + 一致性，从未被实验测出。§6 加交叉引用 |
