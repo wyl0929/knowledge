@@ -3,7 +3,7 @@
  * @Date         : 2026-08-26
  * @LastEditors  : Yulong Wang
  * @LastEditTime : 2026-08-26
- * @FilePath     : /knowledge/systems_science/case/14_case_study_session_workflow_state_persistence.md
+ * @FilePath     : /knowledge/ai_agent_practice/case/14_case_study_session_workflow_state_persistence.md
  * @Description  : 案例研究 — 会话工作流与状态持久化（单会话紧反馈 vs 多会话分离）
 -->
 
@@ -14,9 +14,10 @@
 > **来源项目**: `dsh-plugins/dsh-notify`（其开发过程横跨实现→验证→迁移→公开→复盘→方案 C 规划）
 > **关联案例**:
 >   - `10_case_study_dsh_plugin_design.md` — dsh-notify 设计（本案例来自其开发过程的会话工作流观察，共享"可观测性决定诊断力"内核）
->   - `05_case_study_session_handoff.md` — 多会话**并发**编辑与状态同步（本案例讨论的是**串行**工作流里"会话数"与"持久化"的关系）
->   - `11_case_study_six_doc_system_tiered_response.md` — 六文档体系（plan/log 正是状态持久化的载体）
->   - `12_case_study_context_status_relation.md` — 参考模型 vs 状态观测器（本案例的"落盘"即把易失上下文转成观测器可读的持久状态）
+>   - `../systems_science/case/05_case_study_session_handoff.md` — 多会话**并发**编辑与状态同步（本案例讨论的是**串行**工作流里"会话数"与"持久化"的关系）
+>   - `../systems_science/case/11_case_study_six_doc_system_tiered_response.md` — 六文档体系（plan/log 正是状态持久化的载体）
+>   - `../systems_science/case/12_case_study_context_status_relation.md` — 参考模型 vs 状态观测器（本案例的"落盘"即把易失上下文转成观测器可读的持久状态）
+>   - `../systems_science/case/17_case_study_metacognition_slow_loop.md`（#107）— 元认知慢环（本案例"探索 vs 执行"判据被 #107 发展为独立的慢环时钟）
 > **核心方法**: 控制论（反馈回路 + 状态可观测性 + 信息耗散）+ 系统工程（V 模型 + 范围控制）
 
 ---

@@ -2,14 +2,8 @@
  * @Author       : Yulong Wang
  * @Date         : 2026-08-24 11:59:45
  * @LastEditors  : Yulong Wang
- * @LastEditTime : 2026-08-24 12:45:00
- * @FilePath     : /.agents/home/wyl/project/knowledge/systems_science/case/10_case_study_dsh_plugin_design.md
- * @Description  :
--->
-<!--
- * @Author       : Yulong Wang
- * @Date         : 2026-08-24
- * @FilePath     : /knowledge/systems_science/case/10_case_study_dsh_plugin_design.md
+ * @LastEditTime : 2026-09-05 03:49:56
+ * @FilePath     : /.agents/home/wyl/project/knowledge/ai_agent_practice/case/10_case_study_dsh_plugin_design.md
  * @Description  : 案例研究 — 从控制论与系统工程看软件设计原理（以 dsh-notify 插件为落地实例）
 -->
 
@@ -19,9 +13,9 @@
 > **时间跨度**: 2026-08-21 ~ 2026-08-24（需求分析 → 钩子核实 → 设计原则定稿 → 实现 → 真机验证 → 复盘）
 > **相关项目**: `/home/wyl/project/dsh-plugins/dsh-notify/`（dsh-notify 插件 + `docs/plan.md`）
 > **关联案例**:
->   - `09_case_study_delegation_accuracy_control.md`（#99）— 验证成本不对称的工程侧同类问题
->   - `07_case_study_closure_reports.md`（#97 系列）— 状态检查点与信息耗散（本文"维护期"一节同源）
->   - `06_case_study_diagnostic_knowledge_promotion.md`（#96）— 三层确定性分层的工程文档落地
+>   - `../systems_science/case/09_case_study_delegation_accuracy_control.md`（#99）— 验证成本不对称的工程侧同类问题
+>   - `../systems_science/case/07_case_study_closure_reports.md`（#97 系列）— 状态检查点与信息耗散（本文"维护期"一节同源）
+>   - `../systems_science/case/06_case_study_diagnostic_knowledge_promotion.md`（#96）— 三层确定性分层的工程文档落地
 > **核心协议**: `dsh-plugins/dsh-notify/docs/plan.md`（dsh-notify 技术设计计划书）
 > **相关文档**: 本包 `00_beginner_guide.md`、`11_term_disambiguation.md`、`12_field_map.md`；`@deepseek-ai/dsh-agent` / `dsh-agent-loop` / `dsh-scope` 源码
 
@@ -460,7 +454,7 @@ function all()      { return items }
 
 ### 7b 维护期（反腐化）
 
-对应 `07_case_study_closure_reports.md` 的**信息耗散**：工程要能"不腐化、可恢复、可卸载"。
+对应 `../systems_science/case/07_case_study_closure_reports.md` 的**信息耗散**：工程要能"不腐化、可恢复、可卸载"。
 
 - **契约漂移检测**：DSH rc 升级前后跑 `--dump-config` + 单测 + 真机回归，把契约漂移当"传感器失联"来检测（原则⑤）。
 - **供应链健康**：零第三方运行时依赖（仅 peer 依赖 cordis、依赖 schemastery 做校验），F3 暴露面最小。
