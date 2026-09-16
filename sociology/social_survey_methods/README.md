@@ -52,6 +52,7 @@ v0.10-rc3 编号说明：`00-02` 为阅读与判断层，`10-17` 为证据与领
 - `22_project_candidates.md`
 - `23_chat_pool.md`
 - `cases/case01.md`
+- `cases/case02.md`
 - `90_QA.md`
 - `99_update_log.md`
 - `seed_discussion_20260817.md`
