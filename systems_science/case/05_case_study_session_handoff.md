@@ -22,7 +22,7 @@
 > **核心协议**: `/memories/session-handoff.md`（会话交接协议）、`/home/wyl/project/MG/STATUS.md`（交接条存放位置）
 > **涉及 SKILL**: `create-blueprint`, `create-plan`, `run-task`, `debug-workflow`
 > **关键数据**: 3 个控制器（Research / Planning / Execution）；5 个共享文件（blue_print / plan / tasks / STATUS / log）；D1b–D1e 四个诊断子任务；4 个协议迭代版本
-> **→ 已编译为卡片**: `STATUS.md` 会话交接方案（「📋 待 Planning 会话处理」节 + 编辑前纪律；规则文档 `/memories/session-handoff.md`）
+> **→ 沉淀去向**: 会话交接方案融入 `STATUS.md`/`tasks`/`log` 约定（见 #101/#102）；原规则文档 `/memories/session-handoff.md` 已不存在
 
 ## 摘要
 

@@ -34,7 +34,7 @@
 
 ```
 Phase 0: tbplas-exp save/load 一致性校准 🆕
-  ├── 0.1 确认 tbplas-exp 的 save/load mu 管线完整性
+  ├── 0.1 确认 tbplas-exp 的 save/load mu 流水线完整性
   ├── 0.2 同参数下 save 模式 vs load 模式 σ_xy(E) 对比
   └── 0.3 验证: 两模式 σ_xy(E) 在 M≤2560 安全窗口内恒等 (diff < 1e-10)
   ⏱ 预计: 0.5 天
@@ -49,7 +49,7 @@ Phase 1: quantum-kite 安装 + σ_xy 实现
 Phase 2: quantum-kite ↔ tbplas 交叉验证
   ├── 2.1 相同体系 (monolayer, m=64, B=100T) 双代码独立计算
   ├── 2.2 对比 μ 矩阵 / Γ 核 / sum(θ) / σ_xy(E) 各级中间量
-  │      └── tbplas 侧使用 Phase 0 校准后的 save/load 管线提供 μ 矩阵
+  │      └── tbplas 侧使用 Phase 0 校准后的 save/load 流水线提供 μ 矩阵
   ├── 2.3 定位 tbplas 偏离 quantum-kite 的具体环节
   └── 2.4 判定: tbplas 代码 bug vs 算法极限
   ⏱ 预计: 1 周
@@ -76,7 +76,7 @@ Phase 5: ABA/ABC domain wall 输运
 ```
 
 > **依赖关系**：Phase 0 → Phase 1 → Phase 2 → Phase 3 → Phase 4 → Phase 5 严格串行。
-> Phase 0 确保 tbplas 的 mu save/load 管线在进入量子-kite 交叉验证前已经过自洽校准。
+> Phase 0 确保 tbplas 的 mu save/load 流水线在进入量子-kite 交叉验证前已经过自洽校准。
 > 每个 Phase 完成的标志：输出数据 + 与参考文献的定量对比。
 > 子计划索引：
 > - Phase 0 详细方案 → `Phase0_save_load/plan.md` ✅ (2026-07-01 已创建)
@@ -176,7 +176,7 @@ Phase 3 (最终): ABA/ABC domain wall 输运
 |------|------|:---:|
 | **tbplas** (exp) | 🥇 **主计算引擎** — Kubo-Bastin DC conductivity → $\sigma_{xy}$ (M ≤ 4096, int ≥ M) | ✅ 已校准 |
 | **quantum-kite** | 🥈 **可选对照** — 独立 Kubo-Bastin 实现，验证用 | 🟡 可选 |
-| **MG/src** (model/calc/io_vis) | 🔧 **模型构建 + 数据管线** — 统一的 TB 模型和 I/O | ✅ 已部署 |
+| **MG/src** (model/calc/io_vis) | 🔧 **模型构建 + 数据流水线** — 统一的 TB 模型和 I/O | ✅ 已部署 |
 | **h3clogin 集群** | 💻 **计算资源** — SLURM 批量提交 | ✅ 已配置 |
 
 ### 2.1 🆕 quantum-kite 预期能力

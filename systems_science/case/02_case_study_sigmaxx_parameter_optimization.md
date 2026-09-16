@@ -19,7 +19,7 @@
 > **关联案例**: `01_case_study_hall_conductance_baseline.md` (#91) — Hall 电导基线偏移归因
 > **核心方法**: 全因子网格扫描（Full Factorial）· 因子筛选（Fractional Factorial）· 序贯细化 · 响应面（RSM/CCD）· 贝叶斯优化（BO）· 多保真度优化 · Kubo-Bastin KPM 收敛分析
 > **关键数据**: ~250 个集群作业, ~180+ 组 σ_xx 曲线, mu HDF5 文件累计 >100 GB；收敛参数 γ=0.56 eV / m=1024 / rs=1 / M=2048 / N_θ≥8192
-> **→ 已编译为卡片**: 未编译
+> **→ 沉淀去向**: 未编译
 
 ---
 

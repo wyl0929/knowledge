@@ -20,7 +20,7 @@
 >   - `02_case_study_sigmaxx_parameter_optimization.md` — σ_xx 五维参数扫描 (Level 2 响应，实验设计缺陷)
 > **核心方法**: `debug-workflow/SKILL.md` (v3.0 战术诊断) + `create-blueprint/SKILL.md` (偏差升级协议与诊断Phase管理) + `create-plan/SKILL.md` (诊断切换模板)
 > **关键数据**: M>2560 时 σ_xy 基线偏移（根因 `num_integ_steps < num_kernel`）；`rescale=9`→`-1` 修复 NaN；σ_xx Phase 3X 由 5 步膨胀至 8 步（含 3 个证伪实验）；初始层级先验 P(I 类) ≈ 0.55
-> **→ 已编译为卡片**: 偏差升级协议 — 已固化进 `debug-workflow/SKILL.md`（v3.0 战术诊断）与 `create-blueprint/SKILL.md`（偏差升级协议与诊断Phase管理）
+> **→ 沉淀去向**: SKILL `debug-workflow` / `create-blueprint`（偏差升级协议）
 
 ---
 
@@ -286,7 +286,7 @@ D4 [如果 D2/D3 未修复]: B=100T, rescale=20, m=256
 
 | 偏差类型 | 判定标准 | 应处理层级 | 典型响应 | MG 案例 |
 |:---:|------|:---:|------|------|
-| **I 类：参数/配置错误** | 单一参数修改即修复，物理管线无缺陷 | Level 1/2 | 修正 YAML → 重跑 → 更新模板 | `rescale=9`→`-1`；`num_integ_steps < M` |
+| **I 类：参数/配置错误** | 单一参数修改即修复，物理流水线无缺陷 | Level 1/2 | 修正 YAML → 重跑 → 更新模板 | `rescale=9`→`-1`；`num_integ_steps < M` |
 | **II 类：收敛条件不满足** | 需多维参数扫描确定安全窗口 | Level 2 (plan 内新子 Phase) | 矩阵扫描 → 确定最优参数 → 回写约束 | Phase 3X A–C: γ/m/M/rs/int |
 | **III 类：算法/物理假设证伪** | 原假设被实验排除 | Level 2→3 (plan 内新 Phase + blueprint 阻塞标记) | 假设检验 → 证伪 → 接受限制 或 降级 | Phase 3X D/E: SR/rescale/PSD/quad 证伪 → Γ·μ 不可消除 |
 | **IV 类：基础设施缺陷** | 同一类问题反复出现 | **Level 3 (新 [诊断] Phase)** | 系统性重构 → 参数校验自动化 | Phase PRE: 参数管理重构 |

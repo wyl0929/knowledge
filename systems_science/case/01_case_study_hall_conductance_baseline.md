@@ -25,7 +25,7 @@
 > **归档数据**: `case_hall_baseline/` (本目录下 — 关键图表、脚本、VBL 日志、M_int 扫描数据)
 > **原始大数据**: `MG/runs/0624/mu_raw_M4096_m64.h5` (257 MB), `MG/runs/0701/mu_raw_rescale20_m512_M4096.h5` (257 MB)
 > **最终根因**: Nyquist 采样定理 — θ 积分点数不足导致混叠 (aliasing)，非浮点精度或 Chebyshev 递推发散
-> **→ 已编译为卡片**: 诊断检查清单 Phase A–E（未独立成卡）
+> **→ 沉淀去向**: 仅嵌入本案例 §6.6「诊断检查清单 Phase A–E」，未独立成卡
 
 ---
 
