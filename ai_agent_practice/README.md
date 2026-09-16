@@ -25,13 +25,16 @@
 | #100 | `case/10_case_study_dsh_plugin_design.md` | DSH 插件系统设计（九条通则） | 迁自 systems_science（2026-09-04） |
 | #104 | `case/14_case_study_session_workflow_state_persistence.md` | 会话工作流与状态持久化 | 迁自 systems_science（2026-09-04） |
 | #108 | `case/18_case_study_model_reasoning_depth_paper_search.md` | 模型与推理深度对搜索类工作的影响 | 迁自 systems_science（2026-09-04） |
+| #109 | `case/19_case_study_cross_conversation_task_handoff.md` | 跨对话 task 交接上下文（开机读什么/有效无效/如何写） | 新（2026-09-08，基于 TBG R02 七会话日志） |
+| #110 | `case/20_case_study_three_role_workflow.md` | 三角色工作架构（人类 principal / planning / execution 的推导、建模与成本账） | 新（2026-09-15，🧪 提案，基于 R02 重启复盘 + case 19 试点报告） |
 
 ## 编号约定
 
 - 案例编号为**全局稳定 ID**，与 `systems_science/case/` 共享单调递增空间（#91 起）。
-- 新案例从 **#109** 继续，无论落在哪个包。
+- 新案例从 **#110** 继续，无论落在哪个包。
 - 跨包引用用「相对路径 + 稳定编号」，如 `../systems_science/case/09_case_study_delegation_accuracy_control.md`（#99）。
 
 ## 变更记录
 
 - 2026-09-04：创建本包；从 `systems_science/case/` 迁入 #100 / #104 / #108（见 `systems_science/99_update_log.md` 迁移条目）。
+- 2026-09-15：新增 #109 试点追记（R02 Stage 3 验收）+ #110 三角色工作架构提案；原始日志存档 `references/R02_archive/`。
