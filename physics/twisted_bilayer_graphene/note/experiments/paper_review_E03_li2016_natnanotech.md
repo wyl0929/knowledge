@@ -16,10 +16,12 @@
 | **DOI / arXiv** | 10.1038/nnano.2016.158 / 1509.03912 |
 | **类型** | 实验 — 低温输运（双分裂栅 + 准四探针） |
 | **课题组** | Jun Zhu group (Penn State) + Zhenhua Qiao (USTC 理论) + NIMS (Watanabe/Taniguchi) |
-| **PDF / SI PDF** | ✅ `reference/pdfs/Li 等 - 2016 - Gate-controlled topological conducting channels in bilayer graphene.pdf`（7 页期刊版正文）；❌ SI 缺失（期刊 SI 未下载） |
+| **PDF / SI PDF** | ✅ `reference/pdfs/Li 等 - 2016 - Gate-controlled topological conducting channels in bilayer graphene.pdf`（7 页期刊版正文）；✅ `reference/pdfs/Li 等 - 2016 - SI of Gate-controlled topological conducting channels in bilayer graphene.pdf`（期刊 SI；§7 能带 / §8 电导已读入 → §9.1/§9.2） |
 | **精读日期** | 2026-07-15（初读，arXiv 39 页含 SI 版）→ 2026-09-01（4 块新架构重读，据期刊版正文） |
 
 > **来源声明**：本重读仅基于 `reference/pdfs/` 中的 **7 页期刊版正文**（pdftotext → `/tmp/e3.txt`）。旧 review 基于 arXiv:1509.03912v2（39 页含 SI）所写的、在期刊版正文中 grep 不到的细节（SI §1–10 内容），本重读一律不继承，标注 `NEEDS_VERIFICATION` 或删除。
+>
+> **SI 已补入**（2026-09-03）：期刊 SI PDF（`Li 等 - 2016 - SI of ...`）已下载并读入 **SI §7「能带计算」→ §9.1** 与 **SI §8「kink 态电导计算」→ §9.2**（pdftotext → `/tmp/li2016_si.txt`）。SI §7/§8 是正文 Fig 3a（非手征态能带）与 Fig 3b（$L_k$ 提取）的建模/计算源头，补全了正文未给的紧束缚参数（$t$、$t_\perp$、$2U$、$W$、$d$、边界 $W$=10 eV）与两终端 Landauer-Büttiker 电导方法（Caroli 公式 + 30 样本平均）。其余 SI 节（§1–6, §9–10）本次未逐节精读。
 >
 > **共享知识引用**：双栅静电（n/D 换算、共模/差模）→ `[PHY-GATE]`；费米能/化学势/CNP → `[PHY-EF]`；谷相位与 chiral/helical 术语辨析 → `[PHY-BERRY]`。本 review 不复制讲义，只写"本文代入"的数值。
 
@@ -208,6 +210,66 @@ $W$=0.6 eV；$L_k$=**266 / 210 / 141 nm**（$E_F$=0 / 5 / 14 meV）📜Q[~]（�
 
 > 与 tbplas 对应 💭I：静电 DW 可在 TB 模型用**层偏压（on-site energy offset）**构造（$D(x)$ 过零），算完整能带（核对 gap 内非手征态）+ Landauer 透射 → 提取 $L_k$；B 场用 Peierls 替换核对朗道量子化 + Lorentz 分离。$L_k$ 参数扫描（$w, \Delta, E_F$）可复现 §4.4 的单调趋势（$L_k$ 随 $\Delta$ 增、$w$ 减、$E_F$ 减而增）📜Q。
 
+### 9.1 SI §7 能带计算细节（EFW 建模与参数，📜Q SI §7）
+
+正文 Fig 3a 的"非手征束缚态"能带、Fig 3b 的 $L_k$ 提取，全部来自 SI §7 的紧束缚计算。SI §7 把 **EFW（电场壁）建模的完整参数链**写全，是复现其能带与 $L_k$ 的最直接依据。
+
+**紧束缚哈密顿量（Eq. S1，π-轨道，AB 堆叠 + 层间偏置 + Anderson 无序）**：
+
+$$H_0 = -t\sum_{\langle ij\rangle}(c_i^\dagger c_j+\mathrm{h.c.}) + t_\perp\sum_{\langle i\in T,\,j\in B\rangle}(c_i^\dagger c_j+\mathrm{h.c.}) + \sum_{i\in T}U_{\mathrm{top}}c_i^\dagger c_i - \sum_{i\in B}U_{\mathrm{bot}}c_i^\dagger c_i + \sum_i\epsilon_i c_i^\dagger c_i$$
+
+| 项 | 含义 | 参数（📜Q） |
+|----|------|------|
+| 第一项 | 层内最近邻跳跃 | $t$ = **2.6 eV** |
+| 第二项 | 层间最近邻跳跃（$T$=顶层、$B$=底层） | $t_\perp$ = **0.34 eV** |
+| 第三/四项 | 顶/底层 on-site 能（层间势差 **$2U = U_{\mathrm{top}} - U_{\mathrm{bot}}$**，偏置区设为 $+U/-U$） | $2U$ 可调 |
+| 第五项 | 在位 Anderson 无序，$\epsilon_i$ 均匀分布于 $[-W/2,\,W/2]$ | $W$ = 无序强度 |
+
+**几何与对称性**：有限宽 $d$（$x$ 向）$+$ $y$ 向平移对称；结宽 $w$；$U(x)$ 结左侧 $+2U$、右侧 $-2U$，跨结连续变化 📜Q。$d$ = **120 nm**（远窄于真实器件，"受计算能力限制，但足以捕捉结区主要物理"）；$w$ = **70/110 nm**（device 1/2，实验值）📜Q。zigzag 与 armchair 两种取向均检验，主结果（Anderson 无序致谷间散射的电导衰减、B 场致 K/K′ 波函数分离）**对取向不敏感**，下文用 zigzag 📜Q。方法 = **精确对角化** Eq. S1 📜Q。
+
+**三组参数扫描**（能带均只画 K 谷，K′ 对称）：
+
+| 扫描 | 参数 | 结果（📜Q） |
+|------|------|------|
+| **结宽 $w$**（Fig 10） | $2U$=100 meV；$w$=0/20/40/60 nm | 体带隙 $\Delta\approx 2U$ = **100 meV**（绿虚线）；反极性配置（左 $+2U$、右 $-2U$）产生隙内**手征 kink 态**（红）；$w$↑ → 隙内**非手征束缚态**（蓝）增多（ref 9 类似）；$E_F$ 扫过隙时 kink 态可与非手征态共存 |
+| **势剖面 $U(x)$**（Fig 11） | $2U$=30 meV；cosinusoidal / linear / COMSOL 三种 | 三种剖面**定性一致**（隙内现非手征态 → 有效缩小 $\Delta$；器件 2 更宽结更显著）；后续统一采用 **cosinusoidal** |
+| **层间势差 $2U$**（Fig 12） | $2U$=30/100/300 meV | $U$↑ → $\Delta$↑ → **仅 kink 态存在的能量范围**↑（黄虚线）；$L_0$ 随 $\Delta$↑ 而↑（耦合非手征态减弱）→ 增大带隙可抑制 kink 背散射 |
+
+**关键点**：
+
+- **$\Delta \approx 2U$**：体带隙 = 层间势差（Fig 10 caption "$\Delta\sim 2U$ = 100 meV"；Fig 11/12 用 $2U$=30 meV 对应正文 Fig 3a "$\Delta$=30 meV"）→ 这是 $D\to 2U\to\Delta$ 的 TB 表示（补全 §3.2"原文未给 $D$ 公式"的缺口，锚点 [PHY-GATE]）📜Q。
+- **zigzag 边缘模**（青，Fig 10）：无无序时贡献 $4e^2/h$；实验上因结边界随机原子取向可忽略 → 计算在边界 **10 原子宽条带**加**强无序 $W$=10 eV** 人为消除其电导贡献 📜Q。
+- **MFP 符号**：SI §7 用 **$L_0$** 记 kink 平均自由程（正文用 $L_k$，同一量）；$L_0$ 随 $\Delta$↑ 增、随 $w$↑ 减 📜Q（与 §4.4 单调趋势一致）。
+- **四 kink 模**（Fig 12d）：无自旋 π-轨道 + 双谷全带结构标出**4 条 kink 模** = 2 谷 × 2 层（无自旋）；正文 Fig 1a 补自旋后每谷 4 模（2 自旋 × 2 层）、总 8 模（见 §2.1），二者自洽 📜Q。
+
+> **复现清单（tbplas / Landauer 对标）💭I**：层内 $t$=2.6 eV + 层间 $t_\perp$=0.34 eV + 层偏置 $U(x)$（cosinusoidal，$2U$=30/100/300 meV）+ Anderson $\epsilon_i\in[-W/2,W/2]$（正文取 $W$=0.6 eV）+ 条带 $d$=120 nm、$w$=70/110 nm + 边界 10 原子 $W$=10 eV 强无序消除 zigzag 边缘模。计算链：精确对角化出能带（核对隙内非手征态 + kink 模）→ Landauer–Büttiker（Green 函数，SI §8）透射 → $L_k$。SI §7 与 §8 合起来即"能带 → 电导 → MFP"的完整可复现管线。⚠️ **tbplas 本身无两终端 Landauer/NEGF 模块**（只有 Kubo 体电导），能力边界与替代方案见 §9.2。
+
+### 9.2 SI §8 电导计算（可计算观测量 = 两终端电导 → $L_k$；tbplas 能力边界）
+
+**可计算对应物理量**：SI §8 直接给出**两终端 Landauer–Büttiker 电导** $G_{LB}$（实验测的结电导 $\sigma_j=1/R_j$ 的相干极限），并从长度依赖 $G(L)$ 拟合出 MFP $L_0$（正文记 $L_k$）📜Q。
+
+**方法（§8.1）**：Caroli/NEGF 形式
+
+$$G_{LB}=\frac{2e^2}{h}\mathrm{Tr}\big[\Gamma_L\, G^r\, \Gamma_R\, G^a\big]$$
+
+$G^{r(a)}$ = 中心散射区推迟（超前）Green 函数；$\Gamma_{L(R)}=i[\Sigma_{L(R)}^r-\Sigma_{L(R)}^a]$ 线宽函数，自能 $\Sigma^r$ 由**转移矩阵法**（Sancho 迭代，ref 11）求得；**每个数据点 30 个无序样本取平均** 📜Q。
+
+**关键结果（§8.2–8.3）**：
+
+- 固定 $W$ 下 $G(L)$ 随 $L$ 增大而减小，$W$ 越大衰减越快（Fig 13，$W$=0.1–0.7 eV）；$W$=**0.6 eV** 是为**数值匹配实验电导量级**而选定 📜Q。
+- $E_F$=0/5/14 meV 的 $G(L)$（device 1 参数，正文 Fig 3b）→ 拟合 $G=G_0/(1+L/L_0)$ 得 $L_0$=**266/210/141 nm**（caption 写 223，见 §4.4 不一致标注）📜Q。
+- $E_F$=14 meV（占住 1 个非手征态）时 $L=0$ 初始电导 = **$8e^2/h$**（vs 仅 kink 态 $4e^2/h$），且随 $L$ 衰减更快 → 非手征态共存增强背散射路径 📜Q。
+- Supplementary Table II：$L_0$ 随 $\Delta$ 增而增；device 2（$w$=110 nm）的 $L_0$ 比 device 1（$w$=70 nm）小约 **25%** 📜Q。
+
+**tbplas 能力边界 💭I**（据本地 checkout `tbplas-py-1a43ccb` + `tbplas-cpp-a021ca8/exp`）：
+
+| 环节 | tbplas 是否可用 | 说明 |
+|------|----------------|------|
+| **SI §7 能带** | ✅ 可用 | `diag.calc_bands`（精确对角化）+ `builder`（BLG + 层偏置 $U(x)$ + Anderson 无序 + Peierls 磁场）直接复现 |
+| **SI §8 两终端电导** | ❌ **无此模块** | 无 lead 自能 / recursive Green 函数 / Caroli 公式；输运工具只有 **Kubo 体电导**（`tbpm` Kubo-Bastin DC + `diag.lindhard` Kubo-Greenwood AC），是热力学极限体线性响应，**无长度依赖**，不能直接给 $L_0$ |
+
+> **复现 $G(L)\to L_0$ 的路径 💭I**：(a) 自写 recursive Green 函数 / Sancho 自能 + Caroli 模块（tbplas 现有 `SuperCell`/`Sample` 可直接供哈密顿量）；(b) 换 **Kwant**（内置 NEGF Landauer 两终端，最直接）；(c) 用 tbplas **Kubo 体电导**作替代探针——但它是体电导 $\sigma_{2D}$，与 Li 的结电导 $G(L)$ **非同观测量**，需另行论证 $\sigma_{2D}$ 与 $L_k$ 的对应关系后方可对标。
+
 ---
 
 ## Phase S 目的接口（引用式）
@@ -226,6 +288,12 @@ pdftotext 提取 `/tmp/e3.txt`（7 页期刊版），逐项 grep：w=70/110 nm�
 
 ⚠️ 修正记录（相对旧 review）：① 删除"漏电 < pA"（原文无）；② "Δ~30 meV（实验值）"改为"实验数十 meV + 理论 30 meV"；③ 删除"变温 1.6–40 K"（原文只有 1.6 K 与 310 mK）；④ 删除未在正文出现的 $D=(D_{top}-D_{bottom})/2$ 公式（降为 [PHY-GATE] 引用）；⑤ Chern 数表述降级 💭I（原文用 Ω 符号反转、未写 Chern 数）；⑥ Fig 3 caption 223 nm 与正文 210 nm 不一致处显式标注。
 
+## 反向核对 pass — SI §7–§8 (2026-09-03)
+
+pdftotext 提取 `/tmp/li2016_si.txt`（SI），逐项 grep §7：$t$=2.6 eV、$t_\perp$=0.34 eV、$d$=120 nm、$w$=70/110 nm、$2U$=100 meV（Fig 10）/ 30 meV（Fig 11、12）/ 30-100-300 meV（Fig 12）、$\Delta\sim 2U$、边界 10 原子 $W$=10 eV 强无序、zigzag 边缘模 $4e^2/h$、SI 用 $L_0$（正文 $L_k$）、Fig 12d "four kink modes" —— 全部在原文找到。正文 "each valley supports four chiral modes (two ... spin ... two ... layer)"（Fig 1a）与 SI Fig 12d 无自旋 π-轨道图的 4 kink 模（2 谷 × 2 层）核对**自洽**。
+
+§8 逐项 grep：Caroli 公式 $G_{LB}=\frac{2e^2}{h}\mathrm{Tr}[\Gamma_L G^r\Gamma_R G^a]$、转移矩阵法（Sancho 迭代）自能、每点 30 无序样本平均、$W$=0.6 eV 为匹配实验电导、$E_F$=14 meV 处 $L$=0 初始电导 $8e^2/h$、device 2 $L_0$ 小 ~25% —— 全部在原文找到。
+
 ## 更正日志
 
 | 日期 | 条目 |
@@ -234,3 +302,5 @@ pdftotext 提取 `/tmp/e3.txt`（7 页期刊版），逐项 grep：w=70/110 nm�
 | 2026-09-01 | **4 块新架构重读**（据 7 页期刊版正文）：旧 review 中 grep 不到的数字全部修正——"漏电 < pA"（无源）删除；"体带隙 Δ~30 meV（实验值）"→ 实验"数十 meV" + 理论 30 meV；"变温 1.6–40 K"→ 1.6 K + 310 mK；$D=(D_{top}-D_{bottom})/2$ 公式（正文未给）→ [PHY-GATE] 引用；Chern 数表述 → 💭I；补判别表/[前提与限定]/两通道模型/§4.6 证据链 |
 | 2026-09-01 | **证据分级 + 不确定度轴全面启用**：所有数字标 📜Q/📊F/💭I + [~]/[读图]/[相对]；声明"全文无 ± 误差棒"；Fig 1e Δ(D) 轴读数标 [读图] |
 | 2026-09-01 | **内部不一致标注**：Fig 3 caption $L_k(E_F=5\ \text{meV})$=223 nm 与正文 210 nm 不一致，正文取 210 并显式标注 |
+| 2026-09-03 | **SI 补入**：下载期刊 SI PDF，精读 SI §7（能带计算），整理到 §9.1（Eq. S1 紧束缚模型 + 参数 $t$=2.6/$t_\perp$=0.34 eV + $\Delta\approx 2U$ + 三组扫描 $w$/剖面/$2U$ + 边界 $W$=10 eV 消除 zigzag 边缘模 + 复现清单）；更新头部 SI 状态与来源声明；补 SI §7 反向核对 pass |
+| 2026-09-03 | **SI §8 补入 + tbplas 能力边界**：精读 SI §8（kink 态电导），整理到 §9.2（Caroli/NEGF 两终端电导 + 30 样本平均 + $G(L)\to L_0$ 提取 + $E_F$=14 meV 处 $8e^2/h$ + device 2 小 25%）；核对本地 tbplas **无两终端 Landauer/NEGF 模块**（仅 Kubo 体电导）→ 记录能力边界与 Kwant/自写模块替代方案 |

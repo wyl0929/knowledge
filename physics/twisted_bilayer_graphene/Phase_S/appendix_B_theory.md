@@ -2,7 +2,7 @@
  * @Author       : Yulong Wang
  * @Date         : 2026-08-19 23:24:44
  * @LastEditors  : Yulong Wang
- * @LastEditTime : 2026-08-20 11:56:01
+ * @LastEditTime : 2026-09-08
  * @FilePath     : /.agents/home/wyl/project/knowledge/physics/twisted_bilayer_graphene/Phase_S/appendix_B_theory.md
  * @Description  : Phase S report.md 附录 B — 理论解释谱系演进树（2008→2026）
 -->
@@ -14,7 +14,7 @@
 
 # 附录 B：理论解释谱系 — Edge State 理论演进树（2008→2026）
 
-> **状态**: 初稿待人类修订（S-APP-B，2026-08-19）
+> **状态**: 初稿待人类修订（S-APP-B，2026-08-19；2026-09-08 按五块重读回写 §B.5 第四批 + 正文 B.2/B.3 同步）
 > **数据源**: `cards.md` Q2 节（T1–T39 理论卡片）+ 已有精读 38 篇（`note/theory/`、`note/theory/`、`note/theory/`、`note/theory/`）
 > **QC 声明**: 全部数字已逐一核对。39 篇理论论文**全部**有原文 PDF（`reference/pdfs/`，pdftotext 提取后 grep；2026-08-19 首批 24 篇、08-20 补齐 12 篇 + 最后 3 篇），核对通过者标 `pdf✓` 与 📜Q。与卡片/精读不符处见 §B.5 更正日志。
 > **范围**: 覆盖 cards.md Q2 全部 39 张理论卡片（T1–T39）；R1–R4 四篇综述仅在 §B.1 总览中作为时代锚点提及，不计入节点。
@@ -122,8 +122,8 @@ flowchart TD
 
 **T1 Martin, Blanter & Morpurgo, PRL 100, 036804 (2008)** ★ `cards, rev:theory/paper_review_T01_martin2008_prl.md, pdf✓`
 
-- **核心假设**: BLG + 符号反转的层间偏置（voltage kink）→ 体能隙在 $V=0$ 处闭合-重开 → 拓扑相变 → 畴壁束缚手征 1D 零模；2-band 模型仅在 $V \ll t_\perp$ 有效 📜Q
-- **关键预言**: 每谷每自旋 2 条零模、两谷反向传播（"two zero modes per kink per valley per spin"）📜Q；谷过滤效应 📜Q；弹道电导 $4e^2/h$ 💭I⚠️（两谷×两模×$e^2/h$ 推演，原文未出现该字符串）
+- **核心假设**: BLG + 符号反转的层间偏置（voltage kink）→ 体能隙（幅度 $|V|$）在畴壁处穿过零 → 束缚手征 1D 零模（数目由拓扑真空荷 $N_3=\pm2$ 固定）；2-band 模型仅在 $V \ll t_\perp$ 有效 📜Q
+- **关键预言**: 每谷每自旋 2 条零模、两谷反向传播（"two zero modes per kink per valley per spin"）📜Q；谷过滤效应 📜Q；弹道电导 $4e^2/h$ 💭I⚠️（每谷 2 模×2 自旋=4 通道推演，原文未出现该字符串）
 - **已知局限**: 要求偏置变化平滑（避免谷间散射）📜Q；单粒子图像；2008 年实验实现分裂栅挑战大 📜Q
 
 **T2 Li, Morpurgo, Büttiker & Martin, PRB 82, 245404 (2010)** `cards, rev:theory/paper_review_T02_li2010_prb.md, pdf✓`
@@ -147,7 +147,7 @@ flowchart TD
 **T6 Zhang, MacDonald & Mele, PNAS 110, 10546 (2013)** ★ `cards, rev:theory/paper_review_T06_zhang2013_pnas.md, pdf✓`
 
 - **核心假设**: 谷陈数统一分类——EFW 与 LSW 的谷陈数变化同为 $\Delta N_\nu = \pm 2$ 📜Q，两者拓扑等价
-- **关键预言**: EFW 与 LSW 保护相同数量的边界模（各一对同向手征模 📜Q）；补偿畴壁（堆叠+电场同时反号）完全无隙内模 📜Q——解释 Ju 2015 与 Li 2016 观测到相同 $4e^2/h$ 💭I⚠️
+- **关键预言**: EFW 与 LSW 保护相同数量的边界模（连续模型各一对同向手征模 📜Q；晶格 LSW 每谷 3 条无隙模，第三条来自断裂层晶界平带 📜Q）；补偿畴壁（堆叠+电场同时反号）完全无隙内模 📜Q——解释 Ju 2015 与 Li 2016 观测到相同 $4e^2/h$ 💭I⚠️
 - **已知局限**: 分类框架止于能带拓扑，无序/关联效应未纳入
 
 **T7 Vaezi, Liang, Ngai, Yang & Kim, PRX 3, 021018 (2013)** ★ `cards, rev:theory/paper_review_T07_vaezi2013_prx.md, pdf✓`
@@ -252,7 +252,7 @@ flowchart TD
 
 **T22 Sinner, Pantaleón & Guinea, PRL 131, 166402 (2023)** `cards, rev:theory/paper_review_T22_sinner2023_prl.md, pdf✓`
 
-- **核心假设**: 层内单轴应变（保持时间反演、类矢量势项 📜Q）+ 转角共同作用 → moiré 布里渊区变形，临界应变处退化为一维条纹 → 准 1D 通道 📜Q
+- **核心假设**: 单轴异质应变 + 转角共同作用 → moiré 倒空间单胞（mBZ）坍塌（$\det T=0$），临界应变处退化为一维条纹 → 准 1D 通道 📜Q
 - **关键预言**: 临界应变 $\epsilon_c \approx 4.4\%$（石墨烯 $\nu\approx0.165$）/ $\approx 8\%$（TMD $\nu\approx0.19$）📜Q
 - **已知局限**: 连续模型近似，未含晶格弛豫/原子重构
 
@@ -369,11 +369,11 @@ flowchart TD
 
 | 卡片 | 论文（年份·期刊） | 核心假设 | 关键预言 | 已知局限 |
 |---|---|---|---|---|
-| T1 ★ pdf✓ | Martin 2008, PRL 100, 036804 | 偏压 kink → 能隙闭合-重开 → 手征零模 | 每谷每自旋 2 条零模；谷过滤 | 平滑偏压假设；单粒子 |
+| T1 ★ pdf✓ | Martin 2008, PRL 100, 036804 | 偏压 kink → 能隙穿过零 → 手征零模（拓扑真空荷 N₃=±2） | 每谷每自旋 2 条零模；谷过滤 | 平滑偏压假设；单粒子 |
 | T2 pdf✓ | Li 2010, PRB 82, 245404 | 单谷体-边对应边际性 | $\Delta C_v$ 才是稳健拓扑量 | 谷间散射边界未闭合 |
 | T3 ★ pdf✓ | Jung 2011, PRB 84, 075418 | 多层 kink 态对畴壁取向不敏感 | 模式数 ∝ 层数 $N$ | 不同层数界面连续模型失效 |
 | T4 ★ pdf✓ | Qiao 2011, Nano Lett. 11, 3453 | AB/BA 畴壁 = 电子高速公路 | TB 可实现的原子尺度通道 | 仅覆盖 AB/BA 壁 |
-| T6 ★ pdf✓ | Zhang 2013, PNAS 110, 10546 | 谷陈数统一分类 EFW/LSW | 两者 $\Delta N_\nu=\pm2$ 等价；补偿壁无隙内模 | 无序/关联未纳入 |
+| T6 ★ pdf✓ | Zhang 2013, PNAS 110, 10546 | 谷陈数统一分类 EFW/LSW | 两者 $\Delta N_\nu=\pm2$ 等价；晶格 LSW 每谷 3 模；补偿壁无隙内模 | 无序/关联未纳入 |
 | T7 ★ pdf✓ | Vaezi 2013, PRX 3, 021018 | 倾角晶界也承载拓扑态 | 倾角晶界网络平台 | 依赖实验成像验证 |
 | T8 pdf✓ | Jaskólski 2016, Nanoscale 8, 6079–6084 | 原子缺陷不破坏隙内态 | 栅压极性反转 → 电导不对称 | 特殊缺陷几何 |
 | T5 ★ pdf✓ | San-Jose 2013, PRB 88, 121408(R) | 偏压下畴壁螺旋模形成连通网络 | $E_M\approx88$ meV·θ(deg)；100 nm 周期阈值 ~45 meV | 谷守恒假设；理想周期 |
@@ -390,7 +390,7 @@ flowchart TD
 | T21 pdf✓ | Margetis 2021, PRB 104, 115422 | 手征双层等离激元边缘态 | 色散依赖手征响应 | 定量待实验对照 |
 | T12 ★ pdf✓ | Tsim 2020, PRB 101, 125409 | 节点入射模唯一散射 → 不渗流 | 三组独立 TZM；两个 1D 能量窗口 | 单粒子；电导量子化未定 |
 | T13 ★ pdf✓ | Fujimoto 2021, PRB 103, 155410 | 边界态 ↔ 滑动 Chern 数 | moiré 电荷泵浦宽参数区 | 与 TZM 未统一 |
-| T22 pdf✓ | Sinner 2023, PRL 131, 166402 | 单轴应变 + 转角 → mBZ 变形 | 临界应变 ≈4.4%（石墨烯）/≈8%（TMD）→ 准 1D 通道 | 连续模型；未含重构 |
+| T22 pdf✓ | Sinner 2023, PRL 131, 166402 | 单轴异质应变 + 转角 → mBZ 坍塌 | 临界应变 ≈4.4%（石墨烯）/≈8%（TMD）→ 准 1D 通道 | 连续模型；未含重构 |
 | T24 pdf✓ | Hsu 2023, PRB 108, L121409 | 相互作用量子线 + 广义 Umklapp 散射 | 分数填充处关联态 | 散射算符唯象构造 |
 | T25 pdf✓ | Wittig 2023, PRB 108, 085431 | AA 离散能级 + 能量依赖 S 矩阵 | 共振附近电导 dip | 库仑仅平均场 |
 | T29 ★ pdf✓ | Hou 2024, PRB 110, L161406 | 独立传播 1D 通道阵列 | NQCP 接近 1/2/3 × 2e²/h | 耦合参数拟合；零偏压未讨论 |
@@ -476,6 +476,20 @@ flowchart TD
 33. **T26 (Wang & Hsu 2024, 2D Mater. 11, 035007)**: review 旧版 "$T_c\sim10$–50 K"、"CDW 开隙→电阻陡增"、"$K<1$ 吸引/$K>1$ 排斥"、"1D→2D 维度渡越" 均无源 → 原文: 玻色化（TLL）关联网络模型，屏蔽相互作用强度由偏压/屏蔽长度/介电材料调控，含声子相图显示密度波态与超导电学可调 📜Q。已补文章号 035007。
 34. **T28 (Mondal 2023)**: review 旧版 "~6°/~10°" 转角、"~1 nm vs mTBG ~5 nm 局域尺度"、"圆偏振光读出" 均无源 → 原文算例 $\theta_c=38.21°$（commensurate 角），微小偏离产生 1D 畴壁网络；子谷 Dirac 锥（Haldane/Semenoff 质量）；非费米液体行为；电场/层滑动调控 📜Q。
 35. **T31 (Kundu & Kundu 2024)**: review 旧版 "Fraunhofer 偏离 $|\sin x/x|$ + AB 叠加"、"$I_c\propto$ 畴壁数目" 均无源 → 原文: zigzag 模 → 线性 ABS → 4π 周期 Josephson 流；pLL 模 → 平坦 ABS → 体 Josephson 流消失（边缘态可给 4π 响应）；$J_c$ 剖面锯齿→正弦 4π 转变；$J_c$ 随网络长度以 $\sim1/N_l$ 衰减 📜Q。
+
+---
+
+### 第四批（2026-09-08 五块重读回写，ai-0908-T09）
+
+> 2026-09-08 按五块演绎结构重读全部 38 篇 review 后，将重读发现回写本附录正文（B.2/B.3）。关键修正：
+
+36. **T1（Martin 2008）"闭合-重开 → 拓扑相变"为后世语言** → 原文未用"闭合-重开/相变"措辞（grep 0 命中），只说隙幅度 |V|、偏压"类比序参量"、拓扑真空荷 $\tilde N_3=\mathrm{sgn}\,\varphi$、$N_3=\pm2$。已删"闭合-重开/相变"，改为"能隙穿过零 + 拓扑真空荷 N₃=±2 固定零模数"。
+37. **T1 4e²/h 通道计数修正** → 旧"两谷×两模×e²/h"漏自旋、误计谷；正确为**每谷 2 模×2 自旋=4 通道**（谷过滤选单谷）→ 4e²/h。已改。
+38. **T6 补 LSW 晶格"每谷 3 模（非 2）"** → 连续模型 EFW/LSW 各 2 模，但晶格 LSW 因断裂层晶界平带（magenta）给出每谷 3 条无隙模（$t=1,\gamma_1=0.3,V/2=0.25$，$t_c>0$ 时平带下推）。旧版"各一对"漏此关键结果。已补。
+39. **T22 机制订正"层内单轴应变"→"单轴异质应变"** → 旧 §B.5 #21 误写"层内单轴应变（类矢量势项）"；重读确认实际机制为**单轴异质应变**（E↓=−E↑=E/2），"类矢量势"是引言单层背景非本文机制；核心结果是 mBZ **坍塌**（$\det T=0$）而非一般"变形"。已改 B.2/B.3。
+40. **T06 跨论文污染清理（review 层）** → 旧 review 的 DFT-LDA 段（3.1 nm/1.5 nm/5 V/nm）与 SPT/Wen 分类均误植自 T7 Vaezi，已在 review 删除；本附录正文本无此污染（附录 T6 节点干净）。
+41. **T02/T06 符号约定显式标注** → T2 用 $N_\nu=\nu\,\mathrm{sgn}(\Delta)$、T6 用 $N_\nu=-\nu\,\mathrm{sgn}(\Delta)$（符号相反）；两篇 review 均已显式标注防跨论文混用，本附录 T2/T6 节点引用时保留各自约定。
+
 
 ---
 

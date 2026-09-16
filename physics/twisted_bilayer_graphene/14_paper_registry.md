@@ -24,10 +24,11 @@ Last updated: 2026-08-06
 
 ## 一、理论论文
 
-### 1.1 奠基理论（2008–2013）
+### 1.1 奠基理论（2007–2013）
 
 | # | 年份 | 作者 | 标题 | 期刊 | arXiv/DOI | 来源 |
 |---|---|---|---|---|---|---|
+| T0 | 2007 | **★ Snyman & Beenakker** | Ballistic transmission through a graphene bilayer | PRB 75, 045322 | 10.1103/PhysRevB.75.045322 | ⚡ 📄 |
 | T1 | 2008 | **★ Martin, Blanter & Morpurgo** | Topological Confinement in Bilayer Graphene | PRL 100, 036804 | 10.1103/PhysRevLett.100.036804 | DW.bib 📄 |
 | T2 | 2010 | **Li, Morpurgo, Büttiker & Martin** | Marginality of bulk-edge correspondence for single-valley Hamiltonians | PRB 82, 245404 | — | DW.bib 📄 |
 | T3 | 2011 | **★ Jung, Zhang, Qiao & MacDonald** | Valley-Hall kink and edge states in multilayer graphene | PRB 84, 075418 | — | DW.bib 📄 |
@@ -170,6 +171,8 @@ Last updated: 2026-08-06
 ## 五、论文关系图
 
 ```
+2007 ── Snyman & Beenakker (双层 4×4 哈密顿量 + l⊥ + 赝扩散 F=1/3)  ← 哈密顿量祖先
+  │
 2008 ── Martin et al. (EFW 拓扑零模预言)
   │
 2010–2011 ── 谷霍尔扭结理论积累 (Li, Jung, Qiao)

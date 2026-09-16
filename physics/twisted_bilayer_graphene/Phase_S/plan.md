@@ -65,7 +65,7 @@ Week 3 (Q3): 交叉重读 15 篇中 theory↔expt 映射链路 → report.md §4
 | **E10** | Rickhaus et al., Nano Lett. 18, 6725 (2018) | **FP+AB 振荡输运**——Q1 中最丰富的表征数据，直接证明 1D 相干性 | `note/experiments/`（同上） |
 | **E13** | Verbakel et al., PRB 103, 165134 (2021) | **谷保护唯一直接实验证据（FFT）**——Q1 的定论性工作 | `note/experiments/`（同上） |
 | **E4** | Yin et al., Nat. Commun. 7, 11760 (2016) | **STM 首次成像双层畴壁边缘态**——Q1 的早期实验基准 | `note/experiments/` |
-| **E14** | Zheng et al., PRL 129, 076803 (2022) | **电子 Kagome 晶格**——证明网络干涉产生 2D 超结构 | `note/experiments/` |
+| **E14** | Zheng et al., PRL 129, 076803 (2022) | **畴壁赝朗道平带（PLL）+ 电子 Kagome 晶格**——分辨畴壁中心 PLL 与两侧 helical 态共存（⚠️ 2026-09-07 订正: 旧表述"网络干涉产生 2D 超结构"与重读结论不符；Kagome 仅 magic angle 附近、tiny angle 为三角网络，见 §2.6.1） | `note/experiments/` |
 | **E12** | Xu et al., Nat. Commun. 10, 4008 (2019) | **巨幅 AB 振荡**——T15 散射理论的实验对标 | `note/experiments/` |
 | **E1** | Ju et al., Nature 520, 650 (2015) | **领域奠基实验**——s-SNOM + 输运双探针范式 | ⏭️ 已有精读（domain-wall/），交叉引用 |
 
@@ -136,6 +136,7 @@ Li/Chen/Yao 2025 ──→ 待实验验证 (大转角新范式)
 - [log AI:0820_T01] 用户补齐 12 篇理论 PDF 后第二批核对：发现 review 层整段机制虚构（T24 S(θ) 框架、T30 QSH、T32 量子度规→谷欧拉数 VEN、T39 谷过滤→不可穿透势垒+谷间阀、T36 Majorana→三条 DW 工程策略等 10 项），已重写 appendix_B 12 节点与 cards.md 对应卡片；仍缺 T26/T28/T31 三篇 PDF。
 - [log AI:0820_T02] 用户补齐最后 3 篇 PDF 后完成第三批核对（T26 玻色化模型/035007、T28 θc=38.21°/子谷 Dirac 锥、T31 4π 周期 Josephson），**Q2 理论 39 卡片 PDF 反向核对全部完成**（更正日志 35 条）；剩余待办为 review 文件逐篇修订。
 - [log AI:0820_T04] S-REV 完成：23 篇理论 review 按 §B.5 逐篇修订无源内容并补末尾更正日志（每篇仅动被证伪项，全部替换文本经 PDF grep 复核）。新发现: ① T37 原文只引 Rickhaus 未引 Xu、T36 Majorana 仅引言动机、T39 未对标 Barrier——跨论文对标需逐篇核引用列表；② T26 的 CDW/SDW 相原文确有（"repulsive interactions favor CDW and SDW"），证伪的仅是"开隙→电阻陡增"因果句；③ Hou 2024 (T29) 正文确实引用 Rickhaus 振荡观测。QC 第二层（review 逐篇反向核对）至此闭环，理论侧交付物全部带证据分级。
+- [log AI:0907_T01] S-REP-2 完成 `report.md` §2 初稿（§2.1–2.4 + 来源索引，正文数字全部 📜Q，标注「初稿待人类修订」）。执行前按 7 篇 Q1 review 订正 `cards.md` Q1 节与 Q3 表（E10 理论引用 San-Jose & Prada + Andjelkovic 非 Efimkin、E12 回路面积=莫尔单胞一半、E1 L₀ 措辞、E13 补 θ/缺陷边界、E15"首例"→"首批之一"、S3 年份 2025、Q3 表 T23/T25→E14 行加 ⚠️ 待 S-Q3-MAP 裁定）。**E14 表述订正（本计划 §2.2 与 cards.md 同步修正）**: 电子 Kagome 晶格来自 T10（Ramires-Lado 2018）预言的电场诱导 PLL 网络——畴壁中心 PLL 平带与两侧 helical 边态共存，非"网络干涉产生 2D 超结构"；Kagome 仅 magic angle 附近（~0.88°–1.07°），tiny angle（θ<0.2°）重构后为三角网络。
 
 ---
 
@@ -144,7 +145,7 @@ Li/Chen/Yao 2025 ──→ 待实验验证 (大转角新范式)
 | 文件 | 内容 | 预估篇幅 | 状态 |
 |---|---|---|---|
 | `plan.md` | 本文件 | — | ✅ 已完成 |
-| `report.md` | 回答导师三问的综合调查报告 | 10–12 页 | ⬜ 待写 |
+| `report.md` | 回答导师三问的综合调查报告 | 10–12 页 | 🟡 §2 初稿已写（S-REP-2，待人类修订）；§3–§5 待写 |
 | `appendix_A_methods.md` | 实验表征方法横向对比表 | 3–4 页 | ✅ 已完成（AI:0819_T01，含 QC 更正日志待人类确认） |
 | `appendix_B_theory.md` | 理论解释谱系（从 2008→2026 的演进树） | 3–4 页 | ✅ 已完成（AI:0819_T03，含 QC 更正日志待人类确认） |
 | `appendix_C_theory_expt_map.md` | 每篇核心理论的实验对标 | 3–4 页 | ⬜ 人类主导 |

@@ -1,150 +1,261 @@
 <!--
- * @Author       : Yulong Wang
- * @Date         : 2026-08-06 17:17:55
- * @LastEditors  : Yulong Wang
- * @LastEditTime : 2026-08-06 17:17:57
- * @FilePath     : /.agents/home/wyl/project/knowledge/physics/twisted_bilayer_graphene/note/theory/paper_review_T11_hou2020_prb.md
- * @Description  :
--->
-<!--
- * @Author       : AI精读 (research_onboarding_skill, Phase 4)
- * @Date         : 2026-08-06
- * @FilePath     : /project/knowledge/physics/twisted_bilayer_graphene/note/theory/paper_review_T11_hou2020_prb.md
- * @Description  : T11: Hou et al. 2020 — 金属畴壁网络的电子结构与输运
+ * @Author       : AI 精读 (research_onboarding_skill, Phase 4) → 2026-09-08 按 5 块演绎结构重写
+ * @Date         : 2026-08-06（初读）→ 2026-09-08（5 块重写 + 反向核对）
+ * @FilePath     : /home/wyl/project/knowledge/physics/twisted_bilayer_graphene/note/theory/paper_review_T11_hou2020_prb.md
+ * @Description  : T11: Hou et al. 2020 — 拓扑畴壁金属网络（理论输运；2026-09-08 按五块演绎结构重写：模型白箱/推导链/结论清单/假设-结论依赖图/接口）
 -->
 
-# 论文精读：Hou et al., PRB (2020)
+# Paper Review: Hou, Ren, Quan, Jung, Ren & Qiao (2020) — 拓扑畴壁的金属网络
 
-> **Tao Hou, Yafei Ren, Yujie Quan, Jeil Jung, Wei Ren, Zhenhua Qiao**
-> "Metallic network of topological domain walls"
-> PRB 101, 201403(R) (2020) | arXiv:1904.12826
->
-> 作者单位：USTC (Qiao group), Univ. of Seoul (Jung), Shanghai Univ.
+| 字段 | 内容 |
+|------|------|
+| **编号** | T11 |
+| **标题** | Metallic network of topological domain walls |
+| **作者** | Tao Hou, Yafei Ren, Yujie Quan, Jeil Jung, Wei Ren, Zhenhua Qiao |
+| **期刊** | Physical Review B 101, 201403(R) (2020) |
+| **DOI / arXiv** | 10.1103/PhysRevB.101.201403 / arXiv:1904.12826（⚠️ arXiv 号正文未出现，标外部来源） |
+| **类型** | 理论 — 畴壁网络电子结构 + 输运（紧束缚 + Landauer-Büttiker，无实验数据） |
+| **课题组** | USTC（Qiao group）/ University of Seoul（Jung）/ Shanghai University |
+| **PDF** | ✅ `reference/pdfs/Hou 等 - 2020 - Metallic network of topological domain walls.pdf`（正文 5 页 Rapid Communication） |
+| **精读日期** | 2026-08-06（初读）→ 2026-09-08（5 块重写 + 反向核对） |
 
----
-
-## 1. 一句话总结
-
-用 TB + Landauer-Büttiker 全面分析了谷陈数畴壁网络的电子和输运性质：**体态为半金属**（Dirac 色散），**锯齿边纳米带出现近量子化电导** $G \approx e^2/h$，**三叉戟边纳米带因有限尺寸效应打开小能隙**。
-
----
-
-## 2. 背景与动机
-
-- 实验上已在 mTBG 中观测到畴壁导电网络（Huang 2018, Rickhaus 2018）
-- 但网络的**输运性质**（体态 vs 边缘态、量子化条件、无序效应）尚未系统研究
-- 使用简化模型（单层石墨烯 + 交错子晶格势）抓住 mTBG 畴壁网络的拓扑本质
+> **结构说明**：按「理论论文演绎结构」五块记（`note/shared/method/theory_paper_reading.md` §3）。**全文无 ±**：数字统一 📜Q[~]；📊F 几乎不出现。
 
 ---
 
-## 3. 方法与模型
+## TL;DR
 
-### 3.1 简化模型
+**本文想解决的理论问题**：由谷陈数相反（±1）的绝缘畴周期性排列形成的**畴壁网络**，其电子结构与输运性质（体态 vs 边缘态、量子化条件、无序效应、边缘几何依赖）是什么？
 
-**核心简化**：用单层石墨烯的 AB 子晶格交错势 $U_A = -U_B = \pm\lambda\Delta$ 模拟 mTBG 的 AB/BA 谷陈数畴区。
+**主结果**：① 网络**半金属**（摘要原词 "semimetallic"；正文 "metallic"），CNP 附近 Dirac 线性色散，态沿畴壁分布 📜Q；② **锯齿边**纳米带 CNP 附近近量子化电导 $G\approx e^2/h$（无能隙边缘模沿上下边界传播，对弱无序稳健），**三叉戟边**因有限尺寸效应开小能隙→绝缘 📜Q；③ 费米能偏离 CNP → 电流扩展到所有畴壁 → 输运与边缘构型无关；推广到双层×自旋 → **期望** $4e^2/h$ 📜Q（作者 "expect"）。
 
-$$H = -t\sum_{\langle ij\rangle} c_i^\dagger c_j + \sum_{i\in A} U_A c_i^\dagger c_i + \sum_{j\in B} U_B c_j^\dagger c_j$$
-
-- $t = 2.6$ eV, $\Delta = 0.1t$（能隙 $2\Delta = 0.2t$）
-- 畴壁处 $U_A, U_B$ 改变符号 → 谷陈数跳变 → ZLM
-
-### 3.2 输运计算
-
-Landauer-Büttiker 公式 + 递归 Green 函数：
-$$G_{pq} = \frac{2e^2}{h} \text{Tr}[\Gamma_p G^r \Gamma_q G^a]$$
+**结论/意义**：对拓扑畴壁网络的输运做了系统分析，给出"**边缘几何控制输运**"的清晰判据，与 mTBG 强电场下畴壁网络的输运实验定性一致 📜Q。⚠️ 全文为数值理论，作者用词 find / show / expect；$4e^2/h$ 是作者从单层模型**外推**的期望值（非直接计算，标 [推导]💭I）。
 
 ---
 
-## 4. 核心结果
+## 1. 模型白箱（理想系统 + 假设清单）
 
-### 4.1 体能带：半金属
+### 1.1 哈密顿量（自旋简并）
 
-体态色散在 $\Gamma$ 点有 Dirac 线性锥 → 畴壁网络是 **Dirac 半金属**，非绝缘体。
+用**单层石墨烯 + 交错子晶格势**模拟 mTBG 的 AB/BA 畴区（Fig. 1b，红/蓝格点 = 正/负格点能）：
 
-### 4.2 边缘几何决定性
+$$
+H=-t\sum_{\langle ij\rangle}c_i^\dagger c_j+\sum_{i\in A}U_A c_i^\dagger c_i+\sum_{j\in B}U_B c_j^\dagger c_j
+$$
 
-| 边缘构型 | CNP 附近行为 | 原因 |
-|----------|-------------|------|
-| **锯齿边** (sawtooth) | **近量子化** $G \approx e^2/h$ | 无能隙边缘模沿锯齿边界传播 |
-| **三叉戟边** (trident) | **小能隙** → 绝缘 | 有限尺寸效应打开 avoided gap |
+其中 $t=2.6$ eV 为最近邻跃迁、$U_A=-U_B=\lambda\Delta$（$\lambda=\pm1$ 对应 AB/BA 区）、$2\Delta$ 为畴区能隙大小、晶格常数 $a=0.14$ nm 📜Q。取 $\Delta=0.1t$，体带隙 $2\Delta=0.2t$ 📜Q。超晶格单胞边长 8.1 nm、纳米带单胞宽 24 nm 📜Q。
 
-### 4.3 费米能偏离 CNP
+**输运**：Landauer-Büttiker + 递归 Green 函数，$G_{pq}=\frac{2e^2}{h}\mathrm{Tr}[\Gamma_p G^r\Gamma_q G^a]$ 📜Q；电流注入的 LDOS $\rho_p(\mathbf r,\varepsilon)=\frac{1}{2\pi}[G^r\Gamma_p G^a]_{rr}$ 📜Q。
 
-当 $E_F$ 偏离 CNP → 电流**扩展到所有畴壁** → 输运与边缘构型无关 → 体态主导。
+### 1.2 参数分册（区分"作者设定" vs "推导所得"）
 
-### 4.4 无序稳健性
+| 类 | 内容 |
+|----|------|
+| **自由参数（旋钮）** | 费米能 $E_F$（扫谱/输运）、系统尺寸 $(L_x,L_y)$、无序强度 $W$、边界倾角 $\alpha$/粗糙边夹角 $\beta$ |
+| **导出量（由旋钮+常数算出）** | 体能隙 $2\Delta=0.2t$、电导 $G_{pq}$、LDOS $\rho_p$ |
+| **模型内部量（解的性质）** | 体能带（Dirac 色散）、边缘模（锯齿边 gapless / 三叉戟边 gap）、谷陈数 ±1 |
+| **固定常数** | $t=2.6$ eV、$\Delta=0.1t$、$a=0.14$ nm、单胞边长 8.1 nm、带宽 24 nm |
+| **预言量（可检验）** | 锯齿边 $G\approx e^2/h$、双层×自旋 $4e^2/h$（外推） |
 
-- CNP 附近的量子化电导对**弱无序**稳健（$\langle G_{LR}\rangle$ 在弱无序下保持 $e^2/h$）
-- 强无序 → 电导下降（Anderson 局域化）
+> **符号防混**：$2\Delta$（畴区能隙，=0.2t）≠ 三叉戟边的小 avoided gap（有限尺寸效应）；$\Delta$（子格势幅值 0.1t）≠ 无序宽度 $W$。**无"反推量"层**。
 
-### 4.5 多端输运
+### 1.3 显式假设清单
 
-四端器件计算 + LDOS 电流分布图 → 直观展示了锯齿边 vs 三叉戟边的电流路径差异。
-
----
-
-## 5. 与其他工作的关系
-
-| 相关工作 | 关系 |
-|----------|------|
-| Qiao et al. 2011 (Nano Lett.) | 同组早期工作：单条畴壁 ZLM — 本文拓展到网络 |
-| Efimkin & MacDonald 2018 | 网络模型理论 — 本文用 TB+输运补充 |
-| Rickhaus 2018 (实验) | 实验动机 — 本文的锯齿边量子化电导可解释 FP+AB 振荡 |
-| Hou/Yuan/Jiang 2024 | 同组后续裁决：TZM vs 网络 — 本文是网络模型的 TB 实现 |
-
----
-
-## 6. 亮点与局限
-
-### 亮点
-- **边缘几何控制输运**的清晰结论：锯齿边 → 量子化，三叉戟边 → 绝缘
-- **简化模型抓住本质**：单层石墨烯 + 交错势等价于 mTBG 畴壁网络的拓扑
-- **完整的输运分析**：二端/四端、体态/边缘态、无序效应、角度依赖
-
-### 局限
-- 简化模型忽略了层自由度、摩尔周期调制、晶格弛豫
-- 未讨论 TZM 的可能性（2020 年同时期 Tsim & Koshino 已提出）
-- 量子化电导的平台质量（是严格量子化还是近量子化）未深入讨论
-- 仅 $T=0$，无温度效应
+| # | 假设/近似 | 属于 | 出处 |
+|---|---|---|---|
+| A1 | **单层石墨烯 + 交错势模拟 mTBG 畴壁网络**（忽略层自由度、Moiré 周期调制、晶格弛豫） | 模型 | 📜Q（"simpler model ... monolayer graphene"） |
+| A2 | **AB/BA 畴 = 谷陈数 ±1 绝缘体**（交错势 $\lambda\Delta$ 给出相反谷陈数） | 模型 | 📜Q |
+| A3 | **最近邻跃迁 + pz 单轨道**（$t=2.6$ eV） | 模型 | 📜Q |
+| A4 | **自旋简并**（$2e^2/h$ 含自旋；未写自旋矩阵） | 模型 | 📜Q |
+| A5 | **$T=0$、无温度** | 输运 | 💭I（全文无温度讨论） |
+| A6 | **Anderson 无序**为随机 onsite 势 $[-W/2,W/2]$（仅无序节引入） | 输运 | 📜Q |
 
 ---
 
-## 7. 与用户研究的关联
+## 2. 推导链（顺论文演绎顺序）
 
-| 维度 | 关联 |
-|---|---|
-| **方法** | Green 函数 + Landauer-Büttiker 输运 — DW 项目可直接复用 |
-| **扩展方向** | 用 tbplas 的 TB 模型复现 + 升级到 mTBG 全模型 |
-| **可验证性** | 锯齿边 $G=e^2/h$ 量子化可用 tbplas NEGF 独立验证 |
+### 2.0 总览
+
+| 层 | 论文内容 | 输入 | 输出 | 所用假设/定理 | 合法域 |
+|---|---|---|---|---|---|
+| 模型层 | 交错势紧束缚 | 单层石墨烯 + $U_A=-U_B=\lambda\Delta$ | 谷陈数 ±1 畴 + 网络 | A1–A4 | $\Delta=0.1t$ |
+| 体能带层 | 超晶格对角化 | Eq. (1) | Dirac 半金属色散 + 额外 mini Dirac 锥 | A1–A3 | 无 |
+| 边缘层 | 纳米带带结构 | 锯齿/三叉戟截断 | 锯齿 gapless / 三叉戟 avoided gap | 有限尺寸 | 带宽 24 nm |
+| 输运层 | LB + Green 函数 | Eq. (2) | $G\approx e^2/h$（锯齿）、gap（三叉戟）、无序稳健性 | A4–A6 | $E_F$ 近 CNP |
+
+### 2.1 模型层：单层交错势网络
+
+- 单层石墨烯，$U_A=-U_B=\lambda\Delta$（$\lambda=+1$ AB 区 / $-1$ BA 区）模拟谷陈数 ±1 畴；畴壁处子格势反号 → 谷陈数跳变 → 零线模（ZLM）📜Q。
+- 无层间自由度——是 mTBG 畴壁网络拓扑的**最小模型**（"simpler model"）📜Q。
+
+### 2.2 体能带层：半金属 Dirac 色散
+
+- 体带结构（Fig. 1c）：体内出现 Dirac 型线性带（Γ 点附近）+ 更高能的 mini Dirac 锥（K/K′ 附近），夹窄带宽区 📜Q。
+- 因正/负格点势的格点数目不等，非零平均 → Dirac 点偏移 📜Q。
+- 结论：尽管每个畴绝缘（有体带隙），沿网络传播的 ZLM 是**金属的、线性 Dirac 色散** 📜Q。
+
+### 2.3 边缘层：几何决定性
+
+- 锯齿边（sawtooth）：体带隙内 gapless 态（蓝），CNP 附近线性色散（红）沿边界传播 📜Q。
+- 三叉戟边（trident）：CNP 处出现小 avoided gap（有限尺寸效应）📜Q。
+
+### 2.4 输运层：LB 电导 + 无序
+
+- **二端 U→D（三叉戟边）**：CNP 附近电流消失（= 带隙），有限掺杂时电导快速上升；CNP 处 gap 随网络尺寸增大而减小 📜Q（Fig. 2）。
+- **二端 L→R（锯齿边）**：CNP 附近 $G_{LR}$ 量子化于 $e^2/h$；网络增大 → 量子化能窗收缩 📜Q（Fig. 3a）。CNP 附近电流沿上下锯齿边界传播，两侧总电导 $\approx e^2/h$（= 一个电导量子）📜Q。
+- **偏离 CNP**：电流在整个拓扑网络中分流 → 输运各向异性可忽略 → 与边缘构型无关 📜Q（Fig. 3c）。
+- **无序**（Anderson，$[-W/2,W/2]$）：$W=0.025t$ 边缘模近弹道、量子化稳健、弱 $L_x$ 依赖；$W=0.1t$（≈ 体带隙）时 $L_x=2.5$ μm 样品电导仍为 $e^2/h$ 的一半 📜Q（Fig. 3d，每点 >50 样品平均）。
+- **边界接触**：铅-样品倾角 $\alpha$（Fig. 4a-c）下量子化保持、弱 $\alpha$ 依赖；三叉戟边换成粗糙边（夹角 $\beta$，Fig. 4d-f）→ 一旦偏离三叉戟，$G_{DU}$ 在 CNP 处变非零（虽非量子化）📜Q。
 
 ---
 
-## 8. 关键参数速查
+## 3. 结论清单（分层）
 
-| 参数 | 值 |
-|------|-----|
-| $t$ | 2.6 eV |
-| $\Delta$ | 0.1t |
-| 能隙 $2\Delta$ | 0.2t |
-| 超胞边长 | 8.1 nm |
-| 锯齿边量子化电导 | $G \approx e^2/h$（每层每自旋 → mTBG 中 $4e^2/h$） |
+### 3.1 定理式主张（模型构造的产物，依赖 A1–A3）
+
+| 主张 | 内容 | 依赖假设 |
+|---|---|---|
+| 网络半金属性 | ZLM 网络金属性、CNP 附近 Dirac 线性色散 | A1（单层模型）、A2（谷陈数 ±1） |
+| 体-边结构 | 锯齿边 gapless 边缘模 / 三叉戟边 avoided gap | A1、有限尺寸 |
+| 边缘几何控制输运 | CNP 附近量子化（锯齿）vs 绝缘（三叉戟） | A1–A4 |
+
+### 3.2 估算（数值，非严格定理）
+
+| 估算 | 值 | 依赖假设 | 证据 |
+|---|---|---|---|
+| 锯齿边电导 | $G_{LR}=e^2/h$（CNP，近量子化） | A1–A4 | 📜Q[~] |
+| 无序稳健 | $W=0.1t$ 时 $L_x=2.5$ μm 电导仍 $e^2/h/2$ | A6 | 📜Q[~] |
+| 三叉戟 gap | 随网络尺寸增大而减小 | 有限尺寸 | 📜Q[~] |
+| 体带隙 | $2\Delta=0.2t$ | A2（$\Delta=0.1t$） | 📜Q[~] |
+
+### 3.3 预言（可检验性 → §5.1）
+
+| 预言 | 作者措辞强度 | 可检验性 |
+|---|---|---|
+| 双层×自旋 → $4e^2/h$ 近 CNP 量子化电导 | "we expect ... should be quadruple e²/h" 📜Q | 中——mTBG 输运实验（与 ref 30 定性一致） |
+| 锯齿边量子化电导可解释 mTBG 实验 | "qualitative agreement" 📜Q | 中 |
+| 低功耗拓扑量子器件设计洞察 | "provide useful insights" 📜Q | 弱——设计原则 |
+
+### 3.4 内部验证（自洽核对）
+
+1. **几何负对照**：锯齿边（量子化）vs 三叉戟边（绝缘）同模型不同截断 → 验证"边缘几何决定输运" 📜Q。
+2. **偏离 CNP 对照**：$E_F$ 偏离 CNP 后电流充满网络、输运与边缘无关 → 验证"边缘态只在 CNP 附近主导" 📜Q。
+3. **无序扫描**：$W=0.025t\to0.1t$ 电导从量子化到半量子化 → 验证稳健性边界 📜Q。
+
+### 3.5 概念区分（分类，非溯因排除）
+
+| 区分 | 依据 | 结论 |
+|---|---|---|
+| 体态 vs 边缘态 | CNP 附近边缘模主导 vs 偏离 CNP 体态主导 📜Q | 两个能区两种输运机制 |
+| 锯齿边 vs 三叉戟边 | gapless 边缘模 vs 有限尺寸 avoided gap 📜Q | 几何决定输运 |
+| 量子化 vs 非量子化 | 锯齿边严格 $e^2/h$ vs 粗糙边非量子化但非零 📜Q | 三叉戟是特例 |
 
 ---
 
-*报告生成日期：2026-08-06 | 基于 PDF pdftotext 精读*
+## 4. 假设-结论依赖图（含金量所在）
+
+| 假设 | 失效方式 | 崩塌/改变的结论 | 致命性 |
+|---|---|---|---|
+| A1（单层模型） | 层自由度/层间耦合/Moiré 调制 | 网络拓扑定量、$4e^2/h$ 外推 | 定性结论稳健；定量需 mTBG 全模型 📜Q |
+| A2（谷陈数 ±1） | 谷间散射/无序强 | 量子化电导 | 弱无序下稳健（已测 $W=0.1t$）📜Q |
+| A4（自旋简并） | 自旋分裂 | $e^2/h$→$4e^2/h$ 计数 | 未讨论 💭I |
+| A5（$T=0$） | 有限温 | 量子化平台质量 | 未讨论 💭I |
+| A6（Anderson 无序） | 强无序 | Anderson 局域化、电导下降 | $W=0.1t$ 仍 $e^2/h/2$；更强未测 📜Q |
 
 ---
 
-## Phase S 补充 (2026-08-11): Q2/Q3
+## 5. 接口（可检验性 / 设计原则 / 后续修正）
 
-### Q2: 理论如何解释 edge state?
-简化紧束缚模型（AB/BA 区域用交错子晶格势区分）→ 畴壁网络表现为半金属拓扑通道网络。输运强烈依赖边缘几何：锯齿边缘近电中性近量子化电导，三叉戟边缘可开小能隙。
+### 5.1 可检验性（实验靶标）
 
-### Q3: 理论如何与实验结合?
-将畴壁网络电导与边缘几何和费米能级联系。近量子化电导预言为畴壁网络输运实验提供具体检验目标。
+- 锯齿边 CNP 附近 $e^2/h$ 量子化电导（及双层 $4e^2/h$）📜Q；
+- 三叉戟边 CNP 绝缘、粗糙边非零电导 📜Q；
+- 体带隙 $2\Delta$ 与 Dirac 色散（谱学指纹）📜Q；
+- 本文指出可实现于 graphene/h-BN Moiré、电场下 TBG、声子晶体 📜Q。
+
+### 5.2 设计原则（低功耗拓扑器件）
+
+边缘几何（锯齿/三叉戟）选通/绝缘 + $E_F$ 控制体态分流 + 无序稳健性 💭I（本文 "provide useful insights"）。
+
+### 5.3 后续文献修正（时间倒挂，💭I）
+
+- **T12（Tsim 2020, TZM）**：推翻"连通网络"（AA 节点确定性散射→三组独立 1D zigzag 模）——本文网络图景被部分修正。
+- **T29（Hou 2024, NQCP）**：同组后续裁决为独立 1D 通道 + 近量子化平台——本文锯齿边 $e^2/h$ 的直接后继。
+- **T15（De Beule 2020）**：散射统一（$\phi=0$=TZM / $\phi=\pi/2$=pLL）——本文单通道网络模型的推广。
 
 ---
 
-## 更正日志 (2026-08-20, S-REV)
+## 6. 局限与未解决
 
-- **"金属性网络" → "半金属"**: 本 review 自始使用 "半金属（Dirac 色散）" 表述，与原文 "semimetallic with Dirac dispersion near the charge neutrality point" 一致（grep "semimetallic" ✓）；旧版 **cards.md T11** 写 "金属性网络" 已于 08-19 改为半金属性。本 review 无需改动，仅登记。依据: §B.5#2。
+| 局限 | 说明 | 证据 |
+|------|------|------|
+| 单层简化模型 | 无层自由度、Moiré 调制、弛豫 | 📜Q（"simpler model"） |
+| $4e^2/h$ 是外推非直接计算 | 单层结果 ×2 层 ×2 自旋 | 📜Q（"expect ... should be"）→ [推导] |
+| 未讨论 TZM 可能性 | 与 Tsim 2020 同期，未涉及 AA 节点确定性散射 | 💭I |
+| 仅 $T=0$ | 无温度/热展宽 | 💭I |
+| 量子化平台质量未深究 | 是严格量子化还是近量子化未系统分析 | 📜Q（"nearly quantized"） |
+
+## 7. 与其他工作的关系（跨论文对标放这里）
+
+| 工作 | 关系 |
+|------|------|
+| Qiao et al. 2011 (ref 5) / 2014 (ref 6) | 引用——同组单条畴壁 ZLM 先驱，本文推广到网络 |
+| San-Jose & Prada 2013 (ref 25) / Efimkin & MacDonald 2018 (ref 31) | 引用——网络模型理论来源 |
+| Huang 2018 (ref 21) / Rickhaus 2018 (ref 22) / Xu 2019 (ref 23) | 引用——mTBG 畴壁网络实验动机 |
+| Yoo 2019 (ref 30) | 引用——$4e^2/h$ 对标的实验（0.1° mTBG）📜Q |
+| Ramires & Lado 2018 (ref 24, = T10) | 引用——电场规范场/pLL 前导 |
+
+> ⚠️ Phase S 外部对标（**非本文引用**，时间倒挂 💭I）见 §5.3。
+
+## 8. 对后续研究的影响
+
+- 提供"边缘几何控制输运"的清晰判据 → 成为后续 T29（NQCP）锯齿边 $e^2/h$ 的直接基础 💭I。
+- 简化单层模型 = mTBG 畴壁网络拓扑的**最小可算实现**（可被 TBPM/NEGF 复现）📜Q。
+- 无序稳健性（$W=0.1t$ 仍半量子化）为器件可行性提供支撑 📜Q。
+
+## 9. 理论模型映射（供 TBPM/NEGF 计算对标）
+
+| 映射 | 说明 |
+|------|------|
+| AB/BA 畴 → 交错势 | $U_A=-U_B=\lambda\Delta$，$\lambda=\pm1$，$\Delta=0.1t$ 📜Q |
+| 输运 | LB 公式 $G_{pq}=(2e^2/h)\mathrm{Tr}[\Gamma_p G^r\Gamma_q G^a]$，递归 Green 函数 📜Q |
+| 锯齿/三叉戟截断 | 边缘几何 → 量子化/绝缘判据 📜Q |
+| 无序 | Anderson onsite $[-W/2,W/2]$，$W=0.025t,0.1t$ 📜Q |
+| 尺寸 | 单胞边长 8.1 nm、带宽 24 nm、$L_x=59/110$ nm、$L_y=102/220/22$ nm 📜Q |
+
+---
+
+## Phase S 目的接口（引用式，随项目增删）
+
+- **Q1（edge state 如何表征）**：给出输运表征判据——CNP 附近锯齿边 $G\approx e^2/h$（量子化）vs 三叉戟边绝缘（gap），LDOS 电流路径图 📜Q。
+- **Q2（理论如何解释）**：单层交错势模型 → 谷陈数 ±1 畴 → 畴壁 ZLM 网络 = Dirac 半金属；边缘几何决定输运 📜Q。⚠️ 连通性后被 TZM 部分修正（§5.3）。
+- **Q3（理论↔实验对应）**：锯齿边 $e^2/h$ ↔ mTBG 输运（ref 30 双层 $4e^2/h$）；$E_F$ 偏离 CNP ↔ 体态主导；无序稳健 ↔ 器件可行性 📜Q。
+
+> **增量价值**：比 T5（San-Jose 网络概念）多了**输运定量**（LB 电导、量子化、无序），比 T9（Efimkin 网络能带）多了**边缘几何与无序**；是 T29（NQCP 裁决）的紧束缚输运前身。report 可用数字（均 📜Q）：$t=2.6$ eV、$\Delta=0.1t$、$G=e^2/h$、$4e^2/h$（外推）。
+
+## 反向核对 pass (2026-09-08)
+
+`pdftotext -layout` 提取正文到 `/tmp/T11.txt`，逐项 grep 核对：
+
+| 数字/公式 | grep 命中位置 | 结论 |
+|------|--------------|------|
+| $t=2.6$ eV、$a=0.14$ nm | 正文 "t = 2.6 eV"、"a = 0.14 nm" | ✓ 📜Q[~] |
+| $\Delta=0.1t$、$2\Delta=0.2t$ | Fig. 1 caption + 正文 | ✓ |
+| 8.1 nm、24 nm | Fig. 1 caption | ✓ |
+| $L_x=59$ nm、$L_y=102$ nm、$110/220$ nm、$L_y=22$ nm、$2.5$ μm | Fig. 2/3 caption + 正文 | ✓ |
+| $W=0.025t$、$0.1t$、>50 样品 | 正文 | ✓ |
+| $G=e^2/h$、$4e^2/h$（quadruple） | 正文 | ✓ |
+| $\alpha=10°$、$\beta=5°$ | Fig. 4 caption | ✓ |
+| semimetallic（摘要）/ metallic（正文） | 摘要 + 正文 | ✓（两词并存，卡片取 "semimetallic"） |
+| $G_{pq}=(2e^2/h)\mathrm{Tr}[\Gamma_p G^r\Gamma_q G^a]$ | 正文 Eq. | ✓ |
+
+⚠️ 修正/降级：① 旧 review "超胞边长 8.1 nm" 准确（原文 "side length of the bulk primitive cell is 8.1 nm"）；② $4e^2/h$ 是作者从单层外推（"expect ... should be quadruple"），非直接计算 → 标 [推导] 且保留 "expect" 动词；③ 旧 review 无无源数字，但结构为叙事体，本次整体重写。
+
+## 更正日志
+
+| 日期 | 条目 |
+|------|------|
+| 2026-08-06 | 初读（research_onboarding Phase 4），叙事体 8 节。 |
+| 2026-08-20 | S-REV：确认"半金属"表述与原文 "semimetallic" 一致（grep ✓），本 review 无需改动，仅登记。 |
+| 2026-09-08 | **按 5 块演绎结构整体重写**。旧叙事体归档 `archive/paper_review_T11_hou2020_prb.backup_20260908.md`。 |
+| 2026-09-08 | **QC 修正**：① 全文数字重 grep 全命中；② $4e^2/h$ 明确标为作者外推（[推导]）；③ 补参数分册 + 6 条假设清单 + 假设-结论依赖图。 |

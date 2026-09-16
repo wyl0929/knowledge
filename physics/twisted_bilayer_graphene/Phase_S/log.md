@@ -2,10 +2,280 @@
  * @Author       : Yulong Wang
  * @Date         : 2026-08-19 17:01:52
  * @LastEditors  : Yulong Wang
- * @LastEditTime : 2026-08-31 21:10
+ * @LastEditTime : 2026-09-08
  * @FilePath     : /.agents/home/wyl/project/knowledge/physics/twisted_bilayer_graphene/Phase_S/log.md
  * @Description  : Phase S AI 执行日志（run-task 追加，最新在最前）
 -->
+<a id="ai-0908-T09"></a>
+
+## AI: 0908_T09 - 批次 2（C 类 31 篇）五块演绎结构重写完成（6 子代理并行）
+
+**任务**: 批次 2 = C 类 31 篇旧叙事/粗读 review → 按理论论文五块演绎结构精读重写（模型白箱/推导链/结论清单/假设-结论依赖图/接口）+ 归档旧版 + 更新 cards.md。6 个后台子代理按主题聚类并行执行。
+
+**涉及文件**:
+- `note/theory/paper_review_T{02,03,04,06,07,08,10,11,13,14,16,17,18,19,20,21,22,24,25,26,27,28,30,31,32,33,34,36,37,38,39}_*.md` — 31 篇五块重写（旧叙事 60–165 行 → 五块 260–323 行）
+- `archive/paper_review_T{...}_*.backup_20260908.md` — 31 份旧版归档
+- `Phase_S/cards.md` — 29 张卡片（T08/T31 无 Q2 卡片）标记 ✅ + 补「关键参数」bullet
+- `Phase_S/log.md` — 本条汇总日志
+
+**成功判据验证**: 31 篇五块齐全（grep 计数 5）、词汇纪律通过（实验框架词仅在"为什么不用"说明）、全文数字逐项 grep 原文核对、四陷阱检查通过、旧版归档、cards.md 已更新。
+
+**QC 反向核对（关键发现，子代理报告汇总）**:
+- **T06 跨论文污染最严重**：DFT-LDA 段（3.1/1.5 nm/5 V/nm）与 SPT/Wen 分类均误植自 T7 Vaezi，已删除；LSW 紧束缚参数订正为无量纲 t=1/γ₁=0.3/V/2=0.25；补"晶格 LSW 每谷 3 模（非 2）"。
+- **T02 N_ν 符号约定污染**：T6 约定误植 → 改回 N_ν=ν·sgn(Δ)。
+- **T03/T04/T07 参数脑补**：t=2.8/t⊥=0.4 eV → 原文 t=2.6/0.34 eV（T03）、U=±0.1t 换算（T04）、t=2.8/0.4 eV（T07）。
+- **T13 无源参数**：γ₀=−2.6 eV、γ₁=0.34 eV（原文未给任何数值）删除。
+- **T21 框架性纠错**：对象是物理边缘等离激元（非畴壁 THS、非拓扑保护）；Wiener-Hopf 方法（非 RPA/流体力学）；补声学线性模 ω_−=v_S|q|。
+- **T32**：量子度规 → 谷欧拉数 VEN；**T30**：QSH/Z₂ → 仅 Rashba；**T24**：S(θ) 参数化 → 相互作用量子线；**T22**：层内单轴 → 单轴异质应变。
+- **T10 PDF 仅含 SI**（主文缺失）→ 用 arXiv:1803.04400v3 补齐并标注。
+- **T39 数值张力**：正文"gap ~1 meV" vs Fig.5 "∆SC=10 meV" 并存未调和，已在 review 标注。
+- **T36 DOI 异常**：印刷 "10.1103/2w2b-rq7l" 为模板占位符 → 按 PRB 112,184513 标标准 DOI。
+
+**里程碑**: 38 篇（批次1 7 + 批次2 31）全部按五块演绎结构重写完成，39 份旧版归档，台账（tasks.md + cards.md + log.md）更新完毕。S-REP-3（report §3 Q2 理论综合）的前置依赖全部满足。
+
+<a id="ai-0908-T08"></a>
+
+## AI: 0908_T08 - S-Q2-T35 完成：Li/Chen/Yao 2025 大转角 Umklapp（五块演绎结构重写）— 批次 1 全部完成
+
+**任务**: S-Q2-T35（Li, Chen & Yao 2025 Nano Lett，大转角 Umklapp 散射畴壁态）。按理论论文五块演绎结构整体重写 review（模型白箱/推导链/结论清单/假设-结论依赖图/接口），旧 4 块辨识结构版归档。**本条目为批次 1（B 类 7 篇）最后一篇。**
+
+**涉及文件**:
+
+| 文件 | 变更 |
+|------|------|
+| `note/theory/paper_review_T35_li2025_nanolett.md` | 按五块演绎结构整体重写：黑箱三要素/四层变量表/判别表/[前提与限定] → 模型白箱（k·p 模型+参数分册+6 条假设清单）→ 推导链（前提定理/模型/推导/边界四层）→ 结论清单（定理/估算/预言分层）→ 假设-结论依赖图 → 接口；删"反推量 θ̂"层；更正日志补 2026-09-08 条目 |
+| `archive/paper_review_T35_li2025_nanolett.backup_20260908.md` | 旧 4 块版归档 |
+| `Phase_S/cards.md` | T35 卡片状态 ★ → ★ ✅；补"关键参数"bullet（θ=±21.8°、~2 meV、D6/D3 模型参数、Δs=15 meV） |
+| `Phase_S/tasks.md` | S-Q2-T35: [ ] → [x]，成功判据 + 完成记录 |
+| `Phase_S/log.md` | 本条日志 |
+
+**成功判据验证**:
+- [x] review 中 Umklapp 机制描述完整（review §2.1–2.4：intervalley Umklapp 主导 + λ 印迹手性 + 手性反转 Jackiw–Rebbi 畴壁态）
+- [x] cards.md T35 卡片状态 → ✅
+
+**QC 反向核对**: 11 项数字/专名逐一 grep `/tmp/T35.txt`（pdftotext -layout）全部命中：θ=21.8°（18 处）/13.8°/22.79°/4°、~2 meV「insufficient」、Δs=15 meV、M=4.70/5.40 meV、λ=1.31 meV、ℏvF=6.61/6.43 eV·Å、ℏ²v²/2m=10.40 eV·Å²、ℏv⊥=7.32 meV·Å、28 atoms/7-fold/Li/7、3.2–3.5 Å/7%/hBN、Jackiw–Rebbi/BHZ/counterpropagating pseudospin modes、space group 177 & 150/C2 & C4 circle/(m,n)=(1,1)/d=±(L1+L2)/21、cos θ=(3m²+3mn+n²/2)/(3m²+3mn+n²)。grep "STM"=0 → 旧版「STM 信号」删除；grep "number of"=0 → 旧版「Chern 数决定态数目」删除。
+
+**里程碑**: **批次 1（B 类 7 篇）全部完成**：T01 Martin 2008、T09 Efimkin 2018、T12 Tsim 2020、T15 De Beule 2020、T23 Moulsdale 2024、T29 Hou 2024、T35 Li 2025 均按五块演绎结构重写 + 归档旧版 + 台账更新（tasks.md S-Q2-T1/T9/T12/T15/T23/T29/T35 全 [x]、cards.md 全 ✅、log.md 8 条）。S-REP-3（report §3 Q2 理论综合）的前置依赖 S-Q2-T1/T5/T9/T12/T15/T23/T29/T35 现已全部 ✅。
+
+**遗留/交接**:
+- 批次 2（C 类 31 篇，旧叙事/粗读 → 五块精读）按主题聚类执行，见 `note/theory/_REREAD_HANDOFF.md` §3。
+
+<a id="ai-0908-T07"></a>
+
+## AI: 0908_T07 - S-Q2-T29 完成：Hou 2024 NQCP 裁决（五块演绎结构重写）
+
+**任务**: S-Q2-T29（Hou, Yuan & Jiang 2024 PRB，NQCP 电导平台裁决）。按理论论文五块演绎结构整体重写 review（模型白箱/推导链/结论清单/假设-结论依赖图/接口），旧 4 块辨识结构版归档。
+
+**涉及文件**:
+
+| 文件 | 变更 |
+|------|------|
+| `note/theory/paper_review_T29_hou2024_prb.md` | 按五块演绎结构整体重写：黑箱三要素/四层变量表/判别表/[前提与限定] → 模型白箱（器件+紧束缚+NEGF+参数分册+6 条假设清单）→ 推导链（前提定理/模型/推导/边界/佐证五层）→ 结论清单（定理/估算/预言分层）→ 假设-结论依赖图 → 接口；删"反推量 θ̂"层；更正日志补 2026-09-08 条目 |
+| `archive/paper_review_T29_hou2024_prb.backup_20260908.md` | 旧 4 块版归档 |
+| `Phase_S/cards.md` | T29 卡片状态 ★ → ★ ✅；补"关键参数"bullet（平台 ~1.99/~0.999、θ_com≈0.8168°、TZM 能窗 ~150 meV） |
+| `Phase_S/tasks.md` | S-Q2-T29: [ ] → [x]，成功判据 + 完成记录 |
+| `Phase_S/log.md` | 本条日志 |
+
+**成功判据验证**:
+- [x] review 中 NQCP 裁决逻辑完整（review §2 推导链 THS→1D 畸变 TZM + §3 结论分层 + §3.5 概念区分 TZM vs 网络）
+- [x] cards.md T29 卡片状态 → ✅
+
+**QC 反向核对**: 15 项数字/专名逐一 grep `/tmp/T29.txt`（pdftotext -layout）全部命中：平台 1.99/0.999/近 1,2,3/2e²/h、θ=0.82°/θ_com≈0.8168°/0.76°<θ<0.91°/θ>0.34°、a=1.418 Å/a_I=3.349 Å/γ₀=2.7 eV/γ₁=0.48 eV/2.218 Å⁻¹/r_c=3a、E_CNP≈0.79 eV/Δ=300 meV/E_F=−70/−50/+60 meV、TZM 能窗 ~150 meV/U_c≈25 meV/V₀=2.5 eV/展宽 75a/Δ≥0.2 eV、N=121/209/L=303a/603a/123a/扭心 (0,−56√3a)/(0,−100√3a)、4,6,8,…/100% valley 极化/ΔC_v=2/−120°/+120°、"strong experimental sign for the existence of TZMs"、Rickhaus=ref[38]/Xu=ref[39]。三处旧无源数字（t_inter≈0.05t、G≈0.8–0.95×N、平台宽度~0.1 eV）grep 确认不存在。
+
+**遗留/交接**:
+- 下一篇 S-Q2-T35（Li, Chen & Yao 2025 Nano Lett，大转角 Umklapp 散射畴壁态）：批次 1 最后一篇，走 `theory_paper_reading_case_T05.md` 检查清单。
+
+<a id="ai-0908-T06"></a>
+
+## AI: 0908_T06 - S-Q2-T23 完成：Moulsdale 2024 非手征 1D 态（五块演绎结构重写）
+
+**任务**: S-Q2-T23（Moulsdale, Enaldiev, Geim & Fal'ko 2024 Academia Nano，非手征 1D 态）。按理论论文五块演绎结构整体重写 review（模型白箱/推导链/结论清单/假设-结论依赖图/接口），旧 4 块辨识结构版归档。⚠️ 顺带修正台账不一致：任务标题原写 "Enaldiev 2023"，实为 Moulsdale 2024（作者含 Enaldiev）。
+
+**涉及文件**:
+
+| 文件 | 变更 |
+|------|------|
+| `note/theory/paper_review_T23_moulsdale2024_acadnano.md` | 按五块演绎结构整体重写：黑箱三要素/四层变量表/判别表/[前提与限定] → 模型白箱（FKM+SWM 哈密顿量+参数分册+6 条假设清单）→ 推导链（前提定理/模型/推导/边界/应用五层）→ 结论清单（定理/估算/预言分层）→ 假设-结论依赖图 → 接口；删"反推量 θ̂"层；更正日志补 2026-09-08 条目 |
+| `archive/paper_review_T23_moulsdale2024_acadnano.backup_20260908.md` | 旧 4 块版归档 |
+| `Phase_S/cards.md` | T23 卡片状态 ★ → ★ ✅；补"关键参数"bullet（w≈6 nm、SWM 参数、Ŝ=τ_xσ_x 对称性、LL kink B 无关） |
+| `Phase_S/tasks.md` | S-Q2-T23: [ ] → [x]，标题 "Enaldiev 2023" → "Moulsdale 2024" + 成功判据 + 完成记录 |
+| `Phase_S/log.md` | 本条日志 |
+
+**成功判据验证**:
+- [x] review 按五块演绎结构重写（非手征性判据 Ŝ=τ_xσ_x → ε(p_y)=ε(−p_y)，review §2.3/§3.1）
+- [x] cards.md T23 卡片状态 → ✅
+
+**QC 反向核对**: 14 项数字/专名逐一 grep `/tmp/T23.txt`（pdftotext -layout）全部命中：a=0.246 nm/µ=920/V=0.0296/w≈6 nm、6<w<14 nm、7/10/14 nm、Δ=0/2/10/20 meV、γ1≈380 meV/v3≈0.123v/v4≈0.045v/Δ′≈22 meV/v≈10⁶ m/s、u_y(x)=(2a/√3π)arctan e^{2x/w}、w=(a/π)√(µ/6V)、ŜH_ξ(p_x,p_y)Ŝ⁺=H_ξ(p_x,−p_y)、Ŝ=τ_xσ_x、ε(p_y)=ε(−p_y)、B=1/3 T、±100 meV、5 T、谷 Chern ±2、"could act as a 1D quantum wire"、"we expect ... electron-hole symmetry ... broken"。grep "Zheng" 无命中 → "解释 E14" 降级 💭I 移出正文。
+
+**遗留/交接**:
+- 下一篇 S-Q2-T29（Hou 2024 PRB NQCP 裁决）：量子输运模拟裁决 TZM 成立 + 近量子化电导平台，走 `theory_paper_reading_case_T05.md` 检查清单。
+
+<a id="ai-0908-T05"></a>
+
+## AI: 0908_T05 - S-Q2-T15 完成：De Beule 2020 网络散射统一理论（五块演绎结构重写）
+
+**任务**: S-Q2-T15（De Beule, Dominguez & Recher 2020，网络散射统一理论）。按理论论文五块演绎结构整体重写 review（模型白箱/推导链/结论清单/假设-结论依赖图/接口），旧 4 块辨识结构版归档。
+
+**涉及文件**:
+
+| 文件 | 变更 |
+|------|------|
+| `note/theory/paper_review_T15_debeule2020_prl.md` | 按五块演绎结构整体重写：黑箱三要素/四层变量表/判别表/[前提与限定] → 模型白箱（S 矩阵+参数分册+7 条假设清单）→ 推导链（前提定理/模型/推导/边界四层）→ 结论清单（定理/估算/预言分层）→ 假设-结论依赖图 → 接口；删"反推量 θ̂"层；更正日志补 2026-09-08 条目 |
+| `archive/paper_review_T15_debeule2020_prl.backup_20260908.md` | 旧 4 块版归档 |
+| `Phase_S/cards.md` | T15 卡片状态 ★ → ★ ✅；补"关键参数"bullet（φ∈[0,π/2]、φ=0→ZZ/φ=π/2→pLL、4P_d+P_f=1、N_i=4W/(√3 l)） |
+| `Phase_S/tasks.md` | S-Q2-T15: [ ] → [x]，两条成功判据全勾 + 完成记录 |
+| `Phase_S/log.md` | 本条日志 |
+
+**成功判据验证**:
+- [x] review 中网络↔TZM 中间地带方案与 E12 对标点明确（review §5.3 主周期重解释 moiré 单胞→扭角×√2 + §7 引用列表核实 Rickhaus[29]/Xu[30]）
+- [x] cards.md T15 卡片状态 → ✅
+
+**QC 反向核对**: 24 项数字/符号逐一 grep `/tmp/T15.txt`（pdftotext -layout + -raw 复核 √ 符号）全部命中：φ∈[0,π/2]、l=a/[2sin(θ/2)]、N_K=−N_K′≈±sgn(U/γ⊥)、C3/C2T 对称式、Eq.(2) S 矩阵、E_{j,n}(k)=ℏv(2πn+k_j)/(2l)、v/2、πℏv/l、3 条双重简并平带、2πℏv/l、U=e^{−iπσy/4}e^{iφσz/2}、4P_d+P_f=1、f=√P_{f2}+i√P_{f1}、P_f sin²φ、4P_d sin²φ、Φ0=h/e、G0=4e²/h、N_i=4W/(√3 l)、Eq.(6)、ΔΦ=2Φ0/(2L/l−1)、Φ=Φ0/n、h/8e²≈3.2 kΩ、T_l≈3400(θ°) K、10⁴(θ°)^{−2}、"unifies these two phenomena"、"provide for the first time a transport theory"、"agree well"、twist angle ×√2。
+
+**遗留/交接**:
+- 下一篇 S-Q2-T23（Moulsdale 2024 ACS Nano，非手征 1D 态）：畴壁完整电子结构 = 手征（拓扑）+ 非手征（约束）两部分，走 `theory_paper_reading_case_T05.md` 检查清单。
+
+<a id="ai-0908-T04"></a>
+
+## AI: 0908_T04 - S-Q2-T12 完成：Tsim 2020 TZM 推翻网络图景（五块演绎结构重写）
+
+**任务**: S-Q2-T12（Tsim, Nam & Koshino 2020，TZM 推翻网络图景）。按理论论文五块演绎结构整体重写 review（模型白箱/推导链/结论清单/假设-结论依赖图/接口），旧 4 块辨识结构版归档。
+
+**涉及文件**:
+
+| 文件 | 变更 |
+|------|------|
+| `note/theory/paper_review_T12_tsim2020_prb.md` | 按五块演绎结构整体重写：黑箱三要素/四层变量表/判别表/[前提与限定] → 模型白箱（连续模型+TB+参数分册+7 条假设清单）→ 推导链（前提定理/模型/推导/边界四层）→ 结论清单（定理/估算/预言分层）→ 假设-结论依赖图 → 接口；删"反推量 θ̂"层；更正日志补 2026-09-08 条目 |
+| `archive/paper_review_T12_tsim2020_prb.backup_20260908.md` | 旧 4 块版归档 |
+| `Phase_S/cards.md` | T12 卡片状态 ★ → ★ ✅；补"关键参数"bullet（u=0.103 eV、n_W=1.08×10¹² cm⁻²、Δ≳200 meV） |
+| `Phase_S/tasks.md` | S-Q2-T12: [ ] → [x]，两条成功判据全勾 + 完成记录 |
+| `Phase_S/log.md` | 本条日志 |
+
+**成功判据验证**:
+- [x] review 中 TZM 对网络模型的推翻逻辑完整（review §2.3 置换型散射判定 + §3.5 概念区分 + §5.3 后续修正）
+- [x] cards.md T12 卡片状态 → ✅
+
+**QC 反向核对**: 22 项数字/专名逐一 grep `/tmp/T12.txt`（pdftotext -layout）全部命中：u=0.103 eV、ħυ/a=2.1354、a=2.46 Å、θ=1°/0.5°/0.3°/0.2°、Δ 至 400 meV、E_F=50/20 meV、n_W=1.08×10¹² cm⁻²、Vppπ⁰≈−2.7/Vppσ⁰≈0.48/d₀≈0.334/a₀≈0.142/r₀=0.184a、50<|E|<100 meV、θ=0.55°、+e²/h/−e²/h/2e²/h、|ΔK_j|=4πθ/(3a)、D(E)=g_vg_sΔ/(2πħ²v²)、⟨...|U|...⟩≈iu sin[θ(k)−2πj/3]、Δ≳200 meV、"a few nanometers"、"mode 1 ... −120° ... mode 2 ... +120°"、"three independent zigzag traveling modes"、"do not actually form a percolating network"、"special case of the network model"、"these states never hybridize"、"we do not have the Aharonov-Bohm oscillation"。
+
+**遗留/交接**:
+- 下一篇 S-Q2-T15（De Beule 2020 PRL 散射统一理论）：用散射相位 φ 统一 TZM（φ=0）与 pLL（φ=π/2）两极限，与 T12 直接承接，走 `theory_paper_reading_case_T05.md` 检查清单。
+
+<a id="ai-0908-T03"></a>
+
+## AI: 0908_T03 - S-Q2-T9 完成：Efimkin & MacDonald 2018 螺旋网络系统理论（五块演绎结构重写）
+
+**任务**: S-Q2-T9（Efimkin & MacDonald 2018，螺旋网络系统理论）。按理论论文五块演绎结构整体重写 review（模型白箱/推导链/结论清单/假设-结论依赖图/接口），旧 4 块辨识结构版归档。
+
+**涉及文件**:
+
+| 文件 | 变更 |
+|------|------|
+| `note/theory/paper_review_T09_efimkin2018_prb.md` | 按五块演绎结构整体重写：黑箱三要素/四层变量表/判别表/[前提与限定] → 模型白箱（连续模型+参数分册+8 条假设清单）→ 推导链（前提定理/模型/推导/边界四层）→ 结论清单（定理/估算/预言分层）→ 假设-结论依赖图 → 接口；删"反推量 θ̂"层（v∥ 归入导出量+估算）；更正日志补 2026-09-08 条目 |
+| `archive/paper_review_T09_efimkin2018_prb.backup_20260908.md` | 旧 4 块版归档 |
+| `Phase_S/cards.md` | T9 卡片状态 ★ → ★ ✅ |
+| `Phase_S/tasks.md` | S-Q2-T9: [ ] → [x]，两条成功判据全勾 + 完成记录 |
+| `Phase_S/log.md` | 本条日志 |
+
+**成功判据验证**:
+- [x] review 中网络模型预言（DoS 周期 ε_D=ε_L/3、Dirac 点 v_D=v/2、磁输运 signature）与 E10/E14 对标点明确（review §5.1/§8 + Phase S 接口 Q1）
+- [x] cards.md T9 卡片状态 → ✅
+
+**QC 反向核对**: 24 项数字/公式逐一 grep `/tmp/T09.txt`（pdftotext -layout）全部命中：ε_L=2πℏv/L、C=δ-/|δ-|、C_AB−C_BA=2、δ±=(|T_BA|±|T_AB|)/2、v∥≈2wv/(3u)、r⊥0=L/2√3、α_M=arccos[1/3]、P_f=cos²α/P_d=sin²α/2、χ、ε_q^nm、λ³−tr[U_q]λ²+tr[U_q†]λ−1=0、判别式 D、v_D=v/2、k_D=4π/3L、ε_D=ε_L/3、ν_L、α=1.1/P_f≈0.2/P_d≈0.4、θ=0.2°/2u≈180 meV/ε_D≈21/20 meV、θ=0.245°/L≈58 nm/ε_L≈72 meV/ε_g≈60 meV、ε_g≈250 meV/w=400 meV/v∥=1.6×10⁶ m/s/v=10⁶ m/s/ε_L≈115 meV/ε_D≈38 meV、"captured by a phenomenological helical network model"、"We predict that magic angle behavior is absent"。
+
+**遗留/交接**:
+- 下一篇 S-Q2-T12（Tsim 2020 TZM）：挑战网络连通性假设（AA 节点确定性散射），与 T05/T09 网络图景直接对立，走 `theory_paper_reading_case_T05.md` 检查清单。
+
+<a id="ai-0908-T02"></a>
+
+## AI: 0908_T02 - S-Q2-T1 完成：Martin 2008 EFW 拓扑零模（五块演绎结构重写）
+
+**任务**: S-Q2-T1（Martin, Blanter & Morpurgo 2008，EFW 拓扑零模首次预言）。按理论论文五块演绎结构整体重写 review（模型白箱/推导链/结论清单/假设-结论依赖图/接口），旧 4 块辨识结构版归档。
+
+**涉及文件**:
+
+| 文件 | 变更 |
+|------|------|
+| `note/theory/paper_review_T01_martin2008_prl.md` | 按五块演绎结构整体重写：黑箱三要素/四层变量表/判别表/[前提与限定] → 模型白箱（哈密顿量+参数分册+7 条假设清单）→ 推导链（前提定理/模型/推导/拓扑论证/边界五层）→ 结论清单（定理/估算/预言分层）→ 假设-结论依赖图 → 接口；内部验证 + 概念区分取代判别表；更正日志补 2026-09-08 条目 |
+| `archive/paper_review_T01_martin2008_prl.backup_20260908.md` | 旧 4 块版归档 |
+| `Phase_S/cards.md` | T1 卡片状态 ★ → ★ ✅；补"关键参数"bullet（N₃=±2、a/√φ₀、ε=0.1140）；实验签名 4e²/h 通道计数订正（两谷×两模 → 每谷 2 模×2 自旋） |
+| `Phase_S/tasks.md` | S-Q2-T1: [ ] → [x]，两条成功判据全勾 + 完成记录 |
+| `Phase_S/log.md` | 本条日志 |
+
+**成功判据验证**:
+- [x] review 中 EFW 零模推导与后续理论的逻辑起点清晰（review §2.4 拓扑真空荷论证 + §8 后继任务 T2/T6 承接）
+- [x] cards.md T1 卡片状态 → ✅
+
+**QC 反向核对**: 22 项数字/公式逐一 grep `/tmp/T01.txt`（pdftotext -layout）全部命中：two modes (per spin)、two zero modes per kink per valley per spin regardless of the width、topological vacuum charge、N₃=±2、Ñ₃=sgn φ、gap |V|、cp=V/2、E²=V²/4+c⁴p⁴/t⊥²、ε=0.1140、p₀=−√φ₀/2^{3/4}、a/√φ₀、l=0.5/4、tanh(x/l)/tanh²(x/4)、fits very well 等。全文无 eV 数值（t⊥ 无数值，"约 0.4 eV" 旧稿脑补已删）；未出现 conductance/4e²/h/Chern（仅人名 Chernyak）/闭合-重开 → 均显式声明不引入或标后世语言 💭I。
+
+**遗留/交接**:
+- 下一篇 S-Q2-T9（Efimkin & MacDonald 2018）：起点已铺好（T05 review §5.3 分工行），走 `theory_paper_reading_case_T05.md` 检查清单。
+
+<a id="ai-0908-T01"></a>
+
+## AI: 0908_T01 - S-Q2-T5 完成：San-Jose & Prada 2013 精读（Phase S 首篇理论精读 + 方法论范本）
+
+**任务**: S-Q2-T5（San-Jose & Prada 2013，螺旋网络概念起源）。Phase S 队列首篇实际精读的理论论文（S-Q2-T1 Martin 2008 跳过），按 paper-reading skill「理论论文变体」执行，并作为理论阅读方法论实验。
+
+**涉及文件**:
+
+| 文件 | 变更 |
+|------|------|
+| `note/theory/paper_review_T05_sanjose2013_prb.md` | 反向核对 pass 重做（22 项数字/公式全部 grep 命中原文）+ 5 处增量修正：补 α(θ)=γ⊥/[6εM(θ)]（pdftotext 分数破碎 "16 γ⊥"，-raw 复核确认）、补 van Hove 峰位 ~0.6εM（Fig. 1(b) 正文文字级）、LM 公式补 θ<30° 适用域、§7 引文分组订正（refs 12–15 偏压反号界面 TPH / refs 17–19 AB→BA 过渡+谷陈数分类，"倾角晶界"误贴已修）、更正日志 2026-09-08 条目 |
+| `note/shared/method/theory_paper_reading_case_T05.md` | **新建**。理论论文阅读案例/范本：阅读过程复盘（6 步动作表）+ 两问回答（Q1 高效准确读：负对照/自洽互验/合法域地图/预言强度表 + 六个准确险点；Q2 笔记：4 块换三轴/前提与限定含金量/数字换标注/与 T9 接力接口）+ 可复用检查清单 + 遗留问题 3 条 |
+| `note/shared/method/paper_reading_methodology.md` | §4 标题与引言更新（T1+T5 双实例）；新增 §4.6（6 条增量经验：负对照+自洽互验/合法域地图/OCR 公式破碎/未讨论声明/措辞级限定句/已有笔记重读策略） |
+| `Phase_S/cards.md` | T5 卡片状态 ★ → ★ ✅；补"关键参数"bullet（判据 Eq. (1)、90 meV↔290a₀、100 nm↔45 meV，📜Q） |
+| `Phase_S/tasks.md` | S-Q2-T5: [ ] → [x]，两条成功判据全勾 + 完成记录 |
+| `Phase_S/log.md` | 本条日志 |
+
+**成功判据验证**:
+- [x] review 中网络概念与 T9 的承接关系清晰（review §7 外部对标行 + 尾部增量价值行：T05=概念奠基+判据 Eq. (1)+可编程开关，T9=S 矩阵严格化，分工显式）
+- [x] cards.md T5 卡片状态 → ✅
+
+**QC 反向核对**: 22 项数字/公式逐一 grep `/tmp/T05.txt`（pdftotext -layout）全部命中：88 meV·θ(deg)、LM=290a₀（θ≈0.2°）、U~90 meV→LM≳290a₀、100 nm→~45 meV、γ⊥≈0.33 eV、l⊥≈7.3a₀、z=20.76、θ₁≈1.05°（LM≈52a₀）、θ~0.35°、0.17εM、θ=4°→LM≈14.3a₀、εvH≈εM(1−2α)、vF*≈vF(1−9α²)、250 meV、~1 μm、CK=−CK′≈sign(U)、CK^AB=−CK^BA、N=|C2−C1| mod 2（mod 2 缺省→weak）、每谷每自旋 2 模、单氢吸附原子阻断链接、λ=√(Uγ⊥)/(2vF)（根号 OCR 位移，经 λR=−ln0.05 与 z² 因子自洽反推确认）、α=(1/6)γ⊥/εM（-raw 确认）。全文无实验误差棒 → 统一 📜Q[~] 标注已声明。
+
+**遗留/交接**:
+- S-Q2-T9（Efimkin 2018）为下一篇理论精读：起点已铺好（review §7 分工行），走 `theory_paper_reading_case_T05.md` 检查清单。
+- 方法论遗留 3 条（综述变体未定义 / QC 协议未含公式自洽反推 / 从零精读轮数锚点缺失）记录在案例文档 §4。
+
+<a id="ai-0907-T01"></a>
+
+## AI: 0907_T01 - S-REP-2 完成：cards.md Q1 订正 + report.md §2 初稿
+
+**任务**: S-REP-2（report.md §2 初稿，Q1 实验综合）。执行顺序按用户要求：先按 `note/experiments/` 笔记订正 `cards.md`，再写 §2 初稿。
+
+**涉及文件**:
+| 文件 | 变更 |
+|------|------|
+| `Phase_S/cards.md` | 按 7 篇 Q1 review（2026-09-01 4 块模板版）+ appendix_A §A.5 订正：E10 理论引用（San-Jose & Prada ref 17 + Andjelkovic ref 18，原文未引 T9）；E10 结论强度降级（"证明"→"强指示"，作者措辞 good indications/hints at）+ 补振荡振幅 1–2%；E12 回路面积订正（A=√3/4·λ²=莫尔单胞一半，删"介于单胞与器件之间"）+ 去背景方法表述；E14 机制改写（PLL 局域中心 vs helical 边态两侧、Kagome 仅在 magic angle ~0.88°–1.07°、tiny angle 为三角网络、理论对标 T10 Ramires-Lado）；E1 L₀ 措辞（平均自由程/准弹道）；E13 补 θ=0.55°/HOPG/缺陷-free 边界；E4 补无栅极说明；E9 补主样品 λ/θ 与 van Hove 辨析；E15 "首例"→"首批之一"；S3 年份 2024→2025、作者 Zhongqiu Fu et al.；Q3 表 T23/T25→E14 行加 ⚠️（中心态=PLL 非非手征态，待 S-Q3-MAP 裁定）、T15→E12 行加时间倒挂 ⚠️；§1.6 小结 STEM→TEM、Kagome 行更新 |
+| `Phase_S/appendix_A_methods.md` | 2 处 E14 旧表述（"网络干涉产生 2D 超结构"）同步修正为 PLL+Kagome |
+| `Phase_S/report.md` | **新建**。§2 初稿：§2.1 技术谱系（s-SNOM/STM/输运/TEM）、§2.2 可观测量与边-体区分（四技术分述，含 E4 双条件、E9 电场开关、E13 三对照 FFT、E14 能量-空间双重分辨、E10 维度+磁场+面积、E12 ΔB/Δn 双法互验）、§2.3 四代演进、§2.4 遗留问题（网络连通性未裁决/三层空白/谷保护证据层级/PLL 身份）、§2.5 来源索引；头部标注「初稿待人类修订」；其余章节占位 |
+
+**成功判据验证**: ① §2.1–2.4 齐全 ✅；② 七篇（E1/E4/E9/E10/E12/E13/E14）每篇至少引用一次 ✅；③ 全文标注「初稿待人类修订」✅；④ QC：正文全部数字 📜Q（grep 扫描补 4.5 K/77/78 K/室温等温度标注），📊F/💭I 未进正文 ✅。
+
+**QC 反向核对**: report §2 数字全部来自各 review「反向核对 pass」已核清单（E1 2026-09-01、E4/E9/E13/E14 2026-09-01、E10 2026-08-31、E12 2026-08-29/31）；E11 的 θc≈1°、80 kV Jeol 2010F 经 E11 review grep 复核 ✅；E14 PLL 能量按 review 建议只写"0.1–0.4 eV 量级"（避开 130 vs 230–258 meV 内部张力）。
+
+**遗留/交接**:
+- report.md §2 待人类修订（Week 1 对齐节点交付物）。
+- Q3 表 T23/T25→E14 两行已标 ⚠️ 待 S-Q3-MAP 裁定（E14 重读与旧映射矛盾）。
+- cards.md E10 理论引用订正（San-Jose & Prada 2013 + Andjelkovic 2018，非 Efimkin & MacDonald 2018）；appendix_A 的 E10 行未列理论引用，无冲突。
+
+<a id="ai-0907-T02"></a>
+
+## AI: 0907_T02 - report.md §2 扩充（Tier1 E3/E6/E7 + Tier2 E2/E15）
+
+按用户批准的 Tier1+Tier2 方案更新 `report.md` §2，把 11 篇粗读笔记中高相关的 5 篇纳入正文。
+
+**变更（仅 `Phase_S/report.md`）**:
+- **Tier1 进正文（带 📜Q 数字）**：
+  - **E3 Li 2016（EFW 静电壁）** → §2.2(c) 新增「4e²/h 的三种实现」对照块：odd/even 开关（10–15 µS vs <1 µS）、体 vs 结（>10 MΩ vs 40–100 kΩ）、零场 L_k=70–200 nm、B=8–14 T 恢复 h/4e²=6.5 kΩ。
+  - **E7 Mania 2019（折叠弯曲边界）** → 同块：零场 |D|>1.6 V/nm 饱和 h/4e²=6.45 kΩ、四探针 ~60 Ω、L_MFP~20/17 μm、自述比 Ju 2015 "at least two-orders higher"。
+  - **E6 Jiang 2017（等离激元反射）** → §2.1 s-SNOM 路线 + §2.2(a) 新增 E6 段：λ=11.2 µm、拉伸/剪切驻波图样与反射系数差异、壁宽 6–10 nm、⚠️ proof of principle（非直接证拓扑）。
+  - 三者对照结论：结构壁（E1/E7）零场即弹道 vs 静电宽结（E3）零场短需磁场恢复。
+- **Tier2 演进升级（补数字）**：§2.3 阶段1 补 E2（体谷流：R_NL 大 3 个数量级、R_NL∝ρ³、l_v=1.6 μm）；阶段3 补 E15（ν=4,8、Δn≈4×10¹⁴ m⁻²、ΔB≈250 mT、A_loop≈2A_moiré）。
+- **§2.5 来源索引**拆行：E3/E6/E7 独立成行，E2/E15 标「带数字」，E5/E8/E16/E17/E18 标「一句定性」。
+
+**QC**: 新增数字全部取自各 review 的 📜Q 条目（E3 2026-09-01/09-03、E6 2026-09-01、E7 2026-09-01、E2/E15 2026-09-01）；grep 扫描补 E1 对照行与「三者对照」行的 📜Q 标注，无未标注数字。
+
 <a id="ai-0831-E12-shared"></a>
 
 ## AI: 0831_E12-shared - E12 三层分离整理（问题模板/答案讲义/论文事实）

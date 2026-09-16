@@ -11,7 +11,7 @@
 1. **规范示例（canonical）**：`note/experiments/paper_review_E12_xu2019_natcommun.md` —— 逐节对齐结构、粒度、证据标注风格。⚠️ 它是**实验**论文，本文是**理论**论文：把 §3「实验方法（器件/静电学/测量）」替换为「理论模型与方法（模型/哈密顿量/推导/计算方法）」，§9 不变（供计算对标）。其余节结构与粒度完全对齐。
 2. **模板**：`/home/wyl/.agents/skills/paper-reading/templates/paper_review.md`
 3. **QC 协议**：`/home/wyl/.agents/skills/paper-reading/references/LITERATURE_QC_PROTOCOL.md`（v1.1，唯一权威）
-4. **方法论**：`note/shared/method/paper_reading_methodology.md` + `mechanism_questions.md`
+4. **方法论**：`note/shared/method/theory_paper_reading.md`（理论专属：演绎结构 + 5 块模板）+ 入口 `note/shared/method/paper_reading_methodology.md`（公共规范）+ `mechanism_questions.md`
 5. **共享物理锚点**（引用不复制）：`note/shared/README.md` 的锚点表；理论 8 篇主要用到 `[PHY-BERRY]`（Berry/valley Chern）、`[PHY-LB]`（Landauer-Büttiker 量子化电导）、`[PHY-MB]`（网络 miniband/驻波）、`[PHY-AB]`（AB 干涉，T15 用）、`[PHY-GATE]`（双栅静电学，T1/T5 偏压换算）。
 
 ## 执行步骤

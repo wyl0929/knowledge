@@ -22,7 +22,8 @@
 | `[PHY-QPI]` | `physics/08_qpi_intervalley.md` | FT-STM / 准粒子干涉（QPI）：q 空间谷内 vs 谷间散射分离、intervalley (√3×√3)R30° 斑判据 | E13、Rutter 2007、Dutreix 2019 |
 | `[PHY-EF]` | `physics/09_fermi_level_band_bending.md` | 费米能/化学势 + 局域能带：Dirac/CNP/E_F 区分、计数积分、band bending、局域能带近似、filling factor | E9/E13/E14 谱学与栅控 |
 | `[PHY-LB]` | `physics/10_landauer_buttiker.md` | Landauer-Büttiker：散射图景 G=(e²/h)T、通道计数/自旋简并约定、扩散透射 T=N·L0/(L+L0)、量子接触电阻、使用条件（金属区 L≪ξ） | E1/E3/E12 等 1D 通道电导论文 |
-| `[METHOD]` | `method/paper_reading_methodology.md` | 读实验论文与记笔记方法论 v1（目的层→理解层→记录层，整合 15_case_study + 机制五问 + E10/E12 复盘） | **方法层入口** |
+| `[PHY-2BAND]` | `physics/11_bilayer_two_component_kink.md` | Bernal 双层 two-component 约化 + EFW（质量 kink）→ LSW（μ 序参量）推广 + kink 零模衰减 λ=√(Uγ⊥)/2ħv + TPH 判据 Eq.(1) 推导 + cont.py 实现核对 | T0 Snyman / T01 Martin / T06 Zhang / T05 San-Jose + DW/cont.py |
+| `[METHOD]` | `method/paper_reading_methodology.md`（入口）· `method/experiment_paper_reading.md` · `method/theory_paper_reading.md` | 读文献方法论：入口/公共层（目的层·类型分诊·三层分离·证据分级）+ 实验论文（系统辨识五步 + 4 块模板）+ 理论论文（演绎结构 + 5 块模板），二者互不影响 | **方法层入口** |
 | `[METHOD-Q]` | `method/mechanism_questions.md` | 读实验论文的"机制理解提问"模板（机制溯源五问）+ E12 疑问实例 | 阅读方法层（`[METHOD]` §1.2 之②） |
 
 ## 引用约定

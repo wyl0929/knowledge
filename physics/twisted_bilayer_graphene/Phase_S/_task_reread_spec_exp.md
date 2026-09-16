@@ -11,7 +11,7 @@
 1. **规范示例**：`note/experiments/paper_review_E12_xu2019_natcommun.md` —— 逐节对齐结构、粒度、证据标注风格（这是新架构的 canonical 版本）。
 2. **模板**：`/home/wyl/.agents/skills/paper-reading/templates/paper_review.md`
 3. **QC 协议**：`/home/wyl/.agents/skills/paper-reading/references/LITERATURE_QC_PROTOCOL.md`（v1.1）
-4. **方法论**：`note/shared/method/paper_reading_methodology.md` + `mechanism_questions.md`
+4. **方法论**：`note/shared/method/experiment_paper_reading.md`（实验专属：系统辨识五步 + 4 块模板）+ 入口 `note/shared/method/paper_reading_methodology.md`（公共规范）+ `mechanism_questions.md`
 
 ## 执行步骤
 

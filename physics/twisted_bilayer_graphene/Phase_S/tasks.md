@@ -147,7 +147,7 @@
 
 ---
 
-### ⬜ S-REP-2: report.md §2 初稿（Q1 实验综合）
+### [x] S-REP-2: report.md §2 初稿（Q1 实验综合）
 
 **目标**: 起草 report.md §2「Edge state 实验上如何表征？」初稿，供人类修订
 
@@ -176,10 +176,14 @@
 **预期输出**: `Phase_S/report.md` §2 初稿（3–4 页）
 
 **成功判据**:
-- [ ] §2.1–2.4 四小节齐全
-- [ ] Q1 七篇（E1/E4/E9/E10/E12/E13/E14）每篇至少引用一次
-- [ ] 全文标注「初稿待人类修订」
-- [ ] QC 检查: 正文全部数字为 📜Q 等级（有原文文字支持）
+- [x] §2.1–2.4 四小节齐全
+- [x] Q1 七篇（E1/E4/E9/E10/E12/E13/E14）每篇至少引用一次
+- [x] 全文标注「初稿待人类修订」
+- [x] QC 检查: 正文全部数字为 📜Q 等级（有原文文字支持）
+
+> 完成记录: [log.md](log.md#ai-0907-T01) → AI: 0907_T01
+> ⚠️ 附加产出: 执行前按 7 篇 Q1 review（2026-09-01 4 块模板版）+ appendix_A §A.5 订正 cards.md（E10 理论引用 San-Jose/Andjelkovic 非 Efimkin、E10 结论强度降级为"强指示"、E12 回路面积=莫尔单胞一半、E14 机制改写为 PLL/T10 并更新 Q3 表 T23/T25/T15 行、E1 L₀ 措辞、E13 补充 θ/缺陷边界、E15 "首例"→"首批之一"、S3 年份 2025）；appendix_A 两处 E14 旧表述同步修正。
+> 后续扩充: [log.md](log.md#ai-0907-T02) → AI: 0907_T02（按用户批准 Tier1+Tier2 方案把 E3/E6/E7 纳入 §2.2、E2/E15 升级为带数字演进句，见 report.md §2.2c「4e²/h 三种实现」对照块）。
 
 ---
 
@@ -365,99 +369,117 @@
 
 ### Week 2 — Q2 理论精读（8 篇）
 
-### [ ] S-Q2-T1: Martin 2008 — EFW 拓扑零模原始理论
+### [x] S-Q2-T1: Martin 2008 — EFW 拓扑零模原始理论
 
 **父计划**: `Phase_S/plan.md#2.3`
 
 **输入**: `../note/theory/paper_review_T01_martin2008_prl.md` + cards.md T1 卡片
 
 **成功判据**:
-- [ ] review 中 EFW 零模推导与后续理论的逻辑起点清晰
-- [ ] cards.md T1 卡片状态 → ✅
+- [x] review 中 EFW 零模推导与后续理论的逻辑起点清晰
+- [x] cards.md T1 卡片状态 → ✅
+
+**完成记录 (2026-09-08, ai-0908-T02)**: review 按五块演绎结构整体重写（模型白箱/推导链/结论清单/假设-结论依赖图/接口），旧 4 块版归档 archive/；22 项数字/公式反向核对全命中；cards.md T1 卡片 → ✅ 并补"关键参数"。EFW 零模（每谷每自旋 2 条、拓扑真空荷 N₃=±2）作为后续理论（T2/T6）的逻辑起点已在 review §2.4/§8 显式化。
 
 ---
 
-### [ ] S-Q2-T5: San-Jose & Prada 2013 — 螺旋网络概念起源
+### [x] S-Q2-T5: San-Jose & Prada 2013 — 螺旋网络概念起源
 
 **父计划**: `Phase_S/plan.md#2.3`
 
 **输入**: `../note/theory/paper_review_T05_sanjose2013_prb.md` + cards.md T5 卡片
 
 **成功判据**:
-- [ ] review 中网络概念与 T9 的承接关系清晰
-- [ ] cards.md T5 卡片状态 → ✅
+- [x] review 中网络概念与 T9 的承接关系清晰
+- [x] cards.md T5 卡片状态 → ✅
+
+**完成记录 (2026-09-08, ai-0908-T01)**: Phase S 首篇理论精读。review 全量反向核对（22 项数字/公式全部命中原文）+ 5 处增量修正（α 公式、~0.6εM、θ<30° 适用域、§7 引文分组订正、更正日志）；与 T9 承接关系在 review §7 + 增量价值行显式化（T05=概念奠基+判据 Eq. (1)+可编程开关，T9=S 矩阵严格化）。方法论产出：`note/shared/method/theory_paper_reading_case_T05.md`（理论阅读范本/检查清单）+ `paper_reading_methodology.md` §4.6。
 
 ---
 
-### [ ] S-Q2-T9: Efimkin & MacDonald 2018 — 螺旋网络系统理论
+### [x] S-Q2-T9: Efimkin & MacDonald 2018 — 螺旋网络系统理论
 
 **父计划**: `Phase_S/plan.md#2.3`
 
 **输入**: `../note/theory/paper_review_T09_efimkin2018_prb.md` + cards.md T9 卡片
 
 **成功判据**:
-- [ ] review 中网络模型预言（FP 振荡来源）与 E10/E14 对标点明确
-- [ ] cards.md T9 卡片状态 → ✅
+- [x] review 中网络模型预言（DoS 周期峰/磁输运 signature）与 E10/E14 对标点明确
+- [x] cards.md T9 卡片状态 → ✅
+
+**完成记录 (2026-09-08, ai-0908-T03)**: review 按五块演绎结构整体重写（模型白箱/推导链/结论清单/假设-结论依赖图/接口），旧 4 块版归档 archive/；24 项数字/公式反向核对全命中；cards.md T9 卡片 → ✅。网络模型预言（DoS 周期 ε_D=ε_L/3、Dirac 点 v_D=v/2、磁输运 signature）与 E10/E14 对标点已在 review §5.1/§8 显式化。
 
 ---
 
-### [ ] S-Q2-T12: Tsim 2020 — TZM 推翻网络图景
+### [x] S-Q2-T12: Tsim 2020 — TZM 推翻网络图景
 
 **父计划**: `Phase_S/plan.md#2.3`
 
 **输入**: `../note/theory/paper_review_T12_tsim2020_prb.md` + cards.md T12 卡片
 
 **成功判据**:
-- [ ] review 中 TZM 对网络模型的推翻逻辑完整
-- [ ] cards.md T12 卡片状态 → ✅
+- [x] review 中 TZM 对网络模型的推翻逻辑完整
+- [x] cards.md T12 卡片状态 → ✅
+
+**完成记录 (2026-09-08, ai-0908-T04)**: review 按五块演绎结构整体重写（模型白箱/推导链/结论清单/假设-结论依赖图/接口），旧 4 块版归档 archive/；22 项数字/专名反向核对全命中；cards.md T12 卡片 → ✅ 并补"关键参数"。TZM 推翻网络模型逻辑（AA 节点置换型散射 mode 1↔mode 2 @ ±120° → 三组独立 zigzag 模、无分束不杂化）已在 review §2.3 完整呈现。
 
 ---
 
-### [ ] S-Q2-T15: De Beule 2020 — 网络散射统一理论
+### [x] S-Q2-T15: De Beule 2020 — 网络散射统一理论
 
 **父计划**: `Phase_S/plan.md#2.3`
 
 **输入**: `../note/theory/paper_review_T15_debeule2020_prl.md` + cards.md T15 卡片
 
 **成功判据**:
-- [ ] review 中网络↔TZM 中间地带方案与 E12 对标点明确
-- [ ] cards.md T15 卡片状态 → ✅
+- [x] review 中网络↔TZM 中间地带方案与 E12 对标点明确
+- [x] cards.md T15 卡片状态 → ✅
+
+**完成记录 (2026-09-08, ai-0908-T05)**: review 按五块演绎结构整体重写（模型白箱/推导链/结论清单/假设-结论依赖图/接口），旧 4 块版归档 archive/；24 项数字/符号反向核对全命中；cards.md T15 卡片 → ✅ 并补"关键参数"。网络↔TZM 中间地带（单参数 φ 插值 ZZ↔pLL）与 E12（Xu 2019 AB 振荡）对标点已在 review §5.3/§7 显式化（主周期重解释：moiré 单胞 vs 单三角畴 → 扭角×√2）。
 
 ---
 
-### [ ] S-Q2-T23: Enaldiev 2023 — 非手征 1D 态
+### [x] S-Q2-T23: Moulsdale 2024 — 非手征 1D 态
+
+> ⚠️ 原任务标题写 "Enaldiev 2023"，实际论文为 **Moulsdale, Enaldiev, Geim & Fal'ko 2024 Academia Nano**（同一篇，作者含 Enaldiev），以文件名 `T23_moulsdale2024` 为准。
 
 **父计划**: `Phase_S/plan.md#2.3`
 
 **输入**: `../note/theory/paper_review_T23_moulsdale2024_acadnano.md` + cards.md T23 卡片
 
 **成功判据**:
-- [ ] review 含 8 节模板（若缺失先补全）
-- [ ] cards.md T23 卡片状态 → ✅
+- [x] review 按五块演绎结构重写（原"8 节模板"判据已过时）
+- [x] cards.md T23 卡片状态 → ✅
+
+**完成记录 (2026-09-08, ai-0908-T06)**: review 按五块演绎结构整体重写（模型白箱/推导链/结论清单/假设-结论依赖图/接口），旧 4 块版归档 archive/；14 项数字/专名反向核对全命中；cards.md T23 卡片 → ✅ 并补"关键参数"。非手征 1D 态（Δ=0 时 Ŝ=τ_xσ_x 对称性 → ε(p_y)=ε(−p_y) 谷内双向传播）与手征态并存，已在 review §2.3 完整呈现。
 
 ---
 
-### [ ] S-Q2-T29: Hou 2024 — TZM 裁决 NQCP 电导平台
+### [x] S-Q2-T29: Hou 2024 — TZM 裁决 NQCP 电导平台
 
 **父计划**: `Phase_S/plan.md#2.3`
 
 **输入**: `../note/theory/paper_review_T29_hou2024_prb.md` + cards.md T29 卡片
 
 **成功判据**:
-- [ ] review 含 8 节模板，NQCP 裁决逻辑完整
-- [ ] cards.md T29 卡片状态 → ✅
+- [x] review 按五块演绎结构重写，NQCP 裁决逻辑完整（原"8 节模板"判据已过时）
+- [x] cards.md T29 卡片状态 → ✅
+
+**完成记录 (2026-09-08, ai-0908-T07)**: review 按五块演绎结构整体重写（模型白箱/推导链/结论清单/假设-结论依赖图/接口），旧 4 块版归档 archive/；15 项数字/专名反向核对全命中；cards.md T29 卡片 → ✅ 并补"关键参数"。NQCP 裁决逻辑（紧束缚+NEGF → THS 自构 1D 畸变 TZM + 平台近 1/2/3 × 2e²/h）已在 review §2/§3 完整呈现。
 
 ---
 
-### [ ] S-Q2-T35: Li/Chen/Yao 2025 — 大转角 Umklapp 新机制
+### [x] S-Q2-T35: Li/Chen/Yao 2025 — 大转角 Umklapp 新机制
 
 **父计划**: `Phase_S/plan.md#2.3`
 
 **输入**: `../note/theory/paper_review_T35_li2025_nanolett.md` + cards.md T35 卡片
 
 **成功判据**:
-- [ ] review 含 8 节模板，Umklapp 机制描述完整
-- [ ] cards.md T35 卡片状态 → ✅
+- [x] review 按五块演绎结构重写，Umklapp 机制描述完整（原"8 节模板"判据已过时）
+- [x] cards.md T35 卡片状态 → ✅
+
+**完成记录 (2026-09-08, ai-0908-T08)**: review 按五块演绎结构整体重写（模型白箱/推导链/结论清单/假设-结论依赖图/接口），旧 4 块版归档 archive/；11 项数字/专名反向核对全命中；cards.md T35 卡片 → ✅ 并补"关键参数"。大转角 Umklapp 机制（intervalley Umklapp 主导 + 手性 λ 印迹拓扑 + 手性反转 → Jackiw–Rebbi 畴壁态）已在 review §2 完整呈现。**批次 1（B 类 7 篇）全部完成**。
 
 ---
 

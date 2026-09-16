@@ -117,7 +117,7 @@ $$D=\frac{C_{top}V_{top}-C_{bot}V_{bot}}{2}-D_0$$
 📜Q（正文）；$D_0$ 为小残余位移场；图轴标 $D/\varepsilon_0$ [V/nm]（即电场）。⚠️ 与 [PHY-GATE] §3 的 $D=(C_{tg}V_{tg}-C_{bg}V_{bg})/(2\varepsilon_0)$ 差一个 $\varepsilon_0$：本文 D 是位移场（C/m²），除以 $\varepsilon_0$ 才是 V/nm，且带 $-D_0$ 偏移。密度归一 $n_0=1/A$（每 moiré 单胞 1 电子），满带 = ±4（见 §1 约定差异注）。
 
 ### 3.3 测量
-TEM/SAED：80 kV 场发射 TEM（Jeol 2010F）+ Gatan One View；g = 101̄0 暗场像在离轴倾斜（5°）下增强 AB/BA 对比 📜Q（Methods + SI S2）。输运：四探针 lock-in 17.7 Hz、偏置电流 10–30 nA；θ=1.1° 器件两探针 17.7 Hz、偏压 200 μV（³He 低温恒温器）📜Q。磁输运 1.7 K（Fig 3 caption）📜Q。**计算**（§9）：FEM 结构弛豫（SVK 膜 + Helfrich 弯曲 + Kolmogorov-Crespi 层间势，L-BFGS 最小化）+ supercell TB 能带 + ab initio 连续模型 DOS（FEM=Lehmann-Taut，60×60 k 网格）📜Q（Methods）。
+TEM/SAED：80 kV 场发射 TEM（Jeol 2010F）+ Gatan One View；g = 101̄0 暗场像在离轴倾斜（5°）下增强 AB/BA 对比 📜Q（Methods + SI S2）。输运：四探针 lock-in 17.7 Hz、偏置电流 10–30 nA；θ=1.1° 器件两探针 17.7 Hz、偏压 200 μV（³He 低温恒温器）📜Q。磁输运 1.7 K（Fig 3 caption）📜Q。**计算**（§9）：FEM 结构弛豫（SVK 膜 + Helfrich 弯曲 + Kolmogorov-Crespi 层间势，L-BFGS 最小化）+ supercell TB 能带 + ab initio 连续模型 DOS（Lehmann–Taut 四面体法，原文 "An FEM⁴⁴"，60×60 k 网格——⚠️ 此 "FEM" 是四面体积分，非结构弛豫 FEM；横轴缩放见 §9.1）📜Q（Methods）。
 
 ---
 
@@ -210,13 +210,32 @@ TEM/SAED：80 kV 场发射 TEM（Jeol 2010F）+ Gatan One View；g = 101̄0 暗�
 |------|------|
 | FEM 结构弛豫 | SVK 膜 + Helfrich 弯曲 + Kolmogorov-Crespi 层间势，L-BFGS；输出重构原子坐标 + 局域转角 θ_loc(r) 📜Q（Methods/SI S4） |
 | 能带 | supercell TB，参数 Fang & Kaxiras 2016（ref 41）+ Carr 2018（ref 42）📜Q |
-| DOS | ab initio 连续模型（ref 43 Massatt 2018）；FEM=Lehmann-Taut（ref 44）在 60×60 k 网格；**动量依赖应变场 + 层间耦合项**，θ<θc 时必须大 k 范围（少数傅里叶分量不够）📜Q |
+| DOS | ab initio 连续模型（ref 43 Massatt 2018）+ **动量依赖应变场 + 层间耦合项**（θ<θc 时必须大 k 范围，少数傅里叶分量不够）；在 60×60 k 网格上用 **Lehmann–Taut 四面体法**（ref 44；原文写 "An FEM⁴⁴"——⚠️ 此 "FEM" 指四面体积分，**非**结构弛豫 FEM）积分生成 📜Q；横轴 $n/n_0$ 由累计积分 $n(E_F)=\int D\,dE$ 换算（见 §9.1） |
 | 重构参数化 | 连续模型（ref 45 Carr 2018）+ GSFE 参数（ref 46 Zhou 2015）；SI S5 数学建模 GSFE 六重对称展开：$K=69518$、$G=47352$ meV/unit cell，$c_0=6.832, c_1=4.064, c_2=-0.374, c_3=-0.095$ meV/unit cell 📜Q |
 | $n_0=1/A$ | 密度归一（每 moiré 单胞 1 电子），满带 ±4；⚠️ 与 [PHY-EF] §5 的 $n_0=4/A_M$ 差 4 倍 |
 | $\theta\to\lambda\to A$ | $\lambda=a/[2\sin(\theta/2)]$、$A=(\sqrt3/2)\lambda^2$；侧峰/Hofstadter 标定用 |
 | $R_q=h/4e^2$ | 网络每 1D 通道量子电阻（顶点非相干混流假设）📜Q |
 
 > 与 TBPM/Kubo 对应：本文电子结构是**重构结构驱动的**——tbplas 若做 θ<θc 低角能带，须先输入 FEM 重构（或等效弛豫）原子坐标 + 动量依赖应变场，刚性旋转的简单连续模型在 θ<θc 失效（本文核心论点）💭I。输运层面 R(D) 饱和 / Hofstadter 减弱是**器件尺度的 1D 网络效应**，bulk σxx 只给 2D 背景，复现需有限器件 Landauer 计算（同 E10/E12 §9 注记）💭I。
+
+### 9.1 DOS 计算管线与实验 G 的对应（四条 FAQ）
+
+> 起因：Fig 2a,c 把实验 G（top）与计算 DOS（middle/bottom）并排且共享横轴 $n/n_0$。四问：①怎么算、②横轴怎么折、③为何 G 能对 DOS、④tbplas 怎么对 G。以下为反向核对原文后的定论（Q1 出处 = 正文 Methods「Density functional theory calculation」，SI 无独立 DOS 节）。
+
+**Q1 文章如何计算 DOS** —— 分三段，且能带与 DOS 用两套方法（原文明说）：
+1. **结构输入**：未重构 = 刚性 moiré；重构 = FEM 结构弛豫（SVK 膜 + Helfrich 弯曲 + KC 层间势，L-BFGS），或 continuum model（ref 45 Carr 2018）+ GSFE 参数（ref 46 Zhou 2015）。
+2. **能带**（Fig 2b,d）：supercell TB Hamiltonian，ab initio 参数（ref 41 Fang & Kaxiras 2016 / ref 42 Carr 2018）。
+3. **DOS**（Fig 2a,c middle/bottom）：ab initio 连续模型（ref 43 Massatt 2018）+ 动量依赖应变场与层间耦合项（大 k 范围）；60×60 k 网格上用 **Lehmann–Taut 四面体法**（ref 44；原文 "An FEM⁴⁴"——此 "FEM" 是四面体积分，**非**结构 FEM）生成。📜Q
+
+**Q2 横轴如何缩放以与实验对应** —— 能量轴 → 密度轴是**换变量**，不是第二种 DOS。DOS 本质 $D(E)$；换横轴用累计积分 $n(E_F)=\int_{E_{\min}}^{E_F}D(E)\,dE$（单调 → 反解 $E(n)$，$D(n)=D\big(E(n)\big)$）。$n_0=1/A$（每胞 1 电子），自旋×谷 4 重简并 → 满第一带 = $n/n_0=\pm4$。**tbplas 复现**：把超胞 TB 全部本征能量升序（含 4 重简并），第 $i$ 个对应 $n/n_0=4i/N_k$（$N_k$ = k 点数），画 $D(E_i)$ vs $4i/N_k$（等价于累计求和 $\sum D\Delta E$）。
+
+**Q3 为何实验 G 可与 DOS 对应** —— 只有**位置级定性对应，无函数关系**。$G\sim n e\mu=({\int}D\,dE)\mu$（玻尔兹曼再加 $v^2\tau$ 权重），**不 ∝ D**。能对上：±4n₀ 单粒子隙（DOS→0 ↔ G→0+激活）；0/±4/±8 Dirac 点（DOS 极小 ↔ G 极小无隙）。对不上：**±2n₀ Mott 隙**（G 零但单粒子 DOS 无此特征——多体效应）；幅度/激活能/VRH（$G\sim\exp[-(T_0/T)^{1/3}]$）由散射+局域化决定。并排仅为共享 $n/n_0$ 轴对齐特征位置。📜Q→💭I
+
+**Q4 tbplas 结果如何对应实验 G**：
+- **σxx（纵向 DC）**= bulk 版 G（$G=\sigma_{xx}\cdot W/L$），可对**隙/Dirac 点位置**；但平带处 $v^2$ 压低（与 DOS 反向），干净/无序 Kubo-Bastin 复现不了"零 G + 激活 + VRH"（需 disorder + 有限温；1.1° 器件 two-probe 还含接触电阻）。
+- **σxy（Hall）**= 论文真正的 **Hall 变号判据**（Fig S9d，$n/n_0=0,\pm4,\pm8$ 变号）的正确对应量，需磁场（Peierls 相位）或半经典近似。
+- 前提：输入**重构（FEM）坐标**（θ<θc 刚性谱不对）；±2n₀ Mott 单粒子方法天然算不出。
+- 分工：**σxx ↔ 隙/纵向背景；σxy ↔ Dirac 变号；幅度/温度依赖需无序+有限温或有限器件 Landauer**（见上方 §9 注）。💭I
 
 ---
 
@@ -238,3 +257,4 @@ pdftotext 提取正文（8 页）+ SI（S1–S10）到 /tmp/e11.txt，逐项 gre
 | 2026-08-08 | 更新 §5b（Hofstadter 2D→1D 跨越）/§5c（DOS/band 计算方法） |
 | 2026-08-19 | （卡片层）S-APP-A QC 更正：E11 "STEM"→"TEM"、"~5 nm" 无源（本 review 相应删除/修正） |
 | 2026-09-01 | **按 4 块辨识结构整体重写**：对齐 E12 canonical（TL;DR 问题句式 + 四层变量 + 判别表 + [前提与限定] + 三问接口 + 反向核对）；保留旧 §3/§5c 有效 📜Q（FEM/TB/连续模型/GSFE 细节移入 §3/§9）；删除无源数字（畴壁 ~5 nm）、更正 DOI（0346-z）、更正 STEM→TEM 表征描述；补 n₀=1/A vs [PHY-EF] n₀=4/A 的 4 倍约定差异注；不确定度标注轴启用（全文除 α=2.75±0.3 外均为 [~] 无误差棒） |
+| 2026-09-07 | **补 §9.1 DOS 计算管线与实验 G 对应（四条 FAQ）**：①DOS 算法（连续模型 Massatt 2018 + Lehmann–Taut 四面体法，60×60 k 网格；能带=supercell TB，两套方法；澄清原文 "An FEM⁴⁴" = 四面体积分**非**结构 FEM）；②能量轴→n/n₀ 轴 = 累计积分 $n(E_F)=\int D\,dE$（换变量非第二种 DOS），tbplas 用升序本征值累计计数 $4i/N_k$；③G 与 DOS 仅"位置级"对应（隙/Dirac 点对齐，±2n₀ Mott 与幅度/激活/VRH 对不上，多体+散射效应）；④tbplas 对应分工（σxx↔隙/纵向背景、σxy↔Hall 变号、幅度需 disorder+有限温或 Landauer）。同步修正 §3.3 与 §9 DOS 行的 "FEM=Lehmann-Taut" 措辞 |

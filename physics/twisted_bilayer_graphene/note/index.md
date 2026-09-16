@@ -14,14 +14,15 @@
 -->
 # note 索引 — TBG Edge State & Domain Wall 精读笔记
 
-> 目录: `theory/`（T01–T39）| `experiments/`（E01–E18）| `reviews/`（R01–R04）| `structure/`（S01–S03）| `shared/`（跨论文共享知识，见 [shared/README.md](shared/README.md)）
+> 目录: `theory/`（T00–T39）| `experiments/`（E01–E18）| `reviews/`（R01–R04）| `structure/`（S01–S03）| `shared/`（跨论文共享知识，见 [shared/README.md](shared/README.md)）
 > 历史存档: `../archive/bl-dw/`（bl-dw 早期详细版 7 篇，主副本为本目录 Phase S QC 版）
 > ★ = Phase S 核心精读 | 🔮 = 预印本
 
-## Theory (T01–T39)
+## Theory (T00–T39)
 
 | ID | 作者 | 年份 | 期刊 | 标题关键词 | 标签 | 文件 |
 |----|------|------|------|-----------|------|------|
+| T00 | Snyman & Beenakker | 2007 | PRB | 双层弹道输运 + 赝扩散 F=1/3（l⊥ 奠基） | ★ 哈密顿量祖先 | [theory/paper_review_T00_snyman2007_prb.md](theory/paper_review_T00_snyman2007_prb.md) |
 | T01 | Martin et al. | 2008 | PRL | EFW 拓扑零模首次预言 | ★ EFW 奠基 | [theory/paper_review_T01_martin2008_prl.md](theory/paper_review_T01_martin2008_prl.md) |
 | T02 | Li, Morpurgo et al. | 2010 | PRB | 单谷体-边对应边际性 | EFW 奠基 | [theory/paper_review_T02_li2010_prb.md](theory/paper_review_T02_li2010_prb.md) |
 | T03 | Jung, Zhang et al. | 2011 | PRB | 多层谷霍尔 kink 态 | LSW 奠基 | [theory/paper_review_T03_jung2011_prb.md](theory/paper_review_T03_jung2011_prb.md) |
