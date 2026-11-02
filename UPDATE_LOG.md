@@ -22,6 +22,27 @@
 
 ---
 
+## 2026-10-28
+
+### 新文件
+- **philosophy/zhanguan_yutonglu/**: 新建读书札记「思岂可废得」——湛若水《天关语通录》一则语录的源流与评价（`zhan_ruoshui_si_buke_fei.md`）。含作者简介、卷二十三《天关语通录》简介、儒家经典／湛若水思想／王湛之争三层背景，以及针对「思不可废」命题的时人与后人评价；评价部分明确区分「对命题的评价」与「对湛若水其人的评价」。同步在 README 的 philosophy 结构块与状态表下加注。
+
+---
+
+## 2026-09-27
+
+### 目录结构（physics/twisted_bilayer_graphene 重构）
+- **TBG 包身份补齐**：`twisted_bilayer_graphene/` 早已从 `multilayer_graphene/subfields/tbg` 提升为 `physics/` 下独立包，但根 `README.md` 的结构块与状态表仍把它写成 `multilayer_graphene` 的子方向 ⇒ 本次改正（结构块 + 状态表新增一行）。
+- **包内三层收敛**（详见 `physics/twisted_bilayer_graphene/99_update_log.md`）：
+  - 任务/阶段层统一到 `tasks/`（原 `Phase_S/` → `tasks/phase_S/`，原 `miniband_theory/` → `tasks/miniband_theory/`，根目录 `task_edge_state_search.md` → `tasks/archive/`）；
+  - 方法论层从 `note/shared/method/` 提升到 `methods/`（并归档 `theory_paper_reading_v3_DRAFT.md`）；
+  - 归档分组：`archive/*.backup_*.md` → `archive/_backups/`；
+  - 会话日志 `*.jsonl`（17.6 MB）移出笔记树到 `_logs/`。
+- **新增入口文档**（该包此前无 README / USER_BRIEF）：`README.md` · `USER_BRIEF.md` · `tasks/README.md` · `methods/README.md` · `reference/README.md`（PDF ↔ 文献号索引，因 `pdfs/` 文件名不含 T/E 号）。
+- **索引修复**：`note/index.md` 登记 T40–T42 并更新目录范围（T00–T39 → T00–T42）。
+
+---
+
 ## 2026-09-02
 
 ### 新文件
@@ -112,6 +133,15 @@
 
 ## 2026-07-03
 - **political_science/**: 新建 `us_two_party_politics/` field pack（美国两党政治，含 subfields/dsa_2026_wave/）
+
+---
+
+## 2026-11
+
+### 迁入项目级方法论 REVIEW（自 TBG 仓库）
+- **`ai_agent_practice/references/REVIEW_phase_division_2026-11.md`** —— Phase 划分体检 + 重划方案（Part A，2026-11-01）+ 第三方复检与手册审计（Part B，2026-11-02），**两份合并为单文件**。
+- **`ai_agent_practice/references/REVIEW_data_layout_2026-11.md`** —— 数据资产按模型组织（提案）。
+- **归属判据**：跨项目可复用的方法论 → `knowledge/`；绑定具体仓库路径/命令 → 留在该仓库 `docs/`。TBG 侧保留指针 `docs/REVIEWS.md`。
 
 ---
 

@@ -34,7 +34,17 @@
 - 新案例从 **#110** 继续，无论落在哪个包。
 - 跨包引用用「相对路径 + 稳定编号」，如 `../systems_science/case/09_case_study_delegation_accuracy_control.md`（#99）。
 
+## 参考文档（`references/`）
+
+| 文件 | 标题 | 来源 |
+|---|---|---|
+| `references/REVIEW_phase_division_2026-11.md` | **Phase 划分：体检、复检与重划方案（R01–R07）** —— Part A 体检 + 重划方案；Part B 复检 + 手册审计 | 迁自 TBG `docs/`（2026-11-02，两份合并为单文件） |
+| `references/REVIEW_data_layout_2026-11.md` | **数据资产：按模型组织（提案）** —— 数据按模型而非按 phase/时间 | 迁自 TBG `docs/`（2026-11-02） |
+
+> **为什么放这里**：这两份讲的是「**怎么组织研究**」（phase 怎么划分、数据资产怎么摆），与具体物理体系无关 ⇒ 跨项目可复用的方法论；绑定 TBG 路径/命令的执行件仍留在 TBG `docs/`。
+
 ## 变更记录
 
 - 2026-09-04：创建本包；从 `systems_science/case/` 迁入 #100 / #104 / #108（见 `systems_science/99_update_log.md` 迁移条目）。
 - 2026-09-15：新增 #109 试点追记（R02 Stage 3 验收）+ #110 三角色工作架构提案；原始日志存档 `references/R02_archive/`。
+- 2026-11-02：迁入两份项目级 REVIEW（phase 划分 / 数据资产布局），来源 TBG 仓库 `docs/`；phase 划分的两份（正文 + 复检）**已合并为单一文件**。
